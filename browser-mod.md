@@ -1,0 +1,52 @@
+---
+layout: default
+title: Broswer mod
+---
+
+##  Python: package browser
+### browser
+####Package Contents 
+
+* [gui_about](browser.gui_about.html)
+* [gui_alter_plot](browser.gui_alter_plot.html)
+* [gui_alter_variable](browser.gui_alter_variable.html)
+* [gui_annotate](browser.gui_annotate.html)
+* [gui_ascii](browser.gui_ascii.html)
+* [gui_ascii_cols](browser.gui_ascii_cols.html)
+* [gui_bounds_question](browser.gui_bounds_question.html)
+* [gui_busy](browser.gui_busy.html)
+* [gui_canvas_geometry](browser.gui_canvas_geometry.html)
+* [gui_control](browser.gui_control.html)
+* [gui_database](browser.gui_database.html)
+* [gui_defined_variables](browser.gui_defined_variables.html)
+* [gui_dimensions](browser.gui_dimensions.html)
+* [gui_edit_list](browser.gui_edit_list.html)
+* [gui_expression](browser.gui_expression.html)
+* [gui_extend_menus](browser.gui_extend_menus.html)
+* [gui_filled_continents](browser.gui_filled_continents.html)
+* [gui_filters_question](browser.gui_filters_question.html)
+* [gui_formulate](browser.gui_formulate.html)
+* [gui_functions](browser.gui_functions.html)
+* [gui_graphics_control](browser.gui_graphics_control.html)
+* [gui_menu](browser.gui_menu.html)
+* [gui_message](browser.gui_message.html)
+* [gui_output](browser.gui_output.html)
+* [gui_read_Struct](browser.gui_read_Struct.html)
+* [gui_reset](browser.gui_reset.html)
+* [gui_salstat_question](browser.gui_salstat_question.html)
+* [gui_saved_settings](browser.gui_saved_settings.html)
+* [gui_select_variable](browser.gui_select_variable.html)
+* [gui_set_graphics_methods](browser.gui_set_graphics_methods.html)
+* [gui_set_idle_font](browser.gui_set_idle_font.html)
+* [gui_set_min_max_scale](browser.gui_set_min_max_scale.html)
+* [gui_set_text_object](browser.gui_set_text_object.html)
+* [gui_set_text_orientation](browser.gui_set_text_orientation.html)
+* [gui_set_text_table](browser.gui_set_text_table.html)
+* [gui_statistics_question](browser.gui_statistics_question.html)
+* [gui_taylor](browser.gui_taylor.html)
+* [gui_test](browser.gui_test.html)
+* [gui_user_menus](browser.gui_user_menus.html)
+* [gui_variable_information](browser.gui_variable_information.html)
+* [gui_writenetcdf](browser.gui_writenetcdf.html)
+* [tk_cdat](browser.tk_cdat.html)
+* [vcs_function](browser.vcs_function.html)
