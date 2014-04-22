@@ -1,90 +1,9 @@
-[ Skip to content. ](/cdat/manuals/cdutil/cdat_utilities.html) | [ Skip to
-navigation ](/cdat/manuals/cdutil/cdat_utilities.html)
+---
+layout: default
+title: CDAT Utilities
+---
 
-Search Site
-
-[ Advanced Search&#8230; ](/search_form)
-
-#  [ PCMDI Software Portal ](/)
-
-#####  Sections
-
-  * [ Home ](/)
-
-#####  Personal tools
-
-  * [ Log in ](/login_form)
-
-You are here:  [ Home ](/) -> [ CDAT ](/cdat) -> [ Manuals ](/cdat/manuals) ->
-[ CDAT Utililties 3.3 ](/cdat/manuals/cdutil) -> CDAT Utililties 3.3 TOC
-
-[ Navigation ](/sitemap)
-
-    
-
-  * [ Home ](/)
-
-  * [ PCMDI Home Page ](/)
-
-  * [ News ](/news)
-
-  * [ CDAT ](/cdat)
-
-    * [ Download and Install ](/cdat/download)
-
-    * [ Screenshots ](/cdat/screenshots)
-
-    * [ Contrib Packages ](/cdat/contrib)
-
-    * [ Getting Started ](/cdat/getting_started)
-
-    * [ Tutorials ](/cdat/tutorials)
-
-    * [ Quick Reference ](/cdat/quick_reference)
-
-    * [ FAQ ](/cdat/FAQ)
-
-    * [ Manuals ](/cdat/manuals)
-
-      * [ CDMS v.4.0 ](/cdat/manuals/cdms_v4.0_html)
-
-      * [ CDAT Utililties 3.3 ](/cdat/manuals/cdutil)
-
-        * [ CDAT Utililties 3.3 TOC ](/cdat/manuals/cdutil/cdat_utilities.html)
-
-    * [ Tips and Tricks ](/cdat/tips_and_tricks)
-
-    * [ Source Code ](/cdat/source)
-
-    * [ Contact Us ](/cdat/contact-us)
-
-    * [ Documents ](/cdat/docs)
-
-    * [ Support ](/cdat/support)
-
-  * [ CMOR ](/cmor)
-
-  * [ IPCC AR4 Model Data Portal ](/esg_data_portal)
-
-  * [ About Us ](/about)
-
-  * [ Newsletter ](/Newsletter)
-
-[ News ](/news)
-
-     [ ![](media/newsitem_icon.gif) CDAT Newsletter, June 2007  2007-06-26  ](/Newsletter/Vol3/index_d.html)
-     [ ![](media/newsitem_icon.gif) CDAT 4.1.2 Released  2006-06-07  ](/cdat_4_1_2)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Released  2005-11-21  ](/cdat_4_0)
-     [ ![](media/newsitem_icon.gif) PCMDI Software Portal Released  2005-09-28  ](/software_portal_release)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Beta Released  2005-09-28  ](/cdat_4_0_beta)
-     [ More news&#8230; ](/news)
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/manuals/cdutil/cdat_utilities.html/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  CDAT Utililties 3.3 TOC
+## CDAT Utililties 3.3 TOC
 
 CDAT Utilities Reference Guide
 
@@ -92,20 +11,19 @@ Version 3.3
   
 PCMDI Computational Support  
   
-Program for Climate Model Diagnosis and Intercomparison (PCMDI)  
-Lawrence Livermore National Laboratory  
-Livermore, CA 94550  
-United States of America  
+Program for Climate Model Diagnosis and Intercomparison (PCMDI)      
+Lawrence Livermore National Laboratory      
+Livermore, CA 94550      
+United States of America      
   
-http://cdat.sf.net  
+[http:/cdat.sf.net](http:/cdat.sf.net)    
   
-11/1/02  
+11/1/02      
   
-
-Legal Notice
+Legal Notice    
 
 Copyright (c) 1999, 2000. The Regents of the University of California. All
-rights reserved.
+rights reserved.    
 
 Permission to use, copy, modify, and distribute this software for any purpose
 without fee is hereby granted, provided that this entire notice is included in
@@ -133,114 +51,59 @@ opinions of authors expressed herein do not necessarily state or reflect those
 of the United States Government or the University of California, and shall not
 be used for advertising or product endorsement purposes.
 
-_ [ CHAPTER 1 ](/cdat_utilities-1.html) _ Climate Data Specific Utilities: The
-cdutil Package
+####[CDAT Utilities](cdat_utilities.html)
+####[CHAPTER 1 Climate Data Specific Utilities: The cdutil Package](cdat_utilities-1.html)
+####[CHAPTER 2 General Utilities : The genutil Package](cdat_utilities-2.html)
+####[CHAPTER 3 User Contributed Packages](cdat_utilities-3.html)
 
-  * [ Spatial Averaging, Area weighting, domain definition ](/cdat_utilities-1.html)
+---
 
-    * [ Spatial averaging using the averager function ](/cdat_utilities-1.html)
+####[CHAPTER 1](cdat_utilities-1.html) Climate Data Specific Utilities: The cdutil Package
+* [Spatial Averaging, Area weighting, domain definition](cdat_utilities-1.html)
+  * [Spatial averaging using the averager function](cdat_utilities-1.html)
+  * [Computing Weights using area_weights.](cdat_utilities-1.html)
+  * [Defining precise domains:](cdat_utilities-1.html)
+* [Temporal Averaging](cdat_utilities-1.html)
+  * [Predefined time averaging functions](cdat_utilities-1.html)
+  * [Creating Custom Seasons](cdat_utilities-1.html)
+  * [Specifying time periods for climatologies.](cdat_utilities-1.html)
+  * [Specifying Data Coverage Criteria](cdat_utilities-1.html)
+* [Preparing Datasets for Comparison (VariableConditioner and VariablesMatcher)](cdat_utilities-1.html)
+  * [Introduction.](cdat_utilities-1.html)
+  * [Description of supporting objects.](cdat_utilities-1.html)
+  * [Examples](cdat_utilities-1.html)
+  
+####[CHAPTER 2](cdat_utilities-2.html) General Utilities : The genutil Package
+* [Statistics Functions](cdat_utilities-2.html)
+  * [correlation](cdat_utilities-2.html)
+  * [covariance](cdat_utilities-2.html)
+  * [autocorrelation](cdat_utilities-2.html)
+  * [autocovariance](cdat_utilities-2.html)
+  * [laggedcorrelation](cdat_utilities-2.html)
+  * [laggedcovariance](cdat_utilities-2.html)
+  * [meanabsdiff](cdat_utilities-2.html)
+  * [rms](cdat_utilities-2.html)
+  * [std](cdat_utilities-2.html)
+  * [variance](cdat_utilities-2.html)
+  * [geometricmean](cdat_utilities-2.html)
+  * [percentiles](cdat_utilities-2.html)
+  * [median](cdat_utilities-2.html)
+  * [linearregression](cdat_utilities-2.html)
+* [The xmgrace module](cdat_utilities-2.html)
+* [Additional convenience functions](cdat_utilities-2.html)
+  * [minmax](cdat_utilities-2.html)
+  * [grower](cdat_utilities-2.html)
+  * [rgb2str](cdat_utilities-2.html)
+  * [str2rgb](cdat_utilities-2.html)
 
-    * [ Computing Weights using area_weights. ](/cdat_utilities-1.html)
-
-    * [ Defining precise domains: ](/cdat_utilities-1.html)
-
-  * [ Temporal Averaging ](/cdat_utilities-1.html)
-
-    * [ Predefined time averaging functions ](/cdat_utilities-1.html)
-
-    * [ Creating Custom Seasons ](/cdat_utilities-1.html)
-
-    * [ Specifying time periods for climatologies. ](/cdat_utilities-1.html)
-
-    * [ Specifying Data Coverage Criteria ](/cdat_utilities-1.html)
-
-  * [ Preparing Datasets for Comparison (VariableConditioner and VariablesMatcher) ](/cdat_utilities-1.html)
-
-    * [ Introduction. ](/cdat_utilities-1.html)
-
-    * [ Description of supporting objects. ](/cdat_utilities-1.html)
-
-    * [ Examples ](/cdat_utilities-1.html)
-
-_ [ CHAPTER 2 ](/cdat_utilities-2.html) _ General Utilities : The genutil
-Package
-
-  * [ Statistics Functions ](/cdat_utilities-2.html)
-
-    * [ correlation ](/cdat_utilities-2.html)
-
-    * [ covariance ](/cdat_utilities-2.html)
-
-    * [ autocorrelation ](/cdat_utilities-2.html)
-
-    * [ autocovariance ](/cdat_utilities-2.html)
-
-    * [ laggedcorrelation ](/cdat_utilities-2.html)
-
-    * [ laggedcovariance ](/cdat_utilities-2.html)
-
-    * [ meanabsdiff ](/cdat_utilities-2.html)
-
-    * [ rms ](/cdat_utilities-2.html)
-
-    * [ std ](/cdat_utilities-2.html)
-
-    * [ variance ](/cdat_utilities-2.html)
-
-    * [ geometricmean ](/cdat_utilities-2.html)
-
-    * [ percentiles ](/cdat_utilities-2.html)
-
-    * [ median ](/cdat_utilities-2.html)
-
-    * [ linearregression ](/cdat_utilities-2.html)
-
-  * [ The xmgrace module ](/cdat_utilities-2.html)
-
-  * [ Additional convenience functions ](/cdat_utilities-2.html)
-
-    * [ minmax ](/cdat_utilities-2.html)
-
-    * [ grower ](/cdat_utilities-2.html)
-
-    * [ rgb2str ](/cdat_utilities-2.html)
-
-    * [ str2rgb ](/cdat_utilities-2.html)
-
-_ [ CHAPTER 3 ](/cdat_utilities-3.html) _ User Contributed Packages
-
-  * [ Reading ASCII text files (package asciidata) ](/cdat_utilities-3.html)
-
-  * [ Reading binary data (package binaryio) ](/cdat_utilities-3.html)
-
-  * [ Explicit Orthonormal Functions (package eof) ](/cdat_utilities-3.html)
-
-  * [ Computing L-moments (package lmoments) ](/cdat_utilities-3.html)
-
-  * [ Regridding using package regridpack ](/cdat_utilities-3.html)
-
-  * [ Using Spherepack (package sphere) ](/cdat_utilities-3.html)
-
-  * [ Computing Trends (package trends) ](/cdat_utilities-3.html)
-
-  * [ Reading data from an Oort file (package ort) ](/cdat_utilities-3.html)
-
-  * [ A grads like interface (package grads) ](/cdat_utilities-3.html)
-
-  * [ Interface to the ngmath library. (package ngmath) ](/cdat_utilities-3.html)
-
-[ CHAPTER 1 Climate Data Specific Utilities: The cdutil Package
-](/cdat_utilities-1.html)
-
-[ CHAPTER 2 General Utilities : The genutil Package ](/cdat_utilities-2.html)
-
-[ CHAPTER 3 User Contributed Packages ](/cdat_utilities-3.html)
-
-* * *
-
-UCRL-WEB-213937 | [ Privacy & Legal Notice ](/disclaimer.html)
-
-[ webmaster@pcmdi.llnl.gov ](/webmaster@pcmdi.llnl.gov)
-
-[ ![Powered by Plone](media/plone_powered.gif) ](/)
-
+####[CHAPTER 3](cdat_utilities-3.html) User Contributed Packages
+* [Reading ASCII text files (package asciidata)](cdat_utilities-3.html)
+* [Reading binary data (package binaryio)](cdat_utilities-3.html)
+* [Explicit Orthonormal Functions (package eof)](cdat_utilities-3.html)
+* [Computing L-moments (package lmoments)](cdat_utilities-3.html)
+* [Regridding using package regridpack](cdat_utilities-3.html)
+* [Using Spherepack (package sphere)](cdat_utilities-3.html)
+* [Computing Trends (package trends)](cdat_utilities-3.html)
+* [Reading data from an Oort file (package ort)](cdat_utilities-3.html)
+* [A grads like interface (package grads)](cdat_utilities-3.html)
+* [Interface to the ngmath library. (package ngmath)](cdat_utilities-3.html)

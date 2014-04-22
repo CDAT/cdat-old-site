@@ -1,28 +1,9 @@
 ---
 layout: default
-title: 
+title: Introduction 
 ---
 
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/download/installation-guide/introduction/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  Introduction
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/about-readme)
-
-[ ![Next](media/arrow-right) ](/software-documentation)
-
-[ Contents ](/)
-
-[ Previous ](/about-readme)
-
-[ Next ](/software-documentation)
-
+##  Introduction
 ###  Project Goal
 
 The primary goal of CDAT is to address the formidable challenges associated
@@ -49,13 +30,7 @@ CDAT is a freely available open source package that is maintained, enhanced,
 and distributed freely by its user community. The home for CDAT sources and
 bug/patches can be downloaded from the PCMDI home page:
 
-  * [ http://www-pcmdi.llnl.gov ](/)
+  * [http://www-pcmdi.llnl.gov](http://www-pcmdi.llnl.gov)
 
 (Select the "SOFTWARE" menu, then the "About Software" menu item for more
 information on CDAT.)
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/about-readme)
-
-[ ![Next](media/arrow-right) ](/software-documentation)

@@ -3,8 +3,7 @@ layout: default
 title: CDAT Home
 ---
 
-
-###CDAT is deprecated and is now part of [UV-CDAT](http://uv-cdat.org)
+###CDAT is now part of [UV-CDAT](http://uv-cdat.org)
 
 [CDAT](cdat_intro.html) makes use of an open-source, object-oriented,
 easy-to-learn scripting language (Python) to link together separate software subsystems
