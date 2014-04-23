@@ -11,7 +11,7 @@ Basics for CDAT Scripting
 * [Plotting Basics](plotting-basics.html)
   * An introduction to plotting with CDAT's VCS (Visualization and Control System) Module. 
 * [Loops](loops-basics.html)
-* Using loops in CDAT, reading multiple files, concatenating variables, averaging over multiple models, etc... 
+  * Using loops in CDAT, reading multiple files, concatenating variables, averaging over multiple models, etc... 
 * [Files](files-basics.html)
   * Opening/Creating files, Querying files, Converting between various format (ASCII to NetCDF, ...)
 * [Variables and Axes](variables-and-axes-basics.html)

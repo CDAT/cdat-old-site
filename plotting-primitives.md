@@ -1,73 +1,17 @@
 ---
 layout: default
-title: 
+title: Plotting Primitives
 ---
 
-      * [ f2py - Wrapping Fortran Code ](/cdat/tutorials/f2py-wrapping-fortran-code)
-
-    * [ Quick Reference ](/cdat/quick_reference)
-
-    * [ FAQ ](/cdat/FAQ)
-
-    * [ Manuals ](/cdat/manuals)
-
-    * [ Tips and Tricks ](/cdat/tips_and_tricks)
-
-    * [ Source Code ](/cdat/source)
-
-    * [ Contact Us ](/cdat/contact-us)
-
-    * [ Documents ](/cdat/docs)
-
-    * [ Support ](/cdat/support)
-
-  * [ CMOR ](/cmor)
-
-  * [ IPCC AR4 Model Data Portal ](/esg_data_portal)
-
-  * [ About Us ](/about)
-
-  * [ Newsletter ](/Newsletter)
-
-[ News ](/news)
-
-     [ ![](media/newsitem_icon.gif) CDAT Newsletter, June 2007  2007-06-26  ](/Newsletter/Vol3/index_d.html)
-     [ ![](media/newsitem_icon.gif) CDAT 4.1.2 Released  2006-06-07  ](/cdat_4_1_2)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Released  2005-11-21  ](/cdat_4_0)
-     [ ![](media/newsitem_icon.gif) PCMDI Software Portal Released  2005-09-28  ](/software_portal_release)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Beta Released  2005-09-28  ](/cdat_4_0_beta)
-     [ More news&#8230; ](/news)
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/tutorials/cdatbasics/plotting-basics/plotting-primitives/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  Plotting Primitives
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/save-plot-output)
-
-[ ![Next](media/arrow-right) ](/creating-and-modifying-templates)
-
-[ Contents ](/)
-
-[ Previous ](/save-plot-output)
-
-[ Next ](/creating-and-modifying-templates)
-
- Goal:  Guide you through plotting using graphics primitives.   
+##  Plotting Primitives
+Goal:  Guide you through plotting using graphics primitives.   
 
 Before running the tutorial below, type _ "python" _ or _ "cdat" _ at the
-command line.&#160; You will see the python prompt appear (i.e., ">>>"). You can
+command line. You will see the python prompt appear (i.e., ">>>"). You can
 now enter the command lines below.  
 
-You can [ _ _  view  _ _ ](/../files/primitive_file) or [ _ _  download
- _ _ ](/../files/primitive_file.py) the full source code. To run the source
-code at the command line, type: _ "python primitive_file.py" _ .  
-
-    
+You can [download](media/python/primitive_file.py) the full source code. To run the source
+code at the command line, type: `python primitive_file.py`.:
     
     # Import the modules needed for the tuturial  
     # vcs - Visualization and control System 1D and 2D plotting routines.  
@@ -78,17 +22,16 @@ code at the command line, type: _ "python primitive_file.py" _ .
 
 There are four drawing primitives:
 
-  1. Text 
-  2. Lines 
-  3. Markers 
-  4. Fillareas 
+1. Text 
+2. Lines 
+3. Markers 
+4. Fillareas 
+
 All graphics primitives have a viewport and world coordinate associated with
 them. If the graphics primitive's viewport and world coordinate values are not
 set, the global v.viewport() (e.g., [0,1,0,1]) and v.world() (e.g., [0,1,0,1]
 coodinate values will be used.
 
-    
-    
     # Import the modules needed for the tuturial  
     import vcs, sys  
       
@@ -128,10 +71,8 @@ coodinate values will be used.
     t1.height = 15  
     v.plot(t1)
 
-![primitive1.png](media/primitive1.png)
+![primitive1.png](media/images/primitive1.png)
 
-    
-    
     # Let the world coordinate values remain the default  
     # setting (i.e.,[0, 1, 0, 1]), but change the global viewport.  
     v.viewport=[0.3,0.7,0.3,0.7]  
@@ -185,9 +126,8 @@ coodinate values will be used.
     t2.color = 242  
     v.plot(t2)
 
-![primitive2.png](media/primitive2.png)  
+![primitive2.png](media/images/primitive2.png)  
 
-    
     
     # Draw text on the screen. Use global vp and default wc.  
     t.x = [0.2, 0.5]               # x text positions  
@@ -211,10 +151,4 @@ coodinate values will be used.
     sys.stdin.readline()  
     
 
-![primitive3.png](media/primitive3.png)
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/save-plot-output)
-
-[ ![Next](media/arrow-right) ](/creating-and-modifying-templates)
+![primitive3.png](media/images/primitive3.png)

@@ -1,57 +1,23 @@
 ---
 layout: default
-title: 
+title: Fortran Part 2
 ---
 
-
-    * [ Contact Us ](/cdat/contact-us)
-
-    * [ Documents ](/cdat/docs)
-
-    * [ Support ](/cdat/support)
-
-  * [ CMOR ](/cmor)
-
-  * [ IPCC AR4 Model Data Portal ](/esg_data_portal)
-
-  * [ About Us ](/about)
-
-  * [ Newsletter ](/Newsletter)
-
-[ News ](/news)
-
-     [ ![](media/newsitem_icon.gif) CDAT Newsletter, June 2007  2007-06-26  ](/Newsletter/Vol3/index_d.html)
-     [ ![](media/newsitem_icon.gif) CDAT 4.1.2 Released  2006-06-07  ](/cdat_4_1_2)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Released  2005-11-21  ](/cdat_4_0)
-     [ ![](media/newsitem_icon.gif) PCMDI Software Portal Released  2005-09-28  ](/software_portal_release)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Beta Released  2005-09-28  ](/cdat_4_0_beta)
-     [ More news&#8230; ](/news)
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/tutorials/f2py-wrapping-fortran-code/part-2-basic-wrapping-and-calling/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  Part 2: Basic wrapping and calling
+##  Part 2: Basic wrapping and calling
 
 In this section we show how to quickly wrap and call the fortran subroutine
 described in part 1
 
-Get the fortran subroutine [ here ](/sf.f90)
+Get the fortran subroutine [here](media/fortran/sf.f90)
 
-Get the sample data: [ va_djf.nc ](/va_djf.nc) and [ ps.nc ](/ps.nc)
+Get the sample data: [va_djf.nc ](media/fortran/va_djf.nc) and [ps.nc](media/fortran/ps.nc)
 
 The easiest way to wrap this using f2py is to run the following comand
-
     
-    
-    f2py -c -m streamfunction [sf.f90](/sf.f90)
-    
+    f2py -c -m streamfunction sf.f90
 
 You should get something similar to the following on your screen:
 
-    
-    
     running build
     running config_cc
     unifing config_cc, config, build_clib, build_ext, build commands --compiler options
@@ -134,41 +100,31 @@ You should get something similar to the following on your screen:
     /usr/local/bin/gfortran -Wall -Wall -shared /tmp/tmpwrCzXz/tmp/tmpwrCzXz/src.linux-i686-2.5/streamfunctionmodule.o /tmp/tmpwrCzXz/tmp/tmpwrCzXz/src.linux-i686-2.5/fortranobject.o /tmp/tmpwrCzXz/sf.o -lgfortran -o ./streamfunction.so
     Removing build directory /tmp/tmpwrCzXz
     
-    
-
 Most importantly you should now have a file called:
 
- _ streamfunction.so _ 
+`streamfunction.so`
 
 This file can be loaded in Python
 
 Let's take a look at it, from the directory where the file resides run python,
 import the file/module
 
-    
-    
     python
     Python 2.5.1 (r251:54863, Jan  2 2008, 11:40:37)
     [GCC 4.2.1] on linux2
     Type "help", "copyright", "credits" or "license" for more information.
     Loaded 5.0 settings
     
-    
     >>> import streamfunction
 
 We can look at the module contents:
-
-    
     
     >>> dir(streamfunction)
     ['__doc__', '__file__', '__name__', '__version__', 'ccmp_zm_mspi']
-    
 
 Not surprisingly it only contains the  ccmp_zm_mspi  subroutine
 
 Let's take a look at it, f2py nicely documented its call for us:
-
-    
     
     >>> print streamfunction.ccmp_zm_mspi.__doc__
     ccmp_zm_mspi - Function signature:
@@ -185,7 +141,6 @@ Let's take a look at it, f2py nicely documented its call for us:
       nlev := shape(v,2) input int
     Return objects:
       zm_mpsi : rank-2 array('f') with bounds (nlat,nlev)
-    
 
 Ok, at this stage it is important to note a few things.
 
@@ -205,8 +160,6 @@ arguments to pass, now they do not need to be passed but must be passed last.
 
 OK let's use our sample dataset and call this function
 
-    
-    
     import streamfunction
     import cdms2
     # Open data file 1
@@ -224,8 +177,6 @@ OK let's use our sample dataset and call this function
     msg=1.e20
     
     zm_mpsi=streamfunction.ccmp_zm_mspi(v.filled(),lat[:],p[:],ps.filled(),msg)
-    
-    
 
 Let's point out a few important things
 

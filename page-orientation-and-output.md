@@ -1,76 +1,17 @@
 ---
 layout: default
-title: 
+title: Page Orientation 
 ---
-
-      * [ f2py - Wrapping Fortran Code ](/cdat/tutorials/f2py-wrapping-fortran-code)
-
-    * [ Quick Reference ](/cdat/quick_reference)
-
-    * [ FAQ ](/cdat/FAQ)
-
-    * [ Manuals ](/cdat/manuals)
-
-    * [ Tips and Tricks ](/cdat/tips_and_tricks)
-
-    * [ Source Code ](/cdat/source)
-
-    * [ Contact Us ](/cdat/contact-us)
-
-    * [ Documents ](/cdat/docs)
-
-    * [ Support ](/cdat/support)
-
-  * [ CMOR ](/cmor)
-
-  * [ IPCC AR4 Model Data Portal ](/esg_data_portal)
-
-  * [ About Us ](/about)
-
-  * [ Newsletter ](/Newsletter)
-
-[ News ](/news)
-
-     [ ![](media/newsitem_icon.gif) CDAT Newsletter, June 2007  2007-06-26  ](/Newsletter/Vol3/index_d.html)
-     [ ![](media/newsitem_icon.gif) CDAT 4.1.2 Released  2006-06-07  ](/cdat_4_1_2)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Released  2005-11-21  ](/cdat_4_0)
-     [ ![](media/newsitem_icon.gif) PCMDI Software Portal Released  2005-09-28  ](/software_portal_release)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Beta Released  2005-09-28  ](/cdat_4_0_beta)
-     [ More news&#8230; ](/news)
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/tutorials/cdatbasics/plotting-basics/page-orientation-and-output/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
 #  Page Orientation and Output
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/derived-data)
-
-[ ![Next](media/arrow-right) ](/simple-x-y-line-plot)
-
-[ Contents ](/)
-
-[ Previous ](/derived-data)
-
-[ Next ](/simple-x-y-line-plot)
-
- Goal:  Setting the VCS Canvas page orientation and generating output files.   
+Goal:  Setting the VCS Canvas page orientation and generating output files.   
   
 
 Before running the tutorial below, type _ "python" _ or _ "cdat" _ at the
-command line.&#160; You will see the python prompt appear (i.e., ">>>"). You can
+command line. You will see the python prompt appear (i.e., ">>>"). You can
 now enter the command lines below.  
   
-You can [ _ _  view  _ _ ](/../files/orientation-and-output) or [ _ _ 
-download  _ _ ](/../files/orientation_and_output.py) the full source code.
-To run the source code at the command line, type: _ "python
-orientation_and_output.py". _  
-  
-
-    
+You can [download](media/python/orientation_and_output.py) the full source code.
+To run the source code at the command line, type: `python orientation_and_output.py`/
     
     # Import the modules needed for the tuturial  
     # cdms - Climate Data Management system accesses gridded data.  
@@ -100,25 +41,20 @@ orientation_and_output.py". _
       
     # A quick plot of the data  
     v.plot( data )  
-    
 
-![Orientation_1](media/orientation_1)
+![Orientation_1](media/images/orientation_1)
+   
 
-    
-    
     # Changing plot orientation to "Portrait"   
     v.portrait()
 
-![Orientation_2](media/orientation_2)
-
-    
+![Orientation_2](media/images/orientation_2)
     
     # To change the orientation back to "Landscape"  
     v.landscape()
 
-![Orientation_1](media/orientation_1)  
+![Orientation_1](media/images/orientation_1)  
 
-    
     
     ##############################################################  
     #                                                            #  
@@ -156,13 +92,10 @@ orientation_and_output.py". _
     v.gs(filename='example.tif', device='tiffpack', orientation='l', resolution='800x600')  
     v.gs(filename='example.pdf', device='pdfwrite', orientation='l', resolution='200x200')  
     
-    
-    
     # Changing plot orientation to "Portrait"   
     v.portrait()
 
-![Orientation_2](media/orientation_2)
-
+![Orientation_2](media/images/orientation_2)
     
     
     ##############################################################  
@@ -196,13 +129,5 @@ orientation_and_output.py". _
     # GhostScript devices, issue the command "gs --help" at the terminal      #   
     # prompt.                                                                 #  
     ###########################################################################  
-    v.gs(filename='example.jpg', device='jpeg', orientation='p', resolution='1000x1000')  
     
-
-  
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/derived-data)
-
-[ ![Next](media/arrow-right) ](/simple-x-y-line-plot)
+    v.gs(filename='example.jpg', device='jpeg', orientation='p', resolution='1000x1000')  

@@ -120,7 +120,7 @@ You will also need the X11 libraries. You can only get this from the Xcode
 Tools 1.0 CD. From the CD, go to "Packages", then install "X11SDK.pkg". This
 will place the following libraries in your ` /usr/X11R6/lib directory ` :
 
- .          | .               | .             | .               | .
+            |                 |               |                 | 
  ---        | ---             | ---           | ---             | ---
 libFS.a     | libXTrap.a      | libXi.a       | libXt.a         | libfntstubs.a
 libGL.a     | libXau.a        | libXinerama.a | libXtst.a       | libfontconfig.a

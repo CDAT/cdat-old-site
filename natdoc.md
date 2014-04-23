@@ -1,20 +1,12 @@
 ---
 layout: default
-title: 
+title: NATGRID Documentation
 ---
 
-#  NATGRID Documentation
-
-   
-  
+##  NATGRID Documentation
 * Overview of the CDAT interface to natgrid    
   
-   
-  
-\-----------------------------------------------------------------------------
-----------------  
-  
-INTRODUCTION TO NGMATH  
+###INTRODUCTION TO NGMATH  
   
 The ngmath library is a collection of interpolators and approximators for one-
 dimensional, two-dimensional  
@@ -49,7 +41,7 @@ work of Robert Renka.
 shgrid uses a modified Shepard's algorithm to calculate its interpolation
 function.  
   
-COMPARISION OF NGMATH PACKAGES  
+###COMPARISION OF NGMATH PACKAGES  
   
 Three-dimensional packages -- shgrid, csagrid and dsgrid.  
   
@@ -103,7 +95,7 @@ cssgrid is designed specifically for interpolating on a sphere. It uses cubic
 splines to calculate an  
 interpolation function.  
   
-NATGRID PACKAGE  
+###NATGRID PACKAGE  
   
 natgrid implements a natural neighbor interpolation method. The input for the
 interpolation is a set  
@@ -147,7 +139,7 @@ interpolation surface that has a continuous slope at all locations; two
 tautness parameters can be set by  
 the user to control the apparent smoothness of the output surface.  
   
-NATGRID CONTENTS  
+###NATGRID CONTENTS  
   
 Access through Python to the natgrid package from NCAR's ngmath distribution
 is provided directly through the module  
@@ -155,16 +147,16 @@ natgridmodule.so which was generated as a Python C language extension in order
 to export the natgrid functions  
 from the original C language library to Python.  
   
-REQUIRED FILE  
+###REQUIRED FILE  
   
 natgridmodule.so -- the Python interface to the ngmath natgrid package.  
   
-USEFUL FILES  
+###USEFUL FILES  
   
 nat.py -- the object oriented interface including a general help package.  
 natgridtest.py -- the code to test nat.py and to write documentation.  
   
-USAGE  
+###USAGE  
   
 This module is designed to use in two ways. One is through the use of the
 object oriented interface to the underlying  
@@ -172,23 +164,24 @@ functions. This approach is recommended for users not already familiar with
 the original natgrid distribtution because  
 it simplifies the calls to the routines. The other method uses the original
 functions calling them directly from Python.  
-  
-\------------------- OBJECT ORIENTED APPROACH ----------------  
-  
+
+###OBJECT ORIENTED APPROACH   
 The nat module contains the Natgrid class and its single method, rgrd, which
 provides access to all the natgrid  
 functions. The object oriented approach has been organized as a two step
 process.  
   
-STEP 1.  
+###STEP 1.  
   
 To make an instance, r, type:  
   
 import nat  
   
-r = nat.Natgrid(xi, yi, xo, yo)  
+    r = nat.Natgrid(xi, yi, xo, yo)  
+
 or  
-r = nat.Natgrid(xi, yi, xo, yo, listOutput = 'yes')  
+
+    r = nat.Natgrid(xi, yi, xo, yo, listOutput = 'yes')  
   
 where xi, yi and xo, yo are the input and output grid coordinate arrays. The
 optional listOutput must  
@@ -227,16 +220,16 @@ the type of these arrays.
 To look at the default settings for the control parameters and a brief
 description of thier properties, type  
   
-r.printDefaultParameterTable()  
+    r.printDefaultParameterTable()  
   
 To change a setting type the new value. For example, to set igr to 1, type  
   
-r.igr = 1  
+    r.igr = 1  
   
 To find a value without printing the table, type the name. For example, to
 exam the value of hor, type  
   
-r.hor  
+    r.hor  
   
 To check the settings type  
   
@@ -249,7 +242,7 @@ printStoredParameters() -- prints the parameters in memory which may differ
 from the above if the user  
 has made more than one instance of the Natgrid class.  
   
-STEP 2.  
+###STEP 2.  
   
 natgrid is restricted to two dimensions . Consequently, it is the user's
 responsibility to reduce the processing of  
@@ -273,13 +266,13 @@ and positive below the horizontal.
 The following examples cover the basic computations. They start with a
 indication of the appropriate STEP 1.  
   
-Example 1: the basic natural neighbor linear interpolation  
+#####Example 1: the basic natural neighbor linear interpolation  
   
 As STEP 1 make an instance, r, with:  
   
 import nat  
   
-r = nat.Natgrid(xi, yi, xo, yo)  
+    r = nat.Natgrid(xi, yi, xo, yo)  
   
 where the xo, yo grid is rectilinear as explained above in STEP 1.  
   
@@ -287,7 +280,7 @@ Then call the primary interpolation computation to regrid the input data,
 dataIn, on the grid (xi, yi) to  
 the output data, dataOut, on the grid (xo, yo), with  
   
-dataOut = r.rgrd( dataIn )  
+    dataOut = r.rgrd( dataIn )  
   
 The computation is either single or double precision as determined by the
 precision submitted in the grid  
@@ -297,17 +290,15 @@ It is also possible to request a wrap in the input grid and the input data in
 the longitude direction, assumed  
 to be the yi grid coordinate, by adding a keyword as  
   
-dataOut = r.rgrd( dataIn, wrap = 'yes' )  
-  
-  
-Example 2: natural neighbor linear interpolation returning the aspect and the
+    dataOut = r.rgrd( dataIn, wrap = 'yes' )  
+   
+#####Example 2: natural neighbor linear interpolation returning the aspect and the
 slope.  
   
 As STEP 1 make an instance, r, with:  
   
-import nat  
-  
-r = nat.Natgrid(xi, yi, xo, yo)  
+    import nat  
+    r = nat.Natgrid(xi, yi, xo, yo)  
   
 where the xo, yo grid is rectilinear as explained above in STEP 1.  
   
@@ -316,7 +307,7 @@ dataIn, on the grid (xi, yi) to
 the output data, dataOut, on the grid (xo, yo), while asking for the aspect
 and the slope on this output grid, with  
   
-dataOut, a, s = r.rgrd( dataIn, aspectSlope = 'yes' )  
+    dataOut, a, s = r.rgrd( dataIn, aspectSlope = 'yes' )  
   
 where a is the aspect, the direction of the steepest descent in degrees
 measured from 'north' and s is the  
@@ -332,35 +323,33 @@ It is also possible to request a wrap in the input grid and the input data in
 the longitude direction, assumed  
 to be the yi grid coordinate, by adding a keyword as  
   
-dataOut, a, s = r.rgrd( dataIn, aspectSlope = 'yes', wrap = 'yes' )  
+    dataOut, a, s = r.rgrd( dataIn, aspectSlope = 'yes', wrap = 'yes' )  
   
-  
-Example 3: the basic natural neighbor nonlinear interpolation  
+#####Example 3: the basic natural neighbor nonlinear interpolation  
   
 The procedure for the nonlinear interpolation differs from the linear case in
 the need to set the control  
-parameter igr. Follow Example 1 and insert the following statament after
+parameter igr. Follow #####Example 1 and insert the following statament after
 making the instance, r.  
   
-r.igr = 1  
+    r.igr = 1  
   
-Example 4: natural neighbor nonlinear interpolation returning the aspect and
+#####Example 4: natural neighbor nonlinear interpolation returning the aspect and
 the slope.  
   
 The procedure for the nonlinear interpolation differs from the linear case in
 the need to set the control  
-parameter igr. Follow Example 2 and insert the following statament after
+parameter igr. Follow #####Example 2 and insert the following statament after
 making the instance, r.  
   
-r.igr = 1  
+    r.igr = 1  
   
-Example 5: single point mode natural neighbor linear interpolation  
+#####Example 5: single point mode natural neighbor linear interpolation  
   
 As STEP 1 make an instance, r, with:  
   
-import nat  
-  
-r = nat.Natgrid(xi, yi, xo, yo, listOutput = 'yes')  
+    import nat  
+    r = nat.Natgrid(xi, yi, xo, yo, listOutput = 'yes')  
   
 where the xo, yo output grid is in the list form (not a rectangular output
 grid) as explained above in  
@@ -377,18 +366,16 @@ precision submitted in the grid
 description in STEP 1. In the single point mode it is not possible to request
 the aspect and the slope.  
   
-  
-Example 6: single point mode natural neighbor nonlinear interpolation  
+#####Example 6: single point mode natural neighbor nonlinear interpolation  
   
 The procedure for the nonlinear interpolation differs from the linear case in
 the need to set the control  
-parameter igr. Follow Example 5 and insert the following statament after
+parameter igr. Follow #####Example 5 and insert the following statament after
 making the instance, r.  
   
 r.igr = 1  
   
-\------------------- ORIGINAL FUNCTION APPROACH -----------------  
-  
+###ORIGINAL FUNCTION APPROACH  
 The module natgridmodule.so exports the following functions to Python from the
 original ngmath C library:  
   
@@ -407,7 +394,6 @@ pntinits - initiate single point mode.
 pnts - interpolate at a single point.  
 pntend _ terminate single point mode.  
   
-  
 Double precision procedures:  
   
 natgridd - primary function for gridding.  
@@ -418,9 +404,6 @@ getsloped - get slope values, if calculated by setting sdi = 1.
 pntinitd - initiate single point mode.  
 pntd - interpolate at a single point.  
 pntendd _ terminate single point mode.  
-  
-  
-  
   
 Information on the use of the routines is available by importing natgridmodule
 and printing the docstring  
@@ -442,7 +425,7 @@ nat.printParameterTable()
 The documentation associated with the natgridmodule.so, such as the doctrings,
 describe the C code.  
   
-DOCUMENTATION  
+###DOCUMENTATION  
   
 Documentation is provided through Python's docstrings, essentially Python
 style program  
@@ -460,7 +443,6 @@ be produced by typing
   
 nat.document()  
   
-  
 As an alternate to using the help package, online documentation for the
 natgrids function, for example,  
 is available directly from the natgrids doctring by typing  
@@ -469,27 +451,19 @@ import natgridmodule
   
 print natgridmodule.natgrids.__doc__  
   
-  
-TESTING  
+###TESTING  
   
 To run a test of the natgrid computations and to get a copy of this
 documentation, type  
   
 cdat natgridtest.py  
   
-\-----------------------------------------------------------------------------
----------------------------------  
-  
-  
 HELP PACKAGE EXAMPLE  
   
  Default Parameter Table    
   
-\-----------------------------------------------------------------------------
-------------------------  
 name type legal value defau description  
-\---- ----- ------------ -------
-------------------------------------------------------------  
+
 adf int 0 = no or 1 0 produce data file of algoritmic info for display? (see
 alg)  
 alg char any file nam "nnalg file name for algoritmic display tool (see adf)  
@@ -516,12 +490,3 @@ xas float > 0\. 0.0 scale used by automatic scaling of x in last interpolation
 yas float > 0\. 0.0 scale used by automatic scaling of y in last interpolation  
 zas float > 0\. 0.0 scale used by automatic scaling of z in last
 interpolation.
-
-* * *
-
-UCRL-WEB-213937 | [ Privacy & Legal Notice ](/disclaimer.html)
-
-[ webmaster@pcmdi.llnl.gov ](/webmaster@pcmdi.llnl.gov)
-
-[ ![Powered by Plone](media/plone_powered.gif) ](/)
-

@@ -1,74 +1,17 @@
 ---
 layout: default
-title: 
+title: isoline Graphics
 ---
 
-
-      * [ f2py - Wrapping Fortran Code ](/cdat/tutorials/f2py-wrapping-fortran-code)
-
-    * [ Quick Reference ](/cdat/quick_reference)
-
-    * [ FAQ ](/cdat/FAQ)
-
-    * [ Manuals ](/cdat/manuals)
-
-    * [ Tips and Tricks ](/cdat/tips_and_tricks)
-
-    * [ Source Code ](/cdat/source)
-
-    * [ Contact Us ](/cdat/contact-us)
-
-    * [ Documents ](/cdat/docs)
-
-    * [ Support ](/cdat/support)
-
-  * [ CMOR ](/cmor)
-
-  * [ IPCC AR4 Model Data Portal ](/esg_data_portal)
-
-  * [ About Us ](/about)
-
-  * [ Newsletter ](/Newsletter)
-
-[ News ](/news)
-
-     [ ![](media/newsitem_icon.gif) CDAT Newsletter, June 2007  2007-06-26  ](/Newsletter/Vol3/index_d.html)
-     [ ![](media/newsitem_icon.gif) CDAT 4.1.2 Released  2006-06-07  ](/cdat_4_1_2)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Released  2005-11-21  ](/cdat_4_0)
-     [ ![](media/newsitem_icon.gif) PCMDI Software Portal Released  2005-09-28  ](/software_portal_release)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Beta Released  2005-09-28  ](/cdat_4_0_beta)
-     [ More news&#8230; ](/news)
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/tutorials/cdatbasics/plotting-basics/modifying-isoline-plot/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  Creating and Modifying an Isoline Graphics Method
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/modifying-isofill-plot)
-
-[ ![Next](media/arrow-right) ](/simple-overlay-plot)
-
-[ Contents ](/)
-
-[ Previous ](/modifying-isofill-plot)
-
-[ Next ](/simple-overlay-plot)
-
- Goal:  Guide you through creating and setting isoline graphics method attributes.   
+##  Creating and Modifying an Isoline Graphics Method
+Goal:  Guide you through creating and setting isoline graphics method attributes.   
 
 Before running the tutorial below, type _ "python" _ or _ "cdat" _ at the
-command line.&#160; You will see the python prompt appear (i.e., ">>>"). You can
+command line. You will see the python prompt appear (i.e., ">>>"). You can
 now enter the command lines below.  
   
-You can [ _ _  view  _ _ ](/../files/isoline_file) or [ _ _  download 
-_ _ ](/../files/isoline_file.py) the full source code. To run the source code
-at the command line, type: _ "python isoline_file.py" _ .
-
-    
+You can [download](media/images/python/isoline_file.py) the full source code. To run the source code
+at the command line, type: `python isoline_file.py`.
     
     # Import the modules needed for the tuturial  
     # cdms - Climate Data Management system accesses gridded data.  
@@ -92,43 +35,29 @@ at the command line, type: _ "python isoline_file.py" _ .
     # Initial VCS:  
     v = vcs.init()
     
-    
     # Show the list of persistent isoline graphics methods.  
     v.show('isoline')  
-      
-    
-    
     
     Isoline Names List*  
     (   1):                 ASD        P_and_height             default  
     (   4):                 map               polar               quick  
     End Isoline Names List*
 
-  
-  
-
 Get a isoline graphics method object and plot:  
-
-    
     
     # Assign the variable "df_asd" to the persistent 'ASD' isoline graphics methods.  
     df_asd = v.getisoline( 'ASD' )  
       
     # Plot the data using the above isoline graphics method.  
     v.plot( data, df_asd )  
-    
 
-![Isoline_1](media/isoline_1)  
+![Isoline_1](media/images/isoline_1)  
 
 List the 'ASD' isoline graphics method attributes by issuing the following
 command:  
-
-    
     
     # List the 'ASD' isoline graphics methods attributes.  
     df_asd.list()  
-    
-    
     
     ---------Isoline (Gi) member (attribute) listings ---------  
     Canvas Mode = 1  
@@ -158,13 +87,9 @@ command:
     text =  None  
     textcolors =  None  
     level =  [[0.0, 1.0000000200408773e+20] ]
-
-  
   
 Change 'ASD' isoline graphics methods attributes by entering the appropriate
 command lines:  
-
-    
     
     # change the isofill levels and line type and color  
     df_asd.levels = ( [20,0], [30,0], [40,0], [50,0], [60,0])  
@@ -173,28 +98,19 @@ command lines:
     df_asd.levels = (30,50,70)  
     df_asd.line=[0, 2, 0]  
     df_asd.linecolors=(16,100,200)  
-    
 
-![Isoline_2](media/isoline_2)  
-
-    
+![Isoline_2](media/images/isoline_2)  
     
     # view the level labels  
     df_asd.label='y'  
-    
 
-![Isoline_3](media/isoline_3)  
+![Isoline_3](media/images/isoline_3)  
 
-    
-    
     # set the label font and text color  
     df_asd.text=(1, 5, 9)  
     df_asd.textcolors=(16,100,200)  
-    
 
-![Isoline_4](media/isoline_4)  
-
-    
+![Isoline_4](media/images/isoline_4)  
     
     # Create a persistent isoline graphics methods from an existing isoline graphics method.  
     cf_new = v.createisoline( 'new', 'ASD' ) # create new from ASD  
@@ -203,9 +119,3 @@ command lines:
     v.show('isoline')                    # show isoline list with new and new2  
     v.removeobject( cf_new )             # remove new from isoline list  
     v.show('isoline')                    # show isoline list without new
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/modifying-isofill-plot)
-
-[ ![Next](media/arrow-right) ](/simple-overlay-plot)

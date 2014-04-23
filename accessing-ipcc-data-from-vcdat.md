@@ -61,7 +61,7 @@ Click on the '  Open File  ' or '  Open File and Exit  '  buttons at the
 bottom of the window to import the data into the VCDAT. From there on, you can
 select the variable in the VCDAT in the usual way and plot it.
 
-[![opendap and vcdat](media/imgaes/vcdat_opendap4s.jpg)](media/images/vcdat_opendap4s.jpg)
+[![opendap and vcdat](media/images/vcdat_opendap4s.jpg)](media/images/vcdat_opendap4s.jpg)
 
 To learn how to access the IPCC data  from CDMS module  and  from the web
 browser  see [IPCC OPeNDAP Server](http://www-pcmdi.llnl.gov/software-portal/esg_data_portal/dapserver/) page.

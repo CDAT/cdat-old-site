@@ -1,12 +1,11 @@
 ---
 layout: default
-title: 
+title: lmoments 
 ---
 
-#  Documentation for lmoments
+##  Documentation for lmoments
+###FORTRAN ROUTINES FOR USE WITH THE METHOD OF L-MOMENTS --- VERSION 3.03  
 
-FORTRAN ROUTINES FOR USE WITH THE METHOD OF L-MOMENTS --- VERSION 3.03  
-\----------------------------------------------------------------------  
 Wrapped for Python by Michael Wehner, LLNL.  
 Some Fortran sources for executables are in Misc. The rest are in Src.  
   
@@ -35,10 +34,7 @@ approach based on L-moments. Cambridge, England: Cambridge University Press.
 (Theory of L-moments, and their application to regional frequency analysis,  
 including details of the statistics calculated by routines REGLMR and REGTST.)  
   
-  
-  
-ROUTINES FOR SPECIFIC DISTRIBUTIONS  
-\-----------------------------------  
+###ROUTINES FOR SPECIFIC DISTRIBUTIONS  
   
 The following routines are provided for each of eleven distributions.  
   
@@ -73,10 +69,7 @@ For example, the cumulative distribution function of the Gumbel distribution
 is  
 FUNCTION CDFGUM.  
   
-  
-  
 ROUTINES FOR COMPUTING SAMPLE L-MOMENTS  
-\---------------------------------------  
   
 SUBROUTINE SAMLMR Calculates the sample L-moment ratios of a data set,  
 via the probability weighted moments.  
@@ -87,10 +80,7 @@ set, by a more direct method.
 SUBROUTINE SAMPWM Calculates the sample probability weighted moments of a  
 data set.  
   
-  
-  
 ROUTINES FOR REGIONAL FREQUENCY ANALYSIS  
-\----------------------------------------  
   
 SUBROUTINE CLUAGG Performs cluster analysis by one of several agglomerative  
 hierarchical methods: single-link, complete-link, and  
@@ -123,10 +113,7 @@ PROGRAM XSIM Program to illustrate the use of Monte Carlo simulation to
 derive the properties of estimated quantiles in regional  
 frequency analysis.  
   
-  
-  
 AUXILIARY ROUTINES (used by the foregoing routines)  
-\------------------  
   
 FUNCTION DERF Error function.  
   
@@ -142,10 +129,7 @@ FUNCTION QUASTN Quantile function of the standard Normal distribution.
   
 SUBROUTINE SORT Sorts an array into ascending order.  
   
-  
-  
-DATA FILES  
-\----------  
+###DATA FILES  
   
 APPALACH.DAT Example data set for PROGRAM XCLUST: site characteristics  
 for 104 streamflow gaging stations in central Appalachia.  
@@ -171,9 +155,7 @@ XSIMH.OUT The output from a modified version of PROGRAM XSIM
 (parameters DSEED=619145091D0, NREP=100, NSIM=500, KPRINT=1;  
 omit the section near the end between the dashed lines).  
   
-  
 LINKS BETWEEN ROUTINES  
-\----------------------  
   
 CDFGAM calls DERF, DLGAMA, GAMIND.  
 CDFGNO calls DERF.  
@@ -201,10 +183,7 @@ GAMIND calls DERF.
 Algorithm AS136 is not included here. It is available from StatLib  
 (http://lib.stat.cmu.edu/apstat/136).  
   
-  
-  
-CHANGES BETWEEN VERSIONS 2 AND 3  
-\--------------------------------  
+###CHANGES BETWEEN VERSIONS 2 AND 3  
   
 The following routines were added.  
   
@@ -253,17 +232,13 @@ DURAND Speed increased.
 DERF Corrected error when argument of function was exactly zero.  
 Removed initialization of an unused variable.  
   
-  
-CHANGES AT VERSION 3.01 (DECEMBER 1996)  
-\---------------------------------------  
+###CHANGES AT VERSION 3.01 (DECEMBER 1996)  
   
 The following routines were modified.  
   
 XSIM Replaced call to nonexistent function CDFSTN by call to DERF.  
   
-  
 CHANGES AT VERSION 3.02 (MARCH 1997)  
-\------------------------------------  
   
 The following routines were modified.  
   
@@ -278,9 +253,7 @@ XSIM Changed random number seed.
 Data file XSIM.OUT was also changed, as a consequence of the change to  
 PROGRAM XSIM.  
   
-  
-CHANGES AT VERSION 3.03 (JUNE 2000)  
-\-----------------------------------  
+###CHANGES AT VERSION 3.03 (JUNE 2000)  
   
 The following routines were modified.  
   
@@ -296,12 +269,3 @@ QUASTN Fixed: WRITE(6,7000) and FORMAT statement 7000 incompatible.
   
 Data file APPALACH.OUT was changed, as a consequence of the change to  
 PROGRAM XCLUST made at version 3.02.
-
-* * *
-
-UCRL-WEB-213937 | [ Privacy & Legal Notice ](/disclaimer.html)
-
-[ webmaster@pcmdi.llnl.gov ](/webmaster@pcmdi.llnl.gov)
-
-[ ![Powered by Plone](media/plone_powered.gif) ](/)
-
