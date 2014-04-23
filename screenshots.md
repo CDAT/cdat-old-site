@@ -1,37 +1,32 @@
 ---
 layout: default
-title: 
+title: Screen Shots
 ---
 
-#  CDAT screenshots
+##  CDAT screenshots
 
-  
-Please click on an icon to see a larger image.
+[ ![csir plot](media/images/csir_s.jpg) ](media/images/csir.gif)
 
-  
+[ ![overlay](media/images/overlay_2s.jpg) ](media/images/overlay_2.jpg)
 
-[ ![csir plot](media/csir_s.jpg) ](/images/csir.gif)
+[ ![projection](media/images/projection_2s.jpg) ](media/images/projection_2.jpg)
 
-[ ![overlay](media/overlay_2s.jpg) ](/images/overlay_2.jpg)
+[ ![isolines](media/images/CDAT2s.jpg) ](media/images/CDAT2.jpg)
 
-[ ![projection](media/projection_2s.jpg) ](/images/projection_2.jpg)
+[ ![VCDAT](media/images/vcdat2s.jpg) ](media/images/vcdat2.jpg)
 
-[ ![isolines](media/CDAT2s.jpg) ](/images/CDAT2.jpg)
+[ ![IPCC](media/images/IPCC_figures_s.jpg) ](media/images/IPCC_figures.jpg)
 
-[ ![VCDAT](media/vcdat2s.jpg) ](/images/vcdat2.jpg)
+[ ![grids](media/images/grids_s.jpg) ](media/images/grids.jpg)
 
-[ ![IPCC](media/IPCC_figures_s.jpg) ](/images/IPCC_figures.jpg)
+[ ![BADC](media/images/BADC_data_extractor_s.jpg) ](media/images/BADC_data_extractor.jpg)
 
-[ ![grids](media/grids_s.jpg) ](/images/grids.jpg)
+[ ![CDAT](media/images/CDAT_architecture3s.jpg) ](media/images/CDAT_architecture3.jpg)
 
-[ ![BADC](media/BADC_data_extractor_s.jpg) ](/images/BADC_data_extractor.jpg)
+[ ![ESG](media/images/esg2s.jpg) ](media/images/esg2.jpg)
 
-[ ![CDAT](media/CDAT_architecture3s.jpg) ](/images/CDAT_architecture3.jpg)
+[ ![BADC](media/images/BADCs.jpg) ](media/images/BADC.jpg)
 
-[ ![ESG](media/esg2s.jpg) ](/images/esg2.jpg)
+[ ![colormap](media/images/colormap_s.jpg) ](media/images/colormap.jpg)
 
-[ ![BADC](media/BADCs.jpg) ](/images/BADC.jpg)
-
-[ ![colormap](media/colormap_s.jpg) ](/images/colormap.jpg)
-
-[ ![thermo](media/thermo_package_s.jpg) ](/images/thermo_package.jpg)
+[ ![thermo](media/images/thermo_package_s.jpg) ](media/images/thermo_package.jpg)

@@ -11,7 +11,7 @@ Note: if you used your python to build CDAT then replace `<CDAT_INSTALL_DIRECTOR
     cd <CDAT_SRC_DIRECTORY>
     <CDAT_INSTALL_DIRECTORY>/bin/python test_cdat.py -a 
     
-This will run a basic set of&#160; tests for Packagesand&#160; contributed Packages
+This will run a basic set of tests for Packagesand contributed Packages
 
 By default it uploads your machine name to help us to know which kind of
 systems cdat is built on

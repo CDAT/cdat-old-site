@@ -1,11 +1,11 @@
 ---
 layout: default
-title: 
+title: Regrid Pack Documentation
 ---
 
-#  Regrid Pack Documentation
+##  Regrid Pack Documentation
 
-INTRODUCTION  
+###INTRODUCTION  
   
 This module provides access through Python to the collection of Fortran
 programs in  
@@ -15,7 +15,7 @@ Atmospheric Research by John C. Adams for linear or cubic interpolation in
 one, two,  
 three or four dimensions.  
   
-RESTRICTIONS  
+###RESTRICTIONS  
   
 This module provides regridding by interpolation only. In other words, the
 output coordinate  
@@ -25,8 +25,7 @@ Each coordinate vector must be monotonically increasing or decreasing.
   
 Missing data is not allowed in the input data.  
   
-  
-CAPABLITIES  
+###CAPABLITIES  
   
 This module allows linear or cubic interpolation in one, two, three or four
 dimensions. The  
@@ -44,8 +43,7 @@ A utility function is provide to generate a gaussian or a uniform grids to use
 as a output  
 coordinate vector.  
   
-  
-ORGANIZATION  
+###ORGANIZATION  
   
 This module is object oriented for simplicity. It is organized as a single
 class called Regrid,  
@@ -61,7 +59,7 @@ is calling the regridding function with the data in the argument list and an
 optional missing data value  
 to request a check for the presence of a missing data.  
   
-HELP  
+###HELP  
   
 To obtain a prescription for making an instance, type  
   
@@ -79,7 +77,7 @@ To look at a general four dimensional example, type
   
 adamsregrid.help('FourDexample')  
   
-DOCUMENTATION  
+###DOCUMENTATION  
   
 Documentation written to the file regridmodule.doc can be produced after
 importing the adamsregrid module  
@@ -96,7 +94,7 @@ print adamsregrid.Regrid.__init__.__doc__ -- documentation for making an
 instance.  
 print adamsregrid.Regrid.rgrd.__doc__ -- documentation for the rgrd method.  
   
-TESTING  
+###TESTING  
   
 After importing adamstest, typing  
   
@@ -107,12 +105,3 @@ fields. It also
 writes a hard copy of the documentation to the file regridmodule.doc and a
 copy of the information  
 displayed on the screen to screen.asc.  
-
-* * *
-
-UCRL-WEB-213937 | [ Privacy & Legal Notice ](/disclaimer.html)
-
-[ webmaster@pcmdi.llnl.gov ](/webmaster@pcmdi.llnl.gov)
-
-[ ![Powered by Plone](media/plone_powered.gif) ](/)
-

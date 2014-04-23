@@ -1,14 +1,10 @@
 ---
 layout: default
-title: 
+title: shgrid Documentation 
 ---
 
-#  Shgrid Documentation
-
-\-----------------------------------------------------------------------------
-----------------  
-  
-INTRODUCTION TO NGMATH  
+##  Shgrid Documentation
+###INTRODUCTION TO NGMATH  
   
 The ngmath library is a collection of interpolators and approximators for one-
 dimensional, two-dimensional  
@@ -43,7 +39,7 @@ work of Robert Renka.
 shgrid uses a modified Shepard's algorithm to calculate its interpolation
 function.  
   
-COMPARISION OF NGMATH PACKAGES  
+###COMPARISION OF NGMATH PACKAGES  
   
 Three-dimensional packages -- shgrid, csagrid and dsgrid.  
   
@@ -97,7 +93,7 @@ cssgrid is designed specifically for interpolating on a sphere. It uses cubic
 splines to calculate an  
 interpolation function.  
   
-SHGRID PACKAGE  
+###SHGRID PACKAGE  
   
 shgrid interpolates random data in 3-space. and it provides the means for
 finding the nearest point or points to  
@@ -115,7 +111,7 @@ than at farther points. After the bivariate quadratics are calculated, the
 interpolating function is calculated  
 as a weighted average of the bivariate quadratics.  
   
-SHGRID CONTENTS  
+###SHGRID CONTENTS  
   
 Access through Python to the shgrid package from NCAR's ngmath distribution is
 provided directly through the module  
@@ -142,7 +138,7 @@ USEFUL FILES
 sh.py -- the object oriented interface including a general help package.  
 shgridtest.py -- the code to test sh.py and to write documentation.  
   
-USAGE  
+###USAGE  
   
 This module is designed to use in two ways. One is through the use of the
 object oriented interface to the underlying  
@@ -151,8 +147,7 @@ the original shgrid distribution because
 it simplifies the calls to the routines. The other method uses the original
 functions calling them directly from Python.  
   
-\--------------------------------------------------------------  
-\------------------- OBJECT ORIENTED APPROACH ----------------  
+#### OBJECT ORIENTED APPROACH
   
 The sh module contains the Shgrid class and the single method rgrd. Use of
 this object oriented scheme is a two  
@@ -162,15 +157,14 @@ task at hand. There are two choices: make an interpolation to a three
 dimensional grid or find the nearest points  
 to a specific point which has been already set in making the instance.  
   
-STEP 1.  
+######STEP 1.  
   
 Array Input And Output Case In Preparation For Interpolation In 3-space  
   
 To make an instance, r, type:  
   
-import sh  
-  
-r = sh.Shgrid(xi, yi, zi, xo, yo, zo)  
+    import sh  
+    r = sh.Shgrid(xi, yi, zi, xo, yo, zo)  
   
 where xi, yi and zi are the input coordinate arrays in list format  
 while xo, yo and zo are the output grid coordinate arrays which  
@@ -181,9 +175,8 @@ Points In 3-space
   
 To make an instance, r, type:  
   
-import sh  
-  
-r = sh.Shgrid(xi, yi, zi, px, py, pz)  
+    import sh  
+    r = sh.Shgrid(xi, yi, zi, px, py, pz)  
   
 where xi, yi and zi are the input coordinate arrays in list format  
 while px, py and pz are the coordinates of a point whose nearest  
@@ -194,29 +187,35 @@ To look at the default settings for the control parameters and a brief
 description or thier  
 properties, type  
   
-r.printDefaultParameterTable()  
+    r.printDefaultParameterTable()  
   
 To change a setting type the new value. For example, to set ncl to 8, type  
   
-r.ncl = 1  
+    r.ncl = 1  
   
 To find an individual value, type the name. For example, to exam the value of
 nfl, type  
   
-r.nfl  
+    r.nfl  
   
 To check the settings type  
   
-r.printInstanceParameterTable() -- prints the table with values and a
+    r.printInstanceParameterTable() 
+
+prints the table with values and a
 description of the parameters  
 used in subsequent calls to the method function rgrd  
 or  
   
-r.printInstanceParameters() -- prints a list of the parameters values used in
+    r.printInstanceParameters()
+
+prints a list of the parameters values used in
 subsequent calls to the  
 the rgrd method  
   
-sh. printStoredParameters() -- prints the parameters in memory which may
+    sh. printStoredParameters() 
+    
+prints the parameters in memory which may
 differ from the above if the  
 user has made more than one instance of the Shgrid class.  
   
@@ -224,17 +223,17 @@ In the absence of an instance of the class Shgrid, a description of the
 control parameters can be found  
 by typing  
   
-import sh  
-sh.printParameterTable()  
+    import sh  
+    sh.printParameterTable()  
   
   
-STEP 2.  
+######STEP 2.  
   
 Interpolation In 3-space  
   
 Type  
   
-dataOut = r.rgrd(dataIn)  
+    dataOut = r.rgrd(dataIn)  
   
 where dataIn is input data in list form and dataOut is output data in gridded
 form  
@@ -243,7 +242,7 @@ Finding Nearest Points In 3-space
   
 Type  
   
-np = r.rgrd(numberPoints)  
+    np = r.rgrd(numberPoints)  
   
 where:  
 np is an array with the indices into the input data arrays of the sequence of
@@ -253,8 +252,7 @@ numberPoints is the number of nearest points requested. It may be 1.
 For the ith element in np the point in 3-space is ( xi[np[i] ], yi[np[i] ],
 zi[np[i] ] ).  
   
-\--------------------------------------------------------------  
-\------------------- ORIGINAL FUNCTION APPROACH -----------------  
+#### ORIGINAL FUNCTION APPROACH
   
 The module shgridmodule.so exports the following functions to Python from the
 original Fortran library:  
@@ -275,9 +273,8 @@ and printing the docstring
 of interest. For example, documentation for the routine shgrid is obtained by
 typing  
   
-import shgridmodule  
-  
-print shgridmodule.shgrid.__doc__  
+    import shgridmodule  
+    print shgridmodule.shgrid.__doc__  
   
 The documentation associated with the shgridmodule.so, such as the doctrings,
 describe the Fortran code. The  
@@ -297,24 +294,23 @@ fastest.
   
 This same information is available in the help package.  
   
-import sh  
-  
-print sh.help('shgrid')  
+    import sh  
+    print sh.help('shgrid')  
   
 A description of the control parameters is not in the shgridmodule
 documentation. It can be found by typing  
   
-import sh  
-sh.printParameterTable()  
+    import sh  
+    sh.printParameterTable()  
   
-DOCUMENTATION  
+###DOCUMENTATION  
   
 Documentation is provided through Python's docstrings, essentially Python
 style program comments. A help package  
 provides instructions on the use of shgrid. A table of contents is printed to
 the screen by typing  
   
-sh.help()  
+    sh.help()  
   
 after importing sh.  
   
@@ -323,22 +319,10 @@ after import shgridtest by typing
   
 shgridtest.document()  
   
-TESTING  
+### TESTING  
   
 To run a some tests of the 3D interpolation and the nearest point computattion
 and to get a copy of this documentation,  
 type  
   
-cdat shgridtest.py  
-  
-\-----------------------------------------------------------------------------
----------------------------------
-
-* * *
-
-UCRL-WEB-213937 | [ Privacy & Legal Notice ](/disclaimer.html)
-
-[ webmaster@pcmdi.llnl.gov ](/webmaster@pcmdi.llnl.gov)
-
-[ ![Powered by Plone](media/plone_powered.gif) ](/)
-
+    cdat shgridtest.py  

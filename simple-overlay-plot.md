@@ -1,74 +1,19 @@
 ---
 layout: default
-title: 
+title: Simple Overlay Plot
 ---
 
-      * [ f2py - Wrapping Fortran Code ](/cdat/tutorials/f2py-wrapping-fortran-code)
+##  Simple Overlay Plot
 
-    * [ Quick Reference ](/cdat/quick_reference)
-
-    * [ FAQ ](/cdat/FAQ)
-
-    * [ Manuals ](/cdat/manuals)
-
-    * [ Tips and Tricks ](/cdat/tips_and_tricks)
-
-    * [ Source Code ](/cdat/source)
-
-    * [ Contact Us ](/cdat/contact-us)
-
-    * [ Documents ](/cdat/docs)
-
-    * [ Support ](/cdat/support)
-
-  * [ CMOR ](/cmor)
-
-  * [ IPCC AR4 Model Data Portal ](/esg_data_portal)
-
-  * [ About Us ](/about)
-
-  * [ Newsletter ](/Newsletter)
-
-[ News ](/news)
-
-     [ ![](media/newsitem_icon.gif) CDAT Newsletter, June 2007  2007-06-26  ](/Newsletter/Vol3/index_d.html)
-     [ ![](media/newsitem_icon.gif) CDAT 4.1.2 Released  2006-06-07  ](/cdat_4_1_2)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Released  2005-11-21  ](/cdat_4_0)
-     [ ![](media/newsitem_icon.gif) PCMDI Software Portal Released  2005-09-28  ](/software_portal_release)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Beta Released  2005-09-28  ](/cdat_4_0_beta)
-     [ More news&#8230; ](/news)
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/tutorials/cdatbasics/plotting-basics/simple-overlay-plot/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  Simple Overlay Plot
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/modifying-isoline-plot)
-
-[ ![Next](media/arrow-right) ](/modifying-vector-plot)
-
-[ Contents ](/)
-
-[ Previous ](/modifying-isoline-plot)
-
-[ Next ](/modifying-vector-plot)
-
- Goal:  Guide you through creating simple overlay plots.   
+Goal:  Guide you through creating simple overlay plots.   
 
 Before running the tutorial below, type _ "python" _ or _ "cdat" _ at the
-command line.&#160; You will see the python prompt appear (i.e., ">>>"). You can
+command line. You will see the python prompt appear (i.e., ">>>"). You can
 now enter the command lines below.  
 
-You can [ _ _  view  _ _ ](/../files/overlay_file) or [ _ _  download 
-_ _ ](/../files/overlay_file.py) the full source code. To run the source code
-at the command line, type: _ "python overlay_file.py" _ .
+You can [download](media/python/overlay_file.py) the full source code. To run the source code
+at the command line, type: `python overlay_file.py`.
 
-    
-    
     # Import the modules needed for the tuturial  
     # cdms - Climate Data Management system accesses gridded data.  
     # vcs - Visualization and control System 1D and 2D plotting routines.  
@@ -101,21 +46,15 @@ at the command line, type: _ "python overlay_file.py" _ .
     v = vcs.init()
 
 Overlay the same data using the isofill and isoline graphics methods:  
-
-    
     
     # 1st plot the data with the isofill graphics method.  
     v.isofill( data )  
       
     # 2nd overlay the data with the isoline graphics method.  
     v.isoline( data )  
-      
-    
 
-![Overlay_1](media/overlay_1)  
+![Overlay_1](media/images/overlay_1)  
 Overlay boxfill data with vector data.  
-
-    
     
     # Clear the VCS Canvas  
     v.clear( )  
@@ -127,14 +66,5 @@ Overlay boxfill data with vector data.
     # template.  
     v.boxfill( data3 )  
     v.vector( data1, data2, 'default_dud', continents=0 )  
-    
 
-![Overlay_2](media/overlay_2)  
-
-  
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/modifying-isoline-plot)
-
-[ ![Next](media/arrow-right) ](/modifying-vector-plot)
+![Overlay_2](media/images/overlay_2)  

@@ -14,6 +14,5 @@ To clean the Makefile and config.log as well
     
     cd <CDAT_SRC_DIRECTORY>
     make distclean
-    
 
- Note:  To rebuild CDAT, always run make clean first and rerun configure. If you wish to rebuild CDAT and restart over, it is best to remove the ` <CDAT_INSTALL_DIRECTORY> ` . 
+Note:  To rebuild CDAT, always run make clean first and rerun configure. If you wish to rebuild CDAT and restart over, it is best to remove the ` <CDAT_INSTALL_DIRECTORY> ` . 

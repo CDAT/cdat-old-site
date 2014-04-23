@@ -1,53 +1,12 @@
 ---
 layout: default
-title: 
+title: Opening ASCII Files
 ---
 
-
-    * [ Quick Reference ](/cdat/quick_reference)
-
-    * [ FAQ ](/cdat/FAQ)
-
-    * [ Manuals ](/cdat/manuals)
-
-    * [ Tips and Tricks ](/cdat/tips_and_tricks)
-
-    * [ Source Code ](/cdat/source)
-
-    * [ Contact Us ](/cdat/contact-us)
-
-    * [ Documents ](/cdat/docs)
-
-    * [ Support ](/cdat/support)
-
-  * [ CMOR ](/cmor)
-
-  * [ IPCC AR4 Model Data Portal ](/esg_data_portal)
-
-  * [ About Us ](/about)
-
-  * [ Newsletter ](/Newsletter)
-
-[ News ](/news)
-
-     [ ![](media/newsitem_icon.gif) CDAT Newsletter, June 2007  2007-06-26  ](/Newsletter/Vol3/index_d.html)
-     [ ![](media/newsitem_icon.gif) CDAT 4.1.2 Released  2006-06-07  ](/cdat_4_1_2)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Released  2005-11-21  ](/cdat_4_0)
-     [ ![](media/newsitem_icon.gif) PCMDI Software Portal Released  2005-09-28  ](/software_portal_release)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Beta Released  2005-09-28  ](/cdat_4_0_beta)
-     [ More news&#8230; ](/news)
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/tutorials/cdatbasics/files/readascii/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  Opening and Reading an ASCII file
+##  Opening and Reading an ASCII file
 
 In this example we open an ASCII file and show how to read and parse its
 content
-
-    
     
     import string,sys,MV  
       
@@ -74,18 +33,20 @@ content
         sp=string.split(line)   
       
         # Now try to see if the first element is a number, if not skip  
-    &#160;   # we are only interested in the 2nd and third column here  
+       # we are only interested in the 2nd and third column here  
         try:  
-    &#160;&#160;&#160;     val1=float(sp[1])   # second column  
-    &#160;&#160;&#160;     val2=float(sp[2])   # third column  
-    &#160;&#160;&#160;       
+         val1=float(sp[1])   # second column  
+         val2=float(sp[2])   # third column  
+           
             data1.append(val1)  
-    &#160;&#160;&#160;     data2.append(val2)  
+         data2.append(val2)  
       
-    &#160;   except:  
-    &#160;&#160;&#160;     pass       #&#160; we didn't have 2 float at the begining of this line  
-      
+       except:  
+         pass       # we didn't have 2 float at the begining of this line  
       
     # Now converts the 2 datasets to MV for use in other CDAT Packages  
     data1=MV.array(data1,id='dataset1')  
     data2=MV.array(data2,id='dataset2')  
+    
+    # Just for fun prints the average of data1
+    print MV.average(data1)
