@@ -1,42 +1,17 @@
 ---
 layout: default
-title:
+title: API esg
 ---
 
 #  Python: package esg
-
+SupportforESGmarkuplanguage
   
+###Package Contents 
+* [esg](esg.esg.html)  
+* [esgLs](esg.esgLs.html)  
+* [esgMap](esg.esgMap.html)  
+* [esgParse](esg.esgParse.html)  
   
- esg 
-[ index ](/)  
+##Data 
 
-` Support&#160;for&#160;ESG&#160;markup&#160;language `
-
-  
- Package Contents 
-
-` `
-
-[ esg ](/esg.esg.html)  
-
-[ esgLs ](/esg.esgLs.html)  
-
-[ esgMap ](/esg.esgMap.html)  
-
-[ esgParse ](/esg.esgParse.html)  
-
-  
- Data 
-
-` `
-
- __all__  = ['esg', 'esgParse', 'esgMap'] 
-
-* * *
-
-UCRL-WEB-213937 | [ Privacy & Legal Notice ](/disclaimer.html)
-
-[ webmaster@pcmdi.llnl.gov ](/webmaster@pcmdi.llnl.gov)
-
-[ ![Powered by Plone](media/imgaes/plone_powered.gif) ](/)
-
+    __all__  = ['esg', 'esgParse', 'esgMap'] 

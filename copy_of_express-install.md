@@ -7,7 +7,6 @@ title: Binaries
 Explanation to install CDAT on your system. Using the pre-built binaries
 
 ###  Binaries Installation
-
 Note:  There will be no support other than this page for the binary build, if it fails you will have to go with the source build. 
 
 Go get the binary that best-match your system at:

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 
+title: Download 
 ---
 ###  Obtaining and Installing CDAT
 
@@ -32,8 +32,8 @@ title:
             CDAT_BUILD/bin/cdat
 
  * In addition 5.2 comes a few UNSUPPORTED binary tarball, these (and a tarball of the sources) can be found at: 
- * [http://sourceforge.net/projects/cdat/files/Releases/5.2 ](/projects/cdat/files/Releases/5.2)
- * For more info on these binaries see [this](/installation-guide/copy_of_express-install).
+ * [http://sourceforge.net/projects/cdat/files/Releases/5.2 ](http://sourceforge.net/projects/cdat/files/Releases/5.2)
+ * For more info on these binaries see [this](copy_of_express-install.html).
 
 ###  Download Bleeding-Edge Source Code via Subversion
 

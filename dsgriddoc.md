@@ -1,20 +1,12 @@
 ---
 layout: default
-title: 
+title: DSGRID 
 ---
 
-#  DSGRID Documentation
-
-   
-  
+##  DSGRID Documentation
 * Overview of the CDAT interface to dsgrid    
   
-   
-  
-\-----------------------------------------------------------------------------
-----------------  
-  
-INTRODUCTION TO NGMATH  
+###INTRODUCTION TO NGMATH  
   
 The ngmath library is a collection of interpolators and approximators for one-
 dimensional, two-dimensional  
@@ -23,7 +15,7 @@ and three-dimensional data. The packages, which were obtained from NCAR, are:
 natgrid -- a two-dimensional random data interpolation package based on Dave
 Watson's nngridr.  
   
-dsgrid --&#160; a three-dimensional random data interpolator based on a simple
+dsgrid -- a three-dimensional random data interpolator based on a simple
 inverse distance weighting  
 algorithm.  
   
@@ -44,12 +36,12 @@ based on the work of
 Robert Renka. cssgrid uses cubic splines to calculate its interpolation
 function.  
   
-shgrid --&#160; an interpolation package for random data in 3-space based on the
+shgrid -- an interpolation package for random data in 3-space based on the
 work of Robert Renka.  
 shgrid uses a modified Shepard's algorithm to calculate its interpolation
 function.  
   
-COMPARISION OF NGMATH PACKAGES  
+###COMPARISION OF NGMATH PACKAGES  
   
 Three-dimensional packages -- shgrid, csagrid and dsgrid.  
   
@@ -88,7 +80,7 @@ and natgrid.
 dsgrid is not recommended for two-dimensional surfaces. natgrid is superior in
 all respects.  
   
-One-dimensional packages -- fitgrid&#160; and csagrid.  
+One-dimensional packages -- fitgrid and csagrid.  
   
 fitgrid is definitely the package of choice. It has many features not
 available in csagrid, such as  
@@ -103,7 +95,7 @@ cssgrid is designed specifically for interpolating on a sphere. It uses cubic
 splines to calculate an  
 interpolation function.  
   
-DSGRID PACKAGE  
+###DSGRID PACKAGE  
   
 dsgrid implements a simple weighted average interpolation algorithm. The input
 for the interpolation is a set  
@@ -133,8 +125,7 @@ inverse distances and the areas around input data are cone shaped. If the
 power of the distances is less than one,  
 the areas around input data form a cusp at the data points.  
   
-  
-DSGRID CONTENTS  
+###DSGRID CONTENTS  
   
 Access through Python to the dsgrid package from NCAR's ngmath distribution is
 provided directly through the module  
@@ -142,17 +133,17 @@ dsgridmodule.so which was generated as a Python C language extension in order
 to export the functions from the  
 original C language library  
   
-REQUIRED FILE  
+###REQUIRED FILE  
   
-dsgridmodule.so -- the Python interface to the ngmath dsgrid package.  
+    dsgridmodule.so -- the Python interface to the ngmath dsgrid package.  
   
-USEFUL FILES  
+###USEFUL FILES  
   
-ds.py&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; \-- the object oriented interface including a general help
+ds.py \-- the object oriented interface including a general help
 package.  
 dsgridtest.py -- the code to test ds.py and to write documentation.  
   
-USAGE  
+###USAGE  
   
 This module is designed to use in two ways. One is through the use of the
 object oriented interface to the underlying  
@@ -161,24 +152,21 @@ the original dsgrid distribution because
 it simplifies the calls to the routines. The other method uses the original
 functions calling them directly from Python.  
   
-\--------------------------------------------------------------  
-\-------------------&#160; OBJECT ORIENTED APPROACH ----------------  
-  
+##OBJECT ORIENTED APPROACH  
 The ds module contains the Dsgrid class and the single method rgrd  
   
-STEP 1.  
+###STEP 1.  
   
 Rectangular Gridded Output Coordinates  
   
 To make an instance, r, type:  
   
-import ds  
-  
-r = ds.Dsgrid(xi, xo, yi, yo)  
+    import ds  
+    r = ds.Dsgrid(xi, xo, yi, yo)  
   
 or  
   
-r = ds.Dsgrid(xi, xo, yi, yo, zi, zo)  
+    r = ds.Dsgrid(xi, xo, yi, yo, zi, zo)  
   
 where xi, yi and zi are the input coordinate arrays in list format  
 while xo, yo and zo are the and output grid coordinate arrays which  
@@ -188,13 +176,12 @@ List Format Output Coordinates
   
 To make an instance, r, type:  
   
-import ds  
-  
-r = ds.Dsgrid(xi, xo, yi, yo, griddedOutput = 'no')  
+    import ds  
+    r = ds.Dsgrid(xi, xo, yi, yo, griddedOutput = 'no')  
   
 or  
   
-r = ds.Dsgrid(xi, xo, yi, yo, zi, zo, griddedOutput = 'no')  
+    r = ds.Dsgrid(xi, xo, yi, yo, zi, zo, griddedOutput = 'no')  
   
 where xi, yi and zi are the input coordinate arrays in list format  
 and xo, yo and zo are the output coordinate arrays in list format.  
@@ -205,7 +192,7 @@ or double precision. The choice is determined by the type of the coordinate
 arrays submitted  
 in makking the instance.  
   
-STEP 2.  
+###STEP 2.  
   
 Gridded output or list output is accessed with the same call to the method
 function, rgrd.  
@@ -215,118 +202,91 @@ The choice is made in the creation of an instance of the Dsgrid class in STEP
 Type  
 dataOut = r.rgrd(dataIn) where  
   
-dataIn&#160; \-- input data in list form  
+dataIn \-- input data in list form  
 dataOut -- output data in gridded or list form  
-  
-  
-\--------------------------------------------------------------  
-\-------------------&#160; ORIGINAL FUNCTION APPROACH -----------------  
-  
+
+##ORIGINAL FUNCTION APPROACH  
 The module dsgridmodule.so exports the following functions to Python from the
 original C library:  
   
 Single precision procedures:  
   
-grid2s&#160;&#160;&#160;&#160;&#160;&#160; \- primary function for gridding 2D data.  
-grid3s&#160;&#160;&#160;&#160;&#160;&#160; \- primary function for gridding 3D data.  
-seti&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- set int parameter values.  
-geti&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- retrieve values for int parameters.  
-setr&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- set float parameter values.  
-getr&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- retrieve values for float parameters  
-setc&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- set char parameter values.  
-getc&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- retrieve values for char parameters.  
-pnt2s&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- interpolate 2D data at specified individual points.  
-pnt3s&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- interpolate 3D data at specified individual points.  
+grid2s \- primary function for gridding 2D data.  
+grid3s \- primary function for gridding 3D data.  
+seti \- set int parameter values.  
+geti \- retrieve values for int parameters.  
+setr \- set float parameter values.  
+getr \- retrieve values for float parameters  
+setc \- set char parameter values.  
+getc \- retrieve values for char parameters.  
+pnt2s \- interpolate 2D data at specified individual points.  
+pnt3s \- interpolate 3D data at specified individual points.  
   
   
 Double precision procedures:  
   
-grid2d&#160;&#160;&#160;&#160;&#160;&#160; \- primary function for gridding 2D data.  
-grid3d&#160;&#160;&#160;&#160;&#160;&#160; \- primary function for gridding 3D data.  
-setrd&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- set float parameter values.  
-getrd&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- retrieve values for float parameters  
-pnt2d&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- interpolate 2D data at specified individual points.  
-pnt3d&#160;&#160;&#160;&#160;&#160;&#160;&#160; \- interpolate 3D data at specified individual points.  
+grid2d \- primary function for gridding 2D data.  
+grid3d \- primary function for gridding 3D data.  
+setrd \- set float parameter values.  
+getrd \- retrieve values for float parameters  
+pnt2d \- interpolate 2D data at specified individual points.  
+pnt3d \- interpolate 3D data at specified individual points.  
   
 Information on the use of the routines is available by importing dsgridmodule
 and printing the docstring  
 of interest. For example, documentation for the routine grid2s is obtained by
 typing  
   
-import dsgridmodule  
-  
-print dsgridmodule.grid2s.__doc__  
+    import dsgridmodule  
+    print dsgridmodule.grid2s.__doc__  
   
 This same information is available in the help package.  
   
-import ds  
-  
-print ds.help('grid2s')  
+    import ds  
+    print ds.help('grid2s')  
   
 A description of the control parameters is not in the dsgridmodule
 documentation. It can be found by typing  
   
-import ds  
-ds.printParameterTable()  
+    import ds  
+    ds.printParameterTable()  
   
 A hard copy of the full documentation on the use of each of the routines is
 written to the file dsgrid.doc after  
-importing&#160; ds by typing  
+importing ds by typing  
   
-ds.document()  
+  ds.document()  
   
-DOCUMENTATION  
+###DOCUMENTATION  
   
 Documentation is provided through Python's docstrings, essentially Python
 style program comments. A help package  
 provides instructions on the use of dsgrid. A table of contents is printed to
 the screen by typing  
   
-ds.help()  
+    ds.help()  
   
 after importing ds.  
   
 A hard copy of this documentation is written to the file dsgridmodule.doc
 after import dsgridtest by typing  
   
-dsgridtest.document()  
+    dsgridtest.document()  
   
-TESTING  
+###TESTING  
   
 To run a test of the 2D and 3D interpolations and to get a copy of this
 documentation, type  
   
-cdat dsgridtest.py  
+    cdat dsgridtest.py  
   
-\-----------------------------------------------------------------------------
----------------------------------  
+###HELP PACKAGE EXAMPLE  
+Default Parameter Table    
   
-  
-HELP PACKAGE EXAMPLE  
-  
- Default Parameter Table    
-  
-\-----------------------------------------------------------------------------
-------------------------  
-name&#160;&#160;&#160;&#160; type&#160;&#160;&#160;&#160;&#160; legal values&#160;&#160;&#160;&#160; default&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; description  
-\----&#160;&#160;&#160;&#160; \-----&#160;&#160; \--------------&#160;&#160; \---------
-\-------------------------------------------------------  
-dmv&#160;&#160;&#160;&#160;&#160;&#160; float&#160; any&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; -9999.&#160;&#160;&#160;&#160; special value for data init and
-use with dmx parameter  
-dmx&#160;&#160;&#160;&#160;&#160;&#160; float&#160; > 0.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 1.0e20&#160;&#160;&#160;&#160; for&#160; weights, use only input data
-within distance dmx  
-erf&#160;&#160;&#160;&#160;&#160;&#160; char&#160;&#160; any file name&#160;&#160;&#160; "sterror"&#160; error file  
-exp&#160;&#160;&#160;&#160;&#160;&#160; float&#160; > 0.&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; 3.0&#160;&#160;&#160;&#160;&#160;&#160;&#160; power to use for inverse
-distances in computing weights  
-shd&#160;&#160;&#160;&#160;&#160;&#160; int&#160;&#160;&#160; 0 = no or 1 =&#160;&#160;&#160; 0&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; controls whether the shadowing
-feature is on  
-  
-
-* * *
-
-UCRL-WEB-213937 | [ Privacy & Legal Notice ](/disclaimer.html)
-
-[ webmaster@pcmdi.llnl.gov ](/webmaster@pcmdi.llnl.gov)
-
-[ ![Powered by Plone](media/plone_powered.gif) ](/)
-
+name | type  | legal values     | default   | description  
+ --- | ---   | ---              | ---       | --- 
+ dmv | float | any              | -9999     |  special value for data init and use with dmx parameter  
+ dmx | float | > 0              | 1.0e20    | for weights, use only input data within distance dmx  
+ erf | char  | any              | file name | "sterror" error file  
+ exp | float | > 0              | 3.0       | power to use for inverse distances in computing weights  
+ shd | int   | 0 = no or 1 = 0  | 0         | controls whether the shadowing feature is on  

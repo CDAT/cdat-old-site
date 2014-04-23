@@ -1,70 +1,16 @@
 ---
 layout: default
-title: 
+title: Templates 
 ---
-
-
-      * [ f2py - Wrapping Fortran Code ](/cdat/tutorials/f2py-wrapping-fortran-code)
-
-    * [ Quick Reference ](/cdat/quick_reference)
-
-    * [ FAQ ](/cdat/FAQ)
-
-    * [ Manuals ](/cdat/manuals)
-
-    * [ Tips and Tricks ](/cdat/tips_and_tricks)
-
-    * [ Source Code ](/cdat/source)
-
-    * [ Contact Us ](/cdat/contact-us)
-
-    * [ Documents ](/cdat/docs)
-
-    * [ Support ](/cdat/support)
-
-  * [ CMOR ](/cmor)
-
-  * [ IPCC AR4 Model Data Portal ](/esg_data_portal)
-
-  * [ About Us ](/about)
-
-  * [ Newsletter ](/Newsletter)
-
-[ News ](/news)
-
-     [ ![](media/newsitem_icon.gif) CDAT Newsletter, June 2007  2007-06-26  ](/Newsletter/Vol3/index_d.html)
-     [ ![](media/newsitem_icon.gif) CDAT 4.1.2 Released  2006-06-07  ](/cdat_4_1_2)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Released  2005-11-21  ](/cdat_4_0)
-     [ ![](media/newsitem_icon.gif) PCMDI Software Portal Released  2005-09-28  ](/software_portal_release)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Beta Released  2005-09-28  ](/cdat_4_0_beta)
-     [ More news&#8230; ](/news)
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/tutorials/cdatbasics/plotting-basics/creating-and-modifying-templates/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  Creating and Modifying Templates
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/plotting-primitives)
-
-[ Contents ](/)
-
-[ Previous ](/plotting-primitives)
-
- Goal:  Guide you through creating and setting template attributes.   
+##  Creating and Modifying Templates
+Goal:  Guide you through creating and setting template attributes.   
 
 Before running the tutorial below, type _ "python" _ or _ "cdat" _ at the
-command line.&#160; You will see the python prompt appear (i.e., ">>>"). You can
+command line. You will see the python prompt appear (i.e., ">>>"). You can
 now enter the command lines below.  
 
-You can [ _ _  view  _ _ ](/../files/template_file) or [ _ _  download
- _ _ ](/../files/template_file.py) the full source code. To run the source
-code at the command line, type: _ "python template.py" _ .  
-
-    
+You can [download](media/images/python/files/template_file.py) the full source code. To run the source
+code at the command line, type: `python template.py`.
     
     Definition of a Template  
       
@@ -73,8 +19,6 @@ code at the command line, type: _ "python template.py" _ .
     Segments are graphics representations of: textual identification of the data; formatted values of single-valued   
     dimensions and mean, maximum, and minimum data values; axes tick marks and labels; boxes and lines; a legend   
     that is graphics method specific; and the data.   
-    
-    
     
     # Import the modules needed for the tuturial  
     # cdms - Climate Data Management system accesses gridded data.  
@@ -98,51 +42,45 @@ code at the command line, type: _ "python template.py" _ .
     # Initial VCS:  
     v = vcs.init()
 
-The VCS module contains a list of persistent template objects. To view this
-list issue the "show" command.  
-
-    
+The VCS module contains a list of persistent template objects. To view this list issue the "show" command.  
     
     # Show the list of persistent templates.  
     v.show('template')  
     
-    
-    
     *Template Names List*  
-    (   1):                 ASD                ASD1               ASD10  
-    (   4):               ASD11               ASD12               ASD13     
-    (   7):               ASD14               ASD15           ASD1_of_2     
-    (  10):       ASD1_of_2_dud           ASD1_of_3       ASD1_of_3_dud     
-    (  13):           ASD1_of_4       ASD1_of_4_dud                ASD2     
-    (  16):           ASD2_of_2       ASD2_of_2_dud           ASD2_of_3     
-    (  19):       ASD2_of_3_dud           ASD2_of_4       ASD2_of_4_dud     
-    (  22):                ASD3           ASD3_of_3       ASD3_of_3_dud     
-    (  25):           ASD3_of_4       ASD3_of_4_dud                ASD4     
-    (  28):           ASD4_of_4       ASD4_of_4_dud                ASD5     
-    (  31):                ASD6                ASD7                ASD8     
-    (  34):                ASD9             ASD_dud             ASD_map     
-    (  37):         ASD_map1of2     ASD_map1of2_dud         ASD_map1of3     
-    (  40):     ASD_map1of3_dud         ASD_map1of4     ASD_map1of4_dud     
-    (  43):         ASD_map2of2     ASD_map2of2_dud         ASD_map2of3     
-    (  46):     ASD_map2of3_dud         ASD_map2of4     ASD_map2of4_dud     
-    (  49):         ASD_map3of3     ASD_map3of3_dud         ASD_map3of4     
-    (  52):     ASD_map3of4_dud         ASD_map4of4     ASD_map4of4_dud     
-    (  55):      BL_of6_1legend               BLof6      BR_of6_1legend     
-    (  58):               BRof6               LLof4           LLof4_dud     
-    (  61):               LRof4           LRof4_dud              ML_of6     
-    (  64):      ML_of6_1legend              MR_of6      MR_of6_1legend     
-    (  67):      UL_of6_1legend               ULof4           ULof4_dud     
-    (  70):               ULof6              UR_of6      UR_of6_1legend     
-    (  73):               URof4           URof4_dud        bold_bot_of3     
-    (  76):        bold_mid_of3        bold_top_of3       boldbot_of3_l     
-    (  79):       boldmid_of3_l       boldtop_of3_l             bot_of2     
-    (  82):             default         default_dud           hovmuller     
-    (  85):          mollweide2           no_legend          por_botof3     
-    (  88):      por_botof3_dud          por_midof3      por_midof3_dud     
-    (  91):          por_topof3      por_topof3_dud               quick     
-    (  94):             top_of2     
+    (   1):                 ASD                ASD1               ASD10
+    (   4):               ASD11               ASD12               ASD13
+    (   7):               ASD14               ASD15           ASD1_of_2
+    (  10):       ASD1_of_2_dud           ASD1_of_3       ASD1_of_3_dud
+    (  13):           ASD1_of_4       ASD1_of_4_dud                ASD2
+    (  16):           ASD2_of_2       ASD2_of_2_dud           ASD2_of_3
+    (  19):       ASD2_of_3_dud           ASD2_of_4       ASD2_of_4_dud
+    (  22):                ASD3           ASD3_of_3       ASD3_of_3_dud
+    (  25):           ASD3_of_4       ASD3_of_4_dud                ASD4
+    (  28):           ASD4_of_4       ASD4_of_4_dud                ASD5
+    (  31):                ASD6                ASD7                ASD8
+    (  34):                ASD9             ASD_dud             ASD_map
+    (  37):         ASD_map1of2     ASD_map1of2_dud         ASD_map1of3
+    (  40):     ASD_map1of3_dud         ASD_map1of4     ASD_map1of4_dud
+    (  43):         ASD_map2of2     ASD_map2of2_dud         ASD_map2of3
+    (  46):     ASD_map2of3_dud         ASD_map2of4     ASD_map2of4_dud
+    (  49):         ASD_map3of3     ASD_map3of3_dud         ASD_map3of4
+    (  52):     ASD_map3of4_dud         ASD_map4of4     ASD_map4of4_dud
+    (  55):      BL_of6_1legend               BLof6      BR_of6_1legend
+    (  58):               BRof6               LLof4           LLof4_dud
+    (  61):               LRof4           LRof4_dud              ML_of6
+    (  64):      ML_of6_1legend              MR_of6      MR_of6_1legend
+    (  67):      UL_of6_1legend               ULof4           ULof4_dud
+    (  70):               ULof6              UR_of6      UR_of6_1legend
+    (  73):               URof4           URof4_dud        bold_bot_of3
+    (  76):        bold_mid_of3        bold_top_of3       boldbot_of3_l
+    (  79):       boldmid_of3_l       boldtop_of3_l             bot_of2
+    (  82):             default         default_dud           hovmuller
+    (  85):          mollweide2           no_legend          por_botof3
+    (  88):      por_botof3_dud          por_midof3      por_midof3_dud
+    (  91):          por_topof3      por_topof3_dud               quick
+    (  94):             top_of2
     *End Template Names List*
-    
     
     # Assign the variable "t_asd" to the persistent 'ASD' template.  
     t_asd = v.gettemplate( 'ASD' )  
@@ -153,10 +91,7 @@ list issue the "show" command.
     # Plot the data using the above 'ASD' template.  
     v.plot( data, t_asd )
 
-_ ![Template_1](media/template_1)  
-_
-
-    
+![Template_1](media/images/template_1)  
     
     #############################################################################  
     # Show the many different ways to show the template members (attributes)  
@@ -176,12 +111,6 @@ _
     t_asd.file.list()               # list only file member and its values  
     t_asd.list('mean')              # list only mean member and its values  
     t_asd.mean.list()               # list only mean member and its values  
-    
-
-_  
-_
-
-    
     
     # Remove picture segments from the page.  
     t_asd.list( )  
@@ -237,11 +166,4 @@ _
     v.clear()  
     v.plot( data, t_asd )  
     
-
-_  
-_
-
-_ ![Template_2](media/template_2.png)  
-_
-
-[ ![Table of Contents](media/arrow-up) ](/)
+![Template_2](media/images/template_2.png)  

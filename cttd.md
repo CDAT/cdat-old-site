@@ -1,28 +1,18 @@
 ---
 layout: default
-title: 
+title: CTTD 
 ---
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/quick_reference/cdms/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  CDMS Quick Reference
+##  CDMS Quick Reference
 
 Quick reference for the CDMS module
 
-#   Files, (f)  
-
-    
+###   Files, (f)  
     
     f=cdms.open('myfile') # open the file 'myfile'
 
-#   Querying 
+###   Querying 
 
-  
-
-#  _ _ Global attributes  _ _
-
-    
+###  _ _ Global attributes  _ _
     
     f.showglobal() # print the file's defined global attributes  
     attdic=f.attributes # return a dictionnary of the file attributes  
@@ -30,61 +20,42 @@ Quick reference for the CDMS module
     nm=f.name # returns the value of an attribute (i.e. 'name'):  
     f.myattribute='my attribute value' # to set an attribute to a new value:
 
-##  _ _ Dimensions  _ _
-
-  
-
-    
+####  _ _ Dimensions  _ _
     
     dims=f.listdimension() # returns a list of the dimensions in the file  
-    dims=f.listdimension('myvar')# returns a list of the dims of variable&#160; 'myvar'
+    dims=f.listdimension('myvar')# returns a list of the dims of variable 'myvar'
 
-##  _ _ Variables  _ _
-
-    
+####  _ _ Variables  _ _
     
     f.showvariable() # print the list of all variables in the file  
     vardic=f.variables # returns a dictionary of the available variables  
     varlist=f.variables.keys() # returns a list of the available variables
 
 _ _ Variables in file: "File Variables"  _ _
-
-    
     
     dims=f.listdimension('myvar') # returns a list of the dimensions for 'myvar'  
     f.showdimension('myvar') # same  
     f.showattribute('myvar') # prints the attributes of 'myvar'  
-    f.showall("myvar') # prints details of the attr.s and dims of 'myvar'&#160;  
-      
-    
+    f.showall("myvar') # prints details of the attr.s and dims of 'myvar'  
 
-#   "Transient Variables" (=TV)   
-
-#   Retrieving 
-
-    
+###   "Transient Variables" (=TV)   
+###   Retrieving 
     
     tv=f('myvar') # gets 'myvar' from cdms file f  
     
-
 tv is now a TV containing the variable 'myvar' from the file 'myfile'
 
 Let's say 'myvar' is 3D: time/latitude/longitude, if we wish to retrieve the
 longitude from -180 to 180:
-
-    
     
     s=f('myvar',longitude=(-180,180))
 
 Note that by default the retrieval edges are _ c _ losed/ _ o _ pen, i.e the
 second value is not included in the retrieval procedure, if we wish to
 retrieve 180 then we would pass:
-
-    
     
     s=f('myvar',longitude=(-180,180,'cc'))   
     
-
 i.e.: _ c _ losed/ _ c _ losed
 
 Also cdms knows that the axis is circular, therefore even if the data are
@@ -93,16 +64,12 @@ stored from 0 to 360, the extraction will be done correctly
 Finally the procedure is the same for all dimension and can be mixed, for
 example the following are equivalent and retrieve the longitude from -180 to
 180 (not included), the latitudes from -20 to 20 (included) and all the times:
-
-    
     
     s=f('myvar',longitude=(-180,180),latitude=(-20,20,'cc'))  
     s=f('myvar',latitude=(-20,20,'cc'),longitude=(-180,180))
 
 If you don't know the dimension name but know in which order they are stored
 you can do:
-
-    
     
     s=f('myvar',(':'),(-20,20,'cc'),(-180,180))
 
@@ -111,15 +78,11 @@ Note that (':') indicates that you want all the values of the first dimension.
 Alternatively you can specifiy to retrieve a dimension by index, using the
 "Slice" function for example to get only the first 12 time step on the
 previous example you could do:
-
-    
     
     s=f('myvar',slice(0,12),(-20,20,'cc'),(-180,180))
 
 Finally the time dimension accepts cdtime objects as arguments example to
 retrieve all the data in the year 1980 we would do:
-
-    
     
     import cdtime  
     t1=cdtime.comptime(1980) # or t1=cdtime.reltime(12,'months since 1979')  
@@ -128,18 +91,14 @@ retrieve all the data in the year 1980 we would do:
 
 Now note that a sub selection of any TV is doable using the same syntax as for
 a file i.e.:
-
-    
     
     s2=s(latitude=(-20,20,'cc')) # get all the latitude in the range -20,20
 
-#   Querying  
+###   Querying  
 
 Querying a TV is similar to querying a file
-
     
-    
-    attdic=s.attributes&#160;# returns a dictionary  
+    attdic=s.attributes# returns a dictionary  
     attlist=s.listattributes() # return a list of the variable attribute  
     attlist=s.attributes.keys() # same  
     dimnames=s.getAxisIds() # returns al ist of the dimensions names  
@@ -148,13 +107,8 @@ Querying a TV is similar to querying a file
 
   
 
-#   Dimension=Axis  
-
-##     Retrieving  
-
-  
-
-    
+###  Dimension=Axis  
+####     Retrieving  
     
     ax=s.getAxis(0) # returns the axes for 0th dimension  
     itim=s.getAxisIndex('time') # returns the index of the  
@@ -162,10 +116,9 @@ Querying a TV is similar to querying a file
     'time'tim=s.getTime() # returns the time axis  
     lev=s.getLevel() # return the level axis  
     lat=s.getLatitude() # return the latitude axis  
-    lon=s.getLongitude() # return the longitude axis&#160;
+    lon=s.getLongitude() # return the longitude axis
 
  Querying  
-    
     
     id=ax.id # returns the name of the axis  
     val=ax[:] # return a list of the axes values  
@@ -178,9 +131,7 @@ Querying a TV is similar to querying a file
     ax.isCircular() # returns 1 if the axis is circular  
     ax.modulo # returns the value of the modulo (for circular axis)
 
-#   Altering  
-
-    
+###   Altering  
     
     ax[:]=newvalues #to change the values of an axis (Ax):  
     ax.id='my new name' # Changes the axes name/id  
@@ -190,14 +141,9 @@ Querying a TV is similar to querying a file
     ax.designateLevel() # sets the axis as designating levels  
     ax.designateLatitude() # sets the axis as designating latitude  
     ax.designateLongitude() # sets the axisas designating longitude  
-    ax.designateCircular(value) # sets the axis as circular, modulo "value"&#160;
+    ax.designateCircular(value) # sets the axis as circular, modulo "value"
 
-   
-
-
- Writing data to a file  
-
- 
+Writing data to a file  
 
 Let's suppose we have a TV having the dimensions: time,latitude,longitude,
 with the dimension set unproperly, and we want to write this TV (let's call it
@@ -206,22 +152,16 @@ tv) to a file. Let's assume the shape is 12,64,128and the grid is gaussian T42
 
 1-Preparing the dimensions/axis
 
-    
-    
     time=cdms.createAxis(range(12)) # Create the "raw" axis
-    
     
     time.id='time'  
     # set the name
     
-    
     time.units='months  
     since 2000'
     
-    
     time.designateTime()  
     # specifiy the axis as "time" (independantly from the name)
-    
     
     lons=MV.arange(128,typecode=MV.Float)*2.8125-180. # create the values for the longitudes  
     lon=cdms.createAxis(lons)  
@@ -235,8 +175,6 @@ tv) to a file. Let's assume the shape is 12,64,128and the grid is gaussian T42
     lat.setBounds(bnd) # reset the bounds
 
 2- Setting the axes into the TV (tv)
-
-    
     
     tv.setAxis(0,time)  
     tv.setAxis(1,lat)  
@@ -247,8 +185,6 @@ tv) to a file. Let's assume the shape is 12,64,128and the grid is gaussian T42
     tv.setAxisList([time,lat,lon])
 
 3- Writing to the file
-
-    
     
     f=cdms.open('myfile.nc','w') # to create a new dataset   
     f=cdms.open('myfile.nc','r+') # to open an existing file   
@@ -260,24 +196,20 @@ tv) to a file. Let's assume the shape is 12,64,128and the grid is gaussian T42
 4- Unlimited dimension
 
 by default time is set as unlimted and can be extended for example:
-
-    
     
     for i in range(len(time)):  
-    &#160;&#160;&#160; t=tv[i]  
+     t=tv[i]  
         f=cdms.open('myfile.nc','r+')  
-    &#160;&#160;&#160; f.write(t)  
-    &#160;&#160;&#160; f.close()
+     f.write(t)  
+     f.close()
 
 would write all the time one after the other, even though it doesn't make
 sense to open and close the file everytime !
 
 5- Full form of the write function
-
-    
     
     fv = write(var, attributes=None, axes=None, extbounds=None, id=None, extend=None, fill_value=None, index=None)  
-    &#8226;var is a variable or array.  
-    &#8226;attributes: is the attribute dictionary for the variable. Use this to specify attributes if var is a masked or Numeric array.  
-    &#8226;axes is the list of file axes comprising the domain of the variable. Use this to set the axes if var is a masked or Numeric array.  
-    &#8226;extbounds is the extended dimension bounds. Default: var.getAxis(0).getBounds()  
+      var is a variable or array.  
+      attributes: is the attribute dictionary for the variable. Use this to specify attributes if var is a masked or Numeric array.  
+      axes is the list of file axes comprising the domain of the variable. Use this to set the axes if var is a masked or Numeric array.  
+      extbounds is the extended dimension bounds. Default: var.getAxis(0).getBounds()  

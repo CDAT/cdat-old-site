@@ -1,55 +1,11 @@
 ---
 layout: default
-title: 
+title: Create Var Scratch 
 ---
-
-
-      * [ f2py - Wrapping Fortran Code ](/cdat/tutorials/f2py-wrapping-fortran-code)
-
-    * [ Quick Reference ](/cdat/quick_reference)
-
-    * [ FAQ ](/cdat/FAQ)
-
-    * [ Manuals ](/cdat/manuals)
-
-    * [ Tips and Tricks ](/cdat/tips_and_tricks)
-
-    * [ Source Code ](/cdat/source)
-
-    * [ Contact Us ](/cdat/contact-us)
-
-    * [ Documents ](/cdat/docs)
-
-    * [ Support ](/cdat/support)
-
-  * [ CMOR ](/cmor)
-
-  * [ IPCC AR4 Model Data Portal ](/esg_data_portal)
-
-  * [ About Us ](/about)
-
-  * [ Newsletter ](/Newsletter)
-
-[ News ](/news)
-
-     [ ![](media/newsitem_icon.gif) CDAT Newsletter, June 2007  2007-06-26  ](/Newsletter/Vol3/index_d.html)
-     [ ![](media/newsitem_icon.gif) CDAT 4.1.2 Released  2006-06-07  ](/cdat_4_1_2)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Released  2005-11-21  ](/cdat_4_0)
-     [ ![](media/newsitem_icon.gif) PCMDI Software Portal Released  2005-09-28  ](/software_portal_release)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Beta Released  2005-09-28  ](/cdat_4_0_beta)
-     [ More news&#8230; ](/news)
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/tutorials/cdatbasics/variablesandaxes/createvarscratch/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  Creating a Variable From Scratch - Part 1
+##  Creating a Variable From Scratch - Part 1
 
 In this tutorial we show how to create a variable from some data and set some
 attributes on it.
-
-    
     
     import cdms, MV  
       
@@ -85,4 +41,8 @@ attributes on it.
     # Ok now we are adding "descriptive" attributes that would be useful to remember  
     my_array.history='first i created a list and then converted to MV and changed name and type'  
       
-    # At this point we should also change the axis but this is for another tutorials  
+    # At this point we should also change the axis but this is for another tutorials 
+    # We will  quickly save it into a new file for future use
+    f=cdms.open('results.nc','w')
+    f.write(my_array)
+    f.close() 

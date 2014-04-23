@@ -1,21 +1,14 @@
 ---
 layout: default
-title: 
+title: Taylor Diagram 
 ---
 
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/quick_reference/controlling-the-aspect-of-the-taylor-diagram/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  Controlling The Aspect of the Taylor diagram
+## Controlling The Aspect of the Taylor diagram
 
 example to show how to control the taylordiagram aspects, also show a trick to
 have 2 datasets plotted
 
-The following example shows how to control aspect of a taylordiagram plot ( [
-see image here ](/taylor.png) )  
-
-    
+The following example shows how to control aspect of a taylordiagram plot ([see image here](media/images/taylor.png))
     
     import vcs,MV2
     
@@ -92,3 +85,7 @@ see image here ](/taylor.png) )
     # ok now plots the first half of data with these
     x.plot(data[2:],t2,td2)
     raw_input()
+
+and here is the result:
+
+![](media/images/taylor.png)
