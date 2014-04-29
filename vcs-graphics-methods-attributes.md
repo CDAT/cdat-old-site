@@ -1,52 +1,10 @@
 ---
 layout: default
-title: 
+title: VCS Boxfill
 ---
 
-
-    * [ Contact Us ](/cdat/contact-us)
-
-    * [ Documents ](/cdat/docs)
-
-    * [ Support ](/cdat/support)
-
-  * [ CMOR ](/cmor)
-
-  * [ IPCC AR4 Model Data Portal ](/esg_data_portal)
-
-  * [ About Us ](/about)
-
-  * [ Newsletter ](/Newsletter)
-
-[ News ](/news)
-
-     [ ![](media/newsitem_icon.gif) CDAT Newsletter, June 2007  2007-06-26  ](/Newsletter/Vol3/index_d.html)
-     [ ![](media/newsitem_icon.gif) CDAT 4.1.2 Released  2006-06-07  ](/cdat_4_1_2)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Released  2005-11-21  ](/cdat_4_0)
-     [ ![](media/newsitem_icon.gif) PCMDI Software Portal Released  2005-09-28  ](/software_portal_release)
-     [ ![](media/newsitem_icon.gif) CDAT 4.0 Beta Released  2005-09-28  ](/cdat_4_0_beta)
-     [ More news&#8230; ](/news)
-
-#####  Document Actions
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/tutorials/getting-started/vcs-graphics-methods-attributes/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  VCS Boxfill Graphics Methods Attributes
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/data-plot-extremes)
-
-[ ![Next](media/arrow-right) ](/multiple-plots)
-
-[ Contents ](/)
-
-[ Previous ](/data-plot-extremes)
-
-[ Next ](/multiple-plots)
-
- Goal:  To introduce you to VCS Boxfill graphics methods (GM) and setting its attributes. 
+##  VCS Boxfill Graphics Methods Attributes
+Goal:  To introduce you to VCS Boxfill graphics methods (GM) and setting its attributes. 
 
 Reselect the "clt" Variable in the "Variable" selection window. This will
 reinitialize the "Dimension Manipulation Panel". Select the orange "Plot"
@@ -60,11 +18,10 @@ on the VCS Canvas.
   
 To modify graphics method attributes, depress the "Option" menu to the right
 of "VCS Canvas 1". Then move the pointer over the "Set Graphics Methods
-Attributes&#8230;" item and select.  
+Attributes;" item and select.  
 
 ![Graphics_9](media/graphics_9)
 
-  
 The "Graphics Method Attribute Settings" window will appear. See figure 20.
 The "Boxfill" graphics method tab is selected by default.  
 
@@ -72,7 +29,7 @@ To view and change the graphics method attribute, select the appropriate
 graphics method tab at the top of the GUI (e.g., "Boxfill", "Continents",
 "Contour", etc.). If "Boxfill" is not selected, then select the "Boxfill" tab.  
 
-_ Log10 Boxfill: _  
+##Log10 Boxfill:
 There are three Boxfill types. Change the "Boxfill type" to "log10", then
 change "Color 1" value to 55 and "Color 2" value to 200. Select the "Preview"
 button at the bottom of the page. See figure 21. Note, the color index values
@@ -80,7 +37,7 @@ ranges from 0 to 255. Color index values 240 through 255 are immutable color
 indexes. For more information on color indexes and the color map, please see
 the color map section.
 
-_ Custom Boxfill: _  
+##Custom Boxfill:
 Select "custom" for the "Boxfill type". (You may need to scroll the GUI scroll
 bar located at the bottom to the right in order to see the "custom" toggle
 button.) From the original boxfill plot, we know that the data ranges from 0
@@ -97,7 +54,7 @@ enter: 80. For the "Number of Intervals section enter: 10. Now select the
 automatically generated for you. Select the "Preview" button below to view the
 changes. See figure 23.  
 
-_ Linear Boxfill: _  
+##Linear Boxfill:
 Select the "Reset" button at the bottom of the GUI. This action will redisplay
 the plot with its original default settings. In the "General Settings"
 section, for the "Legend Labels" enter: (20:'twenty', 40:'forty', 60:'sixty',
@@ -109,24 +66,20 @@ Before exiting the GUI, select the "Cancel button. Do not save the settings.
 
 ![Graphics_method_1](media/graphics_method_1)
 
-Figure 20.&#160; Display results from selecting the "Set Graphics Method
-Attributes..." menu option.  
+Figure 20. Display results from selecting the "Set Graphics Method Attributes..." menu option.  
 
 ![Graphics_method_2](media/graphics_method_2)  
+
 Figure 21. "log10" display results.  
 
 ![Graphics_method_3](media/graphics_method_3)  
+
 Figure 22. "custom" display results.  
 
 ![Graphics_method_5](media/graphics_method_5)  
-Figure 23. "custom" display results with automatic generation of ranges and
-colors.  
+
+Figure 23. "custom" display results with automatic generation of ranges and colors.  
 
 ![Graphics_method_5](media/graphics_method_4)  
+
 Figure 24. "linear" display results with "legend Labels" changes.  
-
-[ ![Table of Contents](media/arrow-up) ](/)
-
-[ ![Previous](media/arrow-left) ](/data-plot-extremes)
-
-[ ![Next](media/arrow-right) ](/multiple-plots)

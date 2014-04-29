@@ -12,7 +12,7 @@ Quick reference for the CDMS module
 
 ###   Querying 
 
-###  _ _ Global attributes  _ _
+###  Global attributes 
     
     f.showglobal() # print the file's defined global attributes  
     attdic=f.attributes # return a dictionnary of the file attributes  
@@ -20,12 +20,12 @@ Quick reference for the CDMS module
     nm=f.name # returns the value of an attribute (i.e. 'name'):  
     f.myattribute='my attribute value' # to set an attribute to a new value:
 
-####  _ _ Dimensions  _ _
+#### Dimensions
     
     dims=f.listdimension() # returns a list of the dimensions in the file  
     dims=f.listdimension('myvar')# returns a list of the dims of variable 'myvar'
 
-####  _ _ Variables  _ _
+#### Variables
     
     f.showvariable() # print the list of all variables in the file  
     vardic=f.variables # returns a dictionary of the available variables  

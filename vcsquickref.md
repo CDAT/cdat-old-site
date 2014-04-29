@@ -1,21 +1,15 @@
 ---
 layout: default
-title: 
+title: VCS Reference
 ---
-
-  * [ ![Send this page to somebody](media/mail_icon.gif) ](/cdat/quick_reference/vcsquickref/sendto_form)
-  * [ ![Print this page](media/print_icon.gif) ](/this.print\(\))
-
-#  VCS Quick Reference
+##  VCS Quick Reference
 
 Quick Reference for VCS Module
 
- [ PDF Version Here ](/vcs_quick_ref.pdf)   
+[PDF Version Here](meida/pdf/vcs_quick_ref.pdf)
   
-VCS Module 
-
- Functions 
-    
+###VCS Module 
+####Functions 
     
     x=vcs.init() # Creates new Canvas
     vcs.pause(n) # n seconds pause
@@ -27,8 +21,7 @@ VCS Module
     vcs.colors.rgb2str(r,g,b)  # returns 'name' of closest color from rgb (255 values)
     vcs.colors.str2rgb('name') # corresponding r,g,b values
 
- Queries 
-    
+#### Queries 
     
     vcs.isgraphicmethod() # 1/0
     vcs.is[graphicmethod]()#1/0
@@ -39,10 +32,8 @@ VCS Module
     vcs.isplot()
     vcs.graphicsmethodtype(gm)#returns graphic method type (boxfill,...)
 
- VCS Canvas (x=vcs.init) 
-
- Functions 
-    
+###VCS Canvas (x=vcs.init) 
+#### Functions 
     
     x.open/clear/close()
     x.plot(slab,[grid=grd],[graphic method],[template object],...)
@@ -68,16 +59,14 @@ VCS Module
     x.viewport = [0,1,0,1]
     x.worldcoordinates = [x1,x2,y1,y2]&#160;
 
- GUI 
-    
+#### GUI 
     
     x.colormapgui()
     x.animate()
     x.projectiongui()
     x.graphicsmethodgui()&#160;
 
- Output 
-    
+#### Output 
     
     x.printer(printername,['p'/'l') # p/l: portrait/landscape
     x.postscript(filename[.ps],['p'/'l']) # p/l: portrait/landscape
@@ -90,10 +79,9 @@ VCS Module
     x.backing_store()
     x.showbg() # Show picture if plots we bg=1
 
- Querying 
+#### Querying 
 
- (x=vcs.init(), gm is a graphics method) 
-    
+    (x=vcs.init(), gm is a graphics method) 
     
     gm.list() #list the option for a vcs object and the values they're set to
     x.isgraphicsmethod(gm) # 1 if it is a graphicsmethod, 0 if not
@@ -111,16 +99,14 @@ VCS Module
     x.iscanvasdisplayed() #1/0
     x.match_color(rbg/name,colormap='default')# Returns the color number that is closer from the requested color 
 
- Help (x=vcs.init(), gm is a graphics method) 
-    
+#### Help (x=vcs.init(), gm is a graphics method) 
     
     x.objecthelp(vcs object) #print the help for vcs object
     vcs.help('function') # print the help for the vcs function
     gm.list() #list the option for a vcs object and the values they're set to.
     anypyobject.__doc__ #Any python object built in documentation
 
- Scripting 
-    
+#### Scripting 
     
     x.scriptrun('name of vcs script') #reads a vcs script
     x.scriptsave('name',['a/w']) #save the state of the system a/w: append (def)/replace
@@ -130,17 +116,14 @@ VCS Module
     vcsobject_.script ('file[.scr]','a/w') #save the vcs object to file, a/w:append (def)/replace
     x.isinfile(graphicmethodobject)
 
- Graphics Methods (x=vcs.init())   
-Creating/Retrieving/Deleting 
-
-    
+#### Graphics Methods (x=vcs.init())   
+####Creating/Retrieving/Deleting 
     
     x.create"graphicsmethod"('name','name to copy from')
     x.get"graphicsmethod"('name')
     x.removeobject (object)
 
- Common Attributes 
-    
+####Common Attributes 
     
     name = 'name'
     projection = projection # see next section
@@ -149,10 +132,8 @@ Creating/Retrieving/Deleting
     datawc_x[y]1[2] = value # World coordinates
     x[y]axisconvert = 'linear', 'log10', 'ln', 'exp', or 'area_wt'&#160;
 
- Specific Attributes 
-
- isofill/boxfill/meshfill 
-    
+####Specific Attributes 
+####isofill/boxfill/meshfill 
     
     levels = [list] or (tuple) # ex [10,20,30] or [(20,30),(50,60)]
     fillareacolors = [list] or (tuple) # 0 <= values <= 255
@@ -163,8 +144,7 @@ Creating/Retrieving/Deleting
     ext_2 = 'n' / 'y' # Right arrow (off/on)
     missing = 0 <= value <= 255 # color of missing value
 
- boxfill 
-    
+####boxfill 
     
     level_1 = value # Plot data greater than level_1
     level_2 = value # Plot data lower than level_2
@@ -172,14 +152,12 @@ Creating/Retrieving/Deleting
     color_2 = 0 <= value <= 255 # last color in palette
     boxfill_type = 'linear', 'log10' or 'custom'
 
- meshfill 
-    
+####meshfill 
     
     mesh = 'n' or 'y' # Show the mesh
     wrap = None or [Y,X] # Wrapping value on [Y,X]
 
- isoline 
-    
+####isoline 
     
     level = [list] or (tuple) # ex [10,20,30] or [(20,30),(50,60)]
     label = 'n','y' or 0,1
@@ -188,8 +166,7 @@ Creating/Retrieving/Deleting
     text = 0<=values<=9 or texttable or textorientation object
     textcolors = [values] or from the objects passed to text
 
- vector 
-    
+####vector 
     
     line = line object or value in line.type (0<=value<=4)
     linecolor =[list] or (tuple) 0 <= values <= 255
@@ -198,8 +175,7 @@ Creating/Retrieving/Deleting
     type = "arrows", "barbs", "solidarrows" (or 0, 1, 2)
     reference = value
 
- continents 
-    
+####continents 
     
     line = line object or value in line.type (0<=value<=4)
     linecolor =[list] or (tuple) 0 <= values <= 255
@@ -209,8 +185,7 @@ Creating/Retrieving/Deleting
     markercolor =[list] or (tuple) 0 <= values <= 255
     markersize = 1 <= value <= 300
 
- xvsy/xyvsy/yxvsx 
-    
+####xvsy/xyvsy/yxvsx 
     
     line = line object or value in line.type (0<=value<=4)
     linecolors =[list] or (tuple) 0 <= values <= 255
@@ -218,23 +193,20 @@ Creating/Retrieving/Deleting
     markercolor =[list] or (tuple) 0 <= values <= 255
     markersize = 1 <= value<= 300
 
- outfill 
-    
+####outfill 
     
     fillareacolor = [list] or (tuple) 0 <= values <= 255
     fillareastyle = 'solid', 'hatch', or 'pattern'
     fillareaindex = 1 <= value <= 17 or fillarea obects
     outfill = values
 
- outline 
-    
+####outline 
     
     line = line object or value in line.type (0<=value<=4)
     linecolor =[list] or (tuple) 0 <= values <= 255
     outline = values
 
- taylordiagram 
-    
+####taylordiagram 
     
     detail = 75 # Graphic detail
     max = None # Maximum value of standard deviation arc
@@ -269,8 +241,7 @@ Creating/Retrieving/Deleting
     &#160;&#160;&#160; line_size =&#160; []
     &#160;&#160;&#160; line_type =&#160; []
 
- Template 
-    
+####Template 
     
     name = `name'
     file
@@ -305,18 +276,15 @@ Creating/Retrieving/Deleting
     line1[/2/3/4] ...same...
     box1[2/3/4] ...same...
 
- Secondary Methods 
-
- ALL (except projection) 
-    
+####Secondary Methods 
+####ALL (except projection) 
     
     name = 'name'
     projection = projectionobject or 'projectionname' (see next page)
     viewport = [0,1,0,1] # in % of page
     worldcoordinate = [0,1,01] # [x1,X2,Y1,Y2]
 
- textorientation (To) 
-    
+####textorientation (To) 
     
     height = 1 <= value <= 100
     angle = 0 <= value<= 360
@@ -324,22 +292,20 @@ Creating/Retrieving/Deleting
     halign = 'left','center','right' or (0,1,2)
     valign = 'top','cap','half','base','bottom' or (0,1,2,3,4)
 
- texttable (Tt) 
-    
+####texttable (Tt) 
     
     font = 1 <= value <= 9
     spacing = -50 <= value <= 50
     expansion = 50 <= value <= 150
     color = 0 <= value <= 255
 
- line (Tl) 
-    
+####line (Tl) 
     
     type = 'solid', 'dash', 'dot', 'dash-dot', 'long-dash' or (0, 1, 2, 3, 4)
     width = 1 <= value <= 300
     color = 0 <= value <= 255
 
- marker (Tm) 
+####marker (Tm) 
     
     
     type = 'dot', 'plus', 'star', 'circle', 'cross', 
@@ -350,7 +316,7 @@ Creating/Retrieving/Deleting
     width = 1 <= value <= 300
     color = 0 <= value <= 255
 
- fillarea(Tf) 
+#### fillarea(Tf) 
     
     
     name ='name'
@@ -358,7 +324,7 @@ Creating/Retrieving/Deleting
     style = 'solid', 'hatch', or 'pattern'
     index = 1 <= value <= 17
 
- Projections (Proj) 
+#### Projections (Proj) 
     
     
     name = 'name' # reserved names: 'linear','moleweide','robinson','polar'
@@ -366,346 +332,226 @@ Creating/Retrieving/Deleting
     parameters = 15 # parameters list, 1.e20 value = automatic 
     or set an individual parameter name as listed bellow with itsdefault value
 
- type = 1/2 ; utm/state plane 
-
-Not   Implemented
-
- type = 3 ; albers equal area 
-
-smajor = 1e+20
-
-sminor = 1e+20
-
-standardparallel1 = 1e+20
-
-standardparallel2 = 1e+20
-
-centralmeridian = 1e+20
-
-originlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type=4 lambert conformal c 
-
-smajor = 1e+20
-
-sminor = 1e+20
-
-standardparallel1 = 1e+20
-
-standardparallel2 = 1e+20
-
-centralmeridian = 1e+20
-
-originlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 5 , mercator 
-
-smajor = 1e+20
-
-sminor = 1e+20
-
-centralmeridian = 1e+20
-
-truescale = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 6, polar stereographic 
-
-smajor = 1e+20
-
-sminor = 1e+20
-
-centerlongitude = 1e+20
-
-truescale = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 7, polyconic 
-
-smajor = 1e+20
-
-sminor = 1e+20
-
-centralmeridian = 1e+20
-
-originlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 8, equid conic 
-
-subtype = 0
-
-smajor = 1e+20
-
-sminor = 1e+20
-
-centralmeridian = 1e+20
-
-originlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
-standardparallel = 1e+20
-
- type 9, transverse mercator 
-
-smajor = 1e+20
-
-sminor = 1e+20
-
-factor = 1e+20
-
-centralmeridian = 1e+20
-
-originlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 10, stereographic 
-
-sphere = 1e+20
-
-centerlongitude = 1e+20
-
-centerlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 11, lambert azimuthal 
-
-sphere = 1e+20
-
-centerlongitude = 1e+20
-
-centerlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 12, azimutal 
-
-sphere = 1e+20
-
-centerlongitude = 1e+20
-
-centerlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 13 gnomonic 
-
-sphere = 1e+20
-
-centerlongitude = 1e+20
-
-centerlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 14, orthographic 
-
-sphere = 1e+20
-
-centerlongitude = 1e+20
-
-centerlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 15, gen. vert. near per 
-
-sphere = 1e+20
-
-height = 1e+20
-
-centerlongitude = 1e+20
-
-centerlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 16, sinusoidal 
-
-sphere = 1e+20
-
-centralmeridian = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 17, equirectangular 
-
-sphere = 1e+20
-
-centralmeridian = 1e+20
-
-truescale = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 18, miller cylindrical 
-
-sphere = 1e+20
-
-centralmeridian = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 19, van der grinten 
-
-sphere = 1e+20
-
-centralmeridian = 1e+20
-
-originlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 20, hotin oblique merc 
-
-subtype = 0
-
-smajor = 1e+20
-
-sminor = 1e+20
-
-factor = 1e+20
-
-originlatitude = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
-longitude1 = 0
-
-latitude1 = 1e+20
-
-longitude2 = 1e+20
-
-latitude2 = 1e+20
-
- type 21, space oblique merc 
-
- robinson 
-
-sphere = 1e+20
-
-centralmeridian = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
-type 21, subtype = 0
-
-smajor = 1e+20
-
-sminor = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
-orbitinclination = 1e+20
-
-orbitlongitude = 1e+20
-
-satelliterevolutionperiod = 0
-
-landsatcompensationratio = 1e+20
-
-pathflag = 1e+20
-
- type 23,alaska conformal 
-
-smajor = 1e+20
-
-sminor = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 24, interrupted goode 
-
-sphere = 1e+20
-
-type 25,  Interrupt mollweide
-
-sphere = 1e+20
-
-centralmeridian = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 27, hammer 
-
-sphere = 1e+20
-
-centralmeridian = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 28/29,wagner iv/vii 
-
-sphere = 1e+20
-
-centralmeridian = 1e+20
-
-falseeasting = 1e+20
-
-falsenorthing = 1e+20
-
- type 30, oblated equal area 
-
-sphere = 1e+20
-
-shapem = 1e+20
-
-shapen = 1e+20
-
-centerlongitude = 1e+20
+#### type = 1/2 ; utm/state plane 
+
+    Not   Implemented
+
+#### type = 3 ; albers equal area 
+
+    smajor = 1e+20
+    sminor = 1e+20
+    standardparallel1 = 1e+20
+    standardparallel2 = 1e+20
+    centralmeridian = 1e+20
+    originlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type=4 lambert conformal c 
+
+    smajor = 1e+20
+    sminor = 1e+20
+    standardparallel1 = 1e+20
+    standardparallel2 = 1e+20
+    centralmeridian = 1e+20
+    originlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 5 , mercator 
+
+    smajor = 1e+20
+    sminor = 1e+20
+    centralmeridian = 1e+20
+    truescale = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 6, polar stereographic 
+
+    smajor = 1e+20
+    sminor = 1e+20
+    centerlongitude = 1e+20
+    truescale = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 7, polyconic 
+
+    smajor = 1e+20
+    sminor = 1e+20
+    centralmeridian = 1e+20
+    originlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 8, equid conic 
+
+    subtype = 0
+    smajor = 1e+20
+    sminor = 1e+20
+    centralmeridian = 1e+20
+    originlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+    standardparallel = 1e+20
+
+#### type 9, transverse mercator 
+
+    smajor = 1e+20
+    sminor = 1e+20
+    factor = 1e+20
+    centralmeridian = 1e+20
+    originlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 10, stereographic 
+
+    sphere = 1e+20
+    centerlongitude = 1e+20
+    centerlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+  
+#### type 11, lambert azimuthal 
+
+    sphere = 1e+20
+    centerlongitude = 1e+20
+    centerlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 12, azimutal 
+
+    sphere = 1e+20
+    centerlongitude = 1e+20
+    centerlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 13 gnomonic 
+
+    sphere = 1e+20
+    centerlongitude = 1e+20
+    centerlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 14, orthographic 
+
+    sphere = 1e+20
+    centerlongitude = 1e+20
+    centerlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 15, gen. vert. near per 
+
+    sphere = 1e+20
+    height = 1e+20
+    centerlongitude = 1e+20
+    centerlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 16, sinusoidal 
+
+    sphere = 1e+20
+    centralmeridian = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 17, equirectangular 
+
+    sphere = 1e+20
+    centralmeridian = 1e+20
+    truescale = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+  
+#### type 18, miller cylindrical 
+
+    sphere = 1e+20
+    centralmeridian = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 19, van der grinten 
+
+    sphere = 1e+20
+    centralmeridian = 1e+20
+    originlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 20, hotin oblique merc 
+
+    subtype = 0
+    smajor = 1e+20
+    sminor = 1e+20
+    factor = 1e+20
+    originlatitude = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+    longitude1 = 0
+    latitude1 = 1e+20
+    longitude2 = 1e+20
+    latitude2 = 1e+20
+
+#### type 21, space oblique merc 
+
+    robinson 
+    sphere = 1e+20
+    centralmeridian = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+    type 21, subtype = 0
+    smajor = 1e+20
+    sminor = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+    orbitinclination = 1e+20
+    orbitlongitude = 1e+20
+    satelliterevolutionperiod = 0
+    landsatcompensationratio = 1e+20
+    pathflag = 1e+20
+
+#### type 23,alaska conformal 
+
+    smajor = 1e+20
+    sminor = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 24, interrupted goode 
+
+    sphere = 1e+20
+
+####type 25,  Interrupt mollweide
+
+    sphere = 1e+20
+    centralmeridian = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+    
+#### type 27, hammer 
+
+    sphere = 1e+20
+    centralmeridian = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 28/29,wagner iv/vii 
+
+    sphere = 1e+20
+    centralmeridian = 1e+20
+    falseeasting = 1e+20
+    falsenorthing = 1e+20
+
+#### type 30, oblated equal area 
+
+    sphere = 1e+20
+    shapem = 1e+20
+    shapen = 1e+20
+    centerlongitude = 1e+20
