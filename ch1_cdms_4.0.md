@@ -1,6 +1,6 @@
 ---
 layout: default
-title: CDAT CDMS ch1
+title: CDAT CDMS Chapter 1
 ---
 
 ## CHAPTER 1
@@ -23,7 +23,7 @@ Internet. For example, see <http://python.org>.
 
 The basic unit of computation in CDMS is the variable. A variable is
 essentially a multidimensional data array, augmented with adomain, a set
-ofattributes, and optionally a spatial and/or temporalcoordinate system_
+of attributes, and optionally a spatial and/or temporal coordinate system
 (see Coordinate Axes on page 11). As a data array, a variable can be
 sliced to obtain a portion of the data, and can be used in arithmetic
 computations. For example, if   u   and   v   are variables
