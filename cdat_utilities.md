@@ -16,8 +16,6 @@ Lawrence Livermore National Laboratory
 Livermore, CA 94550      
 United States of America      
   
-[http:/cdat.sf.net](http:/cdat.sf.net)    
-  
 11/1/02      
   
 Legal Notice    
