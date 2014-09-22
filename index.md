@@ -18,7 +18,7 @@ CDAT's&#160; major subsystems are:
 * [cdms](ch1_cdms_4.0.html) \- Climate Data Management System (file I/O,&#160; variables, types, metadata, grids)
 * [cdutil](cdat_utilities.html) \- Climate Data Specific Utilities (spatial and temporal averages, custom seasons, climatologies)
 * [genutil](cdat_utilities-2.html) \- General Utilities (statistical and other convenience functions)
-* [numPy ](http://numeric.scipy.org/) \- Numerical Python _ (large-array numerical operations)
+* [numPy ](http://www.numpy.org/) \- Numerical Python _ (large-array numerical operations)
 * [vcs](http://www-pcmdi.llnl.gov/software/cdat/support/vcs/vcs.html) \- Visualization and Control System (manages graphical window: picture template, graphical methods, data)
 
 [VCDAT](what-is-vcdat.html) is the graphical
