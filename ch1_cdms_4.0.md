@@ -15,13 +15,13 @@ climate analysis and simulation.
 
 CDMS is implemented as part of the Climate Data Analysis Tool (CDAT), which
 uses the Python language. The examples in this chapter assume some familiarity
-with the language and the Python Numeric module (http:// numpy.sf.net). A
+with the language and the Python Numeric module (http://www.numpy.org). A
 number of excellent tutorials on Python are available in books or on the
-Internet. For example, see http://python.org .
+Internet. For example, see <http://python.org>.
 
 ####1.2 Variables
 
-The basic unit of computation in CDMS is thevariable. A variable is
+The basic unit of computation in CDMS is the variable. A variable is
 essentially a multidimensional data array, augmented with adomain, a set
 ofattributes, and optionally a spatial and/or temporalcoordinate system_
 (see Coordinate Axes on page 11). As a data array, a variable can be
