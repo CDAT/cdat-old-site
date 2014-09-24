@@ -511,6 +511,14 @@ yxvsy()
 
 plot data using the yxvsy graphics method
 
+scalar3D()
+
+plot data using the 3d_scalar graphics method
+
+vector3D()
+
+plot data using the 3d_vector graphics method
+
 ######  Checking VCS Objects
 
 In some cases, there my be a need to check or verify an object in VCS. For
