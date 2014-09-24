@@ -406,32 +406,83 @@ Constructor | Description
 
 ######Table 2.14 CdmsFile Methods
 
-{:.table}
-Type | Method | Definition
-:--- | :--- | :---
-`Transient-Variable` | `fileobj(varname, selector)` | Calling a `CdmsFile` object as a function reads the region of data specified by the `selector`. The result is a transient variable, unless `raw = 1` is specified. See "Selectors" on page 103.
-|| **Example:** The following reads data for variable 'prc', year 1980:
-|| `f = cdms.open('test.nc')`
-|| `x = f('prc', time=('1980-1','1981-1'))`
-`Variable`, `Axis`, or `Grid` | `fileobj['id']` | Get the persistent variable, axis or grid object having the string identifier. This does not read the data for a variable.
-|| **Example:** The following gets the persistent variable `v`, equivalent to `v = f.variables['prc']`.
-|| `f = cdms.open('sample.nc')`
-|| `v = f['prc']`
-|| **Example:** The following gets the axis named time, equivalent to `t = f.axes['time']`.
-|| `t = f['time']`
-`None` | `close()` | Close the file.
-`Axis` | `copyAxis(axis, newname=None)` | Copy `axis` values and attributes to a new axis in the file. The returned object is persistent: it can be used to write axis data to or read axis data from the file. If an axis already exists in the file, having the same name and coordinate values, it is returned. It is an error if an axis of the same name exists, but with different coordinate values. `axis` is the axis object to be copied. `newname`, if specified, is the string identifier of the new axis object. If not specified, the identifier of the input axis is used.
-`Grid` | `copyGrid(grid, newname=None)` | Copy grid values and attributes to a new grid in the file. The returned grid is persistent. If a grid already exists in the file, having the same name and axes, it is returned. An error is raised if a grid of the same name exists, having different axes. `grid` is the grid object to be copied. `newname`, if specified is the string identifier of the new grid object. If unspecified, the identifier of the input grid is used.
-`Axis` | `createAxis(id, ar, unlimited=0)` | Create a new `Axis`. This is a persistent object which can be used to read or write axis data to the file. `id` is an alphanumeric string identifier, containing no blanks. `ar` is the one-dimensional axis array. Set `unlimited` to `cdms.Unlimited` to indicate that the axis is extensible.
-`RectGrid` | `createRectGrid(id, lat, lon, order, type="generic", mask=None)` | Create a `RectGrid` in the file. This is not a persistent object: the order, type, and mask are not written to the file. However, the grid may be used for regridding operations. `lat` is a latitude axis in the file. `lon` is a longitude axis in the file. `order` is a string with value `"yx"` (the first grid dimension is latitude) or `"xy"` (the first grid dimension is longitude). `type` is one of `'gaussian'`,`'uniform'`,`'equalarea'`, or `'generic'`. If specified, `mask` is a two-dimensional, logical Numeric array (all values are zero or one) with the same shape as the grid.
-`Variable` | `createVariable(String id, String datatype,List axes, fill_value=None)` | Create a new Variable. This is a persistent object which can be used to read or write variable data to the file. `id` is a String name which is unique with respect to all other objects in the file. `datatype` is an `MA` typecode, e.g., `MA.Float`, `MA.Int`. `axes` is a list of Axis and/or Grid objects. `fill_value` is the missing value (optional).
-`Variable` | `createVariableCopy(var, newname=None)` | Create a new `Variable`, with the same name, axes, and attributes as the input variable. An error is raised if a variable of the same name exists in the file. `var` is the `Variable` to be copied. `newname`, if specified is the name of the new variable. If unspecified, the returned variable has the same name as `var`. **Note:** Unlike copyAxis, the actual data is not copied to the new variable.
-`CurveGrid` or `Generic-Grid` | `readScripGrid(self, whichGrid='destination', check-Grid=1)` | Read a curvilinear or generic grid from a SCRIP netCDF file. The file can be a SCRIP grid file or remapping file. If a mapping file, `whichGrid` chooses the grid to read, either `"source"` or `"destination"`. If `checkGrid` is `1` (default), the grid cells are checked for convexity, and 'repaired' if necessary. Grid cells may appear to be nonconvex if they cross a `0 / 2pi` boundary. The repair consists of shifting the cell vertices to the same side modulo 360 degrees.
-`None` | `sync()` | Writes any pending changes to the file.
-`Variable` | `write(var, attributes=None, axes=None, extbounds=None, id=None, extend=None, fill_value=None, index=None, typecode=None)` | Write a variable or array to the file. The return value is the associated file variable. 
-|| If the variable does not exist in the file, it is first defined and  all attributes written, then the data is written. By default, the time dimension of the variable is defined as the unlimited dimension of the file. If the data is already defined, then data is extended or overwritten depending on the value of keywords `extend` and `index`, and the unlimited dimension values associated with `var`.
-|| `var` is a Variable, masked array, or Numeric array. `attributes` is the attribute dictionary for the variable. The default is `var.attributes`. `axes` is the list of file axes comprising the domain of the variable. The default is to copy `var.getAxisList()`. `extbounds` is the unlimited dimension bounds. Defaults to `var.getAxis(0).getBounds()`. `id` is the variable name in the file. Default is `var.id`. `extend = 1` causes the first dimension to be unlimited: iteratively writeable. The default is `None`, in which case the first dimension is extensible if it is `time.Set` to `0` to turn off this behaviour. `fill_value` is the missing value flag. `index` is the extended dimension index to write to. The default index is determined by lookup relative to the existing extended dimension.
-|| **Note:** data can also be written by setting a slice of a file variable, and attributes can be written by setting an attribute of a file variable.
+<table class="table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Method</th>
+      <th style="text-align: left">Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left"><code>Transient-Variable</code></td>
+      <td style="text-align: left"><code>fileobj(varname, selector)</code></td>
+      <td style="text-align: left"><p>Calling a <code>CdmsFile</code> object as a function reads the region of data specified by the <code>selector</code>. The result is a transient variable, unless <code>raw = 1</code> is specified. See "Selectors" on page 103.</p><p><strong>Example:</strong> The following reads data for variable 'prc', year 1980:</p><pre style="word-break:normal;">f = cdms.open('test.nc')
+x = f('prc', time=('1980-1','1981-1'))</pre></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><p><code>Variable</code>, <code>Axis</code>, or <code>Grid</code></p></td>
+      <td style="text-align: left"><p><code>fileobj['id']</code></p></td>
+      <td style="text-align: left"><p>Get the persistent variable, axis or grid object having the string identifier. This does not read the data for a variable.</p><p><strong>Example:</strong> The following gets the persistent variable <code>v</code>, equivalent to <code>v = f.variables['prc']</code>.</p>
+      <pre style="word-break:normal;">f = cdms.open('sample.nc')
+v = f['prc']</pre><p><strong>Example:</strong> The following gets the axis named time, equivalent to <code>t = f.axes['time']</code>.</p>
+      <p><code>t = f['time']</code></p></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>None</code></td>
+      <td style="text-align: left"><code>close()</code></td>
+      <td style="text-align: left">Close the file.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>Axis</code></td>
+      <td style="text-align: left"><code>copyAxis(axis, newname=None)</code></td>
+      <td style="text-align: left">Copy <code>axis</code> values and attributes to a new axis in the file. The returned object is persistent: it can be used to write axis data to or read axis data from the file. If an axis already exists in the file, having the same name and coordinate values, it is returned. It is an error if an axis of the same name exists, but with different coordinate values. <code>axis</code> is the axis object to be copied. <code>newname</code>, if specified, is the string identifier of the new axis object. If not specified, the identifier of the input axis is used.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>Grid</code></td>
+      <td style="text-align: left"><code>copyGrid(grid, newname=None)</code></td>
+      <td style="text-align: left">Copy grid values and attributes to a new grid in the file. The returned grid is persistent. If a grid already exists in the file, having the same name and axes, it is returned. An error is raised if a grid of the same name exists, having different axes. <code>grid</code> is the grid object to be copied. <code>newname</code>, if specified is the string identifier of the new grid object. If unspecified, the identifier of the input grid is used.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>Axis</code></td>
+      <td style="text-align: left"><code>createAxis(id, ar, unlimited=0)</code></td>
+      <td style="text-align: left">Create a new <code>Axis</code>. This is a persistent object which can be used to read or write axis data to the file. <code>id</code> is an alphanumeric string identifier, containing no blanks. <code>ar</code> is the one-dimensional axis array. Set <code>unlimited</code> to <code>cdms.Unlimited</code> to indicate that the axis is extensible.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>RectGrid</code></td>
+      <td style="text-align: left"><code>createRectGrid(id, lat, lon, order, type="generic", mask=None)</code></td>
+      <td style="text-align: left">Create a <code>RectGrid</code> in the file. This is not a persistent object: the order, type, and mask are not written to the file. However, the grid may be used for regridding operations. <code>lat</code> is a latitude axis in the file. <code>lon</code> is a longitude axis in the file. <code>order</code> is a string with value <code>"yx"</code> (the first grid dimension is latitude) or <code>"xy"</code> (the first grid dimension is longitude). <code>type</code> is one of <code>'gaussian'</code>,<code>'uniform'</code>,<code>'equalarea'</code>, or <code>'generic'</code>. If specified, <code>mask</code> is a two-dimensional, logical Numeric array (all values are zero or one) with the same shape as the grid.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>Variable</code></td>
+      <td style="text-align: left"><code>createVariable(String id, String datatype,List axes, fill_value=None)</code></td>
+      <td style="text-align: left">Create a new Variable. This is a persistent object which can be used to read or write variable data to the file. <code>id</code> is a String name which is unique with respect to all other objects in the file. <code>datatype</code> is an <code>MA</code> typecode, e.g., <code>MA.Float</code>, <code>MA.Int</code>. <code>axes</code> is a list of Axis and/or Grid objects. <code>fill_value</code> is the missing value (optional).</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>Variable</code></td>
+      <td style="text-align: left"><code>createVariableCopy(var, newname=None)</code></td>
+      <td style="text-align: left"><p>Create a new <code>Variable</code>, with the same name, axes, and attributes as the input variable. An error is raised if a variable of the same name exists in the file. <code>var</code> is the <code>Variable</code> to be copied. <code>newname</code>, if specified is the name of the new variable. If unspecified, the returned variable has the same name as <code>var</code>.</p><p><strong>Note:</strong> Unlike copyAxis, the actual data is not copied to the new variable.</p></td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>CurveGrid</code> or <code>Generic-Grid</code></td>
+      <td style="text-align: left"><code>readScripGrid(self, whichGrid='destination', check-Grid=1)</code></td>
+      <td style="text-align: left">Read a curvilinear or generic grid from a SCRIP netCDF file. The file can be a SCRIP grid file or remapping file. If a mapping file, <code>whichGrid</code> chooses the grid to read, either <code>"source"</code> or <code>"destination"</code>. If <code>checkGrid</code> is <code>1</code> (default), the grid cells are checked for convexity, and 'repaired' if necessary. Grid cells may appear to be nonconvex if they cross a <code>0 / 2pi</code> boundary. The repair consists of shifting the cell vertices to the same side modulo 360 degrees.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>None</code></td>
+      <td style="text-align: left"><code>sync()</code></td>
+      <td style="text-align: left">Writes any pending changes to the file.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left"><code>Variable</code></td>
+      <td style="text-align: left"><pre style="word-break:normal;">write(var, attributes=None, axes=None, extbounds=None, id=None, extend=None, fill_value=None, index=None, typecode=None)</pre></td>
+      <td style="text-align: left"><p>Write a variable or array to the file. The return value is the associated file variable.</p><p>If the variable does not exist in the file, it is first defined and  all attributes written, then the data is written. By default, the time dimension of the variable is defined as the unlimited dimension of the file. If the data is already defined, then data is extended or overwritten depending on the value of keywords <code>extend</code> and <code>index</code>, and the unlimited dimension values associated with <code>var</code>.</p><p><code>var</code> is a Variable, masked array, or Numeric array. <code>attributes</code> is the attribute dictionary for the variable. The default is <code>var.attributes</code>. <code>axes</code> is the list of file axes comprising the domain of the variable. The default is to copy <code>var.getAxisList()</code>. <code>extbounds</code> is the unlimited dimension bounds. Defaults to <code>var.getAxis(0).getBounds()</code>. <code>id</code> is the variable name in the file. Default is <code>var.id</code>. <code>extend = 1</code> causes the first dimension to be unlimited: iteratively writeable. The default is <code>None</code>, in which case the first dimension is extensible if it is <code>time.Set</code> to <code>0</code> to turn off this behaviour. <code>fill_value</code> is the missing value flag. <code>index</code> is the extended dimension index to write to. The default index is determined by lookup relative to the existing extended dimension.</p>
+      <p><strong>Note:</strong> data can also be written by setting a slice of a file variable, and attributes can be written by setting an attribute of a file variable.</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
 
 ######Table 2.15 CDMS Datatypes
 
@@ -2089,328 +2140,179 @@ subSlice(*specs, time=None, level=None, latitude=None, longitude=None, squeeze=0
     </tr>
   </table>
 
-Example: Get a region of data.
+**Example:** Get a region of data.
 
 Variable ta is a function of (time, latitude, longitude). Read data corresponding to all times, latitudes -45.0 up to but not including+45.0, longitudes 0.0 through and including longitude 180.0:
 
+~~~ python
 data = ta.subRegion(':', (-45.0,45.0,'co'), (0.0, 180.0))
+~~~
 
 or equivalently:
 
+~~~ python
 data = ta.subRegion(latitude=(-45.0,45.0,'co'), longitude=(0.0,
 180.0)
+~~~
 
 Read all data for March, 1980:
 
+~~~ python
 data = ta.subRegion(time=('1980-3','1980-4','co'))
+~~~
 
-Table 2.36 Variable Slice Operators
+######Table 2.36 Variable Slice Operators
 
-[i]
-  
+{:.table}
+|Operator|Description|
+|---|---|
+|`[i]`|The ith element, zero-origin indexing.|
+|`[i:j]`|The ith element through, but not including, element j|
+|`[i:]`|The ith element through the end|
+|`[:j]`|The beginning element through, but not including, element j|
+|`[:]`|The entire array|
+|`[i:j:k]`|Every kth element|
+|`[i:j, m:n]`|Multidimensional slice|
+|`[i, ..., m]`|(Ellipsis) All dimensions between those specified.|
+|`[-1]`|Negative indices 'wrap around'. -1 is the last element|
 
-The ith element, zero-origin indexing.
+######Table 2.37 Index and Coordinate Intervals
 
-[i:j]
-  
-
-The ith element through, but not including, element j
-
-[i:]
-  
-
-The ith element through the end
-
-[:j]
-  
-
-The beginning element through, but not including, element j
-
-[:]
-  
-
-The entire array
-
-[i:j:k]
-  
-
-Every kth element
-
-[i:j, m:n]
-  
-
-Multidimensional slice
-
-[i, ..., m]
-  
-
-(Ellipsis) All dimensions between those specified.
-
-[-1]
-  
-
-Negative indices 'wrap around'. -1 is the last element.
-
-Table 2.37 Index and Coordinate Intervals
-
-Interval Definition   Example Interval Definition                Example
-
-x
-  
-
-single point, such that axis[i]==x In general x is a scalar. If the axis is a time axis, x may also be a cdtime relative time type, component time type, or string of the form 'yyyy-mm-dd hh:mi:ss' (where trailing fields of the string may be omitted.
-  
-
-180.0 cdtime.reltime(48,"hour s since 1980-1") '1980-1-3'
-
-(x,y)
-  
-
-indices i such that x <= axis[i] <= y
-  
-
-(-180,180)
-
-(x,y,'co')
-  
-
-x <= axis[i] < y The third item is defined as in mapInterval.
-  
-
-(-90,90,'cc')
-
-(x,y,'co',cycle)
-  
-
-x<= axis[i] < y, with wraparound Note: It is not necesary to specify the cycle of a circular longitude axis, that is, for which axis.isCircular() is true.
-  
-
-( 180, 180, 'co', 360.0)
-
-slice(i,j,k)
-  
-
-slice object, equivalent to i:j:k in a slice operator. Refers to the indices i, i+k, i+2k, ... up to but not including index j. If i is not specified or is None it defaults to 0. If j is not specified or is None it defaults to the length of the axis. The stride k defaults to 1. k may be negative.
-  
-
-slice(1,10) slice(,,-1) reverses the direction of the axis.
-
-':'
-  
-
-all axis values of one dimension
-  
+{:.table}
+|Interval Definition  |Example Interval Definition|Example|
+|---|---|---|
+|`x`|single point, such that axis[i]==x In general x is a scalar. If the axis is a time axis, x may also be a cdtime relative time type, component time type, or string of the form 'yyyy-mm-dd hh:mi:ss' (where trailing fields of the string may be omitted.|`180.0`<br/>`cdtime.reltime(48,"hour s since 1980-1")`<br/>`'1980-1-3'`|
+|`(x,y)`|indices i such that x &le; axis[i] &le; y|`(-180,180)`|
+|`(x,y,'co')`|`x &le; axis[i] &lt; y`. The third item is defined as in mapInterval.|`(-90,90,'cc')`|
+|`(x,y,'co',cycle)`|`x &le; axis[i] &lt; y`, with wraparound <br/> **Note:** It is not necesary to specify the cycle of a circular longitude axis, that is, for which `axis.isCircular()` is true.|`( 180, 180, 'co', 360.0)`|
+|`slice(i,j,k)`|slice object, equivalent to i:j:k in a slice operator. Refers to the indices i, i+k, i+2k, ... up to but not including index j. If i is not specified or is None it defaults to 0. If j is not specified or is None it defaults to the length of the axis. The stride k defaults to 1. k may be negative.|`slice(1,10)`<br/>`slice(,,-1)` reverses the direction of the axis.|
+|`':'`|all axis values of one dimension|  |
+|`Ellipsis`|all values of all intermediate axes| |  
 
 
-Ellipsis
-  
-
-all values of all intermediate axes
-  
-
-
-2.11.1 Selectors
+#####2.11.1 Selectors
 
 A selector is a specification of a region of data to be selected from a variable. For example, the statement
 
+~~~ python
 x = v(time='1979-1-1', level=(1000.0,100.0))
+~~~
 
 means 'select the values of variable v for time '1979-1-1' and levels 1000.0 to 100.0 inclusive, setting x to the result.' Selectors are generally used to represent regions of space and time.
 
 The form for using a selector is
 
+~~~ python
 result = v(s)
+~~~
 
 where v is a variable and s is the selector. An equivalent form is
 
-       result = f('varid', s)
+~~~ python
+result = f('varid', s)
+~~~
 
 where f is a file or dataset, and 'varid' is the string ID of a variable.
 
- 
-
 A selector consists of a list of selector components. For example, the selector
 
+~~~python
 time='1979-1-1', level=(1000.0,100.0)
+~~~
 
 has two components: time='1979-1-1', and level=(1000.0,100.0). This illustrates that selector components can be defined with keywords, using the form:
 
+~~~ python
 keyword=value
+~~~
 
 Note that for the keywords time, level, latitude, and longitude, the selector can be used with any variable. If the corresponding axis is not found, the selector component is ignored. This is very useful for writing general purpose scripts. The required keyword overrides this behavior. These keywords take values that are coordinate ranges or index ranges as defined in Table 2.37 on page 102.
 
 The following keywords are available: Another form of selector components is the positional form, where the component order corresponds to the axis order of a variable. For example:
 
-Table 2.38 Selector keywords
+######Table 2.38 Selector keywords
 
-Keyword
-  
-
-Description
-  
-
-Value
-
-axisid
-  
-
-Restrict the axis with ID axisid to a value or range of values.
-  
-
-See Table 2.37 on page 102
-
-grid
-  
-
-Regrid the result to the grid.
-  
-
-Grid object
-
-latitude
-  
-
-Restrict latitude values to a value or range. Short form: lat
-  
-
-See Table 2.37 on page 102
-
-level
-  
-
-Restrict vertical levels to a value or range. Short form: lev
-  
-
-See Table 2.37 on page 102
-
-longitude
-  
-
-Restrict longitude values to a value or range. Short form: lon
-  
-
-See Table 2.37 on page 102
-
-order
-  
-
-Reorder the result.
-  
-
-Order string, e.g., "tzyx"
-
-raw
-  
-
-Return a masked array (MA.array) rather than a transient variable.
-  
-
-0: return a transient variable (default); =1: return a masked array.
-
-required
-  
-
-Require that the axis IDs be
-  
-
-List of axis identifiers.
-
-
-  
-
-present.
-  
-
-
-squeeze
-  
-
-Remove singleton dimensions
-  
-
-0: leave singleton dimen
-
-
-  
-
-from the result.
-  
-
-sions (default); 1: remove
-
-  
-
-
-  
-
-singleton dimensions.
-
-time
-  
-
-Restrict time values to a value or
-  
-
-See Table 2.37 on page 102
-
-  
-
-range.
-  
-
+{:.table}
+|Keyword|Description|Value|
+|---|---|---|
+|`axisid`|Restrict the axis with ID axisid to a value or range of values.|See Table 2.37 on page 102|
+|`grid`|Regrid the result to the grid.|Grid object|
+|`latitude`|Restrict latitude values to a value or range. Short form: lat|See Table 2.37 on page 102|
+|`level`|Restrict vertical levels to a value or range. Short form: lev|See Table 2.37 on page 102|
+|`longitude`|Restrict longitude values to a value or range. Short form: lon|See Table 2.37 on page 102|
+|`order`|Reorder the result.|Order string, e.g., "tzyx"|
+|`raw`|Return a masked array (MA.array) rather than a transient variable.|0: return a transient variable (default); =1: return a masked array.|
+|`required`|Require that the axis IDs be present.|List of axis identifiers.|
+|`squeeze`|Remove singleton dimensions from the result.|0: leave singleton dimensions (default); 1: remove singleton dimensions.|
+|`time`|Restrict time values to a value or range.|See Table 2.37 on page 10|
 
 
 Another form of selector components is the positional form, where the component
 order corresponds to the axis order of a variable. For example:
 
+~~~python
 x9 = hus(('1979-1-1','1979-2-1'),1000.0)
+~~~
 
 reads data for the range ('1979-1-1','1979-2-1') of the first axis, and coordinate value 1000.0 of the second axis. Non-keyword arguments of the form(s) listed in Table 2.37 on page 102 are treated as positional. Such selectors are more concise, but not as general or flexible as the other types described in this section.
 
 Selectors are objects in their own right. This means that a selector can be defined and reused, independent of a particular variable. Selectors are constructed using the cdms.selectors.Selector class. The constructor takes an argument list of selector components. For example:
 
+~~~python
 from cdms.selectors import Selector
 sel = Selector(time=('1979-1-1','1979-2-1'), level=1000.)
 x1 = v1(sel)
 x2 = v2(sel)
+~~~
 
 For convenience CDMS provides several predefined selectors, which can be used directly or can be combined into more complex selectors. The selectors time, level, latitude, longitude, and required are equivalent to their keyword counterparts. For example:
 
+~~~python
 from cdms import time, level
 x = hus(time('1979-1-1','1979-2-1'), level(1000.))
+~~~
 
 and
 
+~~~python
 x = hus(time=('1979-1-1','1979-2-1'), level=1000.)
+~~~
 
-are equivalent. Additionally, the predefined selectors latitudeslice, longitudeslice, levelslice, and timeslice take arguments (startindex, stopindex[, stride]):
+are equivalent. Additionally, the predefined selectors `latitudeslice`, `longitudeslice`, `levelslice`, and `timeslice` take arguments `(startindex, stopindex[, stride])`:
 
+~~~python
 from cdms import timeslice, levelslice
 x = v(timeslice(0,2), levelslice(16,17))
+~~~
 
 Finally, a collection of selectors is defined in module cdutil.region:
 
+~~~ python
 from cdutil.region import *
 NH=NorthernHemisphere=domain(latitude=(0.,90.)
 SH=SouthernHemisphere=domain(latitude=(-90.,0.))
 Tropics=domain(latitude=(-23.4,23.4))
 NPZ=AZ=ArcticZone=domain(latitude=(66.6,90.))
 SPZ=AAZ=AntarcticZone=domain(latitude=(-90.,-66.6))
+~~~
 
-Selectors can be combined using the & operator, or by refining them in the call:
+Selectors can be combined using the &amp; operator, or by refining them in the call:
 
+~~~ python
 from cdms.selectors import Selector
 from cdms import level
 sel2 = Selector(time=('1979-1-1','1979-2-1'))
 sel3 = sel2 & level(1000.0)
 x1 = hus(sel3)
 x2 = hus(sel2, level=1000.0)
-
+~~~
  
 
-2.11.2 Selector examples
+#####2.11.2 Selector examples
 
 CDMS provides a variety of ways to select or slice data. In the following examples, variable hus is contained in file sample.nc, and is a function of (time, level, latitude, longitude). Time values are monthly starting at 1979-1-1. There are 17 levels, the last level being 1000.0. The name of the vertical level axis is 'plev'. All the examples select the first two times and the last level. The last two examples remove the singleton level dimension from the result array.
+
+~~~python
 import cdms
 f = cdms.open('sample.nc')
 hus = f.variables['hus']
@@ -2455,38 +2357,42 @@ x = hus[0:2,16]
 x = hus(time=('1979-1-1','1979-2-1'), level=1000., squeeze=1)
 
 f.close()
+~~~
 
-2.12 Examples
+####2.12 Examples
+
+#####2.12.1 Example 1
 
 In this example, two datasets are opened, containing surface air temperature ('tas') and upper-air temperature ('ta') respectively. Surface air temperature is a function of (time, latitude, longitude). Upper-air temperature is a function of (time, level, latitude, longitude). Time is assumed to have a relative representation in the datasets (e.g., with units 'months since basetime').
 
-Data is extracted from both datasets for January of the first input year through December of the second input year. For each time and level, three quantities are calculated: slope, variance, and correlation. The results are written to a netCDF file. For brevity, the functions corrCoefSlope and removeSeasonalCycle are omitted.
+Data is extracted from both datasets for January of the first input year through December of the second input year. For each time and level, three quantities are calculated: slope, variance, and correlation. The results are written to a netCDF file. For brevity, the functions `corrCoefSlope` and `removeSeasonalCycle` are omitted.
 
-  1.   import cdms
-        import MV
+~~~ python
+1.  import cdms
+    import MV
 
-        # Calculate variance, slope, and correlation of    
-        # surface air temperature with upper air temperature
-        # by level, and save to a netCDF file. 'pathTa' is the location of
-        # the file containing 'ta', 'pathTas' is the file with contains 'tas'.
-        # Data is extracted from January of year1 through December of year2.
-        def ccSlopeVarianceBySeasonFiltNet(pathTa,pathTas,month1,month2):
+    # Calculate variance, slope, and correlation of    
+    # surface air temperature with upper air temperature
+    # by level, and save to a netCDF file. 'pathTa' is the location of
+    # the file containing 'ta', 'pathTas' is the file with contains 'tas'.
+    # Data is extracted from January of year1 through December of year2.
+    def ccSlopeVarianceBySeasonFiltNet(pathTa,pathTas,month1,month2):
 
         # Open the files for ta and tas
         fta = cdms.open(pathTa)
         ftas = cdms.open(pathTas)
 
-2.     # Get upper air temperature
+2.      #Get upper air temperature
         taObj = fta['ta']
         levs = taObj.getLevel()
 
-3.     # Get the surface temperature for the closed interval [time1,time2]
+        #Get the surface temperature for the closed interval [time1,time2]
         tas = ftas('tas', time=(month1,month2,'cc'))
 
         # Allocate result arrays
         newaxes = taObj.getAxisList(omit='time')
         newshape = tuple([len(a) for a in newaxes])
-4.    cc = MV.zeros(newshape, typecode=MV.Float, axes=newaxes, id='correlation')
+        cc = MV.zeros(newshape, typecode=MV.Float, axes=newaxes, id='correlation')
         b = MV.zeros(newshape, typecode=MV.Float, axes=newaxes, id='slope')
         v = MV.zeros(newshape, typecode=MV.Float, axes=newaxes, id='variance')
 
@@ -2495,41 +2401,45 @@ Data is extracted from both datasets for January of the first input year through
 
         # For each level of air temperature, remove seasonal cycle
         # from upper air temperature, and calculate statistics
-5.     for ilev in range(len(levs)):
+5.      for ilev in range(len(levs)):
 
-        ta = taObj(time=(month1,month2,'cc'), \
-
-        level=slice(ilev, ilev+1), squeeze=1)
-        ta = removeSeasonalCycle(ta)   
-        cc[ilev], b[ilev] = corrCoefSlope(tas ,ta)
-        v[ilev] = MV.sum( ta**2 )/(1.0*ta.shape[0])
+            ta = taObj(time=(month1,month2,'cc'), \
+                       level=slice(ilev, ilev+1), squeeze=1)
+            ta = removeSeasonalCycle(ta)   
+            cc[ilev], b[ilev] = corrCoefSlope(tas ,ta)
+            v[ilev] = MV.sum( ta**2 )/(1.0*ta.shape[0])
 
         # Write slope, correlation, and variance variables
- 6.   f = cdms.open('CC_B_V_ALL.nc','w')
+6.      f = cdms.open('CC_B_V_ALL.nc','w')
         f.title = filtered
         f.write(b)
         f.write(cc)
         f.write(v)
         f.close()
 
-   7.    if __name__=='__main__':
+7.  if __name__=='__main__':
         pathTa = '/pcmdi/cdms/sample/ccmSample_ta.xml'
         pathTas = '/pcmdi/cdms/sample/ccmSample_tas.xml'  
         # Process Jan80 through Dec81
         ccSlopeVarianceBySeasonFiltNet(pathTa,pathTas,'80-1','81-12')
+~~~
 
-Notes:
+**Notes:**
 
-    Two modules are imported, cdms, and MV. MV implements arithmetic functions.
-    taObj is a file (persistent) variable. At this point, no data has actually been read. This happens when the file variable is sliced, or when the subRegion function is called. levs is an axis.
-    Calling the file like a function reads data for the given variable and time range. Note that month1 and month2 are time strings.
-    In contrast to taObj, the variables cc, b, and v are transient variables, not associated with a file. The assigned names are used when the variables are written.
-    Another way to read data is to call the variable as a function. The squeeze option removes singleton axes, in this case the level axis.
-    Write the data. Axis information is written automatically.
-    This is the main routine of the script. pathTa and pathTas pathnames. Data is processed from January 1980 through December 1981. 
+  1. Two modules are imported, `cdms`, and `MV`. `MV` implements arithmetic functions.
+  2.  `taObj` is a file (persistent) variable. At this point, no data has actually been read. This happens when the file variable is sliced, or when the subRegion function is called. levs is an axis.
+  3.  Calling the file like a function reads data for the given variable and time range. Note that month1 and month2 are time strings.
+  4. In contrast to `taObj`, the variables `cc`, `b`, and `v` are transient variables, not associated with a file. The assigned names are used when the variables are written.
+  5.  Another way to read data is to call the variable as a function. The squeeze option removes singleton axes, in this case the level axis.
+  6.  Write the data. Axis information is written automatically.
+  7.  This is the main routine of the script. `pathTa` and `pathTas` pathnames. Data is processed from January 1980 through December 1981. 
+
+
+#####2.12.2 Example 2
 
 In the next example, the pointwise variance of a variable over time is calculated, for all times in a dataset. The name of the dataset and variable are entered, then the variance is calculated and plotted via the vcs module.
 
+~~~ python
         #!/usr/bin/env python
         #
         # Calculates gridpoint total variance
@@ -2542,76 +2452,75 @@ In the next example, the pointwise variance of a variable over time is calculate
         # Wait for return in an interactive window
 
         def pause():
-        print Hit return to continue: ,
-        line = sys.stdin.readline()
+            print Hit return to continue: ,
+            line = sys.stdin.readline()
 
-8.     # Calculate pointwise variance of variable over time
+1.      # Calculate pointwise variance of variable over time
         # Returns the variance and the number of points
         # for which the data is defined, for each grid point
         def calcVar(x):
-
-        # Check that the first axis is a time axis
-
-        firstaxis = x.getAxis(0)
-        if not firstaxis.isTime():
+            # Check that the first axis is a time axis
+            firstaxis = x.getAxis(0)
+            if not firstaxis.isTime():
                 raise 'First axis is not time, variable:', x.id
+            
+            n = count(x,0)
+            sumxx = sum(x*x)
+            sumx = sum(x)
+            variance = (n*sumxx -(sumx * sumx))/(n * (n-1.))
 
-        n = count(x,0)
-        sumxx = sum(x*x)
-        sumx = sum(x)
-        variance = (n*sumxx -(sumx * sumx))/(n * (n-1.))
-
-        return variance,n
+            return variance, n
 
         if __name__=='__main__':
-        import vcs, sys
+            import vcs, sys
 
-        print 'Enter dataset path [/pcmdi/cdms/obs/erbs_mo.xml]: ',
-        path = string.strip(sys.stdin.readline())
-        if path=='': path='/pcmdi/cdms/obs/erbs_mo.xml'
+            print 'Enter dataset path [/pcmdi/cdms/obs/erbs_mo.xml]: ',
+            path = string.strip(sys.stdin.readline())
+            if path=='': path='/pcmdi/cdms/obs/erbs_mo.xml'
 
-9.     # Open the dataset
-        dataset = cdms.open(path)
+2.          # Open the dataset
+            dataset = cdms.open(path)
 
-        # Select a variable from the dataset
-        print 'Variables in file:',path
-        varnames = dataset.variables.keys()
-        varnames.sort()
-        for varname in varnames:
+            # Select a variable from the dataset
+            print 'Variables in file:',path
+            varnames = dataset.variables.keys()
+            varnames.sort()
+            for varname in varnames:
 
-var = dataset.variables[varname]
-if hasattr(var,'long_name'):
-        long_name = var.long_name
-elif hasattr(var,'title'):
-        long_name = var.title
-else:
-        long_name = '?'
+                var = dataset.variables[varname]
+                if hasattr(var,'long_name'):
+                    long_name = var.long_name
+                elif hasattr(var,'title'):
+                    long_name = var.title
+                else:
+                    long_name = '?'
 
-        print '%-10s: %s'%(varname,long_name)
-        print 'Select a variable: ',
-10.   varname = string.strip(sys.stdin.readline())
-        var = dataset(varname)
-        dataset.close()
+            print '%-10s: %s'%(varname,long_name)
+            print 'Select a variable: ',
+3.          varname = string.strip(sys.stdin.readline())
+            var = dataset(varname)
+            dataset.close()
 
-        # Calculate variance, count, and set attributes
-        variance,n = calcVar(var)
-        variance.id = 'variance_%s'%var.id
-        n.id = 'count_%s'%var.id
-        if hasattr(var,'units'):
-
-    variance.units = '(%s)^2'%var.units
-
-        # Plot variance
-        w=vcs.init()
-11.   w.plot(variance)
-        pause()
-        w.clear()
-        w.plot(n)
-        pause()
-        w.clear()
+            # Calculate variance, count, and set attributes
+            variance,n = calcVar(var)
+            variance.id = 'variance_%s'%var.id
+            n.id = 'count_%s'%var.id
+            if hasattr(var,'units'):
+                variance.units = '(%s)^2'%var.units
+        
+            # Plot variance
+            w=vcs.init()
+4.          w.plot(variance)
+            pause()
+            w.clear()
+            w.plot(n)
+            pause()
+            w.clear()
+~~~
 
 The result of running this script is as follows:
 
+~~~
 % calcVar.py
 Enter dataset path [/pcmdi/cdms/sample/obs/erbs_mo.xml]:
 
@@ -2632,11 +2541,11 @@ Select a variable: albt
 Hit return to continue:
 
 <The number of points is plotted>
+~~~
 
-Notes:
+**Notes:**
 
-     n = count(x, 0) returns the pointwise number of valid values, summing across axis 0, the first axis. count is an MV function. 
-
-    dataset is a Dataset or CdmsFile object, depending on whether a .xml or .nc pathname is entered. dataset.variables is a dictionary mapping variable name to file variable.
-    var is a transient variable.
-    Plot the variance and count variables. Spatial longitude and latitude information are carried with the computations, so the continents are plotted correctly. 
+  1.  n = count(x, 0) returns the pointwise number of valid values, summing across axis 0, the first axis. count is an MV function. 
+  2. dataset is a Dataset or CdmsFile object, depending on whether a .xml or .nc pathname is entered. dataset.variables is a dictionary mapping variable name to file variable.
+  3. var is a transient variable.
+  4. Plot the variance and count variables. Spatial longitude and latitude information are carried with the computations, so the continents are plotted correctly. 
