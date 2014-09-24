@@ -4,8 +4,7 @@ title: Manuals
 ---
 
 ##Manuals
-###CDAT Online Manuals  
-
+###CDAT Online Manuals
 CDAT is separated into individual modules as follows:
 
 ####1) Visualization Control System (VCS)  
