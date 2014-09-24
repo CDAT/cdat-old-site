@@ -39,6 +39,9 @@ as follows:
   * `xvsyobject` - The XvsY graphics method displays a line plot from two 1D data arrays, that is X(t) and Y(t), where `t' represents the 1D coordinate values. Its class symbol or alias is "GXY".
   * `xyvsyobject` - The Xyvsy graphics method displays a line plot from a 1D data array, i.e. a plot of X(y) where `y' represents the 1D coordinate values. Its class symbol or alias is "GXy".
   * `Yxvsxobject` - The Yxvsx graphics method displays a line plot from a 1D data array, i.e. a plot of Y(x) where `x' represents the 1D coordinate values. Its class symbol or alias is "GYx".
+  * `3dscalarobject` - The 3dscalar graphics method displays an interactive 3D plot of a 4-dimensional (x,y,z,t) data array. Its class symbol or alias is "3d_scalar".
+  * `3dvectorobject` - The 3dvector graphics method displays an interactive 3D plot of a 4-dimensional (x,y,z,t) vector field. Its class symbol or alias is "3d_vector".
+
 
 #####  Picture Template Object
 
@@ -381,6 +384,7 @@ method format.
 
 See table below for additional plot functions.
 
+
 {:.table}
 |Plot Function|Description|
 |---|---|
@@ -395,6 +399,8 @@ See table below for additional plot functions.
 |`xvsy()`|plot data using the xvsy graphics method|
 |`xyvsy()`|plot data using the xyvsy graphics method|
 |`yxvsy()`|plot data using the yxvsy graphics method|
+|`scalar3D()`| plot data using the 3d_scalar graphics method|
+|`vector3D()`| plot data using the 3d_vector graphics method|
 
 ####  Checking VCS Objects
 
@@ -418,7 +424,7 @@ these cases, you may want to use the query functions below.
 |`isxyvsy()`|verifies a xyvsy graphics method object|
 |`isyxvsx()`|verifies a yxvsx graphics method object|
 |`isgraphicsmethod()`|verifies if an object is one of the graphics methods: boxfill, isofill, isoline, outfill, outline, continents, scatter, vector, xvsy, xyvsy, or yxvsx.|
-|`graphicsmethodname()`|Returns the name of the graphics methods object. Returns either: 'boxfill', 'isofill', 'isoline', 'outfill', 'outline', 'continents', 'scatter', 'vector', 'xvsy', 'xyvsy', or 'yxvsx'.|
+|`graphicsmethodname()`|Returns the name of the graphics methods object. Returns either: 'boxfill', 'isofill', 'isoline', 'outfill', 'outline', 'continents', 'scatter', 'vector', '3d_vector', '3d_scalar' 'xvsy', 'xyvsy', or 'yxvsx'.|
 
 ######Check for VCS secondary objects:  
 
@@ -448,6 +454,7 @@ objects do allow modifications, it is best to either create a new VCS object
 or get an existing one. When a VCS object is created, it is stored in an
 internal table for later use and/or recall.
 
+
 ######Create the following VCS objects:
 
 {:.table}
@@ -470,7 +477,8 @@ internal table for later use and/or recall.
 |`createxvsy()`|creates a new xvsy graphics method object|
 |`createxyvsy()`|creates a new xyvsy graphics method object|
 |`createyxvsx()`|creates a new xyvsy graphics method object|
-
+|`create3d_scalar()`| creates a new 3d_scalar graphics method object|
+|`create3d_vector()`| creates a new 3d_vector graphics method object|
 
 #####  Get Existing VCS Objects
 
@@ -501,7 +509,8 @@ by the user, then the plot will be automatically updated.
 |`getxvsy()`|get specified xvsy graphics method and create xvsy object|
 |`getxyvsy()`|get specified xyvsy graphics method and create xyvsy object|
 |`getyxvsx()`|get specified yxvsx graphics method and create yxvsx|
-
+|`get3d_scalar()`| get specified 3d_scalar graphics method and create 3d_scalar|
+|`get3d_vector()`| get specified 3d_vector graphics method and create 3d_vector |
 
 ####  Removing VCS Objects
 
@@ -561,7 +570,7 @@ Save Initial | Script Description
 --- | ---
 `saveinitialfile()` | saves current VCS objects in the initial.attributes file, which is read initially at start-up
 
-To save VCS objects has Python scripts or VCS scripts, use the function:
+To save VCS objects as Python scripts or VCS scripts, use the function:
 
 {:.table}
 Save VCS Objects | Description
