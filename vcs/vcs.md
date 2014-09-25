@@ -1,6 +1,6 @@
 ---
 layout: default
-title: VCS Chapter 10
+title: VCS Manual
 ---
 
 ####  Legal Notice
