@@ -3401,6 +3401,6 @@ tpl.list() # This call will list the template attributes and their values
     </tr>
   </table>
 
-[Main](vcs.html) [Previous](vcs-5.html) [Next](vcs-7.html)
+[Main](vcs.html) \| [Previous](vcs-5.html) \| [Next](vcs-7.html)
 
 
