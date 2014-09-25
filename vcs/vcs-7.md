@@ -8,230 +8,295 @@ Secondary objects help to specify and define primary objects in VCS. The list
 of secondary objects include: colormap, fill area, format, line, marker, list,
 text-combined, text-orientation, and text-table. Note, although the colormap
 is considered a secondary object, it is acessed differenly. Therefore, the
-colormap object will not be described below. See the "VCS Command Reference
-Guide" for colormap commands.
+colormap object will not be described below. See the [VCS Command Reference
+Guide](vcs-5.html) for colormap commands.
 
-Note, to see the list of object attributes, use the list() function. For
+**Note**, to see the list of object attributes, use the list() function. For
 example:
 
+~~~ python
 import vcs
 
 a=vcs.init()
 
 ln=a.createline(`new')
-
 ln.list() # This call will list the line attributes and their values
 
 tt=a.createtexttable(`new')
-
 tt.list() # This call will list the text-table attributes and their values
+~~~
 
+<table class="table">
+    <tr>
+      <th rowspan="1" colspan="1">
+        <p class="CellHeading"><a name="pgfId-904170" id="pgfId-904170"></a>Attributes
+        (or Members)</p>
+      </th>
 
+      <th rowspan="1" colspan="1">
+        <p class="CellHeading"><a name="pgfId-904172" id="pgfId-904172"></a>Exception
+        Type(s)</p>
+      </th>
+    </tr>
 
+    <tr>
+      <td><strong class="CellBody">Object:&nbsp;<a name="pgfId-904174" id=
+      "pgfId-904174"></a>fillarea</strong></td>
 
+      <td class="CellBody"><a name="pgfId-904175" id="pgfId-904175"></a>(graphics method
+      class name is Tf)</td>
+    </tr>
 
-######  
+    <tr>
+      <td><code>name</code></td>
 
-Object
+      <td>StringType</td>
+    </tr>
 
-Attributes (or Members)
+    <tr>
+      <td><code>style</code></td>
 
-Exception Type(s)
+      <td>Either: 'solid', 'hatch', 'pattern'</td>
+    </tr>
 
-fillarea
+    <tr>
+      <td><code>index</code></td>
 
-(graphics method class name is Tf)
+      <td>IntType: (Range 1 to 20)</td>
+    </tr>
 
+    <tr>
+      <td><code>color</code></td>
 
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
 
-name
+    <tr>
+      <td><strong class="CellBody">Object:&nbsp;<a name="pgfId-904188" id=
+      "pgfId-904188"></a>line</strong></td>
 
-style
+      <td class="CellBody"><a name="pgfId-904189" id="pgfId-904189"></a>(graphics method
+      class name is Tl)</td>
+    </tr>
 
-index
+    <tr>
+      <td><code>name</code></td>
 
-color
+      <td>StringType</td>
+    </tr>
 
-StringType
+    <tr>
+      <td><code>type</code></td>
 
-Either: 'solid', 'hatch', 'pattern'
+      <td>Either: 'solid', 'dash', 'dot', 'dash-dot', 'long-dash', 0, 1, 2, 3, 4</td>
+    </tr>
 
-IntType: (Range 1 to 20)
+    <tr>
+      <td><code>width</code></td>
 
-IntType: (Range 0 to 255)
+      <td>IntType: (Range 1 to 300)</td>
+    </tr>
 
-line
+    <tr>
+      <td><code>color</code></td>
 
-(graphics method class name is Tl)
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
 
-name
+    <tr>
+      <td><strong class="CellBody">Object:&nbsp;<a name="pgfId-904203" id=
+      "pgfId-904203"></a>marker</strong></td>
 
-type
+      <td class="CellBody"><a name="pgfId-904204" id="pgfId-904204"></a>(graphics method
+      class name is Tm)</td>
+    </tr>
 
+    <tr>
+      <td><code>name</code></td>
 
+      <td>StringType</td>
+    </tr>
 
-width
+    <tr>
+      <td><code>type</code></td>
 
-color
+      <td>Either: "dot", "plus", "star", "circle", "cross", "diamond", "triangle_up",
+      "triangle_down", "triangle_left", "triangle_right", "square", "diamond_fill",
+      "triangle_up_fill", "triangle_down_fill", "triangle_left_fill",
+      "triangle_right_fill", "square_fill", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13,
+      14, 15, 16, 17</td>
+    </tr>
 
-StringType
+    <tr>
+      <td><code>size</code></td>
 
-Either: 'solid', 'dash', 'dot', 'dash-dot',
+      <td>IntType: (Range 1 to 300)</td>
+    </tr>
 
-'long-dash', 0, 1, 2, 3, 4
+    <tr>
+      <td><code>color</code></td>
 
-IntType: (Range 1 to 300)
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
 
-IntType: (Range 0 to 255)
+    <tr>
+      <td><strong class="CellBody">Object:&nbsp;<a name="pgfId-904228" id=
+      "pgfId-904228"></a>text-combined</strong></td>
 
-marker
+      <td class="CellBody"><a name="pgfId-904229" id="pgfId-904229"></a>(graphics method
+      class name is Tc)</td>
+    </tr>
 
-(graphics method class name is Tm)
+    <tr>
+      <td><code>name</code></td>
 
-name
+      <td>StringType</td>
+    </tr>
 
-type
+    <tr>
+      <td><code>font</code></td>
 
+      <td>IntType: (Range 1 to 9)</td>
+    </tr>
 
+    <tr>
+      <td><code>spacing</code></td>
 
+      <td>IntType: (Range -50 to 50)</td>
+    </tr>
 
+    <tr>
+      <td><code>expansion</code></td>
 
+      <td>IntType: (Range 50 to 150)</td>
+    </tr>
 
+    <tr>
+      <td><code>color</code></td>
 
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
 
+    <tr>
+      <td><code>name</code></td>
 
+      <td>StringType</td>
+    </tr>
 
+    <tr>
+      <td><code>height</code></td>
 
+      <td>IntType: (Range 1 to 100)</td>
+    </tr>
 
+    <tr>
+      <td><code>angel</code></td>
 
-size
+      <td>IntType: (Range 0 to 360)</td>
+    </tr>
 
-color
+    <tr>
+      <td><code>path</code></td>
 
-StringType
+      <td>Either: 'right', 'left', 'up', 'down', 0, 1, 2, 3</td>
+    </tr>
 
-Either: "dot", "plus", "star", "circle", "cross",
+    <tr>
+      <td><code>halign</code></td>
 
-"diamond", "triangle_up", "triangle_down",
+      <td>Either: 'left', 'center', 'right', 0, 1, 2</td>
+    </tr>
 
-"triangle_left", "triangle_right", "square",
+    <tr>
+      <td><code>valign</code></td>
 
-"diamond_fill", "triangle_up_fill",
+      <td>Either: 'top', 'cap', 'half', 'base', 'bottom', 0, 1, 2, 3, 4</td>
+    </tr>
 
-"triangle_down_fill", "triangle_left_fill",
+    <tr>
+      <td><strong class="CellBody">Object:&nbsp;<a name="pgfId-904256" id=
+      "pgfId-904256"></a>text-orientation</strong></td>
 
-"triangle_right_fill", "square_fill", 0, 1, 2, 3, 4, 5,
+      <td class="CellBody"><a name="pgfId-904257" id="pgfId-904257"></a>(graphics method
+      class name is To)</td>
+    </tr>
 
-6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17
+    <tr>
+      <td><code>name</code></td>
 
-IntType: (Range 1 to 300)
+      <td>StringType</td>
+    </tr>
 
-IntType: (Range 0 to 255)
+    <tr>
+      <td><code>height</code></td>
 
-text-combined
+      <td>IntType: (Range 1 to 100)</td>
+    </tr>
 
-(graphics method class name is Tc)
+    <tr>
+      <td><code>angle</code></td>
 
-name
+      <td>IntType: (Range 0 to 360)</td>
+    </tr>
 
-font
+    <tr>
+      <td><code>path</code></td>
 
-spacing
+      <td>Either: 'right', 'left', 'up', 'down', 0, 1, 2, 3</td>
+    </tr>
 
-expansion
+    <tr>
+      <td><code>halign</code></td>
 
-color
+      <td>Either: 'left', 'center', 'right', 0, 1, 2</td>
+    </tr>
 
-name
+    <tr>
+      <td><code>valign</code></td>
 
-height
+      <td>Either: 'top', 'cap', 'half', 'base', 'bottom', 0, 1, 2, 3, 4</td>
+    </tr>
 
-angel
+    <tr>
+      <td><strong class="CellBody">Object:&nbsp;<a name="pgfId-904274" id=
+      "pgfId-904274"></a>text-table</strong></td>
 
-path
+      <td class="CellBody"><a name="pgfId-904275" id="pgfId-904275"></a>(graphics method
+      class name is Tt)</td>
+    </tr>
 
-halign
+    <tr>
+      <td><code>name</code></td>
 
-valign
+      <td>StringType</td>
+    </tr>
 
-StringType
+    <tr>
+      <td><code>font</code></td>
 
-IntType: (Range 1 to 9)
+      <td>IntType: (Range 1 to 9)</td>
+    </tr>
 
-IntType: (Range -50 to 50)
+    <tr>
+      <td><code>spacing</code></td>
 
-IntType: (Range 50 to 150)
+      <td>IntType: (Range -50 to 50)</td>
+    </tr>
 
-IntType: (Range 0 to 255)
+    <tr>
+      <td><code>expansion</code></td>
 
-StringType
+      <td>IntType: (Range 50 to 150)</td>
+    </tr>
 
-IntType: (Range 1 to 100)
+    <tr>
+      <td><code>color</code></td>
 
-IntType: (Range 0 to 360)
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
+  </table>
 
-Either: 'right', 'left', 'up', 'down', 0, 1, 2, 3
 
-Either: 'left', 'center', 'right', 0, 1, 2
-
-Either: 'top', 'cap', 'half', 'base', 'bottom',
-
-0, 1, 2, 3, 4
-
-text-orientation
-
-(graphics method class name is To)
-
-name
-
-height
-
-angel
-
-path
-
-halign
-
-valign
-
-StringType
-
-IntType: (Range 1 to 100)
-
-IntType: (Range 0 to 360)
-
-Either: 'right', 'left', 'up', 'down', 0, 1, 2, 3
-
-Either: 'left', 'center', 'right', 0, 1, 2
-
-Either: 'top', 'cap', 'half', 'base', 'bottom',
-
-0, 1, 2, 3, 4
-
-text-table
-
-(graphics method class name is Tt)
-
-name
-
-font
-
-spacing
-
-expansion
-
-color
-
-StringType
-
-IntType: (Range 1 to 9)
-
-IntType: (Range -50 to 50)
-
-IntType: (Range 50 to 150)
-
-IntType: (Range 0 to 255)
-
-[Go to Main](vcs.html) [Go to Previous](vcs-6.html) [Go to Next](vcs-8.html)
+[Main](vcs.html) \| [Previous](vcs-6.html) \| [Next](vcs-8.html)
 
 
