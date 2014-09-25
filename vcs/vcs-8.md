@@ -2201,5 +2201,5 @@ if __name__ == "__main__":
     simpleanimation()
 ~~~
 
-[Main](vcs.html) [Previous](vcs-7.html) [Next](vcs-9.html)
+[Main](vcs.html) \| [Previous](vcs-7.html) \| [Next](vcs-9.html)
 
