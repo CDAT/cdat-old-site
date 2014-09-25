@@ -10,2455 +10,3397 @@ dynamically in the system: graphics methods, which specifies the display
 technique; and the picture template, which determines the appearance of each
 segment of the display.
 
-Note, to see the list of object attributes, use the list() function. For
+**Note**, to see the list of object attributes, use the list() function. For
 example:
 
+~~~ python
 import vcs
 
 a=vcs.init()
 
 box=a.createboxfill(`new')
-
 box.list() # This call will list the boxfill attributes and their values
 
 isof=a.createisofill(`new')
-
 isof.list() # This call will list the isofill attributes and their values
 
 tpl=a.createtemplate(`new')
-
 tpl.list() # This call will list the template attributes and their values
+~~~
 
 
+<table class="table">
+    <tr>
+      <th rowspan="1" colspan="1">
+        <p class="CellHeading"><a name="pgfId-902570" id="pgfId-902570"></a>Attributes
+        (or Members)</p>
+      </th>
 
-######  
+      <th rowspan="1" colspan="1">
+        <p class="CellHeading"><a name="pgfId-902643" id="pgfId-902643"></a>Expected
+        Type(s)</p>
+      </th>
+    </tr>
 
-Object
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902572" id=
+      "pgfId-902572"></a>boxfill</strong></td>
 
-Attributes (or Members)
+      <td class="CellBody"><a name="pgfId-902842" id="pgfId-902842"></a>(graphics method
+      class name is Gfb)</td>
+    </tr>
 
-Expected Type(s)
+    <tr>
+      <td><code>name</code></td>
 
-boxfill
+      <td>StringType</td>
+    </tr>
 
+    <tr>
+      <td><code>projection</code></td>
 
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
-(graphics method class name is Gfb)
+    <tr>
+      <td><code>xticlabels1</code></td>
 
-name
+      <td>StringType or DictType</td>
+    </tr>
 
-projection
+    <tr>
+      <td><code>xticlabels2</code></td>
 
-xticlabels1
+      <td>StringType or DictType</td>
+    </tr>
 
-xticlabels2
+    <tr>
+      <td><code>xmtics1</code></td>
 
-xmtics1
+      <td>StringType or DictType</td>
+    </tr>
 
-xmtics2
+    <tr>
+      <td><code>xmtics2</code></td>
 
-yticlabels1
+      <td>StringType or DictType</td>
+    </tr>
 
-yticlabels2
+    <tr>
+      <td><code>yticlabels1</code></td>
 
-ymtics1
+      <td>StringType or DictType</td>
+    </tr>
 
-ymtics2
+    <tr>
+      <td><code>yticlabels2</code></td>
 
-datawc_x1
+      <td>StringType or DictType</td>
+    </tr>
 
-datawc_y1
+    <tr>
+      <td><code>ymtics1</code></td>
 
-datawc_x2
+      <td>StringType or DictType</td>
+    </tr>
 
-datawc_y2
+    <tr>
+      <td><code>ymtics2</code></td>
 
-xaxisconvert
+      <td>StringType or DictType</td>
+    </tr>
 
-yaxisconvert
+    <tr>
+      <td><code>datawc_x1</code></td>
 
-level_1
+      <td>IntType or FloatType</td>
+    </tr>
 
-level_2
+    <tr>
+      <td><code>datawc_y1</code></td>
 
-color_1
+      <td>IntType or FloatType</td>
+    </tr>
 
-color_2
+    <tr>
+      <td><code>datawc_x2</code></td>
 
-legend_type
+      <td>IntType or FloatType</td>
+    </tr>
 
-legend
+    <tr>
+      <td><code>datawc_y2</code></td>
 
-ext_1
+      <td>IntType or FloatType</td>
+    </tr>
 
-ext_2
+    <tr>
+      <td><code>xaxisconvert</code></td>
 
-missing
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-StringType
+    <tr>
+      <td><code>yaxisconvert</code></td>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>level_1</code></td>
 
-StringType or DictType
+      <td>IntType or FloatType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>level_2</code></td>
 
-StringType or DictType
+      <td>IntType or FloatType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>color_1</code></td>
 
-StringType or DictType
+      <td>IntType: (Range: 0 to 255)</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>color_2</code></td>
 
-StringType or DictType
+      <td>IntType: (Range: 0 to 255)</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>legend_type</code></td>
 
-IntType or FloatType
+      <td>Either: 'VCS', 'Pts', 'List'</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>legend</code></td>
 
-IntType or FloatType
+      <td>StringType</td>
+    </tr>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+    <tr>
+      <td><code>ext_1</code></td>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+      <td>Either: 'n', 'y'</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>ext_2</code></td>
 
-IntType or FloatType
+      <td>Either: 'n', 'y'</td>
+    </tr>
 
-IntType: (Range: 0 to 255)
+    <tr>
+      <td><code>missing</code></td>
 
-IntType: (Range: 0 to 255)
+      <td>IntType: (Range: 0 to 255)</td>
+    </tr>
 
-Either: 'VCS', 'Pts', 'List'
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902814" id=
+      "pgfId-902814"></a>continents</strong></td>
 
-StringType
+      <td class="CellBody"><a name="pgfId-902845" id="pgfId-902845"></a>(graphics method
+      class name is Gcon)</td>
+    </tr>
 
-Either: 'n', 'y'
+    <tr>
+      <td><code>name</code></td>
 
-Either: 'n', 'y'
+      <td>StringType</td>
+    </tr>
 
-IntType: (Range: 0 to 255)
+    <tr>
+      <td><code>projection</code></td>
 
-continents
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
+    <tr>
+      <td><code>xticlabels1</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
-(graphics method class name is Gcon)
+    <tr>
+      <td><code>xticlabels2</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>xmtics1</code></td>
 
-name
+      <td>StringType or DictType</td>
+    </tr>
 
-projection
+    <tr>
+      <td><code>xmtics2</code></td>
 
-xticlabels1
+      <td>StringType or DictType</td>
+    </tr>
 
-xticlabels2
+    <tr>
+      <td><code>yticlabels1</code></td>
 
-xmtics1
+      <td>StringType or DictType</td>
+    </tr>
 
-xmtics2
+    <tr>
+      <td><code>yticlabels2</code></td>
 
-yticlabels1
+      <td>StringType or DictType</td>
+    </tr>
 
-yticlabels2
+    <tr>
+      <td><code>ymtics1</code></td>
 
-ymtics1
+      <td>StringType or DictType</td>
+    </tr>
 
-ymtics2
+    <tr>
+      <td><code>ymtics2</code></td>
 
-datawc_x1
+      <td>StringType or DictType</td>
+    </tr>
 
-datawc_y1
+    <tr>
+      <td><code>datawc_x1</code></td>
 
-datawc_x2
+      <td>IntType or FloatType</td>
+    </tr>
 
-datawc_y2
+    <tr>
+      <td><code>datawc_y1</code></td>
 
-line
+      <td>IntType or FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>datawc_x2</code></td>
 
+      <td>IntType or FloatType</td>
+    </tr>
 
-linecolor
+    <tr>
+      <td><code>datawc_y2</code></td>
 
-type
+      <td>IntType or FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>line</code></td>
 
+      <td>LineObject or (Either: 'solid','dash','dot',</td>
+    </tr>
 
-StringType
+    <tr>
+      <td><code>linecolor</code></td>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+      <td>'dash-dot','long-dash', 0,1,2,3,4)</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>type</code></td>
 
-StringType or DictType
+      <td>IntType: (Range 0 to 255) IntType: (Range 0 to 11)</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902605" id=
+      "pgfId-902605"></a>isofill</strong></td>
 
-StringType or DictType
+      <td class="CellBody"><a name="pgfId-903019" id="pgfId-903019"></a>(graphics method
+      class name is Gfi)</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>name</code></td>
 
-StringType or DictType
+      <td>StringType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>projection</code></td>
 
-StringType or DictType
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>xticlabels1</code></td>
 
-IntType or FloatType
+      <td>StringType or DictType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>xticlabels2</code></td>
 
-IntType or FloatType
+      <td>StringType or DictType</td>
+    </tr>
 
-LineObject or (Either: 'solid','dash','dot',
+    <tr>
+      <td><code>xmtics1</code></td>
 
-'dash-dot','long-dash', 0,1,2,3,4)
+      <td>StringType or DictType</td>
+    </tr>
 
-IntType: (Range 0 to 255)
+    <tr>
+      <td><code>xmtics2</code></td>
 
-IntType: (Range 0 to 11)
+      <td>StringType or DictType</td>
+    </tr>
 
-isofill
+    <tr>
+      <td><code>yticlabels1</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>yticlabels2</code></td>
 
-(graphics method class name is Gfi)
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>ymtics1</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
-name
+    <tr>
+      <td><code>ymtics2</code></td>
 
-projection
+      <td>StringType or DictType</td>
+    </tr>
 
-xticlabels1
+    <tr>
+      <td><code>datawc_x1</code></td>
 
-xticlabels2
+      <td>IntType or FloatType</td>
+    </tr>
 
-xmtics1
+    <tr>
+      <td><code>datawc_y1</code></td>
 
-xmtics2
+      <td>IntType or FloatType</td>
+    </tr>
 
-yticlabels1
+    <tr>
+      <td><code>datawc_x2</code></td>
 
-yticlabels2
+      <td>IntType or FloatType</td>
+    </tr>
 
-ymtics1
+    <tr>
+      <td><code>datawc_y2</code></td>
 
-ymtics2
+      <td>IntType or FloatType</td>
+    </tr>
 
-datawc_x1
+    <tr>
+      <td><code>xaxisconvert</code></td>
 
-datawc_y1
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-datawc_x2
+    <tr>
+      <td><code>yaxisconvert</code></td>
 
-datawc_y2
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-xaxisconvert
+    <tr>
+      <td><code>missing</code></td>
 
-yaxisconvert
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
 
-missing
+    <tr>
+      <td><code>ext_1</code></td>
 
-ext_1
+      <td>Either: 'n', 'y'</td>
+    </tr>
 
-ext_2
+    <tr>
+      <td><code>ext_2</code></td>
 
-fillareaindices
+      <td>Either: 'n', 'y'</td>
+    </tr>
 
+    <tr>
+      <td><code>fillareaindices</code></td>
 
+      <td>FillareaObject, or (Either: ListType, or TupleType [Values range 1 to 20])</td>
+    </tr>
 
-fillareastyle
+    <tr>
+      <td><code>fillareastyle</code></td>
 
-fillareacolors
+      <td>Either: 'solid', 'hatch', 'pattern'</td>
+    </tr>
 
+    <tr>
+      <td><code>fillareacolors</code></td>
 
+      <td>ListType, or TupleType (Index values range 0 to 255)</td>
+    </tr>
 
-levels
+    <tr>
+      <td><code>levels</code></td>
 
-StringType
+      <td>ListType, TupleType (Values are either integers, floats)</td>
+    </tr>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902609" id=
+      "pgfId-902609"></a>isoline</strong></td>
 
-StringType or DictType
+      <td class="CellBody"><a name="pgfId-903112" id="pgfId-903112"></a>(graphics method
+      class name is Gi)</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>name</code></td>
 
-StringType or DictType
+      <td>StringType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>projection</code></td>
 
-StringType or DictType
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>xticlabels1</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>xticlabels2</code></td>
 
-IntType or FloatType
+      <td>StringType or DictType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>xmtics1</code></td>
 
-IntType or FloatType
+      <td>StringType or DictType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>xmtics2</code></td>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+      <td>StringType or DictType</td>
+    </tr>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+    <tr>
+      <td><code>yticlabels1</code></td>
 
-IntType: (Range 0 to 255)
+      <td>StringType or DictType</td>
+    </tr>
 
-Either: 'n', 'y'
+    <tr>
+      <td><code>yticlabels2</code></td>
 
-Either: 'n', 'y'
+      <td>StringType or DictType</td>
+    </tr>
 
-FillareaObject, or (Either: ListType, or TupleType
+    <tr>
+      <td><code>ymtics1</code></td>
 
-[Values range 1 to 20])
+      <td>StringType or DictType</td>
+    </tr>
 
-Either: 'solid', 'hatch', 'pattern'
+    <tr>
+      <td><code>ymtics2</code></td>
 
-ListType, or TupleType (Index values
+      <td>StringType or DictType</td>
+    </tr>
 
-range 0 to 255)
+    <tr>
+      <td><code>datawc_x1</code></td>
 
-ListType, TupleType (Values are either
+      <td>IntType or FloatType</td>
+    </tr>
 
-integers, floats)
+    <tr>
+      <td><code>datawc_y1</code></td>
 
-isoline
+      <td>IntType or FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>datawc_x2</code></td>
 
+      <td>IntType or FloatType</td>
+    </tr>
 
-(graphics method class name is Gi)
+    <tr>
+      <td><code>datawc_y2</code></td>
 
+      <td>IntType or FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>xaxisconvert</code></td>
 
-name
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-projection
+    <tr>
+      <td><code>yaxisconvert</code></td>
 
-xticlabels1
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-xticlabels2
+    <tr>
+      <td><code>label</code></td>
 
-xmtics1
+      <td>Either: 'n', 'y', 0, 1</td>
+    </tr>
 
-xmtics2
+    <tr>
+      <td><code>line</code></td>
 
-yticlabels1
+      <td>LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
+      2, 3, 4)</td>
+    </tr>
 
-yticlabels2
+    <tr>
+      <td><code>linecolors</code></td>
 
-ymtics1
+      <td>ListType, TupleType (Values range 0 to 255)</td>
+    </tr>
 
-ymtics2
+    <tr>
+      <td><code>text</code></td>
 
-datawc_x1
+      <td>TextcombinedObject, TextOrientationObject, TexttableObject, or (Either:
+      ListType, TupleType, IntType [Values range 1 to 9])</td>
+    </tr>
 
-datawc_y1
+    <tr>
+      <td><code>textcolors</code></td>
 
-datawc_x2
+      <td>ListType, TupleType (Values range 0 to 255)</td>
+    </tr>
 
-datawc_y2
+    <tr>
+      <td><code>level</code></td>
 
-xaxisconvert
+      <td>ListType, TupleType, IntType, FloatType</td>
+    </tr>
 
-yaxisconvert
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902613" id=
+      "pgfId-902613"></a>outfill</strong></td>
 
-label
+      <td class="CellBody"><a name="pgfId-903111" id="pgfId-903111"></a>(graphics method
+      class name is Gfo)</td>
+    </tr>
 
-line
+    <tr>
+      <td><code>name</code></td>
 
+      <td>StringType</td>
+    </tr>
 
+    <tr>
+      <td><code>projection</code></td>
 
-linecolors
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
-text
+    <tr>
+      <td><code>xticlabels1</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>xticlabels2</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>xmtics1</code></td>
 
-textcolors
+      <td>StringType or DictType</td>
+    </tr>
 
-level
+    <tr>
+      <td><code>xmtics2</code></td>
 
-StringType
+      <td>StringType or DictType</td>
+    </tr>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+    <tr>
+      <td><code>yticlabels1</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>yticlabels2</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>ymtics1</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>ymtics2</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>datawc_x1</code></td>
 
-IntType or FloatType
+      <td>IntType or FloatType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>datawc_y1</code></td>
 
-IntType or FloatType
+      <td>IntType or FloatType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>datawc_x2</code></td>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+      <td>IntType or FloatType</td>
+    </tr>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+    <tr>
+      <td><code>datawc_y2</code></td>
 
-Either: 'n', 'y', 0, 1
+      <td>IntType or FloatType</td>
+    </tr>
 
-LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
-2, 3, 4)
+    <tr>
+      <td><code>xaxisconvert</code></td>
 
-ListType, TupleType (Values range 0 to 255)
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-TextcombinedObject, TextOrientationObject,
+    <tr>
+      <td><code>yaxisconvert</code></td>
 
-TexttableObject, or (Either: ListType, TupleType,
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-IntType [Values range 1 to 9])
+    <tr>
+      <td><code>fillareastyle</code></td>
 
-ListType, TupleType (Values range 0 to 255)
+      <td>FillareaObject or (Either: 'solid', 'hatch', 'pattern', 0, 1, 2, 3)</td>
+    </tr>
 
-ListType, TupleType, IntType, FloatType
+    <tr>
+      <td><code>fillareaindex</code></td>
 
-outfill
+      <td>IntType: (Range 0 to 20)</td>
+    </tr>
 
+    <tr>
+      <td><code>fillareacolor</code></td>
 
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
 
-(graphics method class name is Gfo)
+    <tr>
+      <td><code>outfill</code></td>
 
+      <td>ListType, TupleType, IntType, FloatType (must be less than 10 values)</td>
+    </tr>
 
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902617" id=
+      "pgfId-902617"></a>outline</strong></td>
 
-name
+      <td class="CellBody"><a name="pgfId-903110" id="pgfId-903110"></a>(graphics method
+      class name is Go)</td>
+    </tr>
 
-projection
+    <tr>
+      <td><code>name</code></td>
 
-xticlabels1
+      <td>StringType</td>
+    </tr>
 
-xticlabels2
+    <tr>
+      <td><code>projection</code></td>
 
-xmtics1
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
-xmtics2
+    <tr>
+      <td><code>xticlabels1</code></td>
 
-yticlabels1
+      <td>StringType or DictType</td>
+    </tr>
 
-yticlabels2
+    <tr>
+      <td><code>xticlabels2</code></td>
 
-ymtics1
+      <td>StringType or DictType</td>
+    </tr>
 
-ymtics2
+    <tr>
+      <td><code>xmtics1</code></td>
 
-datawc_x1
+      <td>StringType or DictType</td>
+    </tr>
 
-datawc_y1
+    <tr>
+      <td><code>xmtics2</code></td>
 
-datawc_x2
+      <td>StringType or DictType</td>
+    </tr>
 
-datawc_y2
+    <tr>
+      <td><code>yticlabels1</code></td>
 
-xaxisconvert
+      <td>StringType or DictType</td>
+    </tr>
 
-yaxisconvert
+    <tr>
+      <td><code>yticlabels2</code></td>
 
-fillareastyle
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>ymtics1</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
-fillareaindex
+    <tr>
+      <td><code>ymtics2</code></td>
 
-fillareacolor
+      <td>StringType or DictType</td>
+    </tr>
 
-outfill
+    <tr>
+      <td><code>datawc_x1</code></td>
 
-StringType
+      <td>IntType or FloatType</td>
+    </tr>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+    <tr>
+      <td><code>datawc_y1</code></td>
 
-StringType or DictType
+      <td>IntType or FloatType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>datawc_x2</code></td>
 
-StringType or DictType
+      <td>IntType or FloatType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>datawc_y2</code></td>
 
-StringType or DictType
+      <td>IntType or FloatType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>xaxisconvert</code></td>
 
-StringType or DictType
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>yaxisconvert</code></td>
 
-IntType or FloatType
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>line</code></td>
 
-IntType or FloatType
+      <td>LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
+      2, 3, 4)</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>linecolor</code></td>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+      <td>ListType, TupleType (Values range 0 to 255)</td>
+    </tr>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+    <tr>
+      <td><code>outline</code></td>
 
-FillareaObject or (Either: 'solid', 'hatch',
+      <td>ListType, TupleType, IntType, FloatType (must be less than 10 values)</td>
+    </tr>
 
-'pattern', 0, 1, 2, 3)
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902621" id=
+      "pgfId-902621"></a>scatter</strong></td>
 
-IntType: (Range 0 to 20)
+      <td class="CellBody"><a name="pgfId-903109" id="pgfId-903109"></a>(graphics method
+      class name is GSp)</td>
+    </tr>
 
-IntType: (Range 0 to 255)
+    <tr>
+      <td><code>name</code></td>
 
-ListType, TupleType, IntType, FloatType
+      <td>StringType</td>
+    </tr>
 
-(must be less than 10 values)
+    <tr>
+      <td><code>projection</code></td>
 
-outline
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
+    <tr>
+      <td><code>xticlabels1</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
-(graphics method class name is Go)
+    <tr>
+      <td><code>xticlabels2</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>xmtics1</code></td>
 
-name
+      <td>StringType or DictType</td>
+    </tr>
 
-projection
+    <tr>
+      <td><code>xmtics2</code></td>
 
-xticlabels1
+      <td>StringType or DictType</td>
+    </tr>
 
-xticlabels2
+    <tr>
+      <td><code>yticlabels1</code></td>
 
-xmtics1
+      <td>StringType or DictType</td>
+    </tr>
 
-xmtics2
+    <tr>
+      <td><code>yticlabels2</code></td>
 
-yticlabels1
+      <td>StringType or DictType</td>
+    </tr>
 
-yticlabels2
+    <tr>
+      <td><code>ymtics1</code></td>
 
-ymtics1
+      <td>StringType or DictType</td>
+    </tr>
 
-ymtics2
+    <tr>
+      <td><code>ymtics2</code></td>
 
-datawc_x1
+      <td>StringType or DictType</td>
+    </tr>
 
-datawc_y1
+    <tr>
+      <td><code>datawc_x1</code></td>
 
-datawc_x2
+      <td>IntType or FloatType</td>
+    </tr>
 
-datawc_y2
+    <tr>
+      <td><code>datawc_y1</code></td>
 
-xaxisconvert
+      <td>IntType or FloatType</td>
+    </tr>
 
-yaxisconvert
+    <tr>
+      <td><code>datawc_x2</code></td>
 
-line
+      <td>IntType or FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>datawc_y2</code></td>
 
+      <td>IntType or FloatType</td>
+    </tr>
 
-linecolor
+    <tr>
+      <td><code>xaxisconvert</code></td>
 
-outline
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-StringType
+    <tr>
+      <td><code>yaxisconvert</code></td>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>marker</code></td>
 
-StringType or DictType
+      <td>MarkerObject or (Either: 'dot', 'plus', 'star', 'circle', 'cross', 'diamond',
+      'triangle_up', 'triangle_down', 'triangle_left', 'triangle_right', 'square',
+      'diamond_fill', 'triangle_up_fill', 'triangle_down_fill', 'triangle_left_fill',
+      'triangle_right_fill', 'square_fill', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+      ,15, 16, 17</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>markercolor</code></td>
 
-StringType or DictType
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>markersize</code></td>
 
-StringType or DictType
+      <td>IntType: (Range 1 to 300)</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902625" id=
+      "pgfId-902625"></a>vector</strong></td>
 
-StringType or DictType
+      <td class="CellBody"><a name="pgfId-903108" id="pgfId-903108"></a>(graphics method
+      class name is Gv)</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>name</code></td>
 
-IntType or FloatType
+      <td>StringType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>projection</code></td>
 
-IntType or FloatType
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+    <tr>
+      <td><code>xticlabels1</code></td>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+      <td>StringType or DictType</td>
+    </tr>
 
-LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
-2, 3, 4)
+    <tr>
+      <td><code>xticlabels2</code></td>
 
-ListType, TupleType (Values range 0 to 255)
+      <td>StringType or DictType</td>
+    </tr>
 
-ListType, TupleType, IntType, FloatType
+    <tr>
+      <td><code>xmtics1</code></td>
 
-(must be less than 10 values)
+      <td>StringType or DictType</td>
+    </tr>
 
-scatter
+    <tr>
+      <td><code>xmtics2</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>yticlabels1</code></td>
 
-(graphics method class name is GSp)
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>yticlabels2</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
-name
+    <tr>
+      <td><code>ymtics1</code></td>
 
-projection
+      <td>StringType or DictType</td>
+    </tr>
 
-xticlabels1
+    <tr>
+      <td><code>ymtics2</code></td>
 
-xticlabels2
+      <td>StringType or DictType</td>
+    </tr>
 
-xmtics1
+    <tr>
+      <td><code>datawc_x1</code></td>
 
-xmtics2
+      <td>IntType or FloatType</td>
+    </tr>
 
-yticlabels1
+    <tr>
+      <td><code>datawc_y1</code></td>
 
-yticlabels2
+      <td>IntType or FloatType</td>
+    </tr>
 
-ymtics1
+    <tr>
+      <td><code>datawc_x2</code></td>
 
-ymtics2
+      <td>IntType or FloatType</td>
+    </tr>
 
-datawc_x1
+    <tr>
+      <td><code>datawc_y2</code></td>
 
-datawc_y1
+      <td>IntType or FloatType</td>
+    </tr>
 
-datawc_x2
+    <tr>
+      <td><code>xaxisconvert</code></td>
 
-datawc_y2
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-xaxisconvert
+    <tr>
+      <td><code>yaxisconvert</code></td>
 
-yaxisconvert
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-marker
+    <tr>
+      <td><code>line</code></td>
 
+      <td>LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
+      2, 3, 4)</td>
+    </tr>
 
+    <tr>
+      <td><code>linecolor</code></td>
 
+      <td>ListType, TupleType (Values range 0 to 255)</td>
+    </tr>
 
+    <tr>
+      <td><code>scale</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>alignment</code></td>
 
+      <td>Either: 'head', 'center', 'tail', 0, 1, 2</td>
+    </tr>
 
+    <tr>
+      <td><code>type</code></td>
 
+      <td>Either: 'arrows', 'barbs', 'solidarrows', 0, 1, 2</td>
+    </tr>
 
+    <tr>
+      <td><code>reference</code></td>
 
+      <td>FloatType, IntType</td>
+    </tr>
 
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902629" id=
+      "pgfId-902629"></a>xvsy</strong></td>
 
-markercolor
+      <td class="CellBody"><a name="pgfId-903107" id="pgfId-903107"></a>(graphics method
+      class name is GXY)</td>
+    </tr>
 
-markersize
+    <tr>
+      <td><code>name</code></td>
 
-StringType
+      <td>StringType</td>
+    </tr>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+    <tr>
+      <td><code>projection</code></td>
 
-StringType or DictType
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>xticlabels1</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>xticlabels2</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>xmtics1</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>xmtics2</code></td>
 
-IntType or FloatType
+      <td>StringType or DictType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>yticlabels1</code></td>
 
-IntType or FloatType
+      <td>StringType or DictType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>yticlabels2</code></td>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+      <td>StringType or DictType</td>
+    </tr>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+    <tr>
+      <td><code>ymtics1</code></td>
 
-MarkerObject or (Either: 'dot', 'plus', 'star',
+      <td>StringType or DictType</td>
+    </tr>
 
-'circle', 'cross', 'diamond', 'triangle_up',
+    <tr>
+      <td><code>ymtics2</code></td>
 
-'triangle_down', 'triangle_left', 'triangle_right',
+      <td>StringType or DictType</td>
+    </tr>
 
-'square', 'diamond_fill', 'triangle_up_fill',
+    <tr>
+      <td><code>datawc_x1</code></td>
 
-'triangle_down_fill', 'triangle_left_fill',
+      <td>IntType or FloatType</td>
+    </tr>
 
-'triangle_right_fill', 'square_fill', 1, 2, 3, 4, 5, 6,
+    <tr>
+      <td><code>datawc_y1</code></td>
 
-7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17
+      <td>IntType or FloatType</td>
+    </tr>
 
-IntType: (Range 0 to 255)
+    <tr>
+      <td><code>datawc_x2</code></td>
 
-IntType: (Range 1 to 300)
+      <td>IntType or FloatType</td>
+    </tr>
 
-vector
+    <tr>
+      <td><code>datawc_y2</code></td>
 
+      <td>IntType or FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>xaxisconvert</code></td>
 
-(graphics method class name is Gv)
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
+    <tr>
+      <td><code>yaxisconvert</code></td>
 
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-name
+    <tr>
+      <td><code>line</code></td>
 
-projection
+      <td>LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
+      2, 3, 4)</td>
+    </tr>
 
-xticlabels1
+    <tr>
+      <td><code>linecolor</code></td>
 
-xticlabels2
+      <td>ListType, TupleType (Values range 0 to 255)</td>
+    </tr>
 
-xmtics1
+    <tr>
+      <td><code>marker</code></td>
 
-xmtics2
+      <td>MarkerObject or (Either: 'dot', 'plus', 'star', 'circle', 'cross', 'diamond',
+      'triangle_up', 'triangle_down', 'triangle_left', 'triangle_right', 'square',
+      'diamond_fill', 'triangle_up_fill', 'triangle_down_fill', 'triangle_left_fill',
+      'triangle_right_fill', 'square_fill', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+      ,15, 16, 17</td>
+    </tr>
 
-yticlabels1
+    <tr>
+      <td><code>markercolor</code></td>
 
-yticlabels2
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
 
-ymtics1
+    <tr>
+      <td><code>markersize</code></td>
 
-ymtics2
+      <td>IntType: (Range 1 to 300)</td>
+    </tr>
 
-datawc_x1
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902633" id=
+      "pgfId-902633"></a>xyvsy</strong></td>
 
-datawc_y1
+      <td class="CellBody"><a name="pgfId-903106" id="pgfId-903106"></a>(graphics method
+      class name is GXy)</td>
+    </tr>
 
-datawc_x2
+    <tr>
+      <td><code>name</code></td>
 
-datawc_y2
+      <td>StringType</td>
+    </tr>
 
-xaxisconvert
+    <tr>
+      <td><code>projection</code></td>
 
-yaxisconvert
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
-line
+    <tr>
+      <td><code>xticlabels1</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>xticlabels2</code></td>
 
-linecolor
+      <td>StringType or DictType</td>
+    </tr>
 
-scale
+    <tr>
+      <td><code>xmtics1</code></td>
 
-alignment
+      <td>StringType or DictType</td>
+    </tr>
 
-type
+    <tr>
+      <td><code>xmtics2</code></td>
 
-reference
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType
+    <tr>
+      <td><code>yticlabels1</code></td>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>yticlabels2</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>ymtics1</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>ymtics2</code></td>
 
-StringType or DictType
+      <td>StringType or DictType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>datawc_x1</code></td>
 
-StringType or DictType
+      <td>IntType or FloatType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>datawc_y1</code></td>
 
-IntType or FloatType
+      <td>IntType or FloatType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>datawc_x2</code></td>
 
-IntType or FloatType
+      <td>IntType or FloatType</td>
+    </tr>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+    <tr>
+      <td><code>datawc_y2</code></td>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+      <td>IntType or FloatType</td>
+    </tr>
 
-LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
-2, 3, 4)
+    <tr>
+      <td><code>xaxisconvert</code></td>
 
-ListType, TupleType (Values range 0 to 255)
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>line</code></td>
 
-Either: 'head', 'center', 'tail', 0, 1, 2
+      <td>LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
+      2, 3, 4)</td>
+    </tr>
 
-Either: 'arrows', 'barbs', 'solidarrows', 0, 1, 2
+    <tr>
+      <td><code>linecolor</code></td>
 
-FloatType, IntType
+      <td>ListType, TupleType (Values range 0 to 255)</td>
+    </tr>
 
-xvsy
+    <tr>
+      <td><code>marker</code></td>
 
+      <td>MarkerObject or (Either: 'dot', 'plus', 'star', 'circle', 'cross', 'diamond',
+      'triangle_up', 'triangle_down', 'triangle_left', 'triangle_right', 'square',
+      'diamond_fill', 'triangle_up_fill', 'triangle_down_fill', 'triangle_left_fill',
+      'triangle_right_fill', 'square_fill', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+      ,15, 16, 17</td>
+    </tr>
 
+    <tr>
+      <td><code>markercolor</code></td>
 
-(graphics method class name is GXY)
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
 
+    <tr>
+      <td><code>markersize</code></td>
 
+      <td>IntType: (Range 1 to 300)</td>
+    </tr>
 
-name
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-902637" id=
+      "pgfId-902637"></a>yxvsx</strong></td>
 
-projection
+      <td class="CellBody"><a name="pgfId-903105" id="pgfId-903105"></a>(graphics method
+      class name is GYx)</td>
+    </tr>
 
-xticlabels1
+    <tr>
+      <td><code>name</code></td>
 
-xticlabels2
+      <td>StringType</td>
+    </tr>
 
-xmtics1
+    <tr>
+      <td><code>projection</code></td>
 
-xmtics2
+      <td>Either: linear , mollweide , robinson , or polar</td>
+    </tr>
 
-yticlabels1
+    <tr>
+      <td><code>xticlabels1</code></td>
 
-yticlabels2
+      <td>StringType or DictType</td>
+    </tr>
 
-ymtics1
+    <tr>
+      <td><code>xticlabels2</code></td>
 
-ymtics2
+      <td>StringType or DictType</td>
+    </tr>
 
-datawc_x1
+    <tr>
+      <td><code>xmtics1</code></td>
 
-datawc_y1
+      <td>StringType or DictType</td>
+    </tr>
 
-datawc_x2
+    <tr>
+      <td><code>xmtics2</code></td>
 
-datawc_y2
+      <td>StringType or DictType</td>
+    </tr>
 
-xaxisconvert
+    <tr>
+      <td><code>yticlabels1</code></td>
 
-yaxisconvert
+      <td>StringType or DictType</td>
+    </tr>
 
-line
+    <tr>
+      <td><code>yticlabels2</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>ymtics1</code></td>
 
-linecolor
+      <td>StringType or DictType</td>
+    </tr>
 
-marker
+    <tr>
+      <td><code>ymtics2</code></td>
 
+      <td>StringType or DictType</td>
+    </tr>
 
+    <tr>
+      <td><code>datawc_x1</code></td>
 
+      <td>IntType or FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>datawc_y1</code></td>
 
+      <td>IntType or FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>datawc_x2</code></td>
 
+      <td>IntType or FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>datawc_y2</code></td>
 
+      <td>IntType or FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>yaxisconvert</code></td>
 
+      <td>Either: 'linear', 'log10', 'ln','exp','area_wt'</td>
+    </tr>
 
+    <tr>
+      <td><code>line</code></td>
 
-markercolor
+      <td>LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
+      2, 3, 4)</td>
+    </tr>
 
-markersize
+    <tr>
+      <td><code>linecolor</code></td>
 
-StringType
+      <td>ListType, TupleType (Values range 0 to 255)</td>
+    </tr>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+    <tr>
+      <td><code>marker</code></td>
 
-StringType or DictType
+      <td>MarkerObject or (Either: 'dot', 'plus', 'star', 'circle', 'cross', 'diamond',
+      'triangle_up', 'triangle_down', 'triangle_left', 'triangle_right', 'square',
+      'diamond_fill', 'triangle_up_fill', 'triangle_down_fill', 'triangle_left_fill',
+      'triangle_right_fill', 'square_fill', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14
+      ,15, 16, 17</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>markercolor</code></td>
 
-StringType or DictType
+      <td>IntType: (Range 0 to 255)</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>markersize</code></td>
 
-StringType or DictType
+      <td>IntType: (Range 1 to 300)</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><strong class="PublisherBook">Object: <a name="pgfId-905468" id=
+      "pgfId-905468"></a>template</strong></td>
 
-StringType or DictType
+      <td class="CellBody"><a name="pgfId-905470" id="pgfId-905470"></a>(Picture Template
+      class name is P)</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td>Member: <code>file</code></td>
 
-IntType or FloatType
+      <td></td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>priority</code></td>
 
-IntType or FloatType
+      <td>IntType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>x</code></td>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+      <td>IntType, FloatType</td>
+    </tr>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+    <tr>
+      <td><code>y</code></td>
 
-LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
-2, 3, 4)
+      <td>IntType, FloatType</td>
+    </tr>
 
-ListType, TupleType (Values range 0 to 255)
+    <tr>
+      <td><code>texttable</code></td>
 
-MarkerObject or (Either: 'dot', 'plus', 'star',
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-'circle', 'cross', 'diamond', 'triangle_up',
+    <tr>
+      <td><code>textorientation</code></td>
 
-'triangle_down', 'triangle_left', 'triangle_right',
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-'square', 'diamond_fill', 'triangle_up_fill',
+    <tr>
+      <td>Member: <code>function</code></td>
 
-'triangle_down_fill', 'triangle_left_fill',
+      <td></td>
+    </tr>
 
-'triangle_right_fill', 'square_fill', 1, 2, 3, 4, 5, 6,
+    <tr>
+      <td><code>priority</code></td>
 
-7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17
+      <td>IntType</td>
+    </tr>
 
-IntType: (Range 0 to 255)
+    <tr>
+      <td><code>x</code></td>
 
-IntType: (Range 1 to 300)
+      <td>IntType, FloatType</td>
+    </tr>
 
-xyvsy
+    <tr>
+      <td><code>y</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>texttable</code></td>
 
-(graphics method class name is GXy)
+      <td>TexttableObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td><code>textorientation</code></td>
 
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-name
+    <tr>
+      <td>Member:&nbsp;<code>logicalmask</code></td>
 
-projection
+      <td></td>
+    </tr>
 
-xticlabels1
+    <tr>
+      <td><code>priority</code></td>
 
-xticlabels2
+      <td>IntType</td>
+    </tr>
 
-xmtics1
+    <tr>
+      <td><code>x</code></td>
 
-xmtics2
+      <td>IntType, FloatType</td>
+    </tr>
 
-yticlabels1
+    <tr>
+      <td><code>y</code></td>
 
-yticlabels2
+      <td>IntType, FloatType</td>
+    </tr>
 
-ymtics1
+    <tr>
+      <td><code>texttable</code></td>
 
-ymtics2
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-datawc_x1
+    <tr>
+      <td><code>textorientation</code></td>
 
-datawc_y1
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-datawc_x2
+    <tr>
+      <td>Member:&nbsp;<code>transformation</code></td>
 
-datawc_y2
+      <td></td>
+    </tr>
+    <tr>
+      <td><code>priority</code></td>
 
-xaxisconvert
+      <td>IntType</td>
+    </tr>
 
-line
+    <tr>
+      <td><code>x</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y</code></td>
 
-linecolor
+      <td>IntType, FloatType</td>
+    </tr>
 
-marker
+    <tr>
+      <td><code>texttable</code></td>
 
+      <td>TexttableObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td><code>textorientation</code></td>
 
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>source</code></td>
 
+      <td></td>
+    </tr>
 
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
+    <tr>
+      <td><code>x</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>texttable</code></td>
 
-markercolor
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-markersize
+    <tr>
+      <td><code>textorientation</code></td>
 
-StringType
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+    <tr>
+      <td>Member: <code>dataname</code></td>
 
-StringType or DictType
+      <td></td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>priority</code></td>
 
-StringType or DictType
+      <td>IntType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>x</code></td>
 
-StringType or DictType
+      <td>IntType, FloatType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>y</code></td>
 
-StringType or DictType
+      <td>IntType, FloatType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>texttable</code></td>
 
-IntType or FloatType
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>textorientation</code></td>
 
-IntType or FloatType
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td>Member: <code>title</code></td>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+      <td></td>
+    </tr>
 
-LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
-2, 3, 4)
+    <tr>
+      <td><code>priority</code></td>
 
-ListType, TupleType (Values range 0 to 255)
+      <td>IntType</td>
+    </tr>
 
-MarkerObject or (Either: 'dot', 'plus', 'star',
+    <tr>
+      <td><code>x</code></td>
 
-'circle', 'cross', 'diamond', 'triangle_up',
+      <td>IntType, FloatType</td>
+    </tr>
 
-'triangle_down', 'triangle_left', 'triangle_right',
+    <tr>
+      <td><code>y</code></td>
 
-'square', 'diamond_fill', 'triangle_up_fill',
+      <td>IntType, FloatType</td>
+    </tr>
 
-'triangle_down_fill', 'triangle_left_fill',
+    <tr>
+      <td><code>texttable</code></td>
 
-'triangle_right_fill', 'square_fill', 1, 2, 3, 4, 5, 6,
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17
+    <tr>
+      <td><code>textorientation</code></td>
 
-IntType: (Range 0 to 255)
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-IntType: (Range 1 to 300)
+    <tr>
+      <td>Member: <code>units</code></td>
 
-yxvsx
+      <td></td>
+    </tr>
 
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
-(graphics method class name is GYx)
+    <tr>
+      <td><code>x</code></td>
 
-name
+      <td>IntType, FloatType</td>
+    </tr>
 
-projection
+    <tr>
+      <td><code>y</code></td>
 
-xticlabels1
+      <td>IntType, FloatType</td>
+    </tr>
 
-xticlabels2
+    <tr>
+      <td><code>texttable</code></td>
 
-xmtics1
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-xmtics2
+    <tr>
+      <td><code>textorientation</code></td>
 
-yticlabels1
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-yticlabels2
+    <tr>
+      <td>Member: <code>crdate</code></td>
 
-ymtics1
+      <td></td>
+    </tr>
 
-ymtics2
+    <tr>
+      <td><code>priority</code></td>
 
-datawc_x1
+      <td>IntType</td>
+    </tr>
 
-datawc_y1
+    <tr>
+      <td><code>x</code></td>
 
-datawc_x2
+      <td>IntType, FloatType</td>
+    </tr>
 
-datawc_y2
+    <tr>
+      <td><code>y</code></td>
 
-yaxisconvert
+      <td>IntType, FloatType</td>
+    </tr>
 
-line
+    <tr>
+      <td><code>texttable</code></td>
 
+      <td>TexttableObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td><code>textorientation</code></td>
 
-linecolor
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-marker
+    <tr>
+      <td>Member: <code>crtime</code></td>
 
+      <td></td>
+    </tr>
 
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
+    <tr>
+      <td><code>x</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>texttable</code></td>
 
+      <td>TexttableObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td><code>textorientation</code></td>
 
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>comment1</code></td>
 
-markercolor
+      <td></td>
+    </tr>
 
-markersize
+    <tr>
+      <td><code>priority</code></td>
 
-StringType
+      <td>IntType</td>
+    </tr>
 
-Either: `linear', `mollweide', `robinson', or `polar'
+    <tr>
+      <td><code>x</code></td>
 
-StringType or DictType
+      <td>IntType, FloatType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>y</code></td>
 
-StringType or DictType
+      <td>IntType, FloatType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>texttable</code></td>
 
-StringType or DictType
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td><code>textorientation</code></td>
 
-StringType or DictType
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-StringType or DictType
+    <tr>
+      <td>Member: <code>comment2</code></td>
 
-IntType or FloatType
+      <td></td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>priority</code></td>
 
-IntType or FloatType
+      <td>IntType</td>
+    </tr>
 
-IntType or FloatType
+    <tr>
+      <td><code>x</code></td>
 
-Either: 'linear', 'log10', 'ln','exp','area_wt'
+      <td>IntType, FloatType</td>
+    </tr>
 
-LineObject or (Either: "solid", "dash", "dot", "dash-dot", "long-dash", 0, 1,
-2, 3, 4)
+    <tr>
+      <td><code>y</code></td>
 
-ListType, TupleType (Values range 0 to 255)
+      <td>IntType, FloatType</td>
+    </tr>
 
-MarkerObject or (Either: 'dot', 'plus', 'star',
+    <tr>
+      <td><code>texttable</code></td>
 
-'circle', 'cross', 'diamond', 'triangle_up',
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-'triangle_down', 'triangle_left', 'triangle_right',
+    <tr>
+      <td><code>textorientation</code></td>
 
-'square', 'diamond_fill', 'triangle_up_fill',
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-'triangle_down_fill', 'triangle_left_fill',
+    <tr>
+      <td>Member: <code>comment3</code></td>
 
-'triangle_right_fill', 'square_fill', 1, 2, 3, 4, 5, 6,
+      <td></td>
+    </tr>
 
-7, 8, 9, 10, 11, 12, 13, 14 ,15, 16, 17
+    <tr>
+      <td><code>priority</code></td>
 
-IntType: (Range 0 to 255)
+      <td>IntType</td>
+    </tr>
 
-IntType: (Range 1 to 300)
+    <tr>
+      <td><code>x</code></td>
 
-template
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
-(Picture Template class name is P)
+    <tr>
+      <td><code>texttable</code></td>
 
-member = file
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>textorientation</code></td>
 
-x
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-y
+    <tr>
+      <td>Member: <code>comment4</code></td>
 
-texttable
+      <td></td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>priority</code></td>
 
-member = function
+      <td>IntType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>x</code></td>
 
-x
+      <td>IntType, FloatType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>y</code></td>
 
-texttable
+      <td>IntType, FloatType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>texttable</code></td>
 
-member = logicalmask
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>textorientation</code></td>
 
-x
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-y
+    <tr>
+      <td>Member: <code>xname</code></td>
 
-texttable
+      <td></td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>priority</code></td>
 
-member =
+      <td>IntType</td>
+    </tr>
 
-transformation
+    <tr>
+      <td><code>x</code></td>
 
-priority
+      <td>IntType, FloatType</td>
+    </tr>
 
-x
+    <tr>
+      <td><code>y</code></td>
 
-y
+      <td>IntType, FloatType</td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>texttable</code></td>
 
-textorientation
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-member = source
+    <tr>
+      <td><code>textorientation</code></td>
 
-priority
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-x
+    <tr>
+      <td>Member: <code>yname</code></td>
 
-y
+      <td></td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>priority</code></td>
 
-textorientation
+      <td>IntType</td>
+    </tr>
 
+    <tr>
+      <td><code>x</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>y</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>texttable</code></td>
 
-TexttableObject, StringType
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>textorientation</code></td>
 
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>zname</code></td>
 
-IntType
+      <td></td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>priority</code></td>
 
-IntType, FloatType
+      <td>IntType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>x</code></td>
 
-TextorientationObject, StringType
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>texttable</code></td>
 
-IntType, FloatType
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>textorientation</code></td>
 
-TexttableObject, StringType
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td>Member: <code>tname</code></td>
 
+      <td></td>
+    </tr>
 
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
+    <tr>
+      <td><code>x</code></td>
 
-IntType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>y</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>texttable</code></td>
 
-TextorientationObject, StringType
+      <td>TexttableObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td><code>textorientation</code></td>
 
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td>Member: <code>xunits</code></td>
 
-IntType, FloatType
+      <td></td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>priority</code></td>
 
-TexttableObject, StringType
+      <td>IntType</td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>x</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y</code></td>
 
-member = dataname
+      <td>IntType, FloatType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>texttable</code></td>
 
-x
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>textorientation</code></td>
 
-texttable
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td>Member: <code>yunits</code></td>
 
-member = title
+      <td></td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>priority</code></td>
 
-x
+      <td>IntType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>x</code></td>
 
-texttable
+      <td>IntType, FloatType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>y</code></td>
 
-member = units
+      <td>IntType, FloatType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>texttable</code></td>
 
-x
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>textorientation</code></td>
 
-texttable
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td>Member: <code>zunits</code></td>
 
-member = crdate
+      <td></td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>priority</code></td>
 
-x
+      <td>IntType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>x</code></td>
 
-texttable
+      <td>IntType, FloatType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>y</code></td>
 
-member = crtime
+      <td>IntType, FloatType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>texttable</code></td>
 
-x
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>textorientation</code></td>
 
-texttable
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td>Member: <code>tunits</code></td>
 
+      <td></td>
+    </tr>
 
+    <tr>
+      <td><code>priority</code></td>
 
-IntType
+      <td>IntType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>x</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>y</code></td>
 
-TextorientationObject, StringType
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>texttable</code></td>
 
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>textorientation</code></td>
 
-IntType, FloatType
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td>Member: <code>xvalue</code></td>
 
-TexttableObject, StringType
+      <td></td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
+    <tr>
+      <td><code>x</code></td>
 
-IntType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>y</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>format</code></td>
 
-TextorientationObject, StringType
+      <td>Currently not able to set</td>
+    </tr>
 
+    <tr>
+      <td><code>texttable</code></td>
 
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>textorientation</code></td>
 
-IntType, FloatType
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td>Member: <code>yvalue</code></td>
 
-TexttableObject, StringType
+      <td></td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
+    <tr>
+      <td><code>x</code></td>
 
-IntType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>y</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>format</code></td>
 
-TextorientationObject, StringType
+      <td>Currently not able to set</td>
+    </tr>
 
+    <tr>
+      <td><code>texttable</code></td>
 
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-member = comment1
+    <tr>
+      <td><code>textorientation</code></td>
 
-priority
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-x
+    <tr>
+      <td>Member: <code>zvalue</code></td>
 
-y
+      <td></td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>priority</code></td>
 
-textorientation
+      <td>IntType</td>
+    </tr>
 
-member = comment2
+    <tr>
+      <td><code>x</code></td>
 
-priority
+      <td>IntType, FloatType</td>
+    </tr>
 
-x
+    <tr>
+      <td><code>y</code></td>
 
-y
+      <td>IntType, FloatType</td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>format</code></td>
 
-textorientation
+      <td>Currently not able to set</td>
+    </tr>
 
-member = comment3
+    <tr>
+      <td><code>texttable</code></td>
 
-priority
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-x
+    <tr>
+      <td><code>textorientation</code></td>
 
-y
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-texttable
+    <tr>
+      <td>Member: <code>tvalue</code></td>
 
-textorientation
+      <td></td>
+    </tr>
 
-member = comment4
+    <tr>
+      <td><code>priority</code></td>
 
-priority
+      <td>IntType</td>
+    </tr>
 
-x
+    <tr>
+      <td><code>x</code></td>
 
-y
+      <td>IntType, FloatType</td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>y</code></td>
 
-textorientation
+      <td>IntType, FloatType</td>
+    </tr>
 
-member = xname
+    <tr>
+      <td><code>format</code></td>
 
-priority
+      <td>Currently not able to set</td>
+    </tr>
 
-x
+    <tr>
+      <td><code>texttable</code></td>
 
-y
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>textorientation</code></td>
 
-textorientation
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>mean</code></td>
 
+      <td></td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>priority</code></td>
 
-IntType, FloatType
+      <td>IntType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>x</code></td>
 
-TexttableObject, StringType
+      <td>IntType, FloatType</td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>y</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>format</code></td>
 
-IntType
+      <td>Currently not able to set</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>texttable</code></td>
 
-IntType, FloatType
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>textorientation</code></td>
 
-TextorientationObject, StringType
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>min</code></td>
 
+      <td></td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>priority</code></td>
 
-IntType, FloatType
+      <td>IntType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>x</code></td>
 
-TexttableObject, StringType
+      <td>IntType, FloatType</td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>y</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>format</code></td>
 
-IntType
+      <td>Currently not able to set</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>texttable</code></td>
 
-IntType, FloatType
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>textorientation</code></td>
 
-TextorientationObject, StringType
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>max</code></td>
 
+      <td></td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>priority</code></td>
 
-IntType, FloatType
+      <td>IntType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>x</code></td>
 
-TexttableObject, StringType
+      <td>IntType, FloatType</td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>y</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>format</code></td>
 
-member = yname
+      <td>Currently not able to set</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>texttable</code></td>
 
-x
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>textorientation</code></td>
 
-texttable
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td>Member: <code>xtic1</code></td>
 
-member = zname
+      <td></td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>priority</code></td>
 
-x
+      <td>IntType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>y1</code></td>
 
-texttable
+      <td>IntType, FloatType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>y2</code></td>
 
-member = tname
+      <td>IntType, FloatType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>line</code></td>
 
-x
+      <td>LineObject, StringType</td>
+    </tr>
 
-y
+    <tr>
+      <td>Member: <code>xtic2</code></td>
 
-texttable
+      <td></td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>priority</code></td>
 
-member = xunits
+      <td>IntType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>y1</code></td>
 
-x
+      <td>IntType, FloatType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>y2</code></td>
 
-texttable
+      <td>IntType, FloatType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>line</code></td>
 
-member = yunits
+      <td>LineObject, StringType</td>
+    </tr>
 
-priority
+    <tr>
+      <td>Member: <code>xmintic1</code></td>
 
-x
+      <td></td>
+    </tr>
 
-y
+    <tr>
+      <td><code>priority</code></td>
 
-texttable
+      <td>IntType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>y1</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y2</code></td>
 
-IntType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>line</code></td>
 
-IntType, FloatType
+      <td>LineObject, StringType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td>Member: <code>xmintic2</code></td>
 
-TextorientationObject, StringType
+      <td></td>
+    </tr>
 
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>y1</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>y2</code></td>
 
-TexttableObject, StringType
+      <td>IntType, FloatType</td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>line</code></td>
 
+      <td>LineObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>ytic1</code></td>
 
-IntType
+      <td></td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>priority</code></td>
 
-IntType, FloatType
+      <td>IntType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>x1</code></td>
 
-TextorientationObject, StringType
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>x2</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>line</code></td>
 
-IntType, FloatType
+      <td>LineObject, StringType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td>Member: <code>ytic2</code></td>
 
-TexttableObject, StringType
+      <td></td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
+    <tr>
+      <td><code>x1</code></td>
 
-IntType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>x2</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>line</code></td>
 
-TextorientationObject, StringType
+      <td>LineObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>ymintic1</code></td>
 
+      <td></td>
+    </tr>
 
-member = zunits
+    <tr>
+      <td><code>priority</code></td>
 
-priority
+      <td>IntType</td>
+    </tr>
 
-x
+    <tr>
+      <td><code>x1</code></td>
 
-y
+      <td>IntType, FloatType</td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>x2</code></td>
 
-textorientation
+      <td>IntType, FloatType</td>
+    </tr>
 
-member = tunits
+    <tr>
+      <td><code>line</code></td>
 
-priority
+      <td>LineObject, StringType</td>
+    </tr>
 
-x
+    <tr>
+      <td>Member: <code>ymintic2</code></td>
 
-y
+      <td></td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>priority</code></td>
 
-textorientation
+      <td>IntType</td>
+    </tr>
 
-member = xvalue
+    <tr>
+      <td><code>x1</code></td>
 
-priority
+      <td>IntType, FloatType</td>
+    </tr>
 
-x
+    <tr>
+      <td><code>x2</code></td>
 
-y
+      <td>IntType, FloatType</td>
+    </tr>
 
-format
+    <tr>
+      <td><code>line</code></td>
 
-texttable
+      <td>LineObject, StringType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td>Member: <code>xlabel1</code></td>
 
-member = yvalue
+      <td></td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>priority</code></td>
 
-x
+      <td>IntType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>y</code></td>
 
-format
+      <td>IntType, FloatType</td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>texttable</code></td>
 
-textorientation
+      <td>TexttableObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td><code>textorientation</code></td>
 
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td>Member: <code>xlabel2</code></td>
 
-IntType, FloatType
+      <td></td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>priority</code></td>
 
-TexttableObject, StringType
+      <td>IntType</td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>y</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>texttable</code></td>
 
-IntType
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>textorientation</code></td>
 
-IntType, FloatType
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td>Member: <code>ylabel1</code></td>
 
-TextorientationObject, StringType
+      <td></td>
+    </tr>
 
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>x</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>texttable</code></td>
 
-Currently not able to set
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>textorientation</code></td>
 
-TextorientationObject, StringType
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>ylabel2</code></td>
 
+      <td></td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>priority</code></td>
 
-IntType, FloatType
+      <td>IntType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>x</code></td>
 
-Currently not able to set
+      <td>IntType, FloatType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>texttable</code></td>
 
-TextorientationObject, StringType
+      <td>TexttableObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td><code>textorientation</code></td>
 
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-member = zvalue
+    <tr>
+      <td>Member: <code>box1</code></td>
 
-priority
+      <td></td>
+    </tr>
 
-x
+    <tr>
+      <td><code>priority</code></td>
 
-y
+      <td>IntType</td>
+    </tr>
 
-format
+    <tr>
+      <td><code>x1</code></td>
 
-texttable
+      <td>IntType, FloatType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>y1</code></td>
 
-member = tvalue
+      <td>IntType, FloatType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>x2</code></td>
 
-x
+      <td>IntType, FloatType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>y2</code></td>
 
-format
+      <td>IntType, FloatType</td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>line</code></td>
 
-textorientation
+      <td>LineObject, StringType</td>
+    </tr>
 
-member = mean
+    <tr>
+      <td>Member: <code>box2</code></td>
 
-priority
+      <td></td>
+    </tr>
 
-x
+    <tr>
+      <td><code>priority</code></td>
 
-y
+      <td>IntType</td>
+    </tr>
 
-format
+    <tr>
+      <td><code>x1</code></td>
 
-texttable
+      <td>IntType, FloatType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>y1</code></td>
 
-member = min
+      <td>IntType, FloatType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>x2</code></td>
 
-x
+      <td>IntType, FloatType</td>
+    </tr>
 
-y
+    <tr>
+      <td><code>y2</code></td>
 
-format
+      <td>IntType, FloatType</td>
+    </tr>
 
-texttable
+    <tr>
+      <td><code>line</code></td>
 
-textorientation
+      <td>LineObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>box3</code></td>
 
+      <td></td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>priority</code></td>
 
-IntType, FloatType
+      <td>IntType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>x1</code></td>
 
-Currently not able to set
+      <td>IntType, FloatType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>y1</code></td>
 
-TextorientationObject, StringType
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>x2</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>y2</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>line</code></td>
 
-Currently not able to set
+      <td>LineObject, StringType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td>Member: <code>box4</code></td>
 
-TextorientationObject, StringType
+      <td></td>
+    </tr>
 
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>x1</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>y1</code></td>
 
-Currently not able to set
+      <td>IntType, FloatType</td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>x2</code></td>
 
-TextorientationObject, StringType
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y2</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType
+    <tr>
+      <td><code>line</code></td>
 
-IntType, FloatType
+      <td>LineObject, StringType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td>Member: <code>line1</code></td>
 
-Currently not able to set
+      <td></td>
+    </tr>
 
-TexttableObject, StringType
+    <tr>
+      <td><code>priority</code></td>
 
-TextorientationObject, StringType
+      <td>IntType</td>
+    </tr>
 
+    <tr>
+      <td><code>x1</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
-member = max
+    <tr>
+      <td><code>y1</code></td>
 
-priority
+      <td>IntType, FloatType</td>
+    </tr>
 
-x
+    <tr>
+      <td><code>x2</code></td>
 
-y
+      <td>IntType, FloatType</td>
+    </tr>
 
-format
+    <tr>
+      <td><code>y2</code></td>
 
-texttable
+      <td>IntType, FloatType</td>
+    </tr>
 
-textorientation
+    <tr>
+      <td><code>line</code></td>
 
-member = xtic1
+      <td>LineObject, StringType</td>
+    </tr>
 
-priority
+    <tr>
+      <td>Member: <code>line2</code></td>
 
-y1
+      <td></td>
+    </tr>
 
-y2
+    <tr>
+      <td><code>priority</code></td>
 
-line
+      <td>IntType</td>
+    </tr>
 
-member = xtic2
+    <tr>
+      <td><code>x1</code></td>
 
-priority
+      <td>IntType, FloatType</td>
+    </tr>
 
-y1
+    <tr>
+      <td><code>y1</code></td>
 
-y2
+      <td>IntType, FloatType</td>
+    </tr>
 
-line
+    <tr>
+      <td><code>x2</code></td>
 
-member = xmintic1
+      <td>IntType, FloatType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>y2</code></td>
 
-y1
+      <td>IntType, FloatType</td>
+    </tr>
 
-y2
+    <tr>
+      <td><code>line</code></td>
 
-line
+      <td>LineObject, StringType</td>
+    </tr>
 
-member = xmintic2
+    <tr>
+      <td>Member: <code>line3</code></td>
 
-priority
+      <td></td>
+    </tr>
 
-y1
+    <tr>
+      <td><code>priority</code></td>
 
-y2
+      <td>IntType</td>
+    </tr>
 
-line
+    <tr>
+      <td><code>x1</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y1</code></td>
 
-IntType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>x2</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-Currently not able to set
+    <tr>
+      <td><code>y2</code></td>
 
-TexttableObject, StringType
+      <td>IntType, FloatType</td>
+    </tr>
 
-TextorientationObject, StringType
+    <tr>
+      <td><code>line</code></td>
 
+      <td>LineObject, StringType</td>
+    </tr>
 
+    <tr>
+      <td>Member: <code>line4</code></td>
 
-IntType
+      <td></td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>priority</code></td>
 
-IntType, FloatType
+      <td>IntType</td>
+    </tr>
 
-LineObject, StringType
+    <tr>
+      <td><code>x1</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y1</code></td>
 
-IntType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>x2</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-LineObject, StringType
+    <tr>
+      <td><code>y2</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>line</code></td>
 
-IntType
+      <td>LineObject, StringType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td>Member: <code>legend</code></td>
 
-IntType, FloatType
+      <td></td>
+    </tr>
 
-LineObject, StringType
+    <tr>
+      <td><code>priority</code></td>
 
+      <td>IntType</td>
+    </tr>
 
+    <tr>
+      <td><code>x1</code></td>
 
-IntType
+      <td>IntType, FloatType</td>
+    </tr>
 
-IntType, FloatType
+    <tr>
+      <td><code>y1</code></td>
 
-IntType, FloatType
+      <td>IntType, FloatType</td>
+    </tr>
 
-LineObject, StringType
+    <tr>
+      <td><code>x2</code></td>
 
+      <td>IntType, FloatType</td>
+    </tr>
 
+    <tr>
+      <td><code>y2</code></td>
 
-member = ytic1
+      <td>IntType, FloatType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>line</code></td>
 
-x1
+      <td>LineObject, StringType</td>
+    </tr>
 
-x2
+    <tr>
+      <td><code>texttable</code></td>
 
-line
+      <td>TexttableObject, StringType</td>
+    </tr>
 
-member = ytic2
+    <tr>
+      <td><code>textorientation</code></td>
 
-priority
+      <td>TextorientationObject, StringType</td>
+    </tr>
 
-x1
+    <tr>
+      <td>Member: <code>data</code></td>
 
-x2
+      <td></td>
+    </tr>
 
-line
+    <tr>
+      <td><code>priority</code></td>
 
-member = ymintic1
+      <td>IntType</td>
+    </tr>
 
-priority
+    <tr>
+      <td><code>x1</code></td>
 
-x1
+      <td>IntType, FloatType</td>
+    </tr>
 
-x2
+    <tr>
+      <td><code>y1</code></td>
 
-line
+      <td>IntType, FloatType</td>
+    </tr>
 
-member = ymintic2
+    <tr>
+      <td><code>x2</code></td>
 
-priority
+      <td>IntType, FloatType</td>
+    </tr>
 
-x1
+    <tr>
+      <td><code>y2</code></td>
 
-x2
+      <td>IntType, FloatType</td>
+    </tr>
+  </table>
 
-line
-
-member = xlabel1
-
-priority
-
-y
-
-texttable
-
-textorientation
-
-member = xlabel2
-
-priority
-
-y
-
-texttable
-
-textorientation
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-TexttableObject, StringType
-
-TextorientationObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-TexttableObject, StringType
-
-TextorientationObject, StringType
-
-
-
-member = ylabel1
-
-priority
-
-x
-
-texttable
-
-textorientation
-
-member = ylabel2
-
-priority
-
-x
-
-texttable
-
-textorientation
-
-member = box1
-
-priority
-
-x1
-
-y1
-
-x2
-
-y2
-
-line
-
-member = box2
-
-priority
-
-x1
-
-y1
-
-x2
-
-y2
-
-line
-
-
-
-IntType
-
-IntType, FloatType
-
-TexttableObject, StringType
-
-TextorientationObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-TexttableObject, StringType
-
-TextorientationObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-member = box3
-
-priority
-
-x1
-
-y1
-
-x2
-
-y2
-
-line
-
-member = box4
-
-priority
-
-x1
-
-y1
-
-x2
-
-y2
-
-line
-
-member = line1
-
-priority
-
-x1
-
-y1
-
-x2
-
-y2
-
-line
-
-member = line2
-
-priority
-
-x1
-
-y1
-
-x2
-
-y2
-
-line
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-member = line3
-
-priority
-
-x1
-
-y1
-
-x2
-
-y2
-
-line
-
-member = line4
-
-priority
-
-x1
-
-y1
-
-x2
-
-y2
-
-line
-
-member = legend
-
-priority
-
-x1
-
-y1
-
-x2
-
-y2
-
-line
-
-texttable
-
-textorientation
-
-member = data
-
-priority
-
-x1
-
-y1
-
-x2
-
-y2
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-LineObject, StringType
-
-TexttableObject, StringType
-
-TextorientationObject, StringType
-
-
-
-IntType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-IntType, FloatType
-
-[Go to Main](vcs.html) [Go to Previous](vcs-5.html) [Go to Next](vcs-7.html)
+[Main](vcs.html) [Previous](vcs-5.html) [Next](vcs-7.html)
 
 
