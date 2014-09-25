@@ -4,6 +4,9 @@ title: VCS Chapter 8
 ---
 ##  CHAPTER 8 VCS Examples
 This section shows useful VCS examples.
+
+<a name="pgfId-884583"></a>
+
 ###Simple Plotting Example:
 
 ~~~ python
@@ -66,6 +69,9 @@ def simpleplot():
 if __name__ == "__main__":
     simpleplot()
 ~~~
+
+
+<a name="pgfId-884714"></a>
 
 ###Simple Overlay Plot Example:
 
@@ -142,6 +148,7 @@ if __name__ == "__main__":
     simpleoverlay()
 ~~~
 
+<a name="pgfId-837381"></a>
 
 ###Boxfill Graphics Method Example:
 
@@ -277,7 +284,10 @@ if __name__ == "__main__":
     exampleboxfill()
 ~~~
 
+<a name="pgfId-837531"></a>
+
 ###Continents Graphics Method Example:
+
 ~~~ python
 #
 # Example Continents (Gcon) module
@@ -402,6 +412,8 @@ def examplecontinents():
 if __name__ == "__main__":
 examplecontinents()
 ~~~
+
+<a name="pgfId-881645"></a>
 
 ###Isofill Graphics Method Example:
 
@@ -552,7 +564,7 @@ if __name__ == "__main__":
     exampleisofill()
 ~~~
 
-
+<a name="pgfId-881653"></a>
 
 ###Isoline Graphics Method Example:
 
@@ -748,11 +760,13 @@ print '****** ******'
 print '***************************************************'
 
 if __name__ == "__main__":
-exampleisoline()
+    exampleisoline()
 ~~~
 
+<a name="pgfId-882711"></a>
 
 ###Outfill Graphics Method Example:
+
 ~~~ python
 #
 # Example Outfill (Gfo) module
@@ -876,6 +890,7 @@ if __name__ == "__main__":
     exampleoutfill()
 ~~~
 
+<a name="pgfId-882699"></a>
 
 ###Outline Graphics Method Example:
 
@@ -1012,6 +1027,9 @@ def exampleoutline():
 if __name__ == "__main__":
     exampleoutfill()
 ~~~
+
+
+<a name="pgfId-881677"></a>
 
 ###Scatter Graphics Method Example:
 
@@ -1165,6 +1183,8 @@ def examplescatter():
 if __name__ == "__main__":
     examplescatter()
 ~~~
+
+<a name="pgfId-881685"></a>
 
 ###Vector Graphics Method Example:
 
@@ -1322,6 +1342,8 @@ def examplevector():
 if __name__ == "__main__":
     examplevector()
 ~~~
+
+<a name="pgfId-881709"></a>
 
 ###XvsY Graphics Method Example:
 
@@ -1503,6 +1525,8 @@ if __name__ == "__main__":
 ~~~
 
 
+<a name="pgfId-881701"></a>
+
 ###Xyvsy Graphics Method Example:
 
 ~~~ python
@@ -1680,6 +1704,8 @@ def examplexyvsy():
 if __name__ == "__main__":
     examplexyvsy()
 ~~~
+
+<a name="pgfId-881693"></a>
 
 ###Yxvsx Graphics Method Example:
 
@@ -1859,6 +1885,8 @@ if __name__ == "__main__":
     exampleyxvsx()
 ~~~
 
+<a name="pgfId-884079"></a>
+
 ###Colormap Example:
 
 ~~~ python
@@ -1932,6 +1960,8 @@ def examplecolormap():
 if __name__ == "__main__":
     examplecolormap()
 ~~~
+
+<a name="pgfId-884187"></a>
 
 ###Hardcopy Example:
 
@@ -2019,6 +2049,8 @@ def examplehardcopy():
 if __name__ == "__main__":
 	examplehardcopy()
 ~~~
+
+<a name="pgfId-884306"></a>
 
 ###Picture Template Example:
 
@@ -2136,6 +2168,8 @@ def exampletemplate():
 if __name__ == "__main__":
     exampletemplate()
 ~~~
+
+<a name="pgfId-885079"></a>
 
 ###Simple Animation Example:
 
