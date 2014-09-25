@@ -74,6 +74,6 @@ examples and provides an extensive command reference guide.
 |[Quick Reference Guides](vcs-9.html#19907) 9\. Includes a one-page "cheat sheet" on page [VCS Cheat Sheet](vcs-9.html#10473).|If you need a command in a hurry or want to review a command quickly, then this is the place to be.|
 |[Fonts, Lines, Markers, and Patterns](vcs-10.html#20702)|Font, line, marker, and pattern symbols|
 
-[Go to Main](vcs.html) [Go to Previous](vcs.html) [Go to Next](vcs-2.html)
+[Main](vcs.html) \| [Previous](vcs.html) \| [Next](vcs-2.html)
 
 
