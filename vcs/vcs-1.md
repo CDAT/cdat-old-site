@@ -11,8 +11,6 @@ can be a useful tool for other scientific applications as well. VCS allows
 wide-ranging changes to be made to the data display, provides for hardcopy
 output, and includes a means for recovery of a previous display.
 
-![](vcs-2.gif)
-
 Basic Concepts of VCS
 
 In the VCS model, the data display is defined by a trio of named object sets,
@@ -49,11 +47,8 @@ intercompare climate model simulations. VCS provides capabilities to:
   * Animate a single data variable or more than one data variable simultaneously
   * Display different map projections
 
-####
 
-![](vcs-2.gif)
-
-Purpose of this document
+###Purpose of this document
 
 This document will focus primarily on the VCS software commands necessary to
 operate VCS with minimal knowledge. The knowledge of VCS will gradually be
@@ -64,23 +59,20 @@ ingest data sets and to manipulate the data before it is displayed. Because
 the best way to learn a new tool is by examples, this document is heavy on
 examples and provides an extensive command reference guide.
 
-######  Guide to This Document
+######Guide to This Document
 
 {:.table}
 |Chapter Title and Location|Purpose|
 |---|---|
-|[VCS Installation and Setup](vcs-2.html#18892)|This chapter explains how to install and test VCS (either from the source code|
-|or from the distributed shared library).|[Selecting or Creating Data](vcs-3.html#79985)|
-|This chapter explains the type of data needed for the VCS module and how to|read data into the module.|
+|[VCS Installation and Setup](vcs-2.html#18892)|This chapter explains how to install and test VCS (either from the source code or from the distributed shared library).|
+|[Selecting or Creating Data](vcs-3.html#79985)|This chapter explains the type of data needed for the VCS module and how to read data into the module.|
 |[Overview](vcs-4.html#60683)|Overview chapter explaining VCS's Python Application Interface.|
-|[VCS Command Reference Guide](vcs-5.html#41289)|If you need to know the full extent of a command and all of its parameters,|
-|then this is where you want to be.|[VCS Primary Objects](vcs-6.html#22687)|
-|VCS primary object list and their members.|[VCS Secondary Objects](vcs-7.html#85913)|
-|VCS secondary object list and their members.|[VCS Examples](vcs-8.html#83780)|
-|This chapter has examples showing how to use VCS in the Python environment. If|you just want to get started, then we suggest you start with this chapter in|
-|conjunction with Chapter 5.|[Quick Reference Guides](vcs-9.html#19907) 9\. Includes a one-page "cheat|
-|sheet" on page [VCS Cheat Sheet](vcs-9.html#10473).|If you need a command in a hurry or want to review a command quickly, then|
-|this is the place to be.|[Fonts, Lines, Markers, and Patterns](vcs-10.html#20702)|
+|[VCS Command Reference Guide](vcs-5.html#41289)|If you need to know the full extent of a command and all of its parameters, then this is where you want to be.|
+|[VCS Primary Objects](vcs-6.html#22687)|VCS primary object list and their members.|
+|[VCS Secondary Objects](vcs-7.html#85913)|VCS secondary object list and their members.|
+|[VCS Examples](vcs-8.html#83780)|This chapter has examples showing how to use VCS in the Python environment. If you just want to get started, then we suggest you start with this chapter in conjunction with Chapter 5.|
+|[Quick Reference Guides](vcs-9.html#19907) 9\. Includes a one-page "cheat sheet" on page [VCS Cheat Sheet](vcs-9.html#10473).|If you need a command in a hurry or want to review a command quickly, then this is the place to be.|
+|[Fonts, Lines, Markers, and Patterns](vcs-10.html#20702)|Font, line, marker, and pattern symbols|
 
 [Go to Main](vcs.html) [Go to Previous](vcs.html) [Go to Next](vcs-2.html)
 
