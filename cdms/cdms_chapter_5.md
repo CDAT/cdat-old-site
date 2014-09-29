@@ -44,7 +44,7 @@ Thats it! The axis coordinates, variable name, description, units, etc. are obta
 
 What if the units are not explicitly defined for `psl`, or a different description is desired? `plot` has a number of other keywords which fill in the extra plot information.
 
-#### 5.2.2 Example: using plot keywords.
+#### 5.2.2 Example: using aplot keywords.
 
 ~~~ python
 w.plot(array, units='mm/day', file_comment='High-frequency reanalysis',
@@ -117,7 +117,7 @@ where:
 - `key=value`, ... are optional keyword/value pairs, listed in any order. These are defined in the table below.
 
 
-###### Table 5.1 plot keywords
+###### Table 5.1 `plot` keywords
 
 
 <table class="table">
