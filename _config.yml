@@ -2,3 +2,5 @@ name: Your New Jekyll Site
 markdown: kramdown
 highlighter: pygments
 baseurl: /cdat-site
+kramdown:
+    input: GFM
