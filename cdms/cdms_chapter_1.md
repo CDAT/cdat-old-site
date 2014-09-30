@@ -5,9 +5,9 @@ title: CDAT CDMS Chapter 1
 
 ## CHAPTER 1
 
-###CHAPTER 1  Introduction
+### CHAPTER 1  Introduction
 
-####1.1 Overview
+#### 1.1 Overview
 
 The Climate Data Management System is an object-oriented data management
 system, specialized for organizing multidimensional, gridded data used in

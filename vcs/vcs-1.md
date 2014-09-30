@@ -11,7 +11,7 @@ can be a useful tool for other scientific applications as well. VCS allows
 wide-ranging changes to be made to the data display, provides for hardcopy
 output, and includes a means for recovery of a previous display.
 
-Basic Concepts of VCS
+### Basic Concepts of VCS
 
 In the VCS model, the data display is defined by a trio of named object sets,
 designated the "primary objects" (or "primary elements"). These include:
@@ -48,7 +48,7 @@ intercompare climate model simulations. VCS provides capabilities to:
   * Display different map projections
 
 
-###Purpose of this document
+### Purpose of this document
 
 This document will focus primarily on the VCS software commands necessary to
 operate VCS with minimal knowledge. The knowledge of VCS will gradually be
@@ -59,7 +59,7 @@ ingest data sets and to manipulate the data before it is displayed. Because
 the best way to learn a new tool is by examples, this document is heavy on
 examples and provides an extensive command reference guide.
 
-######Guide to This Document
+###### Guide to This Document
 
 {:.table}
 |Chapter Title and Location|Purpose|
