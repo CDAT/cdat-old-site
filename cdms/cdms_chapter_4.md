@@ -3,10 +3,12 @@ layout: default
 title: CDAT CDMS Chapter 4
 ---
 
-##CHAPTER 4   Regridding Data
+## CHAPTER 4   Regridding Data
 
 
-###4.1   Overview
+<a name="4.1"></a>
+
+### 4.1   Overview
 
 CDMS provides several methods for interpolating gridded data:
 
@@ -15,7 +17,9 @@ CDMS provides several methods for interpolating gridded data:
   - from one set of pressure levels to another
   - from one vertical (lat/level) cross-section to another vertical cross-section.
 
-####4.1.1 CDMS horizontal regridr
+<a name="4.1.1"></a>
+
+#### 4.1.1 CDMS horizontal regridr
 
 The simplest method to regrid a variable from one rectangular, lat/lon grid to another is to use the regrid function defined for variables. This function takes the target grid as an argument, and returns the variable regridded to the target grid:
 
@@ -81,7 +85,9 @@ Line Notes
 **10** Reads all data for variable rlsf, and calls the regridder function on that data, resulting in a transient variable rlsnew.
 
 
-####4.1.2 SCRIP horizontal regridder
+<a name="4.1.2"></a>
+
+#### 4.1.2 SCRIP horizontal regridder
 
 To interpolate between grids where one or both grids is non-rectangular, CDMS provides an interface to the SCRIP regridder package developed at Los Alamos National Laboratory (http://climate.lanl.gov/Software/ SCRIP). Figure 3 illustrates the process:
 
@@ -93,7 +99,7 @@ To interpolate between grids where one or both grids is non-rectangular, CDMS pr
 
 ![Regridding]({{site.baseurl}}/media/images/regridding.jpg)
 
-######FIGURE 3. Regridding data with SCRIP
+###### FIGURE 3. Regridding data with SCRIP
 
 
 **Example:**
@@ -167,7 +173,9 @@ popdat = regridf(dat)
 
 Note that `t42dat` can have rank greater than 2. The trailing dimensions must match the input grid shape. For example, if `t42dat` has shape (12, 64, 128), then the input grid must have shape (64,128). Similarly if the variable had a generic grid with shape (8092,), the last dimension of the variable would have length 8092.
 
-####4.1.3 Pressure-level regridder
+<a name="4.1.3"></a>
+
+#### 4.1.3 Pressure-level regridder
 
 To regrid a variable which is a function of latitude, longitude, pressure level, and (optionally) time to a new set of pressure levels, use the `pressureRegrid` function defined for variables. This function takes an axis representing the target set of pressure levels, and returns a new variable `d` regridded to that dimension.
 
@@ -183,7 +191,9 @@ To regrid a variable which is a function of latitude, longitude, pressure level,
 (2, 16, 32)
 ~~~
 
-####4.1.4 Cross-section regridder
+<a name="4.1.4"></a>
+
+#### 4.1.4 Cross-section regridder
 
 To regrid a variable which is a function of latitude, height, and (optionally) time to a new latitude/height cross-section, use the `crossSectionRegridder` defined for variables. This function takes as arguments the new latitudes and heights, and returns the variable regridded to those axes.
 
@@ -202,11 +212,15 @@ To regrid a variable which is a function of latitude, height, and (optionally) t
  
 <a name="4.2_regrid_module"></a>
 
-###4.2 regrid module
+<a name="4.2"></a>
+
+### 4.2 regrid module
 
 The `regrid` module implements the CDMS regridding functionality as well as the SCRIP interface. Although this module is not strictly a part of CDMS, it is designed to work with CDMS objects.
 
-####4.2.1 CDMS horizontal regridder
+<a name="4.2.1"></a>
+
+#### 4.2.1 CDMS horizontal regridder
 
 The Python command
 
@@ -218,7 +232,9 @@ makes the CDMS Regridder class available within a Python program. An instance of
 
 <a name="Table_4.1"></a>
 
-######Table 4.1 CDMS Regridder Constructor
+<a name="table_4.1"></a>
+
+###### Table 4.1 CDMS Regridder Constructor
 
 {:.table}
 | Constructor | Description
@@ -226,11 +242,15 @@ makes the CDMS Regridder class available within a Python program. An instance of
 |regridFunction = Regridder(inputGrid, outputGrid) | Create a regridder function which interpolates a data array from input to output grid. [Table 4.3](#Table_4.3) on page 131 describes the calling sequence of this function. `inputGrid` and `outputGrid` are CDMS grid objects. **Note:** To set the mask associated with inputGrid or outputGrid, use the grid setMask function. |
   
 
-####4.2.2 SCRIP Regridder
+<a name="4.2.2"></a>
+
+#### 4.2.2 SCRIP Regridder
 
 SCRIP regridder functions are created with the `regrid.readRegridder` function:
 
-######Table 4.2 SCRIP Regridder Constructor
+<a name="table_4.2"></a>
+
+###### Table 4.2 SCRIP Regridder Constructor
 
 <table class="table">
     <tr>
@@ -266,17 +286,21 @@ SCRIP regridder functions are created with the `regrid.readRegridder` function:
  
 <a name="4.3_regridder_functions"></a>
 
-###4.3 Regridder Functions
+<a name="4.3"></a>
+
+### 4.3 Regridder Functions
 
 It is only necessary to specify the map method if it is not defined in the file.
 
 If `checkGrid` is 1 (default), the grid cells are checked for convexity, and 'repaired' if necessary. Grid cells may appear to be nonconvex if they cross a `0 / 2pi` boundary. The repair consists of shifting the cell vertices to the same side modulo 360 degrees.
 
-####4.3.1 CDMS regridder functions
+<a name="4.3.1"></a>
+
+#### 4.3.1 CDMS regridder functions
 
 A CDMS regridder function is an instance of the CDMS `Regridder` class. The function is associated with rectangular input and output grids. Typically its use is straightforward: the function is passed an input array and returns the regridded array. However, when the array has missing data, or the input and/or output grids are masked, the logic becomes more complicated.
 
-#####Step 1:
+##### Step 1:
 
 The regridder function first forms an input mask. This mask is either two-dimensional or n-dimensional, depending on the rank of the user-supplied mask. If no mask or missing value is specified, the mask is obtained from the data array mask if present.
 
@@ -290,15 +314,17 @@ The regridder function first forms an input mask. This mask is either two-dimens
 
  - If the user mask is 3 or 4-dimensional with the same shape as the input array, it is used as the input mask.
 
-#####Step 2:
+##### Step 2:
 
 The data is then regridded. In the two-dimensional case, the input mask is 'broadcast' across the other dimensions of the array. In other words, it assumes that all horizontal slices of the array have the same mask. The result is a new array, defined on the output grid. Optionally, the regridder function can also return an array having the same shape as the output array, defining the fractional area of the output array which overlaps a non-missing input grid cell. This is useful for calculating area-weighted means of masked data.
 
-#####Step 3:
+##### Step 3:
 
 Finally, if the output grid has a mask, it is applied to the result array. Where the output mask is 0, data values are set to the missing data value, or 1.0e20 if undefined. The result array or transient variable will have a mask value of 1 (invalid value) for those output grid cells which completely overlap input grid cells with missing values
 
-######Table 4.3 CDMS Regridder function
+<a name="table_4.3"></a>
+
+###### Table 4.3 CDMS Regridder function
 
 <table class="table">
   <tbody>
@@ -335,8 +361,10 @@ Finally, if the output grid has a mask, it is applied to the result array. Where
     </tr>
   </tbody>
 </table>
+
+<a name="4.3.2"></a>
 	
-####4.3.2 SCRIP Regridder functions
+#### 4.3.2 SCRIP Regridder functions
 
 A SCRIP regridder function is an instance of the ScripRegridder class. Such a function is created by calling the regrid.readRegridder method. Typical usage is  straightforward:
 
@@ -360,7 +388,9 @@ A regridder function also has associated methods to retrieve the following field
 
 In addition, a conservative regridder has the associated grid cell areas for source and target grids.
 
-######Table 4.4 SCRIP Regridder functions
+<a name="table_4.4"></a>
+
+###### Table 4.4 SCRIP Regridder functions
 
 {:.table}
 |Return Type|Method|Description|
@@ -374,9 +404,13 @@ In addition, a conservative regridder has the associated grid cell areas for sou
 |Numeric array|`getSourceArea()` [conservative regridders only]|Return the area of the source (input) grid cell. The array is 1- D, with length equal to the number of cells in the input grid.|
 |Numeric array|`getSourceFraction()`|Return the area fraction of the source (input) grid cell that participates in the regridding. The array is 1-D, with length equal to the number of cells in the input grid|
 
-###4.4 Examples
+<a name="4.4"></a>
 
-####4.4.1 CDMS regridder
+### 4.4 Examples
+
+<a name="4.4.1"></a>
+
+#### 4.4.1 CDMS regridder
 
 **Example:**
 
@@ -500,7 +534,9 @@ Regrid an array with missing data, and calculate the area-weighted mean of the r
 |12|Regrid. Because returnTuple is set to 1, the result is a tuple (dataArray, maskArray). |
 |13|Calculate the area-weighted mean of the regridded data. mean and outmean should be approximately equal|
 
-####4.4.2 SCRIP regridder
+<a name="4.4.2"></a>
+
+#### 4.4.2 SCRIP regridder
 
 **Example:**
 
@@ -539,3 +575,5 @@ print 'Output mean:', outmean
 fremap.close)
 fdat.close()
 ~~~
+
+#### [Previous Chapter](cdms_chapter_3.html) \| [Table of Contents](cdms.html) \| [Next Chapter](cdms_chapter_5.html)

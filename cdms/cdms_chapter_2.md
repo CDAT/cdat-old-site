@@ -3,9 +3,11 @@ layout: default
 title: CDAT CDMS Chapter 2
 ---
 
-###CHAPTER 2 CDMS Python Application Programming Interface
+### CHAPTER 2 CDMS Python Application Programming Interface
 
-####2.1 Overview
+<a name="2.1"></a>
+
+#### 2.1 Overview
 
 This chapter describes the CDMS Python application programming interface (API). Python is a popular public-domain, object-oriented language. Its features include support for object-oriented development, a rich set of programming constructs, and an extensible architecture. CDMS itself is implemented in a mixture of C and Python. In this chapter the assumption is made that the reader is familiar with the basic features of the Python language.
 
@@ -13,7 +15,10 @@ Python supports the notion of a module, which groups together associated classes
 
 The chapter sections correspond to the CDMS classes. Each section contains tables base. If no parent, the datapath is absolute.describing the class internal (non-persistent) attributes, constructors (functions for creating an object), and class methods (functions). A method can return an instance of a CDMS class, or one of the Python types:
 
-######Table 2.1 Python types used in CDMS
+
+<a name="table_2.1"></a>
+
+###### Table 2.1 Python types used in CDMS
 
 {:.table}
  Type  | Description 
@@ -28,7 +33,9 @@ The chapter sections correspond to the CDMS classes. Each section contains table
  Reltime | Relative time value, a time with representation (value, units since basetime). Defined in the cdtime module. cf. comptime 
  Tuple | An ordered sequence of objects, which need not be of the same type. Unlike lists, tuples elements cannot be inserted or appended. Tuples are denoted with parentheses, e.g., `(1, 2.0, 'x', 'y')` 
 
-####2.2 A first example
+<a name="2.2"></a>
+
+#### 2.2 A first example
 
 The following Python script reads January and July monthly temperature data from an input dataset, averages over time, and writes the results to an output file. The input temperature data is ordered (time, latitude, longitude).
 
@@ -70,7 +77,9 @@ The following Python script reads January and July monthly temperature data from
 | 17 |  Set the global attribute 'comment'. |
 | 18 |  Close the output file. |
 
-####2.3 cdms module
+<a name="2.3"></a>
+
+#### 2.3 cdms module
 
 The cdms module is the Python interface to CDMS. The objects and methods in this chapter are made accessible with the command:
 
@@ -84,7 +93,10 @@ The functions described in this section are not associated with a class. Rather,
 file = cdms.open('sample.nc')
 ~~~
 
-######Table 2.2 cdms module functions
+
+<a name="table_2.2"></a>
+
+###### Table 2.2 cdms module functions
 
 <table class="table">
   <tr>
@@ -182,7 +194,10 @@ file = cdms.open('sample.nc')
 </tr>
 </table>
 
-######Table 2.3 Class Tags 
+
+<a name="table_2.3"></a>
+
+###### Table 2.3 Class Tags 
 
 {:.table}
 Tag | Class
@@ -195,7 +210,9 @@ Tag | Class
 'xlink' | Xlink
 
 
-####2.4 CdmsObj
+<a name="2.4"></a>
+
+#### 2.4 CdmsObj
 
 A CdmsObj is the base class for all CDMS database objects. At the application level, CdmsObj objects are never created and used directly. Rather the subclasses of CdmsObj (Dataset, Variable, Axis, etc.) are the basis of user application programming.
 
@@ -207,7 +224,10 @@ All objects derived from CdmsObj have a special attribute .attributes. This is a
 extatts = obj.attributes.keys()
 ~~~
 
-######Table 2.4 Attributes common to all CDMS objects
+
+<a name="table_2.4"></a>
+
+###### Table 2.4 Attributes common to all CDMS objects
 
 {:.table}
 Type | Name | Definition
@@ -215,7 +235,10 @@ Type | Name | Definition
 Dictionary | attributes | External attribute dictionary for this object.
 
 
-######Table 2.5 Getting and setting attributes
+
+<a name="table_2.5"></a>
+
+###### Table 2.5 Getting and setting attributes
 
 <table class="table">
   <tr>
@@ -233,13 +256,18 @@ Dictionary | attributes | External attribute dictionary for this object.
 </tr>
 </table>
 
-####2.5 CoordinateAxis
+<a name="2.5"></a>
+
+#### 2.5 CoordinateAxis
 
 A CoordinateAxis is a variable that represents coordinate information. It may be contained in a file or dataset, or may be transient (memoryresident). Setting a slice of a file CoordinateAxis writes to the file, and referencing a file CoordinateAxis slice reads data from the file. Axis objects are also used to define the domain of a Variable.
 
 CDMS defines several different types of CoordinateAxis objects. Table 2.9 on page 45 documents methods that are common to all CoordinateAxis types. Table 2.10 on page 48 specifies methods that are unique to 1D Axis objects.
 
-######Table 2.6 CoordinateAxis types
+
+<a name="table_2.6"></a>
+
+###### Table 2.6 CoordinateAxis types
 
 {:.table}
 Type | Definition
@@ -249,7 +277,10 @@ Type | Definition
 `Axis2D` | A two-dimensional coordinate axis, typically a latitude or longitude axis related to a `CurvilinearGrid`. Has subtypes `DatasetAxis2D`, `FileAxis2D`, and `TransientAxis2D`.
 `AuxAxis1D` | A one-dimensional coordinate axis whose values need not be monotonic. Typically a latitude or longitude axis associated with a `GenericGrid`. Has subtypes `DatasetAuxAxis1D`, `FileAuxAxis1D`, and `TransientAuxAxis1D`. An axis in a `CdmsFile` may be designated the unlimited axis, meaning that it can be extended in length after the initial definition. There can be at most one unlimited axis associated with a `CdmsFile`.
 
-######Table 2.7 CoordinateAxis Internal Attributes
+
+<a name="table_2.7"></a>
+
+###### Table 2.7 CoordinateAxis Internal Attributes
 
 {:.table}
 Type | Name | Definition
@@ -260,7 +291,10 @@ Type | Name | Definition
 `Tuple` | `shape` | The length of each axis.
 
 
-######Table 2.8 Axis Constructors
+
+<a name="table_2.8"></a>
+
+###### Table 2.8 Axis Constructors
 
 {:.table}
 | Constructor | Description
@@ -282,7 +316,10 @@ Type | Name | Definition
 | `cdms.createUniformLongitudeAxis(startlon, nlon, deltalon)` | See Table 2.2 on page 18.
 |-----------|------------  
 
-######Table 2.9 CoordinateAxis Methods
+
+<a name="table_2.9"></a>
+
+###### Table 2.9 CoordinateAxis Methods
 
 {:.table}
 Type | Method | Definition
@@ -317,7 +354,10 @@ Type | Method | Definition
 `Integer` | `size()` | The number of elements in the axis.
 `String` |  `typecode()` | The `Numeric` datatype identifier.
 
-######Table 2.10 Axis Methods, additional to CoordinateAxis methods
+
+<a name="table_2.10"></a>
+
+###### Table 2.10 Axis Methods, additional to CoordinateAxis methods
 
 {:.table}
 Type | Method | Definition
@@ -355,7 +395,10 @@ Type | Method | Definition
 || see also: `mapinterval`, `variable.subregion()`
 `transientaxis` | `subaxis(i,j,k=1)` | create an axis associated with the integer range `[i:j:k]`. the stride `k` can be positive or negative. wraparound is supported for longitude dimensions or those with a modulus attribute.
 
-######table 2.11 axis slice operators  
+
+<a name="table_2.11"></a>
+
+###### table 2.11 axis slice operators  
 
 {:.table}
 slice | definition
@@ -379,13 +422,18 @@ a longitude axis has value `[0.0, 2.0, ..., 358.0]`, of length `180`. map the co
 (-2,3,1)
 ~~~
 
-####2.6 CdmsFile
+<a name="2.6"></a>
+
+#### 2.6 CdmsFile
 
 A `CdmsFile` is a physical file, accessible via the `cdunif` interface. netCDF files are accessible in read-write mode. All other formats (DRS, HDF, GrADS/GRIB, POP, QL) are accessible read-only.
 
 As of CDMS V3, the legacy cuDataset interface is also supported by Cdms-Files. See "cu Module" on page 180.
 
-######Table 2.12 CdmsFile Internal Attributes
+
+<a name="table_2.12"></a>
+
+###### Table 2.12 CdmsFile Internal Attributes
 
 {:.table}
 Type | Name | Definition
@@ -396,7 +444,10 @@ Type | Name | Definition
 `String` | `id` | File pathname.
 `Dictionary` | `variables` | Variables contained in the file.
 
-######Table 2.13 CdmsFile Constructors
+
+<a name="table_2.13"></a>
+
+###### Table 2.13 CdmsFile Constructors
 
 {:.table}
 Constructor | Description
@@ -404,7 +455,10 @@ Constructor | Description
 `fileobj = cdms.open(path, mode)` | Open the file specified by path returning a CdmsFile object. `path` is the file pathname, a string. `mode` is the open mode indicator, as listed in Table 2.24 on page 70.
 `fileobj = cdms.createDataset(path)` | Create the file specified by path, a string.
 
-######Table 2.14 CdmsFile Methods
+
+<a name="table_2.14"></a>
+
+###### Table 2.14 CdmsFile Methods
 
 <table class="table">
   <thead>
@@ -484,7 +538,10 @@ v = f['prc']</pre><p><strong>Example:</strong> The following gets the axis named
   </tbody>
 </table>
 
-######Table 2.15 CDMS Datatypes
+
+<a name="table_2.15"></a>
+
+###### Table 2.15 CDMS Datatypes
 
 {:.table}
 CDMS Datatype | Definition
@@ -496,7 +553,9 @@ CDMS Datatype | Definition
 `CdLong`|long integer
 `CdShort`|short integer
 
-####2.7 Database
+<a name="2.7"></a>
+
+#### 2.7 Database
 
 A Database is a collection of datasets and other CDMS objects. It consists of a hierarchical collection of objects, with the database being at the root, or top of the hierarchy. A database is used to:
 
@@ -512,9 +571,13 @@ The figure below illustrates several important points:
 
 - Subordinate objects are thought of as being contained in the parent. In this example, the database 'CDMS' contains two datasets, each of which contain several variables.
 
-#TODO: Find diagram1
+![Diagram 1]({{site.baseurl}}/media/images/diagram1.jpg)
 
-#####2.7.1 Overview
+###### Figure 1
+
+<a name="2.7.1"></a>
+
+##### 2.7.1 Overview
 
 To access a database:
 
@@ -556,7 +619,10 @@ If the id of a dataset is known, the dataset can be opened directly with the ope
 </li>
 </ol>
 
-######Table 2.16 Database Internal Attributes
+
+<a name="table_2.16"></a>
+
+###### Table 2.16 Database Internal Attributes
 
 {:.table}
 |Type|Name|Summary|
@@ -567,14 +633,20 @@ If the id of a dataset is known, the dataset can be opened directly with the ope
 |`String`|`path`|path name|
 |`String`|`uri`|Uniform Resource Identifier|
 
-######Table 2.17 Database Constructors
+
+<a name="table_2.17"></a>
+
+###### Table 2.17 Database Constructors
 
 {:.table}
 |Constructor|Description|
 |---|---|
 |`db = cdms.connect(uri=None, user="", password="")`|Connect to the database. `uri` is the Universal Resource Indentifier of the database. The form of the URI depends on the implementation of the database. For a Lightweight Directory Access Protocol (LDAP) database, the form is: `ldap://host[:port]/dbname`. For example, if the database is located on host dbhost.llnl.gov, and is named `'database=CDMS,ou=PCMDI,o=LLNL,c=US'`, the URI is: `ldap://dbhost.llnl.gov/database=CDMS,ou=PCMDI,o=LLNL,c=US`. If unspecified, the URI defaults to the value of environment variable CDMSROOT. `user` is the user ID. If unspecified, an anonymous connection is made. `password` is the user password. A password is not required for an anonymous connection|
 
-######Table 2.18 Database Methods
+
+<a name="table_2.18"></a>
+
+###### Table 2.18 Database Methods
 
 
 <table class="table">
@@ -642,7 +714,9 @@ searchFilter(filter=None, tag=None, relbase=None, scope=Subtree, attnames=None, 
 </table>
 
 
-#####2.7.2 Searching a database
+<a name="2.7.2"></a>
+
+##### 2.7.2 Searching a database
 
 The `searchFilter` method is used to search a database. The result is called a search result, and consists of a sequence of result entries.
 
@@ -729,7 +803,10 @@ variable=rlus,dataset=ncep_reanalysis_mo,database=CDMS,ou=PCMDI,
       o=LLNL, c=US
 ~~~
 
-######Table 2.19 SearchResult Methods
+
+<a name="table_2.19"></a>
+
+###### Table 2.19 SearchResult Methods
 
 {:.table}
 |Type|Method|Definition|
@@ -741,7 +818,10 @@ variable=rlus,dataset=ncep_reanalysis_mo,database=CDMS,ou=PCMDI,
 
 A search result is a sequence of result entries. Each entry has a string name, the name of the object in the database hierarchy, and an attribute dictionary. An entry corresponds to an object found by the search, but differs from the object, in that only the attributes requested are associated with the entry. In general, there will be much more information defined for the associated CDMS object, which is retrieved with the `getObject` method.
 
-######Table 2.20 ResultEntry Attributes
+
+<a name="table_2.20"></a>
+
+###### Table 2.20 ResultEntry Attributes
 
 {:.table}
 |Type|Name|Description|
@@ -750,14 +830,19 @@ A search result is a sequence of result entries. Each entry has a string name, t
 |Dictionary|`attributes`|The attributes returned from the search. `attributes[key]` is a list of all string values associated with the key|
 
 
-######Table 2.21 ResultEntry Methods
+
+<a name="table_2.21"></a>
+
+###### Table 2.21 ResultEntry Methods
 
 {:.table}
 Type|Method|Definition
 ---|---|---
 `CdmsObj`|`getObject()`|Return the CDMS object associated with this entry. **Note:** For many search applications it is unnecessary to access the associated CDMS object. For best performance this function should be used only when necessary, for example, to retrieve data associated with a variable.
 
-#####2.7.3 Accessing data
+<a name="2.7.3"></a>
+
+##### 2.7.3 Accessing data
 
 To access data via CDMS:
 
@@ -773,7 +858,9 @@ ua = dset.variables['ua']
 data = ua[0,0]
 ~~~
 
-#####2.7.4 Examples of database searches
+<a name="2.7.4"></a>
+
+##### 2.7.4 Examples of database searches
 
 In the following examples, db is the database opened with
 
@@ -858,13 +945,18 @@ print len(db.searchFilter(tag="variable")),"variables"
 print len(db.searchFilter(tag="axis")),"axes"
 ~~~
 
-####2.8 Dataset
+<a name="2.8"></a>
+
+#### 2.8 Dataset
 
 A Dataset is a virtual file. It consists of a metafile, in CDML/XML representation, and one or more data files.
 
 As of CDMS V3, the legacy cuDataset interface is supported by Datasets. See "cu Module" on page 180.
 
-######Table 2.22 Dataset Internal Attributes 
+
+<a name="table_2.22"></a>
+
+###### Table 2.22 Dataset Internal Attributes 
 
 {:.table}
 Type | Name | Description
@@ -879,14 +971,20 @@ String | `uri` | Uniform Resource Identifier of this dataset.
 Dictionary | `variables` | Variables contained in the dataset.
 Dictionary | `xlinks` | External links contained in the dataset.
 
-######Table 2.23 Dataset Constructors
+
+<a name="table_2.23"></a>
+
+###### Table 2.23 Dataset Constructors
 
 {:.table}
 |Constructor |Description|
 |---|---|
 |`datasetobj = cdms.open(String uri, String mode='r')`|Open the dataset specified by the Universal Resource Indicator, a CDML file. Returns a Dataset object. mode is one of the indicators listed in Table 2.24 on page 70. `openDataset` is a synonym for `open`|
 
-######Table 2.24 Open Modes
+
+<a name="table_2.24"></a>
+
+###### Table 2.24 Open Modes
 
 {:.table}
 |Mode|Definition|
@@ -896,7 +994,10 @@ Dictionary | `xlinks` | External links contained in the dataset.
 |'a'|read-write. Open the file if it exists, otherwise create a new file|
 |'w'|Create a new file, read-write|
 
-######Table 2.25 Dataset Methods
+
+<a name="table_2.25"></a>
+
+###### Table 2.25 Dataset Methods
 
 
 <table class="table">
@@ -1087,7 +1188,9 @@ v = f['prc']</pre>
 
 
 
-####2.9 MV module
+<a name="2.9"></a>
+
+#### 2.9 MV module
 
 The fundamental CDMS data object is the variable. A variable is comprised of:
 
@@ -1120,7 +1223,10 @@ var.id = 'temperature'
 For completeness MV provides access to all the MA functions. The functions not listed in the following tables are identical to the corresponding MA function: allclose, allequal, common_fill_value, compress, create_mask, dot, e, fill_value, filled, get_print_limit, getmask, getmaskarray, identity, indices, innerproduct, isMA, isMaskedArray, is_mask, isarray, make_mask, make_mask_none, mask_or, masked, pi, put, putmask, rank, ravel, set_fill_value, set_print_limit, shape, size. See the documentation at http://numpy.sourceforge.net for a description of these functions.
 
 
-######Table 2.26 Variable Constructors in module MV
+
+<a name="table_2.26"></a>
+
+###### Table 2.26 Variable Constructors in module MV
 
 {:.table}
 |Constructor|Description|
@@ -1136,7 +1242,10 @@ For completeness MV provides access to all the MA functions. The functions not l
 
 The following table describes the MV non-constructor functions. with the exception of argsort, all functions return a transient variable.
 
-######Table 2.27 MV functions
+
+<a name="table_2.27"></a>
+
+###### Table 2.27 MV functions
 
 {:.table}
 |Function|Description|
@@ -1170,7 +1279,9 @@ The following table describes the MV non-constructor functions. with the excepti
 |`where(condition, x, y)`|`x` where `condition` is true, `y` otherwise|
 
 
-####2.10 HorizontalGrid
+<a name="2.10"></a>
+
+#### 2.10 HorizontalGrid
 A HorizontalGrid represents a latitude-longitude coordinate system. In addition, it optionally describes how lat-lon space is partitioned into cells. Specifically, a HorizontalGrid:
 
   - consists of a latitude and longitude coordinate axis.
@@ -1179,7 +1290,10 @@ A HorizontalGrid represents a latitude-longitude coordinate system. In addition,
 
 CDMS supports several types of HorizontalGrids:
 
-######Table 2.28
+
+<a name="table_2.28"></a>
+
+###### Table 2.28
 
 {:.table}
 |Grid Type|Definition|
@@ -1188,7 +1302,10 @@ CDMS supports several types of HorizontalGrids:
 |`CurveGrid`|Latitude and longitude are 2-D coordinate axes (Axis2D).|
 |`GenericGrid`|Latitude and longitude are 1-D auxiliary coordinate axis (AuxAxis1D)|
 
-######Table 2.29 HorizontalGrid Internal Attribute
+
+<a name="table_2.29"></a>
+
+###### Table 2.29 HorizontalGrid Internal Attribute
 
 {:.table}
 |Type|Name|Definition|
@@ -1200,7 +1317,10 @@ CDMS supports several types of HorizontalGrids:
 
 Table 2.31 on page 82 describes the methods that apply to all types of HorizontalGrids. Table 2.32 on page 86 describes the additional methods that are unique to RectGrids.
 
-######Table 2.30 RectGrid Constructors
+
+<a name="table_2.30"></a>
+
+###### Table 2.30 RectGrid Constructors
 
 {:.table}
 |Constructor|Description|
@@ -1216,7 +1336,10 @@ Table 2.31 on page 82 describes the methods that apply to all types of Horizonta
 |`cdms.createZonalGrid(grid)`|See Table 2.2 on page 18|
     
 
-######Table 2.31 HorizontalGrid Methods  
+
+<a name="table_2.31"></a>
+
+###### Table 2.31 HorizontalGrid Methods  
 
   <table class="table">
     <tbody>
@@ -1438,7 +1561,10 @@ Table 2.31 on page 82 describes the methods that apply to all types of Horizonta
   </table>
  
 
-######Table 2.32 RectGrid Methods, additional to HorizontalGrid Methods   
+
+<a name="table_2.32"></a>
+
+###### Table 2.32 RectGrid Methods, additional to HorizontalGrid Methods   
 
 
 <table class='table'>
@@ -1554,7 +1680,9 @@ weights = MV.outerproduct(latwts, lonwts)
 </table>
  
 
-####2.11 Variable
+<a name="2.11"></a>
+
+#### 2.11 Variable
 
 A Variable is a multidimensional data object, consisting of:
 
@@ -1568,7 +1696,10 @@ Variables support arithmetic operations, including the basic Python operators (+
 
 The methods subRegion and subSlice return transient variables. In addition, a transient variable may be created with the cdms.createVariable method. The vcs and regrid module methods take advantage of the attribute, domain, and mask information in a transient variable.
 
-######Table 2.33 Variable Internal Attributes
+
+<a name="table_2.33"></a>
+
+###### Table 2.33 Variable Internal Attributes
 
 {:.table}
 |Type|Name|Definition|
@@ -1579,7 +1710,10 @@ The methods subRegion and subSlice return transient variables. In addition, a tr
 |Dataset or CdmsFile|`parent`|The dataset or file which contains the variable.|
 |Tuple|`shape`|The length of each axis of the variable|
 
-######Table 2.34 Variable Constructors
+
+<a name="table_2.34"></a>
+
+###### Table 2.34 Variable Constructors
 
 <table class="table">
     <tr>
@@ -1634,8 +1768,11 @@ The methods subRegion and subSlice return transient variables. In addition, a tr
     </tr>
   </table>
 
+
+
+<a name="table_2.35"></a>
   
-######Table 2.35 Variable Methods
+###### Table 2.35 Variable Methods
 
 <table class="table">
     <tr>
@@ -2161,7 +2298,10 @@ Read all data for March, 1980:
 data = ta.subRegion(time=('1980-3','1980-4','co'))
 ~~~
 
-######Table 2.36 Variable Slice Operators
+
+<a name="table_2.36"></a>
+
+###### Table 2.36 Variable Slice Operators
 
 {:.table}
 |Operator|Description|
@@ -2176,7 +2316,10 @@ data = ta.subRegion(time=('1980-3','1980-4','co'))
 |`[i, ..., m]`|(Ellipsis) All dimensions between those specified.|
 |`[-1]`|Negative indices 'wrap around'. -1 is the last element|
 
-######Table 2.37 Index and Coordinate Intervals
+
+<a name="table_2.37"></a>
+
+###### Table 2.37 Index and Coordinate Intervals
 
 {:.table}
 |Interval Definition  |Example Interval Definition|Example|
@@ -2190,7 +2333,9 @@ data = ta.subRegion(time=('1980-3','1980-4','co'))
 |`Ellipsis`|all values of all intermediate axes| |  
 
 
-#####2.11.1 Selectors
+<a name="2.11.1"></a>
+
+##### 2.11.1 Selectors
 
 A selector is a specification of a region of data to be selected from a variable. For example, the statement
 
@@ -2230,7 +2375,10 @@ Note that for the keywords time, level, latitude, and longitude, the selector ca
 
 The following keywords are available: Another form of selector components is the positional form, where the component order corresponds to the axis order of a variable. For example:
 
-######Table 2.38 Selector keywords
+
+<a name="table_2.38"></a>
+
+###### Table 2.38 Selector keywords
 
 {:.table}
 |Keyword|Description|Value|
@@ -2308,7 +2456,9 @@ x2 = hus(sel2, level=1000.0)
 ~~~
  
 
-#####2.11.2 Selector examples
+<a name="2.11.2"></a>
+
+##### 2.11.2 Selector examples
 
 CDMS provides a variety of ways to select or slice data. In the following examples, variable hus is contained in file sample.nc, and is a function of (time, level, latitude, longitude). Time values are monthly starting at 1979-1-1. There are 17 levels, the last level being 1000.0. The name of the vertical level axis is 'plev'. All the examples select the first two times and the last level. The last two examples remove the singleton level dimension from the result array.
 
@@ -2359,9 +2509,13 @@ x = hus(time=('1979-1-1','1979-2-1'), level=1000., squeeze=1)
 f.close()
 ~~~
 
-####2.12 Examples
+<a name="2.12"></a>
 
-#####2.12.1 Example 1
+#### 2.12 Examples
+
+<a name="2.12.1"></a>
+
+##### 2.12.1 Example 1
 
 In this example, two datasets are opened, containing surface air temperature ('tas') and upper-air temperature ('ta') respectively. Surface air temperature is a function of (time, latitude, longitude). Upper-air temperature is a function of (time, level, latitude, longitude). Time is assumed to have a relative representation in the datasets (e.g., with units 'months since basetime').
 
@@ -2435,7 +2589,9 @@ Data is extracted from both datasets for January of the first input year through
   7.  This is the main routine of the script. `pathTa` and `pathTas` pathnames. Data is processed from January 1980 through December 1981. 
 
 
-#####2.12.2 Example 2
+<a name="2.12.2"></a>
+
+##### 2.12.2 Example 2
 
 In the next example, the pointwise variance of a variable over time is calculated, for all times in a dataset. The name of the dataset and variable are entered, then the variance is calculated and plotted via the vcs module.
 
@@ -2549,3 +2705,5 @@ Hit return to continue:
   2. dataset is a Dataset or CdmsFile object, depending on whether a .xml or .nc pathname is entered. dataset.variables is a dictionary mapping variable name to file variable.
   3. var is a transient variable.
   4. Plot the variance and count variables. Spatial longitude and latitude information are carried with the computations, so the continents are plotted correctly. 
+
+#### [Previous Chapter](cdms_chapter_1.html) \| [Table of Contents](cdms.html) \| [Next Chapter](cdms_chapter_3.html)

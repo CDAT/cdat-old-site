@@ -254,3 +254,5 @@ The `cu` classes are `Slab`, corresponding to `TransientVariable` in CDMS, and `
 <td>Print the list of variables in the file.</td>
 </tr>
 </table>
+
+#### [Previous Chapter](cdms_chapter_7.html) \| [Table of Contents](cdms.html)

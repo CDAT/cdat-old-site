@@ -6,6 +6,8 @@ title: CDAT CDMS Chapter 6
 ## CHAPTER 6 Climate Data Markup Language (CDML)
  
 
+<a name="6.1"></a>
+
 ### 6.1 Introduction
 
 The Climate Data Markup Language (CDML) is the markup language used to represent metadata in CDMS. CDML is based on the W3C XML standard (http://www.w3.org). This chapter defines the syntax of CDML. Read this section if you will be building or maintaining a CDMS database.
@@ -14,6 +16,8 @@ XML, the eXtensible Markup Language, makes it possible to define interoperable d
 
 CDML files have the file extension .xml or .cdml.
 
+
+<a name="6.2"></a>
 
 ### 6.2 Elements
 
@@ -35,6 +39,8 @@ where
 
 The CDML elements are:
 
+<a name="table_6.1"></a>
+
 ###### Table 6.1 CDML Tags
 
 {:.table}
@@ -49,9 +55,13 @@ The CDML elements are:
 |variable|Variable|
 
 
+<a name="6.3"></a>
+
 ### 6.3 Special Characters
 
 XML reserves certain characters for markup. If they appear as content, they must be encoded to avoid confusion with markup:
+
+<a name="table_6.2"></a>
 
 ###### Table 6.2 Special Character Encodings
 
@@ -76,15 +86,21 @@ would appear in an attribute string as:
 comment = "Certain &quot;special characters&quot;, such as &lt;, &gt;, and &apos;, must be encoded."
 ~~~
 
+<a name="6.4"></a>
+
 ### 6.4 Identifiers
 
 In CDMS, all objects in a dataset have a unique string identifier. The id attribute holds the value of this identifier. If the variable, axis, or grid has a string name within a data file, then the id attribute ordinarily has this value. Alternatively, the name of the object in a data file can be stored in the name_in_file attribute, which can differ from the id. Datasets also have IDs, which can be used within a larger context (databases).
 
 An identifer must start with an alphabetic character (upper or lower case), an underscore (_), or a colon (:). Characters after the first must be alphanumeric, an underscore, or colon. There is no restriction on the length of an identifier.
 
+<a name="6.5"></a>
+
 ### 6.5 CF Metadata Standard
 
 [The CF metadata standard](http://cfconventions.org/) defines a set of conventions for usage of netCDF. This standard is supported by CDML. The document defines names and usage for metadata attributes. CF supersedes the GDT 1.3 standard.
+
+<a name="6.6"></a>
 
 ### 6.6 CDML Syntax
 
@@ -107,12 +123,16 @@ The prolog defines the XML version, and the Document Type Definition (DTD), a fo
 	**\<?xml version="1.0"?>**
 	**\<!DOCTYPE dataset SYSTEM "http://www-pcmdi.llnl.gov/~drach/cdms/cdml.dtd"\>**
 
+<a name="#6.6.1"></a>
+
 #### 6.6.1 Dataset Element
 
 A dataset element describes a single dataset. The content is a list of elements corresponding to the axes, grids, and variables contained in the dataset. Axis, variable, and grid elements can be listed in any order, and an element ID can be used before the element is actually defined.
 
     `dataset-element ::=` **<dataset** `dataset-attributes`**>** `dataset-content` **</dataset>**
     `dataset-content ::= (axis-element | grid-element | variable-element)* extra-attribute-element+`
+
+<a name="table_6.3"></a>
 
 ###### Table 6.3 Dataset Attributes
 
@@ -256,6 +276,8 @@ The `cdms_filemap` attribute describes how the dataset is partitioned into files
 
 The pathname is appended to the value of the directory attribute, to obtain an absolute pathname.
 
+<a name="#6.6.2"></a>
+
 #### 6.6.2 Axis Element
 
 An axis element describes a single coordinate axis. The content can be a blank-separated list of axis values or a linear element. A linear element is a representation of a linearly-spaced axis as (start, delta, length).
@@ -264,6 +286,8 @@ An axis element describes a single coordinate axis. The content can be a blank-s
     `axis-content ::= (axis-values | linear-element) extra-attribute-element*`
     `axis-values ::= [value*]`
     `linear-element ::=` **<linear delta="`value`" length=**"`Integer`"** start=**"`value`"**> </linear>**
+
+<a name="table_6.4"></a>
 
 ###### Table 6.4
 
@@ -634,6 +658,8 @@ An axis element describes a single coordinate axis. The content can be a blank-s
 	</tr>
 </table>
 
+<a name="#6.6.3"></a>
+
 #### 6.6.3 partition attribute
 
 For an axis in a dataset, the .partition attribute describes how an axis is split across files. It is a list of the start and end indices of each axis partition.
@@ -648,11 +674,15 @@ For example, Figure 4 shows a time axis, representing the 36 months, January 198
 
 Note that the end index of the second interval is strictly less than the start index of the following interval. This indicates that data for that period is missing.
 
+<a name="#6.6.4"></a>
+
 #### 6.6.4 Grid Element
 
 A grid element describes a horizontal, latitude-longitude grid which is rectilinear in topology,
 
 `grid-element ::=` **\<rectGrid** `grid-attributes`**>** `extra-attribute-element*` **\</rectGrid>**
+
+<a name="table_6.5"></a>
 
 ###### Table 6.5 RectGrid Attributes
 
@@ -669,6 +699,8 @@ A grid element describes a horizontal, latitude-longitude grid which is rectilin
 
  
 
+<a name="#6.6.5"></a>
+
 #### 6.6.5 Variable Element
 
 A variable element describes a data variable. The domain of the variable is an ordered list of domain elements naming the axes on which the variable is defined. A domain element is a reference to an axis or grid in the dataset.  
@@ -682,6 +714,8 @@ The length of a domain element is the number of axis points for which data can b
 `variable-domain ::=` **\<domain>** `domain-element*` **\</domain>**
 
 `domain-element ::=` **\<domElem name=**"`axis-name`"** start=**"`Integer`" **length=**"`Integer`" **partition_length=**"`Integer`"**/>**
+
+<a name="table_6.6"></a>
 
 ###### Table 6.6 Variable Attributes
 
@@ -844,6 +878,8 @@ The length of a domain element is the number of axis points for which data can b
 
  
 
+<a name="#6.6.6"></a>
+
 #### 6.6.6 Attribute Element
 
 Attributes which are not explicitly defined by the GDT convention are represented as extra attribute elements. Any dataset, axis, grid, or variable element can have an extra attribute as part of its content. This representation is also useful if the attribute value has non-blank whitespace characters (carriage returns, tabs, linefeeds) which are significant.
@@ -851,6 +887,8 @@ Attributes which are not explicitly defined by the GDT convention are represente
 The datatype is one of: **Char**, **Short**, **Long**, **Float**, **Double**, or **String**.
 
 `extra-attribute-element ::=` **\<attr name=**"`attribute-name`" **datatype=**"`attribute-datatype`"**>** `attribute-value` **\</attr>**
+
+<a name="6.7"></a>
 
 ### 6.7 A Sample CDML Document
 
@@ -942,3 +980,4 @@ Dataset "sample" has two variables, and six axes.
 </dataset>
 ~~~
 
+#### [Previous Chapter](cdms_chapter_5.html) \| [Table of Contents](cdms.html) \| [Next Chapter](cdms_chapter_7.html)

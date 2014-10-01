@@ -6,7 +6,11 @@ title: CDAT CDMS Chapter 7
 ## CHAPTER 7 CDMS Utilities
 
 
+<a name="7.1"></a>
+
 ### 7.1 `cdscan`: Importing datasets into CDMS
+
+<a name="7.1.1"></a>
 
 #### 7.1.1 Overview
 
@@ -25,6 +29,8 @@ Otherwise, there is considerable flexibility in how a dataset can be partitioned
  - Horizontal grid boundary information and related information can be duplicated across files.
  - Variables can be on different grids.
  - Files may be in any of the self-describing formats supported by CDMS, including netCDF, HDF, GrADS/GRIB, and DRS.
+
+<a name="7.1.2"></a>
 
 #### 7.1.2 `cdscan` Syntax
 
@@ -47,7 +53,9 @@ where
 
 Output is written to standard output by default. Use the -x option to specify an output filename.
 
-######Table 7.1 cdscan command options
+<a name="table_7.1"></a>
+
+###### Table 7.1 cdscan command options
 
 <table class="table">
     <tr>
@@ -277,6 +285,8 @@ Output is written to standard output by default. Use the -x option to specify an
   </li>
 </ol>
 
+<a name="7.1.3"></a>
+
 #### 7.1.3 Examples
 
 ~~~
@@ -287,6 +297,8 @@ cdscan -c noleap -d test -x test.xml [uv]*.nc
 cdscan -d pcmdi_6h -i 0.25 -r 'days since 1979-1-1' *6h*.ctl
 ~~~
 
+<a name="7.1.4"></a>
+
 #### 7.1.4 File Formats
 
 Data may be represented in a variety of self-describing binary file formats, including
@@ -296,6 +308,8 @@ Data may be represented in a variety of self-describing binary file formats, inc
  - GrADS/GRIB, WMO GRIB plus a GrADS control file (.ctl) The first non-comment line of the control file must be a dset specification.
  - DRS, the PCMDI legacy format.
 
+<a name="7.1.5"></a>
+
 #### 7.1.5 Name Aliasing
 
 A problem can occur if variables in different files are defined on different grids. What if the axis names are the same? CDMS requires that within a dataset, axis and variable IDs (names) be unique. What should the longitude axes be named in CDMS to ensure uniqueness? The answer is to allow CDMS IDs to differ from file names.
@@ -303,3 +317,5 @@ A problem can occur if variables in different files are defined on different gri
 If a variable or axis has a CDMS ID which differs from its name in the file, it is said to have an alias. The actual name of the object in the file is stored in the attribute `name_in_file`. `cdscan` uses this mechanism (with the `-a` and `s` options) to resolve name conflicts; a new axis or variable ID is generated, and the `name_in_file` is set to the axis name in the file.
 
 Name aliases also can be used to enforce naming standards. For data received from an outside organization, variable names may not be recognized by existing applications. Often it is simpler and safer to add an alias to the metafile rather than rewrite the data
+
+#### [Previous Chapter](cdms_chapter_6.html) \| [Table of Contents](cdms.html) \| [Appendix](cdms_appendix.html)

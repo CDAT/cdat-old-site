@@ -3,10 +3,12 @@ layout: default
 title: CDAT CDMS Chapter 3
 ---
 
-##CHAPTER 3  cdtime Module
+## CHAPTER 3  cdtime Module
  
 
-####3.1 Time types
+<a name="3.1"></a>
+
+#### 3.1 Time types
 
 The `cdtime` module implements the CDMS time types, methods, and calendars. These are made available with the command
 
@@ -25,7 +27,9 @@ Component time consists of the integer fields year, month, day, hour, minute, an
 
 The `cdtime` module contains functions for converting between these forms, based on the common calendars used in climate simulation. Basic arithmetic and comparison operators are also available.
 
-####3.2 Calendars
+<a name="3.2"></a>
+
+#### 3.2 Calendars
 
 A calendar specifies the number of days in each month, for a given year. cdtime supports these calendars:
 
@@ -42,11 +46,15 @@ Several `cdtime` functions have an optional calendar argument. The default calen
 cdtime.DefaultCalendar = newCalendar
 ~~~
 
-####3.3 Time Constructors
+<a name="3.3"></a>
+
+#### 3.3 Time Constructors
 
 The following table describes the methods for creating time types.
 
-######Table 3.1 Time Constructors
+<a name="table_3.1"></a>
+
+###### Table 3.1 Time Constructors
 
  <table class="table">
     <tr>
@@ -140,13 +148,17 @@ The following table describes the methods for creating time types.
   </table>
 
 
-####3.4 Relative Time
+<a name="3.4"></a>
+
+#### 3.4 Relative Time
 
 
 A relative time type has two members, value and units. Both can be set.
 
 
-######Table 3.2 Relative Time Members
+<a name="table_3.2"></a>
+
+###### Table 3.2 Relative Time Members
 
 
 {:.table}
@@ -156,11 +168,15 @@ A relative time type has two members, value and units. Both can be set.
 |String|units|Relative units, of the form "unit(s) since  basetime|
 
 
-####3.5 Component Time
+<a name="3.5"></a>
+
+#### 3.5 Component Time
 
 A component time type has six members, all of which are settable.
 
-######Table 3.3 Component Time Membersch3\_cdms\_4.0.html/#Table\_3.1
+<a name="table_3.3"></a>
+
+###### Table 3.3 Component Time Membersch3\_cdms\_4.0.html/#Table\_3.1
 
 {:.table}
 |Type|Name|Summary|
@@ -173,11 +189,15 @@ A component time type has six members, all of which are settable.
 |Float|second|Seconds, in the range 0.0 .. 60.0|
 
 
-####3.6 Time Methods
+<a name="3.6"></a>
+
+#### 3.6 Time Methods
 
 The following methods apply both to relative and component times.
 
-######Table 3.4 Time Methods
+<a name="table_3.4"></a>
+
+###### Table 3.4 Time Methods
 
 <table class="table">
   <tr>
@@ -285,3 +305,6 @@ equal to, or greater than t2 respectively.</p>
     </td>
   </tr>
 </table>
+
+
+#### [Previous Chapter](cdms_chapter_2.html) \| [Table of Contents](cdms.html) \| [Next Chapter](cdms_chapter_4.html)
