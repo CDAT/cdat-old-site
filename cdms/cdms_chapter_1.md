@@ -15,9 +15,7 @@ title: CDAT CDMS Chapter 1
 
 The Climate Data Management System is an object-oriented data management system, specialized for organizing multidimensional, gridded data used in climate analysis and simulation.
 
-CDMS is implemented as part of the Climate Data Analysis Tool (CDAT), which uses the Python language. The examples in this chapter assume some familiarity with the language and the Python Numeric module (http://www.numpy.org). A number of excellent tutorials on Python are available in books or on the Internet. For example, see <http://python.org>.
-
-
+CDMS is implemented as part of the Climate Data Analysis Tool (CDAT), which uses the Python language. The examples in this chapter assume some familiarity with the language and the Python Numeric module (http://www.numpy.org). A number of excellent tutorials on Python are available in books or on the Internet. For example, see the [Python Foundation's homepage](http://python.org).
 
 <a name="1.2"></a>
 
