@@ -6,15 +6,21 @@ title: CDAT CDMS Chapter 5
 ## CHAPTER 5 Plotting CDMS data in Python
  
 
+<a name="5.1"></a>
+
 ### 5.1 Overview
 
 Data read via the CDMS Python interface can be plotted using the `vcs` module. This module, part of the Climate Data Analysis Tool (CDAT) is documented in the CDAT reference manual. The `vcs` module provides access to the functionality of the VCS visualization program.
 
 Examples of plotting data accessed from CDMS are given below, as well as documentation for the plot routine keywords.
 
+<a name="5.2"></a>
+
 ### 5.2 Examples
 
 In the following examples, it is assumed that variable `psl` is dimensioned (time, latitude, longitude). `psl` is contained in the dataset named `'sample.xml'`.
+
+<a name="5.2.1"></a>
 
 #### 5.2.1 Example: plotting a gridded variable
 
@@ -44,6 +50,8 @@ Thats it! The axis coordinates, variable name, description, units, etc. are obta
 
 What if the units are not explicitly defined for `psl`, or a different description is desired? `plot` has a number of other keywords which fill in the extra plot information.
 
+<a name="5.2.2"></a>
+
 #### 5.2.2 Example: using aplot keywords.
 
 ~~~ python
@@ -53,6 +61,8 @@ w.plot(array, units='mm/day', file_comment='High-frequency reanalysis',
 ~~~
 
 **Note:** Keyword arguments can be listed in any order.
+
+<a name="5.2.3"></a>
 
 #### 5.2.3 Example: plotting a time-latitude slice
 
@@ -72,6 +82,8 @@ Line | Notes
 3 | The `name` keyword defines the identifier, by default the name in the file.
 
 
+<a name="5.2.4"></a>
+
 #### 5.2.4 Example: plotting subsetted data
 
 Calling the variable `psl` as a function reads a subset of the variable. The result variable `samp` can be plotted directly:
@@ -83,6 +95,8 @@ Calling the variable `psl` as a function reads a subset of the variable. The res
 3 w.plot(samp)
 ~~~
  
+
+<a name="5.3"></a>
 
 ### 5.3 `plot` method
 
@@ -116,6 +130,8 @@ where:
 
 - `key=value`, ... are optional keyword/value pairs, listed in any order. These are defined in the table below.
 
+
+<a name="table_5.1"></a>
 
 ###### Table 5.1 `plot` keywords
 
@@ -309,3 +325,5 @@ where:
       (<code>[y|z|t|w]axis.units</code>).</td>
     </tr>
   </table>
+
+#### [Previous Chapter](cdms_chapter_4.html) \| [Table of Contents](cdms.html) \| [Next Chapter](cdms_chapter_6.html)
