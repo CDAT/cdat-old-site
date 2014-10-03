@@ -2235,5 +2235,83 @@ if __name__ == "__main__":
     simpleanimation()
 ~~~
 
+###Simple Animation Example Using vcs3D:
+
+~~~python
+#
+# When the window appears, click in the 'configure' button and then the 'animate' button.   
+# You can then click on the 'run' button to start the animation.
+# The most relevant plot configuration buttons are 'Basemap Opacity', 'Choose Colormap', 'Toggle Colorbar', and 'Scale Colormap'.   
+# The animation is saved to disk when the "record" button is toggled off.  
+# Shift-rightclick for point query operations.
+#
+
+def simpleanimation():
+	import vcs, cdms2, sys
+	x = vcs.init()
+	f = cdms2.open(sys.prefix+"/sample_data/clt.nc")   
+	v = f["clt"] 
+	dv3d = vcs.get3d_scalar()
+	x.plot( v, dv3d )
+	x.interact()
+
+if __name__ == "__main__":
+    simpleanimation()
+~~~
+
+###Vector Plot Example Using vcs3D:
+
+~~~python
+#
+# There are buttons for adjusting the glyph size, density, and colors.   
+# It won't animate because the clt dataset contains only one time step for the u,v data.  
+#
+
+def simplevector():
+	import vcs, cdms2, sys
+	x = vcs.init()
+	f = cdms2.open(sys.prefix+"/sample_data/clt.nc")  
+	v = f["v"]
+	u = f["u"]  
+	dv3d = vcs.get3d_vector()
+	dv3d.BasemapOpacity = 0.15
+	x.plot( u, v, dv3d )
+	x.interact()
+
+if __name__ == "__main__":
+    simplevector()
+~~~
+
+###Volme Render Example Using vcs3D:
+
+~~~python
+#
+# There are buttons for adjusting the transfer function, opacity, colormap, and color scaling of the volume rendering.    
+#
+
+def simplevolume():
+    import vcs, cdms2, sys
+    x = vcs.init()
+    f = cdms2.open(sys.prefix+"/sample_data/geos5-sample.nc")  
+    u = f["uwnd"]  
+    dv3d = vcs.get3d_scalar() 
+    dv3d.VerticalScaling = 3.0 
+    dv3d.ScaleOpacity = [0.0, 0.8]
+    dv3d.ScaleColormap = [-46.0, 45, 1] 
+    dv3d.ScaleTransferFunction =  [8.6, 76.7, 1] 
+    dv3d.BasemapOpacity = [0.5]
+    dv3d.XSlider = vcs.off 
+    dv3d.ZSlider = vcs.off 
+    dv3d.YSlider = vcs.off 
+    dv3d.ToggleVolumePlot = vcs.on 
+    dv3d.ToggleSurfacePlot = vcs.off
+    dv3d.Camera={ 'Position': (-161, -171, 279), 'ViewUp': (.29, 0.67, 0.68), 'FocalPoint': (146.7, 8.5, -28.6) } 
+    x.plot( u, dv3d )
+    x.interact()
+
+if __name__ == "__main__":
+    simplevolume()
+~~~
+
 [Main](vcs.html) \| [Previous](vcs-7.html) \| [Next](vcs-9.html)
 
