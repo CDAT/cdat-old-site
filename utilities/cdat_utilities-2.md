@@ -3,607 +3,552 @@ layout: default
 title: CDAT Utilities Chapter 2
 ---
 
-####[CDAT Utilities](cdat_utilities.html)
-####[CHAPTER 1 Climate Data Specific Utilities: The cdutil Package](cdat_utilities-1.html)
-####[CHAPTER 2 General Utilities : The genutil Package](cdat_utilities-2.html)
-####[CHAPTER 3 User Contributed Packages](cdat_utilities-3.html)
+#### [CDAT Utilities](cdat_utilities.html)
+
+#### [CHAPTER 1 Climate Data Specific Utilities: The cdutil Package](cdat_utilities-1.html)
+
+#### [CHAPTER 2 General Utilities : The genutil Package](cdat_utilities-2.html)
+
+#### [CHAPTER 3 User Contributed Packages](cdat_utilities-3.html)
 
 ---
 
 ##  CDAT Utilities 3.3 - CHAPTER 2
+
 ###  CHAPTER 2
+
 ####  General Utilities : The genutil Package
 
-The functions in the genutil package are written to be general purpose
-functions that are useful to a broader community and not restricted to climate
-data applications.
+The functions in the `genutil` package are written to be general purpose functions that are useful to a broader community and not restricted to climate data applications.
 
 ##### Statistics Functions 
 
-Statistics functions available in this package include commonly used functions
-to compute correlation, covariance, auto-correlation, auto-covariance, lagged
-correlation, lagged covariance, mean absolute difference, root mean square,
-standard deviation, variance, geometric mean, median, percentiles and linear
-regression.
+Statistics functions available in this package include commonly used functions to compute correlation, covariance, auto-correlation, auto-covariance, lagged correlation, lagged covariance, mean absolute difference, root mean square, standard deviation, variance, geometric mean, median, percentiles and linear regression.
 
-correlation 
+**`correlation`**
 
-Returns the correlation between 2 slabs. By default on the first dimension,
-centered and biased by default.
+Returns the correlation between 2 slabs. By default on the first dimension, centered and biased by default.
 
-Usage:
+**Usage:**
 
-result = correlation(x, y, weights= weightoptions , axis= axisoptions, centered= centeredoptions , biased= biasedoptions )
+~~~python
+result = correlation(x, y, weights = weightoptions, axis = axisoptions, centered = centeredoptions, biased = biasedoptions )
+~~~
 
-Options:
+**Options:**
 
-weightoptions
+`weightoptions`
 
-default = None. If you want to compute the weighted correlation, provide the
-weights here.
+default = None. If you want to compute the weighted correlation, provide the weights here.
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions`: 'x' \| 'y' \| 'z' \| 't' \|  '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-centeredoptions None | 0 | 1
+`centeredoptions`: None \| 0 \| 1
 
 default value = 1 removes the mean first. Set to 0 or None for uncentered.
 
-biasedoptions None | 0 | 1
+`biasedoptions`: None \| 0 \| 1
 
 default value = 1 returns biased statistic. If want to compute an unbiased
 statistic pass anything but 1.
 
-Example:
+**Example:**
 
-    # Let us try an example where we want to look at a
-    # variable 'tas' from the NCEP reanalysis and compute
-    # some spatial statistics between data slices for time
-    # periods from 1960-1970 and 1980-1990.
-    >>> import cdms
-    >>> from genutil import statistics
-    >>> f = cdms.open('tas.rnl_ncep.nc')
-    >>> ncep1 = f('tas',time=('1960-1-1', '1970-1-1', 'co'))
-    >>> ncep2 = f('tas',time=('1980-1-1', '1990-1-1', 'co'))
-    # We have the two time periods extracted.
-    # Now let us compute the correlation.
-    >>> cor = statistics.correlation(ncep1, ncep2,\ axis='xy')
-    # We could compute the spatial correlation weighted by
-    # area. To accomplish this we can use the 'generate'
-    # option for weights.
-    >>> wcor = statistics.correlation(ncep1, ncep2,\ weights='generate', axis='xy')
+~~~python
+# Let us try an example where we want to look at a
+# variable 'tas' from the NCEP reanalysis and compute
+# some spatial statistics between data slices for time
+# periods from 1960-1970 and 1980-1990.
+>>> import cdms
+>>> from genutil import statistics
+>>> f = cdms.open('tas.rnl_ncep.nc')
+>>> ncep1 = f('tas',time=('1960-1-1', '1970-1-1', 'co'))
+>>> ncep2 = f('tas',time=('1980-1-1', '1990-1-1', 'co'))
+# We have the two time periods extracted.
+# Now let us compute the correlation.
+>>> cor = statistics.correlation(ncep1, ncep2,\ axis='xy')
+# We could compute the spatial correlation weighted by
+# area. To accomplish this we can use the 'generate'
+# option for weights.
+>>> wcor = statistics.correlation(ncep1, ncep2,\ weights='generate', axis='xy')
+~~~
 
-##### covariance 
+**`covariance`**
 
-Returns the covariance between 2 slabs. By default on the first dimension,
-centered and biased by default.
+Returns the covariance between 2 slabs. By default on the first dimension, centered and biased by default.
 
-Usage:
+**Usage:**
 
-cov = covariance(x, y, weights= weightoptions , axis= axisoptions , centered= centeredoptions , biased= biasedoptions )
+~~~ python
+cov = covariance(x, y, weights = weightoptions, axis = axisoptions, centered = centeredoptions, biased = biasedoptions )
+~~~
 
-Options:
+**Options:**
 
-weightoptions
+`weightoptions`
 
 default = None. If you want to compute the weighted covariance, provide the
 weights here.
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
 default value = 0. You can pass the name of the dimension or index (integer
 value 0...n) over which you want to compute the statistic.
 
-centeredoptions None | 0 | 1
+`centeredoptions` None \| 0 \| 1
 
 default value = 1 removes the mean first. Set to 0 or None for uncentered.
 
-biasedoptions None | 0 | 1
+`biasedoptions` None \| 0 \| 1
 
 default value = 1 If want to compute an unbiased variance pass anything but 1.
 
-##### autocorrelation 
+**`autocorrelation`**
 
-Returns the autocorrelation of a slab at lag k centered,partial and "biased"
-by default
+Returns the autocorrelation of a slab at lag k centered,partial and "biased" by default
 
-Usage:
+**Usage:**
 
-result = autocorrelation(x, lag= lagoptions , axis= axisoptions ,
-centered= centeredoptions , partial= partialoptions , biased=
-biasedoptions , noloop= noloopoptions )
+~~~python
+result = autocorrelation(x, lag = lagoptions, axis = axisoptions,centered = centeredoptions, partial = partialoptions, biased = biasedoptions, noloop = noloopoptions )
+~~~
 
-Options:
+**Options:**
 
-lagoptions None | n | (n1, n2, n3...) | [n1, n2, n3 ....]
+`lagoptions` None \| n \| (n1, n2, n3...) \| [n1, n2, n3 ....]
 
-default value = None the maximum possible lags for specified axis is used.You
-can pass an integer, list of integers, or tuple of integers.
+default value = None the maximum possible lags for specified axis is used.You can pass an integer, list of integers, or tuple of integers.
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-centeredoptions None | 0 | 1
+`centeredoptions` None \| 0 \| 1
 
 default value = 1 removes the mean first. Set to 0 or None for uncentered
 
-partialoptions None | 0 | 1
+`partialoptions` None \| 0 \| 1
 
 default value = 1 uses only common time for means.
 
-biasedoptions None | 0 | 1
+`biasedoptions` None \| 0 \| 1
 
-default value = 1 computes the biased statistic. If want to compute an
-unbiased statistic pass anything but 1.
+default value = 1 computes the biased statistic. If want to compute an unbiased statistic pass anything but 1.
 
-noloopoptions None | 0 | 1
+`noloopoptions` None \| 0 \| 1
 
-default value = 0 computes statistic at all lags upto 'lag'. If you set
-noloop=1 statistic is computed at lag only (not up to lag).
+default value = 0 computes statistic at all lags upto 'lag'. If you set noloop=1 statistic is computed at lag only (not up to lag).
 
-##### autocovariance 
+**`autocovariance`**
 
-Returns the autocovariance of a slab. By default over the first dimension,
-centered, and partial.
+Returns the autocovariance of a slab. By default over the first dimension, centered, and partial.
 
-Usage:
+**Usage:**
 
-result = autocovariance(x, lag= lagoptions , axis= axisoptions ,
-centered= centeredoptions , partial= partialoptions , noloop=
-noloopoptions )
+~~~python
+result = autocovariance(x, lag = lagoptions, axis = axisoptions, centered = centeredoptions, partial = partialoptions, noloop = noloopoptions )
+~~~
 
-Options:
+**Options:**
 
-lagoptions None | n | (n1, n2, n3...) | [n1, n2, n3 ....]
+`lagoptions` None \| n \| (n1, n2, n3...) \| [n1, n2, n3 ....]
 
-default value = None the maximum possible lags for specified axis is used.You
-can pass an integer, list of integers, or tuple of integers.
+default value = None the maximum possible lags for specified axis is used. You can pass an integer, list of integers, or tuple of integers.
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-centeredoptions None | 0 | 1
+`centeredoptions` None \| 0 \| 1
 
 default value = 1 removes the mean first. Set to 0 or None for uncentered
 
-partialoptions None | 0 | 1
+`partialoptions` None \| 0 \| 1
 
 default value = 1 uses only common time for means.
 
-noloopoptions None | 0 | 1
+`noloopoptions` None \| 0 \| 1
 
-default value = 0 computes statistic at all lags upto 'lag'. If you set
-noloop=1 statistic is computed at lag only (not up to lag).
+default value = 0 computes statistic at all lags upto 'lag'. If you set noloop=1 statistic is computed at lag only (not up to lag).
 
-##### laggedcorrelation 
+**`laggedcorrelation`**
 
-Returns the correlation between 2 slabs at lag k centered, partial and
-"biased" by default.
+Returns the correlation between 2 slabs at lag k centered, partial and "biased" by default.
 
-Usage:
+**Usage:**
 
-result = laggedcorrelation(x,y, lag= lagoptions , axis= axisoptions,
-centered= centeredoptions , partial= partialoptions , biased=
-biasedoptions , noloop= noloopoptions )
+~~~python
+result = laggedcorrelation(x,y, lag = lagoptions, axis = axisoptions, centered = centeredoptions, partial = partialoptions, biased = biasedoptions, noloop = noloopoptions ) 
+~~~
 
 Returns value for x lags y by lag
 
-Options:
+**Options:**
 
-lagoptions None | n | (n1, n2, n3...) | [n1, n2, n3 ....]
+`lagoptions` None \| n \| (n1, n2, n3...) \| [n1, n2, n3 ....]
 
-default value = None the maximum possible lags for specified axis is used.You
-can pass an integer, list of integers, or tuple of integers.
+default value = None the maximum possible lags for specified axis is used.You can pass an integer, list of integers, or tuple of integers.
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-centeredoptions
+`centeredoptions`
 
 default value = 1 removes the mean first. Set to 0 or None for uncentered
 
-partialoptions None | 0 | 1
+`partialoptions` None \| 0 \| 1
 
 default value = 1 uses only common time for means.
 
-biasedoptions None | 0 | 1
+`biasedoptions` None \| 0 \| 1
 
 default value = 1 If want to compute an unbiased variance pass anything but 1.
 
-noloopoptions None | 0 | 1
+`noloopoptions` None \| 0 \| 1
 
-default value = 0 computes statistic at all lags upto 'lag'. If you set
-noloop=1 statistic is computed at lag only (not up to lag).
+default value = 0 computes statistic at all lags upto 'lag'. If you set noloop=1 statistic is computed at lag only (not up to lag).
 
-##### laggedcovariance 
+**`laggedcovariance`**
 
-Returns the covariance between 2 slabs at lag k centered and partial by
-default
+Returns the covariance between 2 slabs at lag k centered and partial by default
 
-Usage:
+**Usage:**
 
-result = laggedcovariance(x, y, lag= lagoptions , axis= axisoptions ,
-centered= centeredoptions , partial= partialoptions , noloop=
-noloopoptions )
+~~~python
+result = laggedcovariance(x, y, lag = lagoptions, axis = axisoptions, centered = centeredoptions, partial = partialoptions, noloop = noloopoptions)
+~~~
 
 Returns value for x lags y by lag (integer)
 
-Options:
+**Options:**
 
-lagoptions None | n | (n1, n2, n3...) | [n1, n2, n3 ....]
+`lagoptions` None \| n \| (n1, n2, n3...) \| [n1, n2, n3 ....]
 
-default value = None the maximum possible lags for specified axis is used.You
-can pass an integer, list of integers, or tuple of integers.
+default value = None the maximum possible lags for specified axis is used.You can pass an integer, list of integers, or tuple of integers.
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-centeredoptions
+`centeredoptions`
 
 default value = 1 removes the mean first. Set to 0 or None for uncentered
 
-partialoptions None | 0 | 1
+`partialoptions` None \| 0 \| 1
 
 default value = 1 uses only common time for means.
 
-noloopoptions None | 0 | 1
+`noloopoptions` None \| 0 \| 1
 
-default value = 0 computes statistic at all lags upto 'lag'. If you set
-noloop=1 statistic is computed at lag only (not up to lag).
+default value = 0 computes statistic at all lags upto 'lag'. If you set noloop=1 statistic is computed at lag only (not up to lag).
 
-##### meanabsdiff 
+**`meanabsdiff`**
 
-Returns the mean absolute difference between 2 slabs x and y. By default on
-the first dimension and centered
+Returns the mean absolute difference between 2 slabs x and y. By default on the first dimension and centered
 
-Usage:
+**Usage:**
 
-result = meanabsdiff(x, y, weights= weightoptions , axis = axisoptions
-, centered= centeredoptions )
+~~~python
+result = meanabsdiff(x, y, weights = weightoptions, axis = axisoptions, centered = centeredoptions)
+~~~
 
-Options:
+**Options:**
 
-weightoptions
+`weightoptions`
 
-default = None returns equally weighted statistic. If you want to compute the
-weighted statistic, provide weights here.
+default = None returns equally weighted statistic. If you want to compute the weighted statistic, provide weights here.
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-centeredoptions None | 0 | 1
+`centeredoptions` None \| 0 \| 1
 
 default value = 1 removes the mean first. Set to 0 or None for uncentered.
 
-Example:
+**Example:**
 
-    # To compute the mean absolute difference between ncep1 and ncep2.
-    >>> absd = statistics.meanabsdiff(ncep1, \ ncep2,axis='xy')
+~~~python
+# To compute the mean absolute difference between ncep1 and ncep2.
+>>> absd = statistics.meanabsdiff(ncep1, \ ncep2,axis='xy')
+~~~
 
-##### rms 
+**`rms`**
 
-Returns the root mean square difference between 2 slabs. By default from a
-slab (on first dimension) "uncentered" and "biased" by default
+Returns the root mean square difference between 2 slabs. By default from a slab (on first dimension) "uncentered" and "biased" by default
 
-Usage:
+**Usage:**
 
-result = rms(x, y, weights= weightoptions , axis = axisoptions ,
-centered= centeredoptions, biased = biasedoptions )
+~~~python
+result = rms(x, y, weights = weightoptions, axis = axisoptions, centered = centeredoptions, biased = biasedoptions )
+~~~
 
-Options:
+**Options:**
 
-weightoptions
+`weightoptions`
 
-default = None returns equally weighted statistic. If you want to compute the
-weighted statistic, provide weights here.
+default = None returns equally weighted statistic. If you want to compute the weighted statistic, provide weights here.
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-centeredoptions None | 0 | 1
+`centeredoptions` None \| 0 \| 1
 
-default value = 0 returns uncentered statistic (same as None). To remove the
-mean first (i.e centered statistic) set to 1. NOTE: Most other statistic
-functions return a centered statistic by default.
+default value = 0 returns uncentered statistic (same as None). To remove the mean first (i.e centered statistic) set to 1. NOTE: Most other statistic functions return a centered statistic by default.
 
-biasedoptions None | 0 | 1
+`biasedoptions` None \| 0 \| 1
 
 default value = 1 If want to compute an unbiased variance pass anything but 1.
 
-Example:
+**Example:**
 
-    # To compute the "temporal" rms difference between the two time periods
-    >>> rms = statistics.rms(ncep1, ncep2, axis='t')
+~~~python
+# To compute the "temporal" rms difference between the two time periods
+>>> rms = statistics.rms(ncep1, ncep2, axis='t')
+~~~
 
-##### std 
+**`std`**
 
-Returns the standard deviation from a slab. By default on first dimension,
-centered, and biased.
+Returns the standard deviation from a slab. By default on first dimension, centered, and biased.
 
-Usage:
+**Usage:**
 
-result = std(x, weights= weightoptions , axis = axisoptions ,
-centered= centeredoptions , biased = b iasedoptions )
+~~~python
+result = std(x, weights = weightoptions, axis = axisoptions, centered = centeredoptions, biased = b iasedoptions )
+~~~
 
-Options:
+**Options:**
 
-weightoptions
+`weightoptions`
 
 If you want to compute the weighted statistic, provide weights here.
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-centeredoptions None | 0 | 1
+`centeredoptions` None \| 0 \| 1
 
 default value = 1 removes the mean first. Set to 0 or None for uncentered.
 
-biasedoptions None | 0 | 1
+`biasedoptions` None \| 0 \| 1
 
 default value = 1 If want to compute an unbiased variance pass anything but 1.
 
-##### variance 
+**`variance`**
 
-Returns the variance from a slab. By default on first dimension, centered, and
-biased.
+Returns the variance from a slab. By default on first dimension, centered, and biased.
 
-Usage:
+**Usage:**
 
-result = variance(x, weights= weightoptions , axis = axisoptions ,
-centered= centeredoptions , biased = biasedoptions )
+~~~python
+result = variance(x, weights = weightoptions, axis = axisoptions, centered = centeredoptions, biased = biasedoptions )
+~~~
 
-Options:
+**Options:**
 
-weightoptions
+`weightoptions`
 
 If you want to compute the weighted variance, provide weights here.
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-centeredoptions None | 0 | 1
+`centeredoptions` None \| 0 \| 1
 
 default value = 1 removes the mean first. Set to 0 or None for uncentered.
 
-biasedoptions None | 0 | 1
+`biasedoptions` None \| 0 \| 1
 
 default value = 1 If want to compute an unbiased variance pass anything but 1.
 
-##### geometricmean 
+**`geometricmean`**
 
 Returns the geometric mean over a sepcified axis.
 
-Usage:
+**Usage:**
 
-result = geometricmean(x, axis= axisoptions )
+~~~python
+result = geometricmean(x, axis = axisoptions )
+~~~
 
-Options:
+**Options:**
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-##### percentiles 
+**`percentiles`**
 
 Returns values at the defined percentiles for an array.
 
-Usage:
+**Usage:**
 
-result = percentiles(x, percentiles= percentilesoptions , axis=
-axisoptions )
+~~~python
+result = percentiles(x, percentiles = percentilesoptions, axis = axisoptions )
+~~~
 
-Options:
+**Options:**
 
 percentilesoptions A python list of values
 
-Default = [50.] (the 50th percentile i.e the median value)
+Default = \[50.\] (the 50th percentile i.e the median value)
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-##### median 
+**`median`**
 
 Returns the median value of an array.
 
-Usage:
+**Usage:**
 
-result = median(x, axis= axisoptions )
+result = median(x, axis = axisoptions )
 
-Options:
+**Options:**
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to compute the statistic.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to compute the statistic.
 
-##### linearregression 
+**`linearregression`**
 
-Computes the linear regression of y over x or an axis. This function returns
-Values of the slope and intercept, and optionally, Error estimates and
-associated probability distributions for T-value (T-Test) and F-value (for
-analysis of variance f) can be returned. You can choose to return all these
-for either slope or intercept or both (default behaviour). For theoretical
-details, refer to "Statistical Methods in Atmospheric Sciences" by Daniel S.
-Wilks, Academic Press, 1995.
+Computes the linear regression of y over x or an axis. This function returns Values of the slope and intercept, and optionally, Error estimates and associated probability distributions for T-value (T-Test) and F-value (for analysis of variance f) can be returned. You can choose to return all these for either slope or intercept or both (default behaviour). For theoretical details, refer to "Statistical Methods in Atmospheric Sciences" by Daniel S. Wilks, Academic Press, 1995.
 
-Usage:
+**Usage:**
 
-result = linearregression(y, axis= axisoptions , x= xvalues , error=
-erroroptions , probability= probabilityoptions , nointercept=
-nointerceptoptions , noslope= noslopeoptions )
+~~~python
+result = linearregression(y, axis = axisoptions, x = xvalues, error = erroroptions, probability = probabilityoptions, nointercept = nointerceptoptions, noslope = noslopeoptions )
+~~~
 
-Options:
+**Options:**
 
-axisoptions 'x' | 'y' | 'z' | 't' | '(dimension_name)' | 0 | 1 ... | n
+`axisoptions` 'x' \| 'y' \| 'z' \| 't' \| '(dimension_name)' \| 0 \| 1 ... \| n
 
-default value = 0. You can pass the name of the dimension or index (integer
-value 0...n) over which you want to treat the array as the dependent variable.
+default value = 0. You can pass the name of the dimension or index (integer value 0...n) over which you want to treat the array as the dependent variable.
 
-xvalues
+`xvalues`
 
-default = None. You can pass an array of values that are to be used as the
-independent axis x
+default = None. You can pass an array of values that are to be used as the independent axis x
 
-nointerceptoptions None | 0 | 1
+`nointerceptoptions` None \| 0 \| 1
 
-default = None. Setting to 0 or None means intercept calculations are
-returned. To turn OFF the intercept computations set nointercept to 1.
+default = None. Setting to 0 or None means intercept calculations are returned. To turn OFF the intercept computations set nointercept to 1.
 
-noslopeoptions None | 0 | 1
+`noslopeoptions` None \| 0 \| 1
 
-default = None. Setting to None or 0 means slope calculations are returned. To
-turn OFF the slope computations set noslope to 1.
+default = None. Setting to None or 0 means slope calculations are returned. To turn OFF the slope computations set noslope to 1.
 
-erroroptions None | 0 | 1 | 2 | 3
+`erroroptions` None \| 0 \| 1 \| 2 \| 3
 
 default = None. If set to 0 or None, no associated errors are returned.
 
 If set to 1, the unadjusted standard error is returned.
 
-If set to 2, standard error returned. This standard error is adjusted using
-the centered autocorrelation of the residual.
+If set to 2, standard error returned. This standard error is adjusted using the centered autocorrelation of the residual.
 
-If set to 3, standard error returned. The standard error here is adjusted
-using the centered autocorrelation of the raw data (y).
+If set to 3, standard error returned. The standard error here is adjusted using the centered autocorrelation of the raw data (y).
 
-probabilityoptions None | 0 | 1
+`probabilityoptions` None \| 0 \| 1
 
-default = None. If set to 0 or None, no associated probabilities are returned.
-Set this to 1to compute probabilities.
+default = None. If set to 0 or None, no associated probabilities are returned. Set this to 1to compute probabilities.
 
-Note:  Probabilities are returned only if erroroptions are set to one of 1, 2, or 3. If it is set to None or 0, then setting probabilityoptions has no meaning. 
+**Note:**  Probabilities are returned only if erroroptions are set to one of 1, 2, or 3. If it is set to None or 0, then setting probabilityoptions has no meaning. 
 
-What is returned?
+##### What is returned?
 
-The returned values depend on the combination of options you select. If both
-slope and intercept are required, a tuple is returned for both Value and
-optionally Error (or optionally associated Probabilities), but single values
-(not tuples) are returned if only one set (slope OR intercept) is required.
-See examples below for more details.
+The returned values depend on the combination of options you select. If both slope and intercept are required, a tuple is returned for both Value and optionally Error (or optionally associated Probabilities), but single values (not tuples) are returned if only one set (slope OR intercept) is required. See examples below for more details.
 
-When erroroption = 1 (from description above for erroroptions you know
-that means unadjusted standard error) and probabilityoption = 1, then the
-following are returned:
+When erroroption = 1 (from description above for erroroptions you know that means unadjusted standard error) and probabilityoption = 1, then the following are returned:
 
-pt1 : The p-value for regression coefficient t-value. (With no adjustment for
-standard error or critical t-value.)
+pt1 : The p-value for regression coefficient t-value. (With no adjustment for standard error or critical t-value.)
 
-None : There is only one p-value to be returned (pt1) but None is returned to
-keep the length of the returned values consistent.
+None : There is only one p-value to be returned (pt1) but None is returned to keep the length of the returned values consistent.
 
 pf1 : The p-value for regression coefficient F-value (one-tailed).
 
 pf2 : The p-value for regression coefficient F-value (two-tailed).
 
-When erroroption = 2 or 3 (implying error adjustment using the residual or
-the raw data and probabilityoption = 1, then the following are returned:
+When erroroption = 2 or 3 (implying error adjustment using the residual or the raw data and probabilityoption = 1, then the following are returned:
 
-pt1 : The p-value for regression coefficient t-value.(With Effective sample
-size adjustment for standard error of slope.
+pt1 : The p-value for regression coefficient t-value.(With Effective sample size adjustment for standard error of slope.
 
-pt2 : The p-value for regression coefficient t-value.(With effective sample
-size adjustment for standard error of slope and critical t-value.)
+pt2 : The p-value for regression coefficient t-value.(With effective sample size adjustment for standard error of slope and critical t-value.)
 
 pf1 : The p-value for regression coefficient F-value (one-tailed).
 
 pf2 : The p-value for regression coefficient F-value (two-tailed).
 
-The values pt1 and pt2 are used to test the null hypothesis that b = 0 (i.e.,
-y is independent of x). The values pf1 and pf2 are used to test the null
-hypothesis that the regression is linear (goodness of linear fit). For non-
-replicated values of y, the degrees of freedom are 1 and n-2.
+The values pt1 and pt2 are used to test the null hypothesis that b = 0 (i.e., y is independent of x). The values pf1 and pf2 are used to test the null hypothesis that the regression is linear (goodness of linear fit). For non-replicated values of y, the degrees of freedom are 1 and n-2.
 
 
-##### The xmgrace module 
+##### The `xmgrace` module 
 
-Nothing emphases the fact that CDAT is a collection of tools that can be
-extended by the user better than the   xmgrace  module. This module
-provides an interface to the popular Grace plotting utility (which you must
-have installed separately. Downloads and information are available from http
-://plasma-gate.weizmann.ac.il/Grace ).
+Nothing emphases the fact that CDAT is a collection of tools that can be extended by the user better than the `xmgrace` module. This module provides an interface to the popular Grace plotting utility (which you must have installed separately. Downloads and information are available from http ://plasma-gate.weizmann.ac.il/Grace ).
 
-The tutorials (see the document Climate Data Analysis Tools (CDAT): A
-beginner's Guide or the  CDAT  home page at http://cdat.sf.net for
-details) include two tutorials that demonstrate the use of python in getting
-full use out of XmGrace.
-
+The tutorials (see the document Climate Data Analysis Tools (CDAT): A beginner's Guide or the  CDAT  home page at http://cdat.sf.net for details) include two tutorials that demonstrate the use of python in getting full use out of XmGrace.
 
 Additional convenience functions 
 
-minmax 
+**`minmax`**
 
-Returns the minimum and maximum of a series of arrays/lists/tuples (or a
-combination of these). You can combine list/tuples/... pretty much any
-combination is allowed.
+Returns the minimum and maximum of a series of arrays/lists/tuples (or a combination of these). You can combine list/tuples/... pretty much any combination is allowed.
 
-Examples of Use :
+**Examples:**
 
-    >>> import genutil
-    >>> s = range(7)
-    >>> genutil.minmax(s)
-    (0.0, 6.0)
-    >>> genutil.minmax([s,s])
-    (0.0, 6.0)
-    >>> genutil.minmax([[s,s*2],4.,[6.,7.,s]],\
-    [5.,7.,8,(6.,1.)])
-    (-7.0, 8.0)
+~~~python
+>>> import genutil
+>>> s = range(7)
+>>> genutil.minmax(s)
+(0.0, 6.0)
+>>> genutil.minmax([s,s])
+(0.0, 6.0)
+>>> genutil.minmax([[s,s*2],4.,[6.,7.,s]],\
+[5.,7.,8,(6.,1.)])
+(-7.0, 8.0)
+~~~
   
-##### grower 
+**`grower`**
 
 This function takes 2 transient variables and grows them to match their axes.
 
-Usage:
+**Usage:**
 
-x, y = grower(x, y, singleton= singletonoption )
+x, y = grower(x, y, singleton = singletonoption )
 
-Options:
+**Options:**
 
-singletonoption 0 | 1
+`singletonoption` 0 \| 1
 
-Default = 0 If singletonoption is set to 1 then an error is raised if one of
-the dims is not a singleton dimension.
+Default = 0 If `singletonoption` is set to 1 then an error is raised if one of the dims is not a singleton dimension.
 
- rgb2str 
+**`rgb2str`**
 
 Given r,g,b values, this function returns the closest 'name'
 
-Example:
+**Example:**
 
-    >>> print rgb2str([0,0,0])
-    'black'
+~~~python
+>>> print rgb2str([0,0,0])
+'black'
+~~~
 
 ##### str2rgb 
 
-Given a string representing a color name, this function the corresponding
-r,g,b values (between 0 and 255). If the color name is unknown, the function
-returns None,None,None
+Given a string representing a color name, this function the corresponding r,g,b values (between 0 and 255). If the color name is unknown, the function returns `(None, None, None)`
 
-This is accomplished by looking in the /usr/X11R6/lib/X11/rgb.txt file. If the
-file does not exist, then looks into the builtin dictionary
+This is accomplished by looking in the /usr/X11R6/lib/X11/rgb.txt file. If the file does not exist, then looks into the builtin dictionary
 
-Examples:
+**Examples:**
 
-    >>> r, g, b = str2rgb('pink2')
-    # returns: (238 , 169 , 184 )
-    >>> r, g, b = str2rgb('crappy')
+~~~python 
+>>> r, g, b = str2rgb('pink2')
+# returns: (238, 169, 184 )
+>>> r, g, b = str2rgb('crappy')
+~~~

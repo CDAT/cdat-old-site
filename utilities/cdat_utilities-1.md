@@ -608,124 +608,92 @@ VM=cdutil.VariablesMatcher(variableConditioner1=variableConditioner1option,
 
 Options:
 
-variableConditioner1option
+- `variableConditioner1option`
 
-Default is None. This can be a `VariableConditioner` object or a file name or a
-transient variable (from which a `VariableConditioner` will be constructed). It
-may also be a tuple comprising a transient variable plus a fraction associated
-with each cell (which will be used in constructing "weights"). If
-variableConditioner1 is a file name, then the user must also define the name
-of the variable (e.g., VM.variableConditioner1.var='tas').
+    - Default is `None`. This can be a `VariableConditioner` object or a file name or a transient variable (from which a `VariableConditioner` will be constructed). It may also be a tuple comprising a transient variable plus a fraction associated with each cell (which will be used in constructing "weights"). If `variableConditioner1` is a file name, then the user must also define the name of the variable (e.g., `VM.variableConditioner1.var='tas'`).
 
-variableConditioner2option
+- `variableConditioner2option`
 
-Default is None. This is a second field treated just like variableConditioner1
-except if after all processing is completed, variable 2 is not on the same
-grid as variable 1, then it will be mapped to variable 1's grid.
+    - Default is `None`. This is a second field treated just like `variableConditioner1` except if after all processing is completed, variable 2 is not on the same grid as variable 1, then it will be mapped to variable 1's grid.
 
-cdmsArgumentsoption
+- `cdmsArgumentsoption`
+    - Default is `[]`. This is a tuple of optional arguments used when retrieving a variable with cdms. For example, `cdmsArguments=(cdutil.region.NH)` specifies that data should be retrieved from the Northern Hemisphere only. See the cdms documentation for more information. The `cdmsArguments` set here will replace all arguments that might be set for individual `VariableConditioner` objects (i.e., "1", "2" and "external").
 
-Default is []. This is a tuple of optional arguments used when retrieving a
-variable with cdms. For example, cdmsArguments=(cdutil.region.NH) specifies
-that data should be retrieved from the Northern Hemisphere only). See the cdms
-documentation for more information. The cdmsArguments set here will replace
-all arguments that might be set for individual `VariableConditioner` objects
-(i.e., "1", "2" and "external").
+- `cdmsKeywordsoption` 
+    - Default is `{}`. This is a dictionary defining "keyword:value" pairs used when retrieving a variable with `cdms`. For example, `cdmsKeywords= {'latitude:(-90.0, 0.0)}` specifies that data should be retrieved from the Southern Hemisphere only. See the cdms documentation for more information. The `cdmsKeywords` set here will be appended to or take the place of those that might be set for individual `VariableConditioner` objects (i.e., "1", "2" and "external").
 
-cdmsKeywordsoption
+- `externalVariableConditioneroption` 
+    - Default is `None`. This is optional and is used to mask both variable 1 and variable 2 with its own mask. Variable 1 and variable 2 are mapped to the external variable grid before applying the mask. The external variable weights are applied (except where the weights associated with the variables are zero) The `externalVariableConditioner` is generally not needed unless an external time-varying mask is to be applied.
 
-Default is {}. This is a dictionary defining "keyword:value" pairs used when
-retrieving a variable with cdms. For example, cdmsKeywords= {'latitude:(-90.0,
-0.0)} specifies that data should be retrieved from the Southern Hemisphere
-only. See the cdms documentation for more information. The cdmsKeywords set
-here will be appended to or take the place of those that might be set for
-individual `VariableConditioner` objects (i.e., "1", "2" and "external").
+- `WeightedGridMakeroption`
+    - Default is `None`. This is an optional `WeightedGridMaker` object that defines the target grid to which variable 1 and variable 2 should be mapped as a last step. (Note, that if a `WeightsMaker` is associated with the `WeightedGridMaker` object, then the mask will be applied to the data after regridding.)
 
-externalVariableConditioneroption
+**Usage:**
 
-Default is None. This is optional and is used to mask both variable 1 and
-variable 2 with its own mask. Variable 1 and variable 2 are mapped to the
-external variable grid before applying the mask. The external variable weights
-are applied (except where the weights associated with the variables are zero)
-The externalVariableConditioner is generally not needed unless an external
-time-varying mask is to be applied.
+To retrieve the modified variable (i.e., generate a masked variable), use the `get` method:
 
-WeightedGridMakeroption
-
-Default is None. This is an optional `WeightedGridMaker` object that defines the
-target grid to which variable 1 and variable 2 should be mapped as a last
-step. (Note, that if a `WeightsMaker` is associated with the WeightedGridMaker
-object, then the mask will be applied to the data after regridding.)
-
-Usage:
-
-To retrieve the modified variable (i.e., generate a masked variable), use the "get" method:
-
-    >>> variable1, variable2 = VM.get(returnTuple=0)
+~~~ python
+>>> variable1, variable2 = VM.get(returnTuple=0)
+~~~
 
 or, alternately,
 
-    >>> variable1, variable2 = VM(returnTuple=0)
+~~~ python
+>>> variable1, variable2 = VM(returnTuple=0)
+~~~
 
-One may additionally wish to retrieve the fraction of each target grid cell
-where data existed on the original grid (i.e., where data had not been
-masked). If, for example, 20% of the target grid cell has been masked on the
-original grid (or has been flagged as missing data), this fraction is set to
-0.8. If the target grid cell itself is masked, this fraction is set to 0. To
-retrieve these fractions along with the modified variable itself, the keyword
-"returnTuple" is set to 1 (or omitted, since 1 is the default):
+One may additionally wish to retrieve the fraction of each target grid cell where data existed on the original grid (i.e., where data had not been masked). If, for example, 20% of the target grid cell has been masked on the original grid (or has been flagged as missing data), this fraction is set to 0.8. If the target grid cell itself is masked, this fraction is set to 0. To retrieve these fractions along with the modified variable itself, the keyword `returnTuple` is set to 1 (or omitted, since 1 is the default):
 
-    >>> (variable1, frac1), (variable2, frac2) = VM()
+~~~python
+>>> (variable1, frac1), (variable2, frac2) = VM()
+~~~
 
-The order that operations are executed by the "get" method of the
-VariablesMatcher object is as follows:
+The order that operations are executed by the `get` method of the `VariablesMatcher` object is as follows:
 
-1. Append or replace cdms arguments/keywords for variableConditioner1, variableConditioner2, and, if defined, the externalVariableConditioner. 
-2. Get the variableConditioner1 and variableConditioner2. 
+1. Append or replace cdms arguments/keywords for `variableConditioner1`, `variableConditioner2`, and, if defined, the `externalVariableConditioner`. 
+2. Get the `variableConditioner1` and `variableConditioner2`. 
 3. If the length of the time dimensions for the two variables are different, extract the sub-domain the two have in common. 
-4. If variable 1 and variable 2 do not have the same number of dimensions, make them consistent by adding missing dimensions. This will be done only in the case of missing singleton dimensions prevents problems with dummy dimensions. If an externalVariableConditioner is defined, get the external variable. 
-
-* Get only time-slices in common with variables 1 and 2.
-* Map both variable 1 and variable 2 to the grid of the external variable.
-* Apply to variables 1 and 2 the mask implied by "missing values" found in the external variable data and/or the mask associated with the external variable.
-
-1. If the "WeightedGridMaker" keyword is defined, map the data to the target grid, and apply the associated target grid mask (if defined). If required by an 'input' actions specification, the variable (in its latest state) will be used by the WeightsMaker. As in step 2) of section 2.3, post-processing will be applied on the returned mask when necessary. 
+4. If variable 1 and variable 2 do not have the same number of dimensions, make them consistent by adding missing dimensions. This will be done only in the case of missing singleton dimensions prevents problems with dummy dimensions. If an `externalVariableConditioner` is defined, get the external variable. 
+1. Get only time-slices in common with variables 1 and 2.
+2. Map both variable 1 and variable 2 to the grid of the external variable.
+3. Apply to variables 1 and 2 the mask implied by "missing values" found in the external variable data and/or the mask associated with the external variable.
+1. If the `WeightedGridMaker` keyword is defined, map the data to the target grid, and apply the associated target grid mask (if defined). If required by an 'input' actions specification, the variable (in its latest state) will be used by the `WeightsMaker`. As in step 2) of section 2.3, post-processing will be applied on the returned mask when necessary. 
 2. If variable 1 and variable 2 are at this point on different grids, map variable 2 to the grid of variable 1. No masking information is transferred from one variable to the other here. 
 
-Examples
+**Examples**
 
- A simple example 
+###### A simple example 
 
-In this example we retrieve data for 2 different variables over the maximum
-common period, and put them both on a 10x10 degree grid.
+In this example we retrieve data for 2 different variables over the maximum common period, and put them both on a 10x10 degree grid.
+~~~python
+>>> import cdutil
+# Reference
+>>> ref='/pcmdi/obs/mo/tas/jones_amip/tas.jones_amip.ctl'
+>>> Ref=cdutil.VariableConditioner(ref)
+>>> Ref.var='tas'
+>>> Ref.id='JONES'# optional
+# Test
+>>> tst='/pcmdi/obs/mo/tas/rnl_ncep/tas.rnl_ncep.ctl'
+>>> Tst=cdutil.VariableConditioner(tst)
+>>> Tst.var='tas'
+>>> Tst.id='NCEP' #optional
+# Final Grid
+>>> FG=cdutil.WeightedGridMaker()
+>>> FG.longitude.n=36
+>>> FG.longitude.first=0.
+>>> FG.longitude.delta=10.
+>>> FG.latitude.n=18
+>>> FG.latitude.first=-85.
+>>> FG.latitude.delta=10.
+# Now creates the compare object.
+>>> c=cdutil.VariablesMatcher(Ref, Tst, WeightedGridMaker=FG)
+# And get it (3 different ways).
+>>> (ref, ref_frac), (test, test_frac) = c.get()
+>>> ref, test = c.get(returnTuple=0)
+>>> ref, test = c(returnTuple=0)
+~~~
 
-    >>> import cdutil
-    # Reference
-    >>> ref='/pcmdi/obs/mo/tas/jones_amip/tas.jones_amip.ctl'
-    >>> Ref=cdutil.VariableConditioner(ref)
-    >>> Ref.var='tas'
-    >>> Ref.id='JONES'# optional
-    # Test
-    >>> tst='/pcmdi/obs/mo/tas/rnl_ncep/tas.rnl_ncep.ctl'
-    >>> Tst=cdutil.VariableConditioner(tst)
-    >>> Tst.var='tas'
-    >>> Tst.id='NCEP' #optional
-    # Final Grid
-    >>> FG=cdutil.WeightedGridMaker()
-    >>> FG.longitude.n=36
-    >>> FG.longitude.first=0.
-    >>> FG.longitude.delta=10.
-    >>> FG.latitude.n=18
-    >>> FG.latitude.first=-85.
-    >>> FG.latitude.delta=10.
-    # Now creates the compare object.
-    >>> c=cdutil.VariablesMatcher(Ref, Tst, WeightedGridMaker=FG)
-    # And get it (3 different ways).
-    >>> (ref, ref_frac), (test, test_frac) = c.get()
-    >>> ref, test = c.get(returnTuple=0)
-    >>> ref, test = c(returnTuple=0)
-
-A more complicated example 
+###### A more complicated example 
 
 In this example we
 * retrieve NCEP and ECMWF for the year 1981, 
@@ -734,50 +702,51 @@ In this example we
 * map the fields to a 10x10 degree grid 
 * mask the land area according to a 10x10 degree land/sea mask. 
 
-Try skipping the final step and note the difference. [Tip: to do so, simply
-change the definition of FG to: FG=cdutil.WeightedGridMaker(fgmask,
-var='sftlf')]
+Try skipping the final step and note the difference. (Tip: to do so, simply change the definition of FG to: FG=cdutil.WeightedGridMaker(fgmask, var='sftlf'))
 
-    >>> import cdutil, vcs, sys
-    # First let's creates the mask (it is the same for NCEP and ECMWF since they are on the same grid).
-    >>> refmsk='/pcmdi/obs/etc/sftl.25deg.ctl'
-    >>> M=cdutil.WeightsMaker(refmsk, var='sftl', values=[1.])
-    # Define the "Reference" dataset
-    >>> ref='/pcmdi/obs/mo/tas/rnl_ecm/tas.rnl_ecm.sfc.ctl'
-    >>> Ref=cdutil.VariableConditioner(ref, WeightsMaker=M)
-    >>> Ref.var='tas'
-    >>> Ref.id='ECMWF'
-    # Define the "test" dataset
-    >>> tst='/pcmdi/obs/mo/tas/rnl_ncep/tas.rnl_ncep.ctl'
-    >>> Tst=cdutil.VariableConditioner(tst, WeightsMaker=M)
-    >>> Tst.var='tas'
-    >>> Tst.id='NCEP'
-    # Define the External data mask
-    >>> ext='/pcmdi/obs/mo/tas/jones_amip/tas.jones_amip.ctl'
-    >>> EV=cdutil.VariableConditioner(ext)
-    >>> EV.var='tas'
-    >>> EV.id='JONES'
-    # Define the Final Grid
-    # We need a mask for the final grid
-    >>> fgmask='/pcmdi/staff/longterm/doutriau/ldseamsk/amipII/pcmdi_sftlf_10x10.nc'
-    >>> M2=cdutil.WeightsMaker(source=fgmask, var='sftlf', actions=MV.greater, values=[50.])
-    >>> FG=cdutil.WeightedGridMaker(fgmask, var='sftlf', WeightsMaker=M2)
-    # Now create the compare object
-    >>> c=cdutil.VariablesMatcher(Ref, Tst, WeightedGridMaker=FG, externalVariableConditioner=EV)
-    >>> c.cdmsKeywords={'time':('1981','1982','co')}
-    # And get it
-    >>> (ref, reffrc), (test, tfrc) = c()
-    >>> print 'Shapes:', test.shape, ref.shape
-    # Plot the difference
-    >>> x=vcs.init()
-    >>> x.plot(test-ref)
-    # Wait for user to press return
-    >>> print "Press enter"
-    >>> sys.stdin.readline()
+~~~python
+>>> import cdutil, vcs, sys
+# First let's creates the mask (it is the same for NCEP and ECMWF since they are on the same grid).
+>>> refmsk='/pcmdi/obs/etc/sftl.25deg.ctl'
+>>> M=cdutil.WeightsMaker(refmsk, var='sftl', values=[1.])
+# Define the "Reference" dataset
+>>> ref='/pcmdi/obs/mo/tas/rnl_ecm/tas.rnl_ecm.sfc.ctl'
+>>> Ref=cdutil.VariableConditioner(ref, WeightsMaker=M)
+>>> Ref.var='tas'
+>>> Ref.id='ECMWF'
+# Define the "test" dataset
+>>> tst='/pcmdi/obs/mo/tas/rnl_ncep/tas.rnl_ncep.ctl'
+>>> Tst=cdutil.VariableConditioner(tst, WeightsMaker=M)
+>>> Tst.var='tas'
+>>> Tst.id='NCEP'
+# Define the External data mask
+>>> ext='/pcmdi/obs/mo/tas/jones_amip/tas.jones_amip.ctl'
+>>> EV=cdutil.VariableConditioner(ext)
+>>> EV.var='tas'
+>>> EV.id='JONES'
+# Define the Final Grid
+# We need a mask for the final grid
+>>> fgmask='/pcmdi/staff/longterm/doutriau/ldseamsk/amipII/pcmdi_sftlf_10x10.nc'
+>>> M2=cdutil.WeightsMaker(source=fgmask, var='sftlf', actions=MV.greater, values=[50.])
+>>> FG=cdutil.WeightedGridMaker(fgmask, var='sftlf', WeightsMaker=M2)
+# Now create the compare object
+>>> c=cdutil.VariablesMatcher(Ref, Tst, WeightedGridMaker=FG, externalVariableConditioner=EV)
+>>> c.cdmsKeywords={'time':('1981','1982','co')}
+# And get it
+>>> (ref, reffrc), (test, tfrc) = c()
+>>> print 'Shapes:', test.shape, ref.shape
+# Plot the difference
+>>> x=vcs.init()
+>>> x.plot(test-ref)
+# Wait for user to press return
+>>> print "Press enter"
+>>> sys.stdin.readline()
+~~~
 
-A very complicated example 
+###### A very complicated example 
 
-This example shows MOST of the options and power of VariablesMatcher. In this example we
+This example shows MOST of the options and power of VariablesMatcher. In this example we:
+
 * retrieve NCEP and ECMWF for the year 1981, 
 * mask the land area of both fields (on their original grids), 
 * map ECMWF data to a T63 grid and NCEP data to a T42 grid, 
@@ -787,79 +756,76 @@ This example shows MOST of the options and power of VariablesMatcher. In this ex
 * mask the land area according to a 10x10 degree land/sea mask 
 * select only the Northern Hemisphere region using a defined "selector" (see cdutil.region documentation). 
 
-        >>> import cdutil, MV, vcs, sys
-        # First let us define the mask (it is the same for NCEP and ECMWF since they are on the same grid)
-        >>> refmsk='/pcmdi/obs/etc/sftl.25deg.ctl'
-        >>> M = cdutil.WeightsMaker(refmsk, var='sftl', values=[1.])
-        # Define the "Reference" dataset
-        >>> ref='/pcmdi/obs/mo/tas/rnl_ecm/tas.rnl_ecm.sfc.ctl'
-        >>> Ref=cdutil.VariableConditioner(ref, WeightsMaker=M)
-        >>> Ref.var='tas'
-        >>> Ref.id='ECMWF'
-        # Define the grid for this variable to be T63 and mask the data where
-        temperatures are between 280K and 300K. Note that the final grid is defined to
-        be the same as 'sftlf' contained in file pcmdi_sftlf_T63.nc, but the data
-        contained in this file is ignored.
-        >>> ECMWFGrid=cdutil.WeightedGridMaker(source='/pcmdi/staff/longterm/doutriau/ldseamsk/amipII/pcmdi_sftlf_T63.nc',va r='sftlf')
-        >>> ECMWFinalMask=cdutil.WeightsMaker()
-        >>> ECMWFinalMask.values = [('input',280.),('input',300.)]
-        >>> ECMWFinalMask.actions=[MV.greater, MV.less]
-        >>> ECMWFinalMask.combiningActions=[Mv.logical_and]
-        # Associate the mask with the grid
-        >>> ECMWFGrid.WeightsMaker=ECMWFinalMask
-        >>> # Now associates the grid with the variable.
-        >>> Ref.WeightedGridMaker=ECMWFGrid
-        # Define the "test" dataset
-        >>> tst='/pcmdi/obs/mo/tas/rnl_ncep/tas.rnl_ncep.ctl'
-        >>> Tst=cdutil.VariableConditioner(tst, WeightsMaker=M)
-        >>> Tst.var='tas'
-        >>> Tst.id='NCEP'
-        # The final grid for this variable will be T42, masked where temperatures are between 280K and 300K
-        >>> NCEPGrid=cdutil.WeightedGridMaker()
-        >>> NCEPGrid.latitude.n=64
-        >>> NCEPGrid.latitude.type='gaussian'
-        # This time let's create a function to return the mask
-        >>> def myMakeMask(array, range):
-        """Returns the input array masked where the values are between range[0] and range[1]"""
-        m1=MV.greater(array, range[0]) # mask where it is greater than the 1st value
-        m2=MV.less(array, range[1]) # mask where it is less than the 2nd value
-        return MV.logical_and(m1,m2)
-        # And associate the mask with the grid
-        >>> NCEPGrid.WeightsMaker.values=[('input',(280.,300.))]
-        >>> NCEPGrid.WeightsMaker.actions=[myMakeMask]
-        # Now associates the grid with the variable.
-        >>> Tst.WeightedGridMaker=NCEPGrid
-        # define an External variable. Where this variable has missing data, the reference and test fields will also be masked.
-        >>> ext='/pcmdi/obs/mo/tas/jones_amip/tas.jones_amip.ctl'
-        >>> extmask='/pcmdi/amip/fixed_tmp/sftlf/sftlf_gla-98a.nc'
-        >>> EMask=cdutil.WeightsMaker(source=extmask, var='sftlf')
-        >>> ED=cdutil.VariableConditioner(ext, WeightsMaker=EMask)
-        >>> ED.var='tas'
-        >>> ED.id='JONES'
-        # Define the Final Grid
-        # We need a mask for the final grid
-        >>> fgmask='/pcmdi/staff/longterm/doutriau/ldseamsk/amipII/pcmdi_sftlf_10x10.nc'
-        >>> M2=cdutil.WeightsMaker(source=fgmask, var='sftlf', values=[100.])
-        >>> FG=cdutil.WeightedGridMaker(WeightsMaker=M2)
-        >>> FG.longitude.n=36
-        >>> FG.longitude.first=0.
-        >>> FG.longitude.delta=10.
-        >>> FG.latitude.n=18
-        >>> FG.latitude.first=-85.
-        >>> FG.latitude.delta=10.
-        # Now creates the compare object
-        >>> c=cdutil.VariablesMatcher(Ref, Tst, WeightedGridMaker=FG, externalVariableConditioner=ED)
-        >>> c.cdmsKeywords={'time':('1981','1982','co')}
-        # define a "selector" to obtain only the N. Hemisphere
-        >>> c.cdmsArguments=[cdutil.region.NH]
-        # And get it
-        >>> (ref, reffrc), (test, tfrc) = c()
-        >>> print 'Shapes:', test.shape, ref.shape
-        # Plot the difference
-        >>> x=vcs.init()
-        >>> x.plot(test-ref)
-        # Wait for user to press return
-        >>> print "Press enter"
-        >>> sys.stdin.readline()
-    
-    
+~~~python
+>>> import cdutil, MV, vcs, sys
+# First let us define the mask (it is the same for NCEP and ECMWF since they are on the same grid)
+>>> refmsk='/pcmdi/obs/etc/sftl.25deg.ctl'
+>>> M = cdutil.WeightsMaker(refmsk, var='sftl', values=[1.])
+# Define the "Reference" dataset
+>>> ref='/pcmdi/obs/mo/tas/rnl_ecm/tas.rnl_ecm.sfc.ctl'
+>>> Ref=cdutil.VariableConditioner(ref, WeightsMaker=M)
+>>> Ref.var='tas'
+>>> Ref.id='ECMWF'
+# Define the grid for this variable to be T63 and mask the data where temperatures are between 280K and 300K. Note that the final grid is defined to be the same as 'sftlf' contained in file pcmdi_sftlf_T63.nc, but the data contained in this file is ignored.
+>>> ECMWFGrid=cdutil.WeightedGridMaker(source='/pcmdi/staff/longterm/doutriau/ldseamsk/amipII/pcmdi_sftlf_T63.nc',va r='sftlf')
+>>> ECMWFinalMask=cdutil.WeightsMaker()
+>>> ECMWFinalMask.values = [('input',280.),('input',300.)]
+>>> ECMWFinalMask.actions=[MV.greater, MV.less]
+>>> ECMWFinalMask.combiningActions=[Mv.logical_and]
+# Associate the mask with the grid
+>>> ECMWFGrid.WeightsMaker=ECMWFinalMask
+>>> # Now associates the grid with the variable.
+>>> Ref.WeightedGridMaker=ECMWFGrid
+# Define the "test" dataset
+>>> tst='/pcmdi/obs/mo/tas/rnl_ncep/tas.rnl_ncep.ctl'
+>>> Tst=cdutil.VariableConditioner(tst, WeightsMaker=M)
+>>> Tst.var='tas'
+>>> Tst.id='NCEP'
+# The final grid for this variable will be T42, masked where temperatures are between 280K and 300K
+>>> NCEPGrid=cdutil.WeightedGridMaker()
+>>> NCEPGrid.latitude.n=64
+>>> NCEPGrid.latitude.type='gaussian'
+# This time let's create a function to return the mask
+>>> def myMakeMask(array, range):
+...    """Returns the input array masked where the values are between range[0] and range[1]"""
+...    m1=MV.greater(array, range[0]) # mask where it is greater than the 1st value
+...    m2=MV.less(array, range[1]) # mask where it is less than the 2nd value
+...    return MV.logical_and(m1,m2)
+# And associate the mask with the grid
+>>> NCEPGrid.WeightsMaker.values=[('input',(280.,300.))]
+>>> NCEPGrid.WeightsMaker.actions=[myMakeMask]
+# Now associates the grid with the variable.
+>>> Tst.WeightedGridMaker=NCEPGrid
+# define an External variable. Where this variable has missing data, the reference and test fields will also be masked.
+>>> ext='/pcmdi/obs/mo/tas/jones_amip/tas.jones_amip.ctl'
+>>> extmask='/pcmdi/amip/fixed_tmp/sftlf/sftlf_gla-98a.nc'
+>>> EMask=cdutil.WeightsMaker(source=extmask, var='sftlf')
+>>> ED=cdutil.VariableConditioner(ext, WeightsMaker=EMask)
+>>> ED.var='tas'
+>>> ED.id='JONES'
+# Define the Final Grid
+# We need a mask for the final grid
+>>> fgmask='/pcmdi/staff/longterm/doutriau/ldseamsk/amipII/pcmdi_sftlf_10x10.nc'
+>>> M2=cdutil.WeightsMaker(source=fgmask, var='sftlf', values=[100.])
+>>> FG=cdutil.WeightedGridMaker(WeightsMaker=M2)
+>>> FG.longitude.n=36
+>>> FG.longitude.first=0.
+>>> FG.longitude.delta=10.
+>>> FG.latitude.n=18
+>>> FG.latitude.first=-85.
+>>> FG.latitude.delta=10.
+# Now creates the compare object
+>>> c=cdutil.VariablesMatcher(Ref, Tst, WeightedGridMaker=FG, externalVariableConditioner=ED)
+>>> c.cdmsKeywords={'time':('1981','1982','co')}
+# define a "selector" to obtain only the N. Hemisphere
+>>> c.cdmsArguments=[cdutil.region.NH]
+# And get it
+>>> (ref, reffrc), (test, tfrc) = c()
+>>> print 'Shapes:', test.shape, ref.shape
+# Plot the difference
+>>> x=vcs.init()
+>>> x.plot(test-ref)
+# Wait for user to press return
+>>> print "Press enter"
+>>> sys.stdin.readline()
+~~~
