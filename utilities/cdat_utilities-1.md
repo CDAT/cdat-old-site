@@ -766,10 +766,7 @@ This example shows MOST of the options and power of VariablesMatcher. In this ex
 >>> Ref=cdutil.VariableConditioner(ref, WeightsMaker=M)
 >>> Ref.var='tas'
 >>> Ref.id='ECMWF'
-# Define the grid for this variable to be T63 and mask the data where
-temperatures are between 280K and 300K. Note that the final grid is defined to
-be the same as 'sftlf' contained in file pcmdi_sftlf_T63.nc, but the data
-contained in this file is ignored.
+# Define the grid for this variable to be T63 and mask the data where temperatures are between 280K and 300K. Note that the final grid is defined to be the same as 'sftlf' contained in file pcmdi_sftlf_T63.nc, but the data contained in this file is ignored.
 >>> ECMWFGrid=cdutil.WeightedGridMaker(source='/pcmdi/staff/longterm/doutriau/ldseamsk/amipII/pcmdi_sftlf_T63.nc',va r='sftlf')
 >>> ECMWFinalMask=cdutil.WeightsMaker()
 >>> ECMWFinalMask.values = [('input',280.),('input',300.)]
@@ -790,10 +787,10 @@ contained in this file is ignored.
 >>> NCEPGrid.latitude.type='gaussian'
 # This time let's create a function to return the mask
 >>> def myMakeMask(array, range):
-"""Returns the input array masked where the values are between range[0] and range[1]"""
-m1=MV.greater(array, range[0]) # mask where it is greater than the 1st value
-m2=MV.less(array, range[1]) # mask where it is less than the 2nd value
-return MV.logical_and(m1,m2)
+...    """Returns the input array masked where the values are between range[0] and range[1]"""
+...    m1=MV.greater(array, range[0]) # mask where it is greater than the 1st value
+...    m2=MV.less(array, range[1]) # mask where it is less than the 2nd value
+...    return MV.logical_and(m1,m2)
 # And associate the mask with the grid
 >>> NCEPGrid.WeightsMaker.values=[('input',(280.,300.))]
 >>> NCEPGrid.WeightsMaker.actions=[myMakeMask]
