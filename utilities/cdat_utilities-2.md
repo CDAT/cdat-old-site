@@ -465,25 +465,19 @@ default = None. If set to 0 or None, no associated probabilities are returned. S
 
 The returned values depend on the combination of options you select. If both slope and intercept are required, a tuple is returned for both Value and optionally Error (or optionally associated Probabilities), but single values (not tuples) are returned if only one set (slope OR intercept) is required. See examples below for more details.
 
-When erroroption = 1 (from description above for erroroptions you know that means unadjusted standard error) and probabilityoption = 1, then the following are returned:
+When `erroroption` = 1 (from description above for erroroptions you know that means unadjusted standard error) and probabilityoption = 1, then the following are returned:
 
-pt1 : The p-value for regression coefficient t-value. (With no adjustment for standard error or critical t-value.)
+- `pt1` : The p-value for regression coefficient t-value. (With no adjustment for standard error or critical t-value.)
+- `None` : There is only one p-value to be returned (pt1) but None is returned to keep the length of the returned values consistent.
+- `pf1` : The p-value for regression coefficient F-value (one-tailed).
+- `pf2` : The p-value for regression coefficient F-value (two-tailed).
 
-None : There is only one p-value to be returned (pt1) but None is returned to keep the length of the returned values consistent.
+When `erroroption` = 2 or 3 (implying error adjustment using the residual or the raw data and probabilityoption = 1, then the following are returned:
 
-pf1 : The p-value for regression coefficient F-value (one-tailed).
-
-pf2 : The p-value for regression coefficient F-value (two-tailed).
-
-When erroroption = 2 or 3 (implying error adjustment using the residual or the raw data and probabilityoption = 1, then the following are returned:
-
-pt1 : The p-value for regression coefficient t-value.(With Effective sample size adjustment for standard error of slope.
-
-pt2 : The p-value for regression coefficient t-value.(With effective sample size adjustment for standard error of slope and critical t-value.)
-
-pf1 : The p-value for regression coefficient F-value (one-tailed).
-
-pf2 : The p-value for regression coefficient F-value (two-tailed).
+- `pt1` : The p-value for regression coefficient t-value.(With Effective sample size adjustment for standard error of slope.
+- `pt2` : The p-value for regression coefficient t-value.(With effective sample size adjustment for standard error of slope and critical t-value.)
+- `pf1` : The p-value for regression coefficient F-value (one-tailed).
+- `pf2` : The p-value for regression coefficient F-value (two-tailed).
 
 The values pt1 and pt2 are used to test the null hypothesis that b = 0 (i.e., y is independent of x). The values pf1 and pf2 are used to test the null hypothesis that the regression is linear (goodness of linear fit). For non-replicated values of y, the degrees of freedom are 1 and n-2.
 
