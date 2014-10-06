@@ -5637,7 +5637,8 @@ tpl=a.gettemplate('AMIP')
         <p class="CellBody"><a name="pgfId-895302" id="pgfId-895302"></a>Example of
         Use:</p>
 
-        <pre style="word-break:normal;">import vcsa=vcs.init()
+        <pre style="word-break:normal;">import vcs
+a=vcs.init()
 a.plot(array,'default','isofill','quick')
 a.setcolormap("AMIP")
 </pre></td>
