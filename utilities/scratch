@@ -1,0 +1,65 @@
+<table>
+	<tr>
+		<th>Option</th>
+		<th>Default</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td><code>axisoptions</code></td>
+		<td>0 (the first dimension in the data you pass to the function).</td>
+		<td>
+			<p> Restrictions: <code>axisoptions</code> has to be a string. You can pass <code>axis='tyx'</code>, or <code>'123'</code>, or <code>'x (plev)'</code> etc. the same way as in <code>order=</code> options for variable operations EXCEPT that <code>'...'</code> (i.e Ellipses) are not allowed. If V is an array of type Numeric or MA, the <code>axisoptions</code> can only be of the form <code>'123'</code>. </p>
+		</td>
+	</tr>
+
+<code>weightoptions</code>: <code>'generate' | 'weighted' | 'equal' | 'unweighted' | array | Masked Variable</code>
+
+**Default:**
+
+- 'weighted' for Transient Variables (MVs)
+- 'unweighted' for MA or Numeric arrays.
+
+Note that depending on the array being operated on by <code>averager</code>, the default weights change!
+
+<code>'weighted'</code> or <code>'generate'</code> means the averaging uses the grid information to generate weights for that dimension.
+
+<code>'equal'</code> or <code>'unweighted'</code> means use equal weights for all the grid points in that axis.
+
+<code>array</code> is an array of weights (of the same shape as the dimension being averaged over or same shape as V) can be passed.
+
+<code>Masked Variable</code> means an MV of the same shape as V can be passed.
+
+**Additional Notes:**
+- <code>'generate'</code> or <code>'weighted'</code>:
+    - The weights are generated using the bounds for the specified axis. For latitude and longitude, the weights are calculated using the area (see the cdms manual <code>grid.getWeights()</code> for more details) whereas for the other axes weights are the difference between the bounds (when the bounds are available). If the bounds are stored in the file being read in, then those values are used. Otherwise, bounds are generated as long as <code>cdms.setAutoBounds('on')</code> is set. If <code>cdms.setAutoBounds()</code> is set to <code>'off'</code>, then an Error is raised. 
+
+<code>actionoptions</code>: <code>'average' | 'sum'</code>
+
+**Default:** <code>'average'</code>
+
+You can either return the weighted average or the weighted sum of the data.
+
+<code>returnedoptions</code>: <code>0 | 1</code>
+
+**Default:** 0 
+
+<code>0</code> implies that the sum of weights are not returned after averaging operation).
+
+<code>1</code> implies that the sum of weights after the average operation is returned.
+
+<code>combinewtsoption</code>: <code>0 | 1</code>
+
+**Default:** 0
+
+<code>0</code> implies weights passed for individual axes are not combined into one weight
+array for the full variable V before performing operation.
+
+<code>1</code> implies weights passed for individual axes are combined into one weight
+array for the full variable before performing average or sum operations. One-
+dimensional weight arrays or key words of 'weighted' or 'unweighted' must be
+passed for the axes over which the operation is to be performed.
+
+Additionally, weights for axes that are not being averaged or summed may also
+bepassed in the order in which they appear. If the weights for the other axes
+are not passed, they are assumed to be equally weighted.
+

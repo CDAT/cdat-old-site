@@ -49,52 +49,58 @@ opinions of authors expressed herein do not necessarily state or reflect those
 of the United States Government or the University of California, and shall not
 be used for advertising or product endorsement purposes.
 
-####[CDAT Utilities](cdat_utilities.html)
-####[CHAPTER 1 Climate Data Specific Utilities: The cdutil Package](cdat_utilities-1.html)
-####[CHAPTER 2 General Utilities : The genutil Package](cdat_utilities-2.html)
-####[CHAPTER 3 User Contributed Packages](cdat_utilities-3.html)
+#### [CDAT Utilities](cdat_utilities.html)
+
+#### [CHAPTER 1 Climate Data Specific Utilities: The cdutil Package](cdat_utilities-1.html)
+
+#### [CHAPTER 2 General Utilities : The genutil Package](cdat_utilities-2.html)
+
+#### [CHAPTER 3 User Contributed Packages](cdat_utilities-3.html)
 
 ---
 
-####[CHAPTER 1](cdat_utilities-1.html) Climate Data Specific Utilities: The cdutil Package
+#### [CHAPTER 1](cdat_utilities-1.html) Climate Data Specific Utilities: The cdutil Package
+
 * [Spatial Averaging, Area weighting, domain definition](cdat_utilities-1.html)
-  * [Spatial averaging using the averager function](cdat_utilities-1.html)
-  * [Computing Weights using area_weights.](cdat_utilities-1.html)
-  * [Defining precise domains:](cdat_utilities-1.html)
+    * [Spatial averaging using the averager function](cdat_utilities-1.html)
+    * [Computing Weights using area_weights.](cdat_utilities-1.html)
+    * [Defining precise domains:](cdat_utilities-1.html)
 * [Temporal Averaging](cdat_utilities-1.html)
-  * [Predefined time averaging functions](cdat_utilities-1.html)
-  * [Creating Custom Seasons](cdat_utilities-1.html)
-  * [Specifying time periods for climatologies.](cdat_utilities-1.html)
-  * [Specifying Data Coverage Criteria](cdat_utilities-1.html)
+    * [Predefined time averaging functions](cdat_utilities-1.html)
+    * [Creating Custom Seasons](cdat_utilities-1.html)
+    * [Specifying time periods for climatologies.](cdat_utilities-1.html)
+    * [Specifying Data Coverage Criteria](cdat_utilities-1.html)
 * [Preparing Datasets for Comparison (VariableConditioner and VariablesMatcher)](cdat_utilities-1.html)
-  * [Introduction.](cdat_utilities-1.html)
-  * [Description of supporting objects.](cdat_utilities-1.html)
-  * [Examples](cdat_utilities-1.html)
+    * [Introduction.](cdat_utilities-1.html)
+    * [Description of supporting objects.](cdat_utilities-1.html)
+    * [Examples](cdat_utilities-1.html)
   
-####[CHAPTER 2](cdat_utilities-2.html) General Utilities : The genutil Package
+#### [CHAPTER 2](cdat_utilities-2.html) General Utilities : The genutil Package
+
 * [Statistics Functions](cdat_utilities-2.html)
-  * [correlation](cdat_utilities-2.html)
-  * [covariance](cdat_utilities-2.html)
-  * [autocorrelation](cdat_utilities-2.html)
-  * [autocovariance](cdat_utilities-2.html)
-  * [laggedcorrelation](cdat_utilities-2.html)
-  * [laggedcovariance](cdat_utilities-2.html)
-  * [meanabsdiff](cdat_utilities-2.html)
-  * [rms](cdat_utilities-2.html)
-  * [std](cdat_utilities-2.html)
-  * [variance](cdat_utilities-2.html)
-  * [geometricmean](cdat_utilities-2.html)
-  * [percentiles](cdat_utilities-2.html)
-  * [median](cdat_utilities-2.html)
-  * [linearregression](cdat_utilities-2.html)
+    * [correlation](cdat_utilities-2.html)
+    * [covariance](cdat_utilities-2.html)
+    * [autocorrelation](cdat_utilities-2.html)
+    * [autocovariance](cdat_utilities-2.html)
+    * [laggedcorrelation](cdat_utilities-2.html)
+    * [laggedcovariance](cdat_utilities-2.html)
+    * [meanabsdiff](cdat_utilities-2.html)
+    * [rms](cdat_utilities-2.html)
+    * [std](cdat_utilities-2.html)
+    * [variance](cdat_utilities-2.html)
+    * [geometricmean](cdat_utilities-2.html)
+    * [percentiles](cdat_utilities-2.html)
+    * [median](cdat_utilities-2.html)
+    * [linearregression](cdat_utilities-2.html)
 * [The xmgrace module](cdat_utilities-2.html)
 * [Additional convenience functions](cdat_utilities-2.html)
-  * [minmax](cdat_utilities-2.html)
-  * [grower](cdat_utilities-2.html)
-  * [rgb2str](cdat_utilities-2.html)
-  * [str2rgb](cdat_utilities-2.html)
+    * [minmax](cdat_utilities-2.html)
+    * [grower](cdat_utilities-2.html)
+    * [rgb2str](cdat_utilities-2.html)
+    * [str2rgb](cdat_utilities-2.html)
 
-####[CHAPTER 3](cdat_utilities-3.html) User Contributed Packages
+#### [CHAPTER 3](cdat_utilities-3.html) User Contributed Packages
+
 * [Reading ASCII text files (package asciidata)](cdat_utilities-3.html)
 * [Reading binary data (package binaryio)](cdat_utilities-3.html)
 * [Explicit Orthonormal Functions (package eof)](cdat_utilities-3.html)
