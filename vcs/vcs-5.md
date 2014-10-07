@@ -41,8 +41,7 @@ the function.
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892683" id="pgfId-892683"></a>Function:
-        init<br/>
+        <p class="CellBody"><a name="pgfId-892683" id="pgfId-892683"></a><br/>
         # Initialize, Construct a VCS Canvas Object</p>
 
         <p class="CellBody"><a name="pgfId-892684" id="pgfId-892684"></a></p>
@@ -105,8 +104,7 @@ c.plot(isoline,slab,template)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892718" id="pgfId-892718"></a>Function:
-        help<br/>
+        <p class="CellBody"><a name="pgfId-892718" id="pgfId-892718"></a><br/>
         # On-Line HELP!!!</p>
 
         <p class="CellBody"><a name="pgfId-892719" id="pgfId-892719"></a></p>
@@ -140,8 +138,7 @@ vcs.help(`plot')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892735" id="pgfId-892735"></a> Function:
-        objecthelp<br/>
+        <p class="CellBody"><a name="pgfId-892735" id="pgfId-892735"></a> <br/>
         # Print out the object's doc string</p>
 
         <p class="CellBody"><a name="pgfId-892736" id="pgfId-892736"></a></p>
@@ -182,8 +179,7 @@ a.objecthelp(ln)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892758" id="pgfId-892758"></a>Function:
-        mode<br/>
+        <p class="CellBody"><a name="pgfId-892758" id="pgfId-892758"></a><br/>
         # Update the VCS Canvas.</p>
 
         <p class="CellBody"><a name="pgfId-892759" id="pgfId-892759"></a></p>
@@ -241,8 +237,7 @@ a.update()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892786" id="pgfId-892786"></a>Function:
-        update</p>
+        <p class="CellBody"><a name="pgfId-892786" id="pgfId-892786"></a></p>
 
         <p class="CellBody"><a name="pgfId-892787" id="pgfId-892787"></a></p>
 
@@ -284,8 +279,7 @@ a.update()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892808" id="pgfId-892808"></a>Function:
-        open</p>
+        <p class="CellBody"><a name="pgfId-892808" id="pgfId-892808"></a></p>
 
         <p class="CellBody"><a name="pgfId-892809" id="pgfId-892809"></a></p>
 
@@ -317,8 +311,7 @@ a.open()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892822" id="pgfId-892822"></a>Function:
-        close</p>
+        <p class="CellBody"><a name="pgfId-892822" id="pgfId-892822"></a></p>
 
         <p class="CellBody"><a name="pgfId-892823" id="pgfId-892823"></a></p>
 
@@ -351,8 +344,7 @@ a.close()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892867" id="pgfId-892867"></a>Function:
-        portrait</p>
+        <p class="CellBody"><a name="pgfId-892867" id="pgfId-892867"></a></p>
 
         <p class="CellBody"><a name="pgfId-892868" id="pgfId-892868"></a></p>
 
@@ -384,8 +376,7 @@ a.portrait()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892881" id="pgfId-892881"></a>Function:
-        landscape</p>
+        <p class="CellBody"><a name="pgfId-892881" id="pgfId-892881"></a></p>
 
         <p class="CellBody"><a name="pgfId-892882" id="pgfId-892882"></a></p>
 
@@ -417,8 +408,7 @@ a.landscape()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892895" id="pgfId-892895"></a>Function:
-        page</p>
+        <p class="CellBody"><a name="pgfId-892895" id="pgfId-892895"></a></p>
 
         <p class="CellBody"><a name="pgfId-892896" id="pgfId-892896"></a></p>
 
@@ -454,8 +444,7 @@ a.page()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892910" id="pgfId-892910"></a>Function:
-        geometry</p>
+        <p class="CellBody"><a name="pgfId-892910" id="pgfId-892910"></a></p>
 
         <p class="CellBody"><a name="pgfId-892911" id="pgfId-892911"></a></p>
 
@@ -494,8 +483,7 @@ a.geometry(450, 337,100, 100)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892932" id="pgfId-892932"></a>Function:
-        printer<br/>
+        <p class="CellBody"><a name="pgfId-892932" id="pgfId-892932"></a><br/>
         # Send plots to the printer</p>
 
         <p class="CellBody"><a name="pgfId-892933" id="pgfId-892933"></a></p>
@@ -564,8 +552,7 @@ a.printer(`printer_name','p')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892957" id="pgfId-892957"></a>Function:
-        gif<br/>
+        <p class="CellBody"><a name="pgfId-892957" id="pgfId-892957"></a><br/>
         # Save plot(s) as gif image</p>
 
         <p class="CellBody"><a name="pgfId-892958" id="pgfId-892958"></a></p>
@@ -651,8 +638,7 @@ a.gif('example.gif','r','p')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-892988" id="pgfId-892988"></a>Function:
-        postscript<br/>
+        <p class="CellBody"><a name="pgfId-892988" id="pgfId-892988"></a><br/>
         # Save plot(s) to a postscript file</p>
 
         <p class="CellBody"><a name="pgfId-892989" id="pgfId-892989"></a></p>
@@ -701,8 +687,7 @@ a.postscript('example')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893006" id="pgfId-893006"></a>Function:
-        cgm</p>
+        <p class="CellBody"><a name="pgfId-893006" id="pgfId-893006"></a></p>
 
         <p class="CellBody"><a name="pgfId-893007" id="pgfId-893007"></a></p>
 
@@ -757,8 +742,7 @@ a.cgm('example','r')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893027" id="pgfId-893027"></a>Function:
-        raster</p>
+        <p class="CellBody"><a name="pgfId-893027" id="pgfId-893027"></a></p>
 
         <p class="CellBody"><a name="pgfId-893028" id="pgfId-893028"></a></p>
 
@@ -821,8 +805,7 @@ a.raster('example','r')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-899943" id="pgfId-899943"></a>Function:
-        pstogif</p>
+        <p class="CellBody"><a name="pgfId-899943" id="pgfId-899943"></a></p>
 
         <p class="CellBody"><a name="pgfId-899944" id="pgfId-899944"></a></p>
 
@@ -867,8 +850,7 @@ a.pstogif('filename.ps','p') # convert to portrait gif file
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893059" id="pgfId-893059"></a>Function:
-        plot</p>
+        <p class="CellBody"><a name="pgfId-893059" id="pgfId-893059"></a></p>
 
         <p class="CellBody"><a name="pgfId-893060" id="pgfId-893060"></a></p>
 
@@ -932,8 +914,7 @@ x.plot(box,t,array)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893085" id="pgfId-893085"></a>Function:
-        boxfill<br/>
+        <p class="CellBody"><a name="pgfId-893085" id="pgfId-893085"></a><br/>
         # Generate a boxfill plot</p>
 
         <p class="CellBody"><a name="pgfId-893086" id="pgfId-893086"></a></p>
@@ -992,8 +973,7 @@ a.boxfill('AMIP','quick',array)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893110" id="pgfId-893110"></a>Function:
-        continents<br/>
+        <p class="CellBody"><a name="pgfId-893110" id="pgfId-893110"></a><br/>
         # Generate a continents plot</p>
 
         <p class="CellBody"><a name="pgfId-893111" id="pgfId-893111"></a></p>
@@ -1038,8 +1018,7 @@ a.continents(array,con,template)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893128" id="pgfId-893128"></a>Function:
-        isofill<br/>
+        <p class="CellBody"><a name="pgfId-893128" id="pgfId-893128"></a><br/>
         # Generate an isofill plot</p>
 
         <p class="CellBody"><a name="pgfId-893129" id="pgfId-893129"></a></p>
@@ -1084,8 +1063,7 @@ a.isofill(array,iso,template)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893146" id="pgfId-893146"></a>Function:
-        isoline<br/>
+        <p class="CellBody"><a name="pgfId-893146" id="pgfId-893146"></a><br/>
         # Generate an isoline plot</p>
 
         <p class="CellBody"><a name="pgfId-893147" id="pgfId-893147"></a></p>
@@ -1128,8 +1106,7 @@ a.clear()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893162" id="pgfId-893162"></a>Function:
-        outfill<br/>
+        <p class="CellBody"><a name="pgfId-893162" id="pgfId-893162"></a><br/>
         # Generate an outfill plot</p>
 
         <p class="CellBody"><a name="pgfId-893163" id="pgfId-893163"></a></p>
@@ -1173,8 +1150,7 @@ a.outfill(array,out,template)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893179" id="pgfId-893179"></a>Function:
-        outline<br/>
+        <p class="CellBody"><a name="pgfId-893179" id="pgfId-893179"></a><br/>
         # Generate an outline plot</p>
 
         <p class="CellBody"><a name="pgfId-893180" id="pgfId-893180"></a></p>
@@ -1218,8 +1194,7 @@ a.clear()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893196" id="pgfId-893196"></a>Function:
-        scatter<br/>
+        <p class="CellBody"><a name="pgfId-893196" id="pgfId-893196"></a><br/>
         # Generate a scatter plot</p>
 
         <p class="CellBody"><a name="pgfId-893197" id="pgfId-893197"></a></p>
@@ -1263,8 +1238,7 @@ a.scatter(array1,array2,sct,template)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893213" id="pgfId-893213"></a>Function:
-        vector<br/>
+        <p class="CellBody"><a name="pgfId-893213" id="pgfId-893213"></a><br/>
         # Generate a vector plot</p>
 
         <p class="CellBody"><a name="pgfId-893214" id="pgfId-893214"></a></p>
@@ -1309,8 +1283,7 @@ a.vector(array1,array2,vec,template)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893231" id="pgfId-893231"></a>Function:
-        xvsy<br/>
+        <p class="CellBody"><a name="pgfId-893231" id="pgfId-893231"></a><br/>
         # Generate a Xvsy plot</p>
 
         <p class="CellBody"><a name="pgfId-893232" id="pgfId-893232"></a></p>
@@ -1354,8 +1327,7 @@ a.xvsy(array1,array2,xy,template)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893249" id="pgfId-893249"></a>Function:
-        xyvsy<br/>
+        <p class="CellBody"><a name="pgfId-893249" id="pgfId-893249"></a><br/>
         # Generate a Xyvsy plot</p>
 
         <p class="CellBody"><a name="pgfId-893250" id="pgfId-893250"></a></p>
@@ -1402,8 +1374,7 @@ a.xyvsy(array,xyy,template)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893269" id="pgfId-893269"></a>Function:
-        yxvsx<br/>
+        <p class="CellBody"><a name="pgfId-893269" id="pgfId-893269"></a><br/>
         # Generate a Yxvsx plot</p>
 
         <p class="CellBody"><a name="pgfId-893270" id="pgfId-893270"></a></p>
@@ -1447,8 +1418,7 @@ a.yxvsx(array,yxx,template)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893287" id="pgfId-893287"></a>Function:
-        clear<br/>
+        <p class="CellBody"><a name="pgfId-893287" id="pgfId-893287"></a><br/>
         # Generate a Yxvsx plot</p>
 
         <p class="CellBody"><a name="pgfId-893288" id="pgfId-893288"></a></p>
@@ -1489,8 +1459,7 @@ a.clear()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893310" id="pgfId-893310"></a>Function:
-        graphicsmethodname</p>
+        <p class="CellBody"><a name="pgfId-893310" id="pgfId-893310"></a></p>
 
         <p class="CellBody"><a name="pgfId-893311" id="pgfId-893311"></a></p>
 
@@ -1531,8 +1500,7 @@ print a.graphicsmethodname(ln) # Will return
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-900168" id="pgfId-900168"></a>Function:
-        getcontinentstype</p>
+        <p class="CellBody"><a name="pgfId-900168" id="pgfId-900168"></a></p>
 
         <p class="CellBody"><a name="pgfId-900169" id="pgfId-900169"></a></p>
 
@@ -1564,8 +1532,7 @@ cont_type = a.getcontinentstype() # Get the
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-900057" id="pgfId-900057"></a>Function:
-        isgraphicsmethod</p>
+        <p class="CellBody"><a name="pgfId-900057" id="pgfId-900057"></a></p>
 
         <p class="CellBody"><a name="pgfId-900058" id="pgfId-900058"></a></p>
 
@@ -1607,8 +1574,7 @@ box.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893329" id="pgfId-893329"></a>Function:
-        isboxfill</p>
+        <p class="CellBody"><a name="pgfId-893329" id="pgfId-893329"></a></p>
 
         <p class="CellBody"><a name="pgfId-893330" id="pgfId-893330"></a></p>
 
@@ -1649,8 +1615,7 @@ box.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893348" id="pgfId-893348"></a>Function:
-        iscontinents</p>
+        <p class="CellBody"><a name="pgfId-893348" id="pgfId-893348"></a></p>
 
         <p class="CellBody"><a name="pgfId-893349" id="pgfId-893349"></a></p>
 
@@ -1692,8 +1657,7 @@ con.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893368" id="pgfId-893368"></a>Function:
-        isisofill</p>
+        <p class="CellBody"><a name="pgfId-893368" id="pgfId-893368"></a></p>
 
         <p class="CellBody"><a name="pgfId-893369" id="pgfId-893369"></a></p>
 
@@ -1734,8 +1698,7 @@ iso.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893387" id="pgfId-893387"></a>Function:
-        isisoline</p>
+        <p class="CellBody"><a name="pgfId-893387" id="pgfId-893387"></a></p>
 
         <p class="CellBody"><a name="pgfId-893388" id="pgfId-893388"></a></p>
 
@@ -1776,8 +1739,7 @@ iso.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893406" id="pgfId-893406"></a>Function:
-        isoutfill</p>
+        <p class="CellBody"><a name="pgfId-893406" id="pgfId-893406"></a></p>
 
         <p class="CellBody"><a name="pgfId-893407" id="pgfId-893407"></a></p>
 
@@ -1820,8 +1782,7 @@ out.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893427" id="pgfId-893427"></a>Function:
-        isoutline</p>
+        <p class="CellBody"><a name="pgfId-893427" id="pgfId-893427"></a></p>
 
         <p class="CellBody"><a name="pgfId-893428" id="pgfId-893428"></a></p>
 
@@ -1862,8 +1823,7 @@ out.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893446" id="pgfId-893446"></a>Function:
-        isvector</p>
+        <p class="CellBody"><a name="pgfId-893446" id="pgfId-893446"></a></p>
 
         <p class="CellBody"><a name="pgfId-893447" id="pgfId-893447"></a></p>
 
@@ -1904,8 +1864,7 @@ vec.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893465" id="pgfId-893465"></a>Function:
-        isxvsy</p>
+        <p class="CellBody"><a name="pgfId-893465" id="pgfId-893465"></a></p>
 
         <p class="CellBody"><a name="pgfId-893466" id="pgfId-893466"></a></p>
 
@@ -1946,8 +1905,7 @@ xy.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893484" id="pgfId-893484"></a>Function:
-        isxyvsy</p>
+        <p class="CellBody"><a name="pgfId-893484" id="pgfId-893484"></a></p>
 
         <p class="CellBody"><a name="pgfId-893485" id="pgfId-893485"></a></p>
 
@@ -1988,8 +1946,7 @@ xyy.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893503" id="pgfId-893503"></a>Function:
-        isyxvsx</p>
+        <p class="CellBody"><a name="pgfId-893503" id="pgfId-893503"></a></p>
 
         <p class="CellBody"><a name="pgfId-893504" id="pgfId-893504"></a></p>
 
@@ -2029,8 +1986,7 @@ yxx.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893521" id="pgfId-893521"></a>Function:
-        istemplate</p>
+        <p class="CellBody"><a name="pgfId-893521" id="pgfId-893521"></a></p>
 
         <p class="CellBody"><a name="pgfId-893522" id="pgfId-893522"></a></p>
 
@@ -2071,8 +2027,7 @@ templt.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893539" id="pgfId-893539"></a>Function:
-        issecondaryobject</p>
+        <p class="CellBody"><a name="pgfId-893539" id="pgfId-893539"></a></p>
 
         <p class="CellBody"><a name="pgfId-893540" id="pgfId-893540"></a></p>
 
@@ -2132,8 +2087,7 @@ box.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893563" id="pgfId-893563"></a>Function:
-        isfillarea</p>
+        <p class="CellBody"><a name="pgfId-893563" id="pgfId-893563"></a></p>
 
         <p class="CellBody"><a name="pgfId-893564" id="pgfId-893564"></a></p>
 
@@ -2167,8 +2121,7 @@ fa.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893579" id="pgfId-893579"></a>Function:
-        isline</p>
+        <p class="CellBody"><a name="pgfId-893579" id="pgfId-893579"></a></p>
 
         <p class="CellBody"><a name="pgfId-893580" id="pgfId-893580"></a></p>
 
@@ -2202,8 +2155,7 @@ ln.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893595" id="pgfId-893595"></a>Function:
-        ismarker</p>
+        <p class="CellBody"><a name="pgfId-893595" id="pgfId-893595"></a></p>
 
         <p class="CellBody"><a name="pgfId-893596" id="pgfId-893596"></a></p>
 
@@ -2237,8 +2189,7 @@ mk.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893611" id="pgfId-893611"></a>Function:
-        istextcombined</p>
+        <p class="CellBody"><a name="pgfId-893611" id="pgfId-893611"></a></p>
 
         <p class="CellBody"><a name="pgfId-893612" id="pgfId-893612"></a></p>
 
@@ -2276,8 +2227,7 @@ tc.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893631" id="pgfId-893631"></a>Function:
-        istextorientation</p>
+        <p class="CellBody"><a name="pgfId-893631" id="pgfId-893631"></a></p>
 
         <p class="CellBody"><a name="pgfId-893632" id="pgfId-893632"></a></p>
 
@@ -2311,8 +2261,7 @@ to.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893647" id="pgfId-893647"></a>Function:
-        istexttable</p>
+        <p class="CellBody"><a name="pgfId-893647" id="pgfId-893647"></a></p>
 
         <p class="CellBody"><a name="pgfId-893648" id="pgfId-893648"></a></p>
 
@@ -2353,8 +2302,7 @@ tt.list()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893671" id="pgfId-893671"></a>Function:
-        listelements</p>
+        <p class="CellBody"><a name="pgfId-893671" id="pgfId-893671"></a></p>
 
         <p class="CellBody"><a name="pgfId-893672" id="pgfId-893672"></a></p>
 
@@ -2385,8 +2333,7 @@ a.listelements()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-900314" id="pgfId-900314"></a>Function:
-        show</p>
+        <p class="CellBody"><a name="pgfId-900314" id="pgfId-900314"></a></p>
 
         <p class="CellBody"><a name="pgfId-900315" id="pgfId-900315"></a></p>
 
@@ -2434,8 +2381,7 @@ a.show('marker')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893704" id="pgfId-893704"></a>Function:
-        createboxfill</p>
+        <p class="CellBody"><a name="pgfId-893704" id="pgfId-893704"></a></p>
 
         <p class="CellBody"><a name="pgfId-893705" id="pgfId-893705"></a></p>
 
@@ -2483,8 +2429,7 @@ a.show('boxfill')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893725" id="pgfId-893725"></a>Function:
-        getboxfill</p>
+        <p class="CellBody"><a name="pgfId-893725" id="pgfId-893725"></a></p>
 
         <p class="CellBody"><a name="pgfId-893726" id="pgfId-893726"></a></p>
 
@@ -2680,8 +2625,7 @@ missing=241
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893804" id="pgfId-893804"></a>Function:
-        createcontinents</p>
+        <p class="CellBody"><a name="pgfId-893804" id="pgfId-893804"></a></p>
 
         <p class="CellBody"><a name="pgfId-893805" id="pgfId-893805"></a></p>
 
@@ -2729,8 +2673,7 @@ a.show('continents')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893825" id="pgfId-893825"></a>Function:
-        getcontinents</p>
+        <p class="CellBody"><a name="pgfId-893825" id="pgfId-893825"></a></p>
 
         <p class="CellBody"><a name="pgfId-893826" id="pgfId-893826"></a></p>
 
@@ -2922,8 +2865,7 @@ con.linecolor=None # Turns off the line color index, defaults to Black
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893917" id="pgfId-893917"></a>Function:
-        createisofill</p>
+        <p class="CellBody"><a name="pgfId-893917" id="pgfId-893917"></a></p>
 
         <p class="CellBody"><a name="pgfId-893918" id="pgfId-893918"></a></p>
 
@@ -2973,8 +2915,7 @@ a.show('isofill')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-893939" id="pgfId-893939"></a>Function:
-        getisofill</p>
+        <p class="CellBody"><a name="pgfId-893939" id="pgfId-893939"></a></p>
 
         <p class="CellBody"><a name="pgfId-893940" id="pgfId-893940"></a></p>
 
@@ -3228,8 +3169,7 @@ fill=a.getisofill('def37')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894079" id="pgfId-894079"></a>Function:
-        createisoline</p>
+        <p class="CellBody"><a name="pgfId-894079" id="pgfId-894079"></a></p>
 
         <p class="CellBody"><a name="pgfId-894080" id="pgfId-894080"></a></p>
 
@@ -3279,8 +3219,7 @@ a.show('isoline')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894101" id="pgfId-894101"></a>Function:
-        getisoline</p>
+        <p class="CellBody"><a name="pgfId-894101" id="pgfId-894101"></a></p>
 
         <p class="CellBody"><a name="pgfId-894102" id="pgfId-894102"></a></p>
 
@@ -3514,8 +3453,7 @@ iso.textcolors=None # Turns off the text color index
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894230" id="pgfId-894230"></a>Function:
-        createoutfill</p>
+        <p class="CellBody"><a name="pgfId-894230" id="pgfId-894230"></a></p>
 
         <p class="CellBody"><a name="pgfId-894231" id="pgfId-894231"></a></p>
 
@@ -3565,8 +3503,7 @@ a.show('outfill')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894252" id="pgfId-894252"></a>Function:
-        getoutfill</p>
+        <p class="CellBody"><a name="pgfId-894252" id="pgfId-894252"></a></p>
 
         <p class="CellBody"><a name="pgfId-894253" id="pgfId-894253"></a></p>
 
@@ -3758,8 +3695,7 @@ out.fillareacolor=None # Turns off the color index
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894342" id="pgfId-894342"></a>Function:
-        createoutline</p>
+        <p class="CellBody"><a name="pgfId-894342" id="pgfId-894342"></a></p>
 
         <p class="CellBody"><a name="pgfId-894343" id="pgfId-894343"></a></p>
 
@@ -3809,8 +3745,7 @@ a.show('outline')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894364" id="pgfId-894364"></a>Function:
-        getoutline</p>
+        <p class="CellBody"><a name="pgfId-894364" id="pgfId-894364"></a></p>
 
         <p class="CellBody"><a name="pgfId-894365" id="pgfId-894365"></a></p>
 
@@ -4022,8 +3957,7 @@ out.linecolor=None # Turns off the color index
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894471" id="pgfId-894471"></a>Function:
-        createscatter</p>
+        <p class="CellBody"><a name="pgfId-894471" id="pgfId-894471"></a></p>
 
         <p class="CellBody"><a name="pgfId-894472" id="pgfId-894472"></a></p>
 
@@ -4073,8 +4007,7 @@ a.show('scatter')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894493" id="pgfId-894493"></a>Function:
-        getscatter</p>
+        <p class="CellBody"><a name="pgfId-894493" id="pgfId-894493"></a></p>
 
         <p class="CellBody"><a name="pgfId-894494" id="pgfId-894494"></a></p>
 
@@ -4296,8 +4229,7 @@ sr.markersize=None
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894616" id="pgfId-894616"></a>Function:
-        createvector</p>
+        <p class="CellBody"><a name="pgfId-894616" id="pgfId-894616"></a></p>
 
         <p class="CellBody"><a name="pgfId-894617" id="pgfId-894617"></a></p>
 
@@ -4347,8 +4279,7 @@ a.show('vector')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894638" id="pgfId-894638"></a>Function:
-        getvector</p>
+        <p class="CellBody"><a name="pgfId-894638" id="pgfId-894638"></a></p>
 
         <p class="CellBody"><a name="pgfId-894639" id="pgfId-894639"></a></p>
 
@@ -4570,8 +4501,7 @@ vc.reference=4 # Can be an integer or float
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894753" id="pgfId-894753"></a>Function:
-        createxvsy</p>
+        <p class="CellBody"><a name="pgfId-894753" id="pgfId-894753"></a></p>
 
         <p class="CellBody"><a name="pgfId-894754" id="pgfId-894754"></a></p>
 
@@ -4621,8 +4551,7 @@ a.show('xvsy')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894775" id="pgfId-894775"></a>Function:
-        getxvsy</p>
+        <p class="CellBody"><a name="pgfId-894775" id="pgfId-894775"></a></p>
 
         <p class="CellBody"><a name="pgfId-894776" id="pgfId-894776"></a></p>
 
@@ -4858,8 +4787,7 @@ xy.markersize=None
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894935" id="pgfId-894935"></a>Function:
-        createxyvsy</p>
+        <p class="CellBody"><a name="pgfId-894935" id="pgfId-894935"></a></p>
 
         <p class="CellBody"><a name="pgfId-894936" id="pgfId-894936"></a></p>
 
@@ -4909,8 +4837,7 @@ a.show('xyvsy')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-894957" id="pgfId-894957"></a>Function:
-        getxyvsy</p>
+        <p class="CellBody"><a name="pgfId-894957" id="pgfId-894957"></a></p>
 
         <p class="CellBody"><a name="pgfId-894958" id="pgfId-894958"></a></p>
 
@@ -5147,8 +5074,7 @@ xyy.markersize=None
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895072" id="pgfId-895072"></a>Function:
-        createyxvsx</p>
+        <p class="CellBody"><a name="pgfId-895072" id="pgfId-895072"></a></p>
 
         <p class="CellBody"><a name="pgfId-895073" id="pgfId-895073"></a></p>
 
@@ -5198,8 +5124,7 @@ a.show('yxvsx')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895094" id="pgfId-895094"></a>Function:
-        getyxvsx</p>
+        <p class="CellBody"><a name="pgfId-895094" id="pgfId-895094"></a></p>
 
         <p class="CellBody"><a name="pgfId-895095" id="pgfId-895095"></a></p>
 
@@ -5428,8 +5353,7 @@ yxx.markersize=None
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895210" id="pgfId-895210"></a>Function:
-        createtemplate</p>
+        <p class="CellBody"><a name="pgfId-895210" id="pgfId-895210"></a></p>
 
         <p class="CellBody"><a name="pgfId-895211" id="pgfId-895211"></a></p>
 
@@ -5481,8 +5405,7 @@ a.listelements('template')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895231" id="pgfId-895231"></a>Function:
-        gettemplate</p>
+        <p class="CellBody"><a name="pgfId-895231" id="pgfId-895231"></a></p>
 
         <p class="CellBody"><a name="pgfId-895232" id="pgfId-895232"></a></p>
 
@@ -5613,8 +5536,7 @@ tpl=a.gettemplate('AMIP')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895294" id="pgfId-895294"></a>Function:
-        setcolormap</p>
+        <p class="CellBody"><a name="pgfId-895294" id="pgfId-895294"></a></p>
 
         <p class="CellBody"><a name="pgfId-895295" id="pgfId-895295"></a></p>
 
@@ -5650,8 +5572,7 @@ a.setcolormap("AMIP")
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895309" id="pgfId-895309"></a>Function:
-        setcolorcell</p>
+        <p class="CellBody"><a name="pgfId-895309" id="pgfId-895309"></a></p>
 
         <p class="CellBody"><a name="pgfId-895310" id="pgfId-895310"></a></p>
 
@@ -5709,8 +5630,7 @@ a.setcolorcell(61,70,70,70)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895335" id="pgfId-895335"></a>Function:
-        colormapgui</p>
+        <p class="CellBody"><a name="pgfId-895335" id="pgfId-895335"></a></p>
 
         <p class="CellBody"><a name="pgfId-895336" id="pgfId-895336"></a></p>
 
@@ -5756,8 +5676,7 @@ a.colormapgui()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895360" id="pgfId-895360"></a>Function:
-        createfillarea</p>
+        <p class="CellBody"><a name="pgfId-895360" id="pgfId-895360"></a></p>
 
         <p class="CellBody"><a name="pgfId-895361" id="pgfId-895361"></a></p>
 
@@ -5807,8 +5726,7 @@ a.show('fillarea')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895382" id="pgfId-895382"></a>Function:
-        getfillarea</p>
+        <p class="CellBody"><a name="pgfId-895382" id="pgfId-895382"></a></p>
 
         <p class="CellBody"><a name="pgfId-895383" id="pgfId-895383"></a></p>
 
@@ -5961,8 +5879,7 @@ fa.index=20
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895460" id="pgfId-895460"></a>Function:
-        createline</p>
+        <p class="CellBody"><a name="pgfId-895460" id="pgfId-895460"></a></p>
 
         <p class="CellBody"><a name="pgfId-895461" id="pgfId-895461"></a></p>
 
@@ -6012,8 +5929,7 @@ a.show('line')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895482" id="pgfId-895482"></a>Function:
-        getline</p>
+        <p class="CellBody"><a name="pgfId-895482" id="pgfId-895482"></a></p>
 
         <p class="CellBody"><a name="pgfId-895483" id="pgfId-895483"></a></p>
 
@@ -6149,8 +6065,7 @@ ln.type='long-dash'
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895542" id="pgfId-895542"></a>Function:
-        createmarker</p>
+        <p class="CellBody"><a name="pgfId-895542" id="pgfId-895542"></a></p>
 
         <p class="CellBody"><a name="pgfId-895543" id="pgfId-895543"></a>Description of
         Function:</p>
@@ -6200,8 +6115,7 @@ a.show('boxfill')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895564" id="pgfId-895564"></a>Function:
-        getmarker</p>
+        <p class="CellBody"><a name="pgfId-895564" id="pgfId-895564"></a></p>
 
         <p class="CellBody"><a name="pgfId-895565" id="pgfId-895565"></a></p>
 
@@ -6353,8 +6267,7 @@ mk.type='square_fill' # Same as mk.type=17
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895636" id="pgfId-895636"></a>Function:
-        createtextcombined</p>
+        <p class="CellBody"><a name="pgfId-895636" id="pgfId-895636"></a></p>
 
         <p class="CellBody"><a name="pgfId-895637" id="pgfId-895637"></a></p>
 
@@ -6405,8 +6318,7 @@ a.show('textorientation')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895658" id="pgfId-895658"></a>Function:
-        gettextcombined</p>
+        <p class="CellBody"><a name="pgfId-895658" id="pgfId-895658"></a></p>
 
         <p class="CellBody"><a name="pgfId-895659" id="pgfId-895659"></a></p>
 
@@ -6571,8 +6483,7 @@ tc.valign='bottom' # Same as tcvalign=4
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895736" id="pgfId-895736"></a>Function:
-        createtextorientation</p>
+        <p class="CellBody"><a name="pgfId-895736" id="pgfId-895736"></a></p>
 
         <p class="CellBody"><a name="pgfId-895737" id="pgfId-895737"></a></p>
 
@@ -6625,8 +6536,7 @@ a.show('textorientation')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895759" id="pgfId-895759"></a>Function:
-        gettextorientation</p>
+        <p class="CellBody"><a name="pgfId-895759" id="pgfId-895759"></a></p>
 
         <p class="CellBody"><a name="pgfId-895760" id="pgfId-895760"></a></p>
 
@@ -6782,8 +6692,7 @@ to.valign='bottom'
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895829" id="pgfId-895829"></a>Function:
-        createtexttable</p>
+        <p class="CellBody"><a name="pgfId-895829" id="pgfId-895829"></a></p>
 
         <p class="CellBody"><a name="pgfId-895830" id="pgfId-895830"></a></p>
 
@@ -6835,8 +6744,7 @@ a.show('texttable')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895852" id="pgfId-895852"></a>Function:
-        gettexttable</p>
+        <p class="CellBody"><a name="pgfId-895852" id="pgfId-895852"></a></p>
 
         <p class="CellBody"><a name="pgfId-895853" id="pgfId-895853"></a></p>
 
@@ -6976,8 +6884,7 @@ tt.color=241
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895911" id="pgfId-895911"></a>Function:
-        removeobject</p>
+        <p class="CellBody"><a name="pgfId-895911" id="pgfId-895911"></a></p>
 
         <p class="CellBody"><a name="pgfId-895912" id="pgfId-895912"></a></p>
 
@@ -7034,8 +6941,7 @@ del iso
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895941" id="pgfId-895941"></a>Function:
-        setcontinentstype</p>
+        <p class="CellBody"><a name="pgfId-895941" id="pgfId-895941"></a></p>
 
         <p class="CellBody"><a name="pgfId-895942" id="pgfId-895942"></a></p>
 
@@ -7106,8 +7012,7 @@ a.plot(array,'default','isofill','quick'
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-900414" id="pgfId-900414"></a>Function:
-        set</p>
+        <p class="CellBody"><a name="pgfId-900414" id="pgfId-900414"></a></p>
 
         <p class="CellBody"><a name="pgfId-900415" id="pgfId-900415"></a></p>
 
@@ -7155,8 +7060,7 @@ a.plot(array)
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895966" id="pgfId-895966"></a>Function:
-        animate</p>
+        <p class="CellBody"><a name="pgfId-895966" id="pgfId-895966"></a></p>
 
         <p class="CellBody"><a name="pgfId-895967" id="pgfId-895967"></a></p>
 
@@ -7206,8 +7110,7 @@ a.animate()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-895993" id="pgfId-895993"></a>Function:
-        flush</p>
+        <p class="CellBody"><a name="pgfId-895993" id="pgfId-895993"></a></p>
 
         <p class="CellBody"><a name="pgfId-895994" id="pgfId-895994"></a></p>
 
@@ -7245,8 +7148,7 @@ a.flush()
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-900248" id="pgfId-900248"></a>Function:
-        grid</p>
+        <p class="CellBody"><a name="pgfId-900248" id="pgfId-900248"></a></p>
 
         <p class="CellBody"><a name="pgfId-900249" id="pgfId-900249"></a></p>
 
@@ -7283,8 +7185,7 @@ a.plot(array,'default','isofill','quick')
       </td>
 
       <td rowspan="1" colspan="1">
-        <p class="CellBody"><a name="pgfId-900362" id="pgfId-900362"></a>Function:
-        resetgrid</p>
+        <p class="CellBody"><a name="pgfId-900362" id="pgfId-900362"></a></p>
 
         <p class="CellBody"><a name="pgfId-900363" id="pgfId-900363"></a></p>
 
