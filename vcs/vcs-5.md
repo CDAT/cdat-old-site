@@ -63,9 +63,9 @@ the function.
         <p class="CellBody"><a name="pgfId-892690" id="pgfId-892690"></a>Example of
         Use:</p>
 
-        <pre style="word-break:normal;">import vcs,cu
+        <pre style="word-break:normal;">import vcs,cdms2
 
-file=cu.open(`filename.nc')
+file=cdms2.open(`filename.nc')
 slab=file.getslab(`variable')
 a=vcs.init()
 # This examples constructs 4 VCS Canvas a.plot(slab)

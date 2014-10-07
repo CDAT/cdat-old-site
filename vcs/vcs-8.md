@@ -34,20 +34,20 @@ This section shows useful VCS examples.
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cdms modules.                                            #
+# Import: vcs and cdms2 modules.                                           #
 #                                                                          #
 ############################################################################
 
 def simpleplot():
     
-    import vcs,cdms # import vcs and cdms
+    import vcs,cdms2 # import vcs and cdms
     
     #####################################################################
     # See the CDMS document on how to ingest data. Also see the CU and  #
     # the Numeric documents on alternative ways to import data into VCS #
     #####################################################################
     
-    f = cdms.openDataset('example.nc') # open example file
+    f = cdms2.openDataset('example.nc') # open example file
     clt = f.variables['clt'] # get variable clt
     s = clt[0] # get clt data
 
@@ -100,19 +100,19 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cdms modules.                                            #
+# Import: vcs and cdms2 modules.                                            #
 #                                                                          #
 ############################################################################
 
 def simpleoverlay():
-    import vcs,cdms # import vcs and cdms
+    import vcs,cdms2 # import vcs and cdms
 
     #####################################################################
     # See the CDMS document on how to ingest data. Also see the CU and  #
     # the Numeric documents on alternative ways to import data into VCS #
     #####################################################################
 
-    f = cdms.openDataset('example.nc') # open example file
+    f = cdms2.openDataset('example.nc') # open example file
     clt = f.variables['clt'] # get variable clt
     s = clt[0] # get clt data
 
@@ -177,14 +177,14 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cdms modules.                                            #
+# Import: vcs and cdms2 modules.                                            #
 #                                                                          #
 ############################################################################
 
 def exampleboxfill():
-    import vcs,cdms # import vcs and cdms
+    import vcs,cdms2 # import vcs and cdms
 
-    f = cdms.openDataset('example.nc') # open example file
+    f = cdms2.openDataset('example.nc') # open example file
     
     clt = f.variables['clt'] # get variable clt
     s = clt[0] # get clt data
@@ -317,7 +317,7 @@ if __name__ == "__main__":
 #                                                                          #
 ############################################################################
 def examplecontinents():
-    import vcs # import vcs and cu
+    import vcs # import vcs and cdms2
 
     x = vcs.init() # construct vcs canvas
 
@@ -442,13 +442,13 @@ examplecontinents()
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cdms modules.                                            #
+# Import: vcs and cdms2 modules.                                            #
 #                                                                          #
 ############################################################################
 def exampleisofill():
-    import vcs,cdms # import vcs and cdms
+    import vcs,cdms2 # import vcs and cdms
 
-    f = cdms.openDataset('clt.nc') # open example file
+    f = cdms2.openDataset('clt.nc') # open example file
     clt = f.variables['clt'] # get variable clt
     s = clt[0] # get clt data
     x = vcs.init() # construct vcs canvas
@@ -593,13 +593,13 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cdms modules.                                            #
+# Import: vcs and cdms2 modules.                                            #
 #                                                                          #
 ############################################################################
 def exampleisoline():
-import vcs,cdms # import vcs and cdms
+import vcs,cdms2 # import vcs and cdms
 
-f = cdms.openDataset('clt.nc') # open example file
+f = cdms2.openDataset('clt.nc') # open example file
 clt = f.variables['clt'] # get variable clt
 s = clt[0] # get clt data
 x = vcs.init() # construct vcs canvas
@@ -792,13 +792,13 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cdms modules.                                            #
+# Import: vcs and cdms2 modules.                                            #
 #                                                                          #
 ############################################################################
 def exampleoutfill():
-    import vcs,cdms # import vcs and cdms
+    import vcs,cdms2 # import vcs and cdms
 
-    f = cdms.openDataset('example.nc') # open example file
+    f = cdms2.openDataset('example.nc') # open example file
     clt = f.variables['clt'] # get variable clt
     s = clt[0] # get clt data
     x = vcs.init() # construct vcs canvas
@@ -806,7 +806,7 @@ def exampleoutfill():
     x.plot(s,'default','outfill','quick',variable = clt)# plot slab the old way
     x.geometry(450,337,100,0) # change the geometry and location
 
-    f2 = cdms.openDataset('examlpe.nc') # open surface data
+    f2 = cdms2.openDataset('examlpe.nc') # open surface data
     sft = f2.variables['sft'] # get surface sft
     s = sft[...] # get sft data
 
@@ -919,13 +919,13 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cdms modules.                                            #
+# Import: vcs and cdms2 modules.                                            #
 #                                                                          #
 ############################################################################
 def exampleoutline():
-    import vcs,cdms # import vcs and cdms
+    import vcs,cdms2 # import vcs and cdms
 
-    f = cdms.openDataset('example.nc') # open example file
+    f = cdms2.openDataset('example.nc') # open example file
     clt = f.variables['clt'] # get variable clt
     s = clt[0] # get clt data
     x = vcs.init() # construct vcs canvas
@@ -934,7 +934,7 @@ def exampleoutline():
     x.geometry(450,337,100,0) # change the geometry and location
 
 
-    f2 = cdms.openDataset('example.nc') # open surface data
+    f2 = cdms2.openDataset('example.nc') # open surface data
     sft = f2.variables['sft'] # get variable sft
     s = sft[...] # get sft data
     x.clear() # clear the VCS Canvas
@@ -1058,13 +1058,13 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cu modules.                                              #
+# Import: vcs and cdms2 modules.                                           #
 #                                                                          #
 ############################################################################
 def examplescatter():
-    import vcs,cu # import vcs, cu
+    import vcs,cdms2 # import vcs, cdms2
 
-    f = cu.open('clt2.nc') # open clt file
+    f = cdms2.open('clt2.nc') # open clt file
     u = f.getslab('u') # get slab u
     v = f.getslab('v') # get slab v
 
@@ -1213,13 +1213,13 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cu modules.                                              #
+# Import: vcs and cdms2 modules.                                           #
 #                                                                          #
 ############################################################################
 def examplevector():
-    import vcs,cu # import vcs and cu
+    import vcs,cdms2 # import vcs and cdms2
 
-    f = cu.open('clt.nc') # open clt file
+    f = cdms2.open('clt.nc') # open clt file
     u = f.getslab('u',':',':',-10.,0.,0,10)# get slab u
     v = f.getslab('v',':',':',-10.,0.,0,10)# get slab v
     x = vcs.init() # construct vcs canvas
@@ -1372,13 +1372,13 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cu modules.                                              #
+# Import: vcs and cdms2 modules.                                           #
 #                                                                          #
 ############################################################################
 def examplexvsy():
-    import vcs,cu # import vcs and cu
+    import vcs,cdms2 # import vcs and cdms2
 
-    f = cu.open('clt.nc') # open clt file
+    f = cdms2.open('clt.nc') # open clt file
     u = f.getslab('u') # get slab u
     v = f.getslab('v') # get slab v
     x = vcs.init() # construct vcs canvas
@@ -1554,13 +1554,13 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cu modules.                                              #
+# Import: vcs and cdms2 modules.                                           #
 #                                                                          #
 ############################################################################
 def examplexyvsy():
-    import vcs,cu # import vcs and cu
+    import vcs,cdms2 # import vcs and cdms2
 
-    f = cu.open('clt.nc') # open clt file
+    f = cdms2.open('clt.nc') # open clt file
     u = f.getslab('u') # get slab u
     x = vcs.init() # construct vcs canvas
 
@@ -1734,13 +1734,13 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cu modules.                                              #
+# Import: vcs and cdms2 modules.                                           #
 #                                                                          #
 ############################################################################
 def exampleyxvsx():
-    import vcs,cu # import vcs and cu
+    import vcs,cdms2 # import vcs and cdms2
 
-    f = cu.open('clt.nc') # open clt file
+    f = cdms2.open('clt.nc') # open clt file
     u = f.getslab('u') # get slab u
     x = vcs.init() # construct vcs canvas
 
@@ -1914,13 +1914,13 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cu modules.                                              #
+# Import: vcs and cdms2 modules.                                           #
 #                                                                          #
 ############################################################################
 def examplecolormap():
-    import vcs,cu # import vcs and cu
+    import vcs,cdms2 # import vcs and cdms2
 
-    f = cu.open('example.nc') # open clt file
+    f = cdms2.open('example.nc') # open clt file
     s = f.getslab('clt') # get slab clt
     x = vcs.init() # construct vcs canvas
 
@@ -1990,13 +1990,13 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cu modules.                                              #
+# Import: vcs and cdms2 modules.                                           #
 #                                                                          #
 ############################################################################
 def examplehardcopy():
-    import vcs,cu # import vcs and cu
+    import vcs,cdms2 # import vcs and cdms2
 
-    f = cu.open('clt.nc') # open clt file
+    f = cdms2.open('clt.nc') # open clt file
     s = f.getslab('clt') # get slab clt
     x = vcs.init() # construct vcs canvas
 
@@ -2078,13 +2078,13 @@ if __name__ == "__main__":
                                                                           
 ############################################################################
 #                                                                          #
-# Import: vcs and cu modules.                                              #
+# Import: vcs and cdms2 modules.                                              #
 #                                                                          #
 ############################################################################
 def exampletemplate():
-    import vcs,cu # import vcs and cu
+    import vcs, cdms2 # import vcs and cdms2
 
-    f = cu.open('clt.nc') # open clt file
+    f = cdms2.open('clt.nc') # open clt file
     s = f.getslab('clt') # get slab clt
     x = vcs.init() # construct vcs canvas
 
@@ -2204,18 +2204,18 @@ if __name__ == "__main__":
 #
 ############################################################################
 #                                                                          #
-# Import: vcs and cdms modules.                                            #
+# Import: vcs and cdms2 modules.                                           #
 #                                                                          #
 ############################################################################
 def simpleanimation():
-    import vcs,cdms # import vcs and cdms
+    import vcs,cdms2 # import vcs and cdms
 
     #####################################################################
     # See the CDMS document on how to ingest data. Also see the CU and  #
     # the Numeric documents on alternative ways to import data into VCS #
     #####################################################################
 
-    f = cdms.openDataset('example.nc') # open example file
+    f = cdms2.openDataset('example.nc') # open example file
     clt = f.variables['clt'] # get variable clt
     s = clt[0] # get clt data
 
@@ -2235,7 +2235,7 @@ if __name__ == "__main__":
     simpleanimation()
 ~~~
 
-###Simple Animation Example Using vcs3D:
+### Simple Animation Example Using vcs3D:
 
 ~~~python
 #

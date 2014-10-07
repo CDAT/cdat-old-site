@@ -7,7 +7,7 @@ title: VCS Chapter 4
 
 ### VCS Model Overview
 
-The VCS model is defined by a trio of named attribute sets, designated the "Primary Objects" (also known as "Primary Elements"). These include: the data, which specifies what is to be displayed and are obtained from the "cdms", "cu", or Numeric modules; the graphics method, which specifies the display technique; and the picture template, which determines the appearance of each segment of the display.
+The VCS model is defined by a trio of named attribute sets, designated the "Primary Objects" (also known as "Primary Elements"). These include: the data, which specifies what is to be displayed and are obtained from the `cdms2` or Numeric modules; the graphics method, which specifies the display technique; and the picture template, which determines the appearance of each segment of the display.
 
 ####VCS Primary Objects (or Primary Elements)
 
@@ -130,15 +130,15 @@ everything else.
 
 ~~~ python
 import vcs # import the VCS module
-import cdms # import CDMS for ingesting data
+import cdms2 # import CDMS for ingesting data
 
-cdms.setAutoReshapeMode(`on') # needed by CDMS module if
+cdms2.setAutoReshapeMode('on') # needed by CDMS module if
 
 # data is reshaped
 
-f=cdms.openDataset(`example.nc') # open file via the cdms module
+f=cdms2.openDataset('example.nc') # open file via the cdms2 module
 
-psl=f.variables[`clt'] # get the "psl" variable
+psl=f.variables['clt'] # get the "psl" variable
 
 data=psl[...] # get the "psl" variable data (Note, data is
 
@@ -157,11 +157,11 @@ v.plot(data, variable=psl) # call "plot" function to display the CDMS
 
 ~~~python
 import vcs # import the VCS module
-import cu # import CU for ingesting data
+import cdms2 # import CU for ingesting data
 
-f=cu.open(`example.nc') # open file via the cu module
+f=cdms2.open('example.nc') # open file via the cdms2 module
 
-s=f.getslab(`clt') # get the "psl" variable slab
+s=f.getslab('clt') # get the "psl" variable slab
 
 v=vcs.init() # "v" is an instance of the VCS
 
@@ -306,15 +306,15 @@ below.
 
 ~~~python
 import vcs # import the VCS module
-import cu # import CU for ingesting data
+import cdms2 # import cdms2 for ingesting data
 
-f=cu.open(`example.nc') # open file via the cu module
-s=f.getslab(`psl') # get the "psl" variable slab
-v=vcs.init() # "v" is an instance of the VCS class object (constructor)
+f = cdms2.open(`example.nc') # open file via the cdms2 module
+s = f.getslab(`psl') # get the "psl" variable slab
+v = vcs.init() # "v" is an instance of the VCS class object (constructor)
 
-t=x.createtemplate('new') # create a new template from the default template
+t = x.createtemplate('new') # create a new template from the default template
 
-iso=x.createisofill(`new') # create a new isofill graphics method from the default isofill
+iso = x.createisofill(`new') # create a new isofill graphics method from the default isofill
 
 x.plot(s, t, iso, continents=0) # call "plot" function to display the CU slab "s" using
 # newly created template "t" and isofill graphics method "iso" and turn continents off.
@@ -500,29 +500,15 @@ The show function is used to list the VCS objects in memory:
 
 ####  Saving VCS Object in a Script File
 
-Script commands define the actions that are necessary to preserve an
-interactive session as a script and to mimic that session in a non-interactive
-replay of the script. Many attributes are needed to create a graphical
-representation of a variable, e.g. attributes to identify the variable and to
-label the plotting axes. By use of VCS and Python scripts, most of these
-attributes can be manipulated to create the desired visual effect, and the
-resulting attributes can be saved for later use. VCS and Python scripts also
-allow the user to save a sequence of interactive operations for replay, and to
-recover from a system failure.
+Script commands define the actions that are necessary to preserve an interactive session as a script and to mimic that session in a non-interactive replay of the script. Many attributes are needed to create a graphical representation of a variable, e.g. attributes to identify the variable and to label the plotting axes. By use of VCS and Python scripts, most of these attributes can be manipulated to create the desired visual effect, and the resulting attributes can be saved for later use. VCS and Python scripts also allow the user to save a sequence of interactive operations for replay, and to recover from a system failure.
 
-After creating and/or modifying a VCS object, the user can save the object in
-the initial.attributes file. The initial.attributes file contains many
-predefined attribute settings to aid the beginning user of VCS. The path to
-the file must be:
+After creating and/or modifying a VCS object, the user can save the object in the initial.attributes file. The initial.attributes file contains many predefined attribute settings to aid the beginning user of VCS. The path to the file must be:
 
 ~~~
 /$HOME/PCMDI_GRAPHICS/initial.attributes
 ~~~
 
-where `/$HOME` denotes the user's home directory. (Note, when VCS is executed
-for the first time, a `/PCMDI_GRAPHICS` subdirectory will be created
-automatically if one has not already been created.) The user also can
-customize the initial.attributes file directly.
+where `/$HOME` denotes the user's home directory. (Note, when VCS is executed for the first time, a `/PCMDI_GRAPHICS` subdirectory will be created automatically if one has not already been created.) The user also can customize the initial.attributes file directly.
 
 To re-save the initial.attributes file, use the function:
 

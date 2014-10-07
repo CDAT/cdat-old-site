@@ -84,7 +84,7 @@ x.objecthelp(ln)
 <a name="pgfId-910590"></a>Plot an array(s) of data given a template and graphics method. </p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -99,7 +99,7 @@ x.plot(s)
 <a name="pgfId-911892"></a>This routine will remove all  plots on the VCS Canvas.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -127,7 +127,7 @@ x.mode=0
 <a name="pgfId-910021"></a>If a series of commands are given to VCS and the Canvas Mode is set to manual, then use this function to update the VCS Canvas manually.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.mode=0
@@ -176,7 +176,7 @@ a.close()</pre></td></tr>
 <a name="pgfId-910115"></a>Change the VCS Canvas orientation to Portrait.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -191,7 +191,7 @@ x.portrait()</pre></td></tr>
 <a name="pgfId-910104"></a>Change the VCS Canvas orientation to Landscape.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -206,7 +206,7 @@ x.landscape()</pre></td></tr>
 <a name="pgfId-910093"></a>Change the VCS Canvas orientation to either 'portrait' or 'landscape'.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -221,7 +221,7 @@ x.page()</pre></td></tr>
 <a name="pgfId-910082"></a>The geometry command is used to set the size and position of the VCS canvas.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -236,7 +236,7 @@ x.geometry(450, 337,100, 100)</pre></td></tr>
 <a name="pgfId-910257"></a>his function creates a temporary cgm file and then sends it to the specified printer.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -251,7 +251,7 @@ x.printer('printer_name')</pre></td></tr>
 <a name="pgfId-910246"></a>Generate a gif file</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -266,7 +266,7 @@ x.gif('example')</pre></td></tr>
 <a name="pgfId-910235"></a>Generate a postscript file.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -281,7 +281,7 @@ x.postscript('example')</pre></td></tr>
 <a name="pgfId-910224"></a>Generate a cgm file.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -296,7 +296,7 @@ x.cgm('example')</pre></td></tr>
 <a name="pgfId-910521"></a>Generate a raster file.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -323,7 +323,7 @@ x.pstogif('filename.ps')</pre></td></tr>
 <a name="pgfId-910488"></a>Generate a boxfill plot given the data, boxfill graphics method, and  template.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.boxfill(s)
@@ -338,7 +338,7 @@ x.boxfill(s)
 <a name="pgfId-910477"></a>Generate a continents plot given the continents graphics method, and template. </p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.continents(s)
@@ -353,7 +353,7 @@ x.continents(s)
 <a name="pgfId-910466"></a>Generate a isofill plot given the data, isofill graphics method, and template.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.isofill(s)
@@ -368,7 +368,7 @@ x.isofill(s)
 <a name="pgfId-910455"></a>Generate a isoline plot given the data, isoline graphics method, and template.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.isoline(s)
@@ -383,7 +383,7 @@ x.isoline(s)
 <a name="pgfId-910444"></a>Generate a outfill plot given the data, outfill graphics method, and template. </p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.outfill(s)
@@ -398,7 +398,7 @@ x.outfill(s)
 <a name="pgfId-910433"></a>Generate a outline plot given the data, outline graphics method, and template.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.outline(s)
@@ -413,7 +413,7 @@ x.outline(s)
 <a name="pgfId-910422"></a>Generate a scatter plot given the data, scatter graphics method, and template. </p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.scatter(s)
@@ -428,7 +428,7 @@ x.scatter(s)
 <a name="pgfId-910411"></a>Generate a vector plot given the data, vector graphics method, andtemplate.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.vector(s)
@@ -443,7 +443,7 @@ x.vector(s)
 <a name="pgfId-910400"></a>Generate a XvsY plot given the data, XvsY graphics method, and template.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.xvsy(s)
@@ -458,7 +458,7 @@ x.xvsy(s)
 <a name="pgfId-910389"></a>Generate a Xyvsy plot given the data, Xyvsy graphics method, and template. </p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.xyvsy(s)
@@ -473,7 +473,7 @@ x.xyvsy(s)
 <a name="pgfId-910378"></a>Generate a Yxvsx plot given the data, Yxvsx graphics method, and template. </p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.yxvsx(s)
@@ -1285,7 +1285,7 @@ x.removeobject(iso)</pre></td></tr>
 </td>
 <td><pre style="word-break:normal">import vcs
 x=vcs.init()
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x.setcontinentstype(3)
 x.plot(array,'default','isofill','quick')</pre></td></tr>
@@ -1300,7 +1300,7 @@ x.plot(array,'default','isofill','quick')</pre></td></tr>
 </td>
 <td><pre style="word-break:normal">import vcs
 x=vcs.init()
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x.set('isofill','quick')
 x.plot(s)</pre></td></tr>
@@ -1319,7 +1319,7 @@ x.plot(s)</pre></td></tr>
 </td>
 <td><pre style="word-break:normal">import vcs
 x=vcs.init()
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x.plot(s)
 x.animate()</pre></td></tr>
@@ -1333,7 +1333,7 @@ x.animate()</pre></td></tr>
 <a name="pgfId-910202"></a>The flush command executes all buffered X events in the que.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.plot(s)
@@ -1348,7 +1348,7 @@ x.flush()</pre></td></tr>
 <a name="pgfId-911557"></a>Set the default plotting region for variables that have more dimension values than the graphics method. This will also be used for animating plots over the third and fourth dimensions.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.grid(12,24, -70,70, -150,150)
@@ -1364,7 +1364,7 @@ x.plot(s)
 <a name="pgfId-911546"></a>Set the plotting region to default values. That is, let the variable's dimension values determine the grid.</p>
 </td>
 <td><pre style="word-break:normal">import vcs
-f=cu.open('clt.nc')
+f=cdms2.open('clt.nc')
 s=f.getslab('clt')
 x=vcs.init()
 x.resetgrid()
