@@ -81,6 +81,9 @@ be used for advertising or product endorsement purposes.
   * [Hardcopy Example: ](vcs-8.html#pgfId-884187)
   * [Picture Template Example: ](vcs-8.html#pgfId-884306)
   * [Simple Animation Example: ](vcs-8.html#pgfId-885079)
+  * [3D Animation Example: ](vcs-8.html#3DAnimation)
+  * [3D Vector Plot Example: ](vcs-8.html#3DVectorPlot)
+  * [3D Volme Render Example: ](vcs-8.html#3DVolmeRender)
 
 #####   [CHAPTER 9 ](vcs-9.html#pgfId-885285) Quick Reference Guides
 
